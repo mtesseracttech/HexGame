@@ -8,8 +8,12 @@ public static class HexMetrics {
 
 	//Put the corners in the XZ plane
 	public static Vector3[] corners = {
-		new Vector3(0f, 0f, outerRadius),
-		new Vector3(innerRadius, )
-	}
+		new Vector3 (0f,			0f, outerRadius),
+		new Vector3 (innerRadius, 	0f, 0.5f * outerRadius),
+		new Vector3 (innerRadius,	0f, -0.5f * outerRadius),
+		new Vector3 (0f,			0f, -outerRadius),
+		new Vector3 (-innerRadius,	0f, -0.5f * outerRadius),
+		new Vector3 (-innerRadius,	0f, 0.5f * outerRadius)
+	};
 
 }
