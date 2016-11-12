@@ -9,6 +9,7 @@ public class HexMapEditor : MonoBehaviour {
 	HexGrid _hexGrid;
 
 	private Color _activeColor;
+	private int _activeElevation;
 
 	void Awake () {
 		SelectColor (0);
@@ -24,11 +25,21 @@ public class HexMapEditor : MonoBehaviour {
 		Ray inputRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
 		if (Physics.Raycast (inputRay, out hit)) {
-			_hexGrid.ColorCell (hit.point, _activeColor);
+			EditCell (_hexGrid.GetCell (hit.point));
 		}
 	}
 
 	public void SelectColor (int index) {
 		_activeColor = _colors[index];
+	}
+
+	void EditCell (HexCell cell) {
+		cell.color = _activeColor;
+		cell.Elevation = _activeElevation;
+		_hexGrid.Refresh ();
+	}
+
+	public void SetElevation (float elevation) {
+		_activeElevation = (int)elevation;
 	}
 }
