@@ -11,11 +11,17 @@ public class HexGrid : MonoBehaviour {
 	HexCell _cellPrefab;
 	[SerializeField]
 	Text _cellLabelPrefab;
+	[SerializeField]
+	Color _defaultColor = Color.white;
 
-	HexCell[] _cells;
-	Canvas _gridCanvas;
+	private HexCell[] _cells;
+	private Canvas _gridCanvas;
+	private HexMesh _hexMesh;
 
 	void Awake () {
+		_gridCanvas = GetComponentInChildren<Canvas> ();
+		_hexMesh = GetComponentInChildren<HexMesh> ();
+
 		_cells = new HexCell[_height * _width];
 		_gridCanvas = GetComponentInChildren<Canvas> ();
 
@@ -26,19 +32,34 @@ public class HexGrid : MonoBehaviour {
 		}
 	}
 
+	void Start () {
+		_hexMesh.Triangulate (_cells);
+	}
+
 	private void CreateCell (int x, int z, int i) {
 		Vector3 position;
-		position.x = x * 10f;
+		position.x = (x + z * 0.5f - z / 2) * (HexMetrics.innerRadius * 2f);
 		position.y = 0f;
-		position.z = z * 10f;
+		position.z = z * (HexMetrics.outerRadius * 1.5f);
 
 		HexCell cell = _cells [i] = Instantiate<HexCell> (_cellPrefab);
 		cell.transform.SetParent (transform, false);
 		cell.transform.localPosition = position;
+		cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
+		cell.color = _defaultColor;
 
 		Text label = Instantiate<Text> (_cellLabelPrefab);
 		label.rectTransform.SetParent (_gridCanvas.transform, false);
 		label.rectTransform.anchoredPosition = new Vector2 (position.x, position.z);
-		label.text = x.ToString () + "\n" + z.ToString ();
+		label.text = cell.coordinates.ToStringOnSeparateLines();
+	}
+
+	public void ColorCell (Vector3 position, Color color) {
+		position = transform.InverseTransformPoint (position);
+		HexCoordinates coordinates = HexCoordinates.FromPosition (position);
+		int index = coordinates.X + coordinates.Z * _width + coordinates.Z / 2;
+		HexCell cell = _cells [index];
+		cell.color = color;
+		_hexMesh.Triangulate (_cells);
 	}
 }
