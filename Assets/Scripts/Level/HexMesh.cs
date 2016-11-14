@@ -6,17 +6,14 @@ public class HexMesh : MonoBehaviour {
 
 	private Mesh _hexMesh;
 	private MeshCollider _meshCollider;
-	private List<Vector3> _vertices;
-	private List<int> _triangles;
-	private List<Color> _colors;
+	static private List<Vector3> _vertices = new List<Vector3> ();
+	static private List<int> _triangles = new List<int> ();
+	static private List<Color> _colors = new List<Color> ();
 
 	void Awake () {
 		GetComponent<MeshFilter> ().mesh = _hexMesh = new Mesh ();
 		_meshCollider = gameObject.AddComponent<MeshCollider> ();
 		_hexMesh.name = "Hex Mesh";
-		_vertices = new List<Vector3> ();
-		_colors = new List<Color> ();
-		_triangles = new List<int> ();
 	}
 
 
