@@ -13,12 +13,16 @@ public class HexGrid : MonoBehaviour {
 	Text _cellLabelPrefab;
 	[SerializeField]
 	Color _defaultColor = Color.white;
+	[SerializeField]
+	Texture2D noiseSource;
 
 	private HexCell[] _cells;
 	private Canvas _gridCanvas;
 	private HexMesh _hexMesh;
 
 	void Awake () {
+		HexMetrics.noiseSource = noiseSource;
+
 		_gridCanvas = GetComponentInChildren<Canvas> ();
 		_hexMesh = GetComponentInChildren<HexMesh> ();
 
@@ -34,6 +38,10 @@ public class HexGrid : MonoBehaviour {
 
 	void Start () {
 		_hexMesh.Triangulate (_cells);
+	}
+
+	void OnEnable () {
+		HexMetrics.noiseSource = noiseSource;
 	}
 
 	private void CreateCell (int x, int z, int i) {
@@ -71,6 +79,8 @@ public class HexGrid : MonoBehaviour {
 		label.text = cell.coordinates.ToStringOnSeparateLines();
 
 		cell.uiRect = label.rectTransform;
+
+		cell.Elevation = 0;
 	}
 
 	public HexCell GetCell (Vector3 position) {
