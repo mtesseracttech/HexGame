@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
+enum OptionalToggle {
+	Ignore, Yes, No
+}
+
 public class HexMapEditor : MonoBehaviour {
 
 	[SerializeField]
@@ -13,22 +17,38 @@ public class HexMapEditor : MonoBehaviour {
 	private bool _applyColor;
 	private bool _applyElevation = true;
 	private int _brushSize;
+	private bool _isDrag;
+	private HexDirection _dragDirection;
+	private HexCell _previousCell;
+
+	private OptionalToggle _riverMode;
 
 	void Awake () {
 		SelectColor (0);
 	}
 
 	void Update () {
-		if (Input.GetMouseButtonDown (0) && !EventSystem.current.IsPointerOverGameObject ()) {
+		if (Input.GetMouseButton (0) && !EventSystem.current.IsPointerOverGameObject ()) {
 			HandleInput ();
+		} else {
+			_previousCell = null;
 		}
 	}
 
 	void HandleInput () {
 		Ray inputRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
-		if (Physics.Raycast (inputRay, out hit)) {
-			EditCells (_hexGrid.GetCell (hit.point));
+		if (Physics.Raycast(inputRay, out hit)) {
+			HexCell currentCell = _hexGrid.GetCell(hit.point);
+			if (_previousCell && _previousCell != currentCell) {
+				ValidateDrag (currentCell);
+			} else {
+				_isDrag = false;
+			}
+			EditCells(currentCell);
+			_previousCell = currentCell;
+		} else {
+			_previousCell = null;
 		}
 	}
 
@@ -65,6 +85,15 @@ public class HexMapEditor : MonoBehaviour {
 			if (_applyElevation) {
 				cell.Elevation = _activeElevation;
 			}
+
+			if (_riverMode == OptionalToggle.No) {
+				cell.RemoveRiver();
+			} else if (_isDrag && _riverMode == OptionalToggle.Yes) {
+				HexCell otherCell = cell.GetNeighbor(_dragDirection.Opposite());
+				if (otherCell) {
+					otherCell.SetOutgoingRiver(_dragDirection);
+				}
+			}
 		}
 	}
 
@@ -82,5 +111,20 @@ public class HexMapEditor : MonoBehaviour {
 
 	public void ShowUI (bool visible) {
 		_hexGrid.ShowUI(visible);
+	}
+
+	public void SetRiverMode (int mode) {
+		_riverMode = (OptionalToggle)mode;
+		//Debug.Log (_riverMode);
+	}
+
+	void ValidateDrag (HexCell currentCell) {
+		for (_dragDirection = HexDirection.NE; _dragDirection <= HexDirection.NW; _dragDirection++) {
+			if (_previousCell.GetNeighbor(_dragDirection) == currentCell) {
+				_isDrag = true;
+				return;
+			}
+		}
+		_isDrag = false;
 	}
 }
