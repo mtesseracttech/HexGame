@@ -80,7 +80,12 @@ public class HexGrid : MonoBehaviour {
 		return _cells [index];
 	}
 
-	public void Refresh () {
+    public HexCell[] GetCells ()
+    {
+        return _cells;
+    }
+
+    public void Refresh () {
 		_hexMesh.Triangulate (_cells);
 	}
 }

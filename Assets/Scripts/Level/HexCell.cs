@@ -11,7 +11,8 @@ public class HexCell : MonoBehaviour {
 	public Color color;
 	public RectTransform uiRect;
 
-	public int Elevation {
+	public int Elevation
+	{
 		get {
 			return _elevation;
 		}
@@ -27,9 +28,15 @@ public class HexCell : MonoBehaviour {
 		}
 	}
 
-	public HexCell GetNeighbor (HexDirection direction) {
+	public HexCell GetNeighbor (HexDirection direction)
+	{
 		return _neighbors [(int)direction];
 	}
+
+    public HexCell[] GetNeighbors()
+    {
+        return _neighbors;
+    }
 
 	public void SetNeighbor (HexDirection direction, HexCell cell) {
 		_neighbors [(int)direction] = cell;
