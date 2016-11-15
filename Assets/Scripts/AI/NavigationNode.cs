@@ -30,11 +30,11 @@ namespace Assets.Scripts.AI
         public void SetValidNeighbors()
         {
             List<HexCell> neighbors = new List<HexCell>();
-            foreach (var neighbor in _cell.GetNeighbors())
-            {
-                if (Mathf.Abs(neighbor.Elevation - _cell.Elevation) > 2) continue;
-                neighbors.Add(neighbor);
-            }
+//            foreach (var neighbor in _cell.GetNeighbors())
+//            {
+//                if (Mathf.Abs(neighbor.Elevation - _cell.Elevation) > 2) continue;
+//                neighbors.Add(neighbor);
+//            }
             _validNeighbors = neighbors.ToArray();
 
         }

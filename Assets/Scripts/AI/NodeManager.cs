@@ -17,11 +17,11 @@ public class NodeManager : MonoBehaviour
 
     void Start()
     {
-        _hexCells = HexGrid.GetCells();
+      //  _hexCells = HexGrid.GetCells();
         _hexCells[0].color = Color.magenta;
         _hexCells[_hexCells.Length - 3].color = Color.cyan;
         GetPath(_hexCells[0], _hexCells[_hexCells.Length - 3]);
-        HexGrid.Refresh();
+        //HexGrid.Refresh();
     }
 
     void Update()
@@ -42,16 +42,16 @@ public class NodeManager : MonoBehaviour
             var current = frontier.Dequeue();
 
             Debug.Log("Visiting: " + current.transform.position);
-            foreach (var next in current.GetNeighbors())
-            {
-                if (next == null) continue;
-                if (next == end) return;
-                if (!visited.Contains(next)) {
-                    frontier.Enqueue(next);
-                    visited.Add(next);
-                    next.color = Color.blue;
-                }
-            }
+//            foreach (var next in current.GetNeighbors())
+//            {
+//                if (next == null) continue;
+//                if (next == end) return;
+//                if (!visited.Contains(next)) {
+//                    frontier.Enqueue(next);
+//                    visited.Add(next);
+//                    next.color = Color.blue;
+//                }
+//            }
 
         }
     }
@@ -84,12 +84,12 @@ public class NodeManager : MonoBehaviour
         string printString = "HexCell Info:\n";
         printString += input.transform.position;
         printString += "Neighbours:\n";
-        HexCell[] inputNeighbors = input.GetNeighbors();
-        foreach (var hexCell in inputNeighbors)
-        {
-            if (hexCell == null) continue;
-            printString += hexCell.transform.position + "\n";
-        }
-        Debug.Log(printString);
+        //HexCell[] inputNeighbors = input.GetNeighbors();
+//        foreach (var hexCell in inputNeighbors)
+//        {
+//            if (hexCell == null) continue;
+//            printString += hexCell.transform.position + "\n";
+//        }
+       // Debug.Log(printString);
     }
 }
