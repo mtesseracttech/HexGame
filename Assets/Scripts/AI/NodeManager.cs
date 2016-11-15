@@ -17,19 +17,11 @@ public class NodeManager : MonoBehaviour
 
     void Start()
     {
-<<<<<<< HEAD
-        //_hexCells = HexGrid.GetCells();
-        _hexCells[0].color = Color.magenta;
-        _hexCells[_hexCells.Length - 3].color = Color.cyan;
-        GetPath(_hexCells[0], _hexCells[_hexCells.Length - 3]);
-       // HexGrid.Refresh();
-=======
       //  _hexCells = HexGrid.GetCells();
         _hexCells[0].color = Color.magenta;
         _hexCells[_hexCells.Length - 3].color = Color.cyan;
         GetPath(_hexCells[0], _hexCells[_hexCells.Length - 3]);
         //HexGrid.Refresh();
->>>>>>> f031da5f91853909be64b016693598087bbf5f56
     }
 
     void Update()
