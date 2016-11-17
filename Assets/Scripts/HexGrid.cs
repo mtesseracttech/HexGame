@@ -134,4 +134,9 @@ public class HexGrid : MonoBehaviour {
 		int localZ = z - chunkZ * HexMetrics.chunkSizeZ;
 		chunk.AddCell(localX + localZ * HexMetrics.chunkSizeX, cell);
 	}
+
+    public HexCell[] GetCells()
+    {
+        return cells;
+    }
 }
