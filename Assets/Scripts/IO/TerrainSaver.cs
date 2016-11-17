@@ -59,15 +59,33 @@ public class TerrainSaver : MonoBehaviour
         Debug.Log("Starting Terrain Save");
         List<HexCell> cells = grid.GetCells().ToList();
 
-        HexCellNode[] nodes = new HexCellNode[cells.Count];
-        for (int i = 0; i < nodes.Length; i++)
+        HexCellInfoContainer[] infoContainers = new HexCellInfoContainer[cells.Count];
+
+        for (int i = 0; i < infoContainers.Length; i++)
         {
-            nodes[i] = new HexCellNode(cells[i], i, cells);
-            //Debug.Log(nodes[i]);
+            infoContainers[i] = new HexCellInfoContainer(cells[i], i)
+            {
+                Color = cells[i].Color,
+                Elevation = cells[i].Elevation,
+                HasRiver = cells[i].HasRiver,
+                HasRoads = cells[i].HasRoads,
+                IsUnderWater = cells[i].IsUnderwater,
+                IsWalled = cells[i].Walled,
+                Position = cells[i].Position,
+                Coordinates = new Vector3
+                (
+                    cells[i].coordinates.X,
+                    cells[i].coordinates.Y,
+                    cells[i].coordinates.Z
+                ),
+                Index = i,
+                NeighborIndexes = GetNeighborIndexes(cells[i], cells)
+            };
         }
 
-        HexCellNodeCollection hexCellNodeSaveData = new HexCellNodeCollection();
-        hexCellNodeSaveData.data = nodes;
+
+        HexCellInfoContainerList hexCellNodeSaveData = new HexCellInfoContainerList();
+        hexCellNodeSaveData.Data = infoContainers;
 
         string nodeJson = JsonUtility.ToJson(hexCellNodeSaveData, true);
 
@@ -83,6 +101,26 @@ public class TerrainSaver : MonoBehaviour
 
 
         Debug.Log(nodeJson);
+    }
+
+    private int[] GetNeighborIndexes(HexCell currentCell, List<HexCell> cells)
+    {
+        List<int> neighborIndexes = new List<int>();
+
+        HexDirection direction = HexDirection.NE;
+        do
+        {
+            HexCell neighbor = currentCell.GetNeighbor(direction);
+            if (neighbor != null)
+            {
+                int neighborIndex = cells.IndexOf(neighbor);
+                neighborIndexes.Add(neighborIndex);
+            }
+            direction = direction.Next();
+        }
+        while (direction != HexDirection.NE);
+
+        return neighborIndexes.ToArray();
     }
 
     private void CreateTerrainGameObjects(HexGrid grid)

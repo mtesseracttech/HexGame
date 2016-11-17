@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Assets.Scripts.Saving
 {
     [Serializable]
-    public class HexCellNode
+    public class HexCellInfoContainer
     {
         public Color Color;
         public Vector3 Coordinates;
@@ -18,7 +18,7 @@ namespace Assets.Scripts.Saving
         public int[] NeighborIndexes;
         public int Index;
 
-        public HexCellNode(HexCell cell, int index, List<HexCell> totalCellList)
+        public HexCellInfoContainer(HexCell cell, int index)
         {
             Color = cell.Color;
             Coordinates = new Vector3(cell.coordinates.X, cell.coordinates.Y, cell.coordinates.Z);
@@ -29,24 +29,6 @@ namespace Assets.Scripts.Saving
             IsWalled = cell.Walled;
             Position = cell.Position;
             Index = index;
-
-            List<int> neighborIndexes = new List<int>();
-
-            HexDirection direction = HexDirection.NE;
-            do
-            {
-                HexCell neighbor = cell.GetNeighbor(direction);
-                if (neighbor != null)
-                {
-                    int neighborIndex = totalCellList.IndexOf(neighbor);
-                    neighborIndexes.Add(neighborIndex);
-                }
-                direction = direction.Next();
-            }
-            while (direction != HexDirection.NE);
-
-            NeighborIndexes = neighborIndexes.ToArray();
-
         }
 
         public override string ToString()
@@ -54,7 +36,7 @@ namespace Assets.Scripts.Saving
             string neighbors = "";
             foreach (var neighborIndex in NeighborIndexes) neighbors += neighborIndex + "\n";
             return (
-                "HexCellNode " + Index + " info:\n" +
+                "HexCellInfoContainer " + Index + " info:\n" +
                 "Color - " + Color + "\n" +
                 "HexCoordinates - " + Coordinates + "\n"+
                 "Elevation - " + Elevation + "\n" +
