@@ -17,6 +17,8 @@ public class HexCell : MonoBehaviour {
 	public RectTransform uiRect;
 	public HexGridChunk chunk;
 
+	int waterLevel;
+
 	public Vector3 Position
 	{
 		get
@@ -82,6 +84,19 @@ public class HexCell : MonoBehaviour {
             }
 
 			Refresh ();
+		}
+	}
+
+	public int WaterLevel {
+		get {
+			return waterLevel;
+		}
+		set {
+			if (waterLevel == value) {
+				return;
+			}
+			waterLevel = value;
+			Refresh();
 		}
 	}
 
@@ -317,4 +332,10 @@ public class HexCell : MonoBehaviour {
         int difference = _elevation - GetNeighbor(direction)._elevation;
         return difference >= 0 ? difference : -difference;
     }
+
+	public HexDirection RiverBeginOrEndDirection {
+		get {
+			return _hasIncomingRiver ? _incomingRiver : _outgoingRiver;
+		}
+	}
 }
