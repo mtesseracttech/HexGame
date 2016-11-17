@@ -8,7 +8,7 @@ public class ActionItem : Interactable
 	//performs a damn action
     public override void Interact()
     {
-        DialogueSystem.Instance.AddNewDialogue(dialogue,"awdw");
+       // DialogueSystem.Instance.AddNewDialogue(dialogue,"awdw");
         Debug.Log("Interacting base action Item");
     }
 }

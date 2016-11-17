@@ -12,13 +12,13 @@ public class Interactable : MonoBehaviour
         playerAgent = pPlayerAgent;
         pPlayerAgent.stoppingDistance = 3f;
         pPlayerAgent.destination = transform.position;
-
+        
         Interact();
     }
 
     void Update()
     {
-        if (playerAgent != null && !playerAgent.pathPending && !hasInteracted)
+        if (playerAgent != null && playerAgent.pathPending && !hasInteracted)
         {
             if (playerAgent.remainingDistance <= playerAgent.stoppingDistance)//because i change the stop distance in some places
             {

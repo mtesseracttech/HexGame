@@ -189,10 +189,7 @@ public class TileMap : MonoBehaviour
                             SelectedUnit.GetComponent<Unit>().TileY
                             ];
 
-        Node target = _graph[
-                            x,
-                            y
-                            ];
+        Node target = _graph[x,y];
 
         dist[source] = 0;
         prev[source] = null;
