@@ -58,4 +58,4 @@ ExportedObj/
 sysinfo.txt
 
 # Procedural Dump Files
-Assets/ProceduralDump*
+ProceduralDump/*
