@@ -14,10 +14,12 @@ public class DialogueSystem : MonoBehaviour
     public Text dialogueText, nameText;
     private int dialogueIndex;
     public Image imageNPC;
+    public Button continueButton;
 
     void Awake()
     {
         //dialogueText = dialoguePanel.transform.FindChild("Text").GetComponent<Text>();
+        continueButton.onClick.AddListener(delegate { ContinueDialogue(); });
         dialoguePanel.SetActive(false);
         if (Instance != null && Instance != this)
         {
@@ -35,15 +37,17 @@ public class DialogueSystem : MonoBehaviour
         NpcImage = pNpCimage;
 
         CreateDialogue();
+       
     }
-
     public void CreateDialogue()
     {
         dialogueText.text = DialogueLines[dialogueIndex];
         nameText.text = npcName;
-        dialoguePanel.SetActive(true);
-        //set image
         imageNPC.sprite = NpcImage;
+        dialoguePanel.SetActive(true);
+        
+        //set image
+
     }
 
     public void ContinueDialogue()
