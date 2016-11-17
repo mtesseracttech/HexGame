@@ -1,55 +1,85 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Serialization;
-using System.IO;
 
 public class Quest
 {
-
-    [XmlArray("Nodes")] [XmlArrayItem("Node")] public List<QNode> nodes;
-
-    [XmlAttribute("QuestTitle")] string questTitle;
-
-    [System.NonSerialized()] public string fileName;
-
-    [System.NonSerialized()] private QNode currentNode;
-
-    [System.NonSerialized] private int position;
-
-
-
-    /**
-     * Returns the current node progress in quest and the moves to next node if possible.
-     **/
-
-    public QNode ProgressQuest()
+    public enum QuestState
     {
-        if (nodes != null && position < nodes.Count)
-        {
-            currentNode = nodes[position];
-            position++;
-        }
-        else
-            return null;
-        return currentNode;
-
+        Inactive, Active,Partial,Pending, Complete
     }
 
+    private QuestState _status;
+    private string _name;
+    private string _description;
+    private List<Task> _task;
 
-    /**
-     * Loads quest from XML file.
-     * name: supply xml file name
-     * return: Quest object created from XML file
-     **/
-
-    public static Quest LoadQuest(string name)
+    public QuestState Status
     {
-        var serializer = new XmlSerializer(typeof(Quest));
-        var stream = new FileStream(name, FileMode.Open);
-        var quest = serializer.Deserialize(stream) as Quest;
-        stream.Close();
+        get { return _status; }
+        set { _status = value; }
+    }
+    public string Name
+    {
+        get { return _name; }
+        set { _name = value; }
+    }
+    public string Description
+    {
+        get { return _description; }
+        set { _description = value; }
+    }
+    public Quest()
+    {
+        _status = QuestState.Inactive;
+        _name = string.Empty;
+        _description = string.Empty;
+        _task = new List<Task>();
 
-        return quest as Quest;
+        OnCreate();
+    }
+
+    public void AddTask(Task task)
+    {
+        if (task.Type == Task.TaskType.Collection)
+        {
+            Debug.Log("Collection task");
+        }
+        _task.Add(task);
+    }
+
+    public void Display()
+    {
+        GUILayout.Label(string.Format("Status:\t\t{0}", _status.ToString()));
+        GUILayout.Label(string.Format("Name:\t\t{0}", _name));
+        GUILayout.Label(string.Format("Description:\t\t{0}", _description));
+        foreach (Task task in _task)
+        {
+            GUILayout.Space(40);
+            task.Display();
+        }
+    }
+
+    public void OnCreate()
+    {
+        Task.OnComplete += Task_OnComplete;
+    }
+
+    private void Task_OnComplete(Task task)
+    {
+        bool allComplete = true;
+
+        foreach (Task t in _task)
+        {
+            if (t.State != Task.TaskState.Complete)
+            {
+                allComplete = false;
+            }
+            else
+            {
+                _status = QuestState.Partial;
+            }
+        }
+        if(allComplete == true)
+            _status = QuestState.Pending;
     }
 }

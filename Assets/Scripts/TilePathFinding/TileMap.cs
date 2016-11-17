@@ -13,8 +13,8 @@ public class TileMap : MonoBehaviour
     Node[,] _graph;
 
 
-    int _mapSizeX = 40;
-    int _mapSizeY = 40;
+   public int _mapSizeX = 40;
+   public int _mapSizeY = 40;
 
     void Start()
     {
@@ -45,9 +45,9 @@ public class TileMap : MonoBehaviour
         }
 
         // Make a big swamp area
-        for (x = 3; x <= 5; x++)
+        for (x = 3; x <= 10; x++)
         {
-            for (y = 0; y < 4; y++)
+            for (y = 0; y < 8; y++)
             {
                 _tiles[x, y] = 1;
             }

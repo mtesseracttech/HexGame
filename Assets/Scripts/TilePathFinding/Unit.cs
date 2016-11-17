@@ -14,8 +14,8 @@ public class Unit : MonoBehaviour
     public List<Node> CurrentPath = null;
 
     // How far this unit can move in one turn. Note that some tiles cost extra.
-    int _moveSpeed = 2;
-    float _remainingMovement = 2;
+    public int _moveSpeed = 2;
+    public float _remainingMovement = 2;
 
     void Update()
     {
