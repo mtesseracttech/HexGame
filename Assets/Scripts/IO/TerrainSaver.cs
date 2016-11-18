@@ -63,16 +63,17 @@ public class TerrainSaver : MonoBehaviour
 
         for (int i = 0; i < infoContainers.Length; i++)
         {
-            infoContainers[i] = new HexCellInfoContainer(cells[i], i)
+            //infoContainers[i] = new HexCellInfoContainer(cells[i], i)
+            infoContainers[i] = new HexCellInfoContainer()
             {
-                Color = cells[i].Color,
-                Elevation = cells[i].Elevation,
-                HasRiver = cells[i].HasRiver,
-                HasRoads = cells[i].HasRoads,
+                Color        = cells[i].Color,
+                Elevation    = cells[i].Elevation,
+                HasRiver     = cells[i].HasRiver,
+                HasRoads     = cells[i].HasRoads,
                 IsUnderWater = cells[i].IsUnderwater,
-                IsWalled = cells[i].Walled,
-                Position = cells[i].Position,
-                Coordinates = new Vector3
+                IsWalled     = cells[i].Walled,
+                Position     = cells[i].Position,
+                Coordinates  = new Vector3
                 (
                     cells[i].coordinates.X,
                     cells[i].coordinates.Y,

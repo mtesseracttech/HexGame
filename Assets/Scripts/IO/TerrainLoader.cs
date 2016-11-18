@@ -23,8 +23,7 @@ public class TerrainLoader : MonoBehaviour
 
     private void LoadLevelData()
     {
-        HexCellInfoContainerList loadedNodes =
-            JsonUtility.FromJson<HexCellInfoContainerList>(FileAtPath("/ProceduralDump/Data/HexNodes.json"));
+        HexCellInfoContainerList loadedNodes = JsonUtility.FromJson<HexCellInfoContainerList>(FileAtPath("/ProceduralDump/Data/HexNodes.json"));
         HexNodesManager hexNodeManager = HexNodesManagerRef.GetComponent<HexNodesManager>();
         if (hexNodeManager != null)
         {

@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Saving;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Assets.Scripts.Saving;
 using UnityEngine;
 
 namespace Assets.Scripts.AI
@@ -15,6 +17,11 @@ namespace Assets.Scripts.AI
         private Vector3        _position;
         private HexNode[]      _neighbors;
         private int            _index;
+        private HexNode        _parent;
+
+
+        public float CostCurrent;
+        public float CostEstimate;
 
 
         public HexNode(HexCellInfoContainer info)
@@ -36,6 +43,23 @@ namespace Assets.Scripts.AI
             set { _neighbors = value; }
         }
 
+        public void AddNeighbor(HexNode newNeighbor)
+        {
+            List<HexNode> neighbors = _neighbors.ToList();
+            neighbors.Add(newNeighbor);
+            _neighbors = neighbors.ToArray();
+        }
+
+        public HexNode Parent
+        {
+            get { return _parent; }
+            set { _parent = value; }
+        }
+
+        public HexCoordinates Coordinates
+        {
+            get { return _coordinates; }
+        }
 
         public Vector3 GetPosition()
         {

@@ -18,6 +18,7 @@ namespace Assets.Scripts.Saving
         public int[] NeighborIndexes;
         public int Index;
 
+        /* probably not needed anymore!
         public HexCellInfoContainer(HexCell cell, int index)
         {
             Color = cell.Color;
@@ -30,6 +31,7 @@ namespace Assets.Scripts.Saving
             Position = cell.Position;
             Index = index;
         }
+        */
 
         public override string ToString()
         {
