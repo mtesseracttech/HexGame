@@ -104,7 +104,13 @@ public class HexCell : MonoBehaviour {
 	{
 		get
 		{
-			return (_elevation + HexMetrics.riverSurfaceElevationOffset) * HexMetrics.elevationStep;
+			return (_elevation + HexMetrics.waterElevationOffset) * HexMetrics.elevationStep;
+		}
+	}
+
+	public float WaterSurfaceY {
+		get {
+			return (waterLevel + HexMetrics.waterElevationOffset) *	HexMetrics.elevationStep;
 		}
 	}
 
@@ -336,6 +342,12 @@ public class HexCell : MonoBehaviour {
 	public HexDirection RiverBeginOrEndDirection {
 		get {
 			return _hasIncomingRiver ? _incomingRiver : _outgoingRiver;
+		}
+	}
+
+	public bool IsUnderwater {
+		get {
+			return waterLevel > _elevation;
 		}
 	}
 }
