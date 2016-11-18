@@ -37,7 +37,7 @@ public class HexFeatureManager : MonoBehaviour {
 		return null;
 	}
 
-	public void AddFeature (HexCell cell, Vector3 position) {
+	public void AddFeature (_HexCell cell, Vector3 position) {
 		HexHash hash = HexMetrics.SampleHashGrid(position);
 		Transform prefab = PickPrefab(
 			urbanCollections, cell.UrbanLevel, hash.a, hash.d
@@ -79,8 +79,8 @@ public class HexFeatureManager : MonoBehaviour {
 	}
 
 	public void AddWall (
-		EdgeVertices near, HexCell nearCell,
-		EdgeVertices far, HexCell farCell,
+		EdgeVertices near, _HexCell nearCell,
+		EdgeVertices far, _HexCell farCell,
 		bool hasRiver, bool hasRoad
 	) {
 		if (
@@ -102,9 +102,9 @@ public class HexFeatureManager : MonoBehaviour {
 	}
 
 	public void AddWall (
-		Vector3 c1, HexCell cell1,
-		Vector3 c2, HexCell cell2,
-		Vector3 c3, HexCell cell3
+		Vector3 c1, _HexCell cell1,
+		Vector3 c2, _HexCell cell2,
+		Vector3 c3, _HexCell cell3
 	) {
 		if (cell1.Walled) {
 			if (cell2.Walled) {
@@ -170,9 +170,9 @@ public class HexFeatureManager : MonoBehaviour {
 	}
 
 	void AddWallSegment (
-		Vector3 pivot, HexCell pivotCell,
-		Vector3 left, HexCell leftCell,
-		Vector3 right, HexCell rightCell
+		Vector3 pivot, _HexCell pivotCell,
+		Vector3 left, _HexCell leftCell,
+		Vector3 right, _HexCell rightCell
 	) {
 		if (pivotCell.IsUnderwater) {
 			return;
