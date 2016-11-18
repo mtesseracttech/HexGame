@@ -57,7 +57,7 @@ public class TerrainSaver : MonoBehaviour
     private void SaveCellInfoToJson(HexGrid grid)
     {
         Debug.Log("Starting Terrain Save");
-        List<_HexCell> cells = grid.GetCells().ToList();
+        List<HexCell> cells = grid.GetCells().ToList();
 
         HexCellInfoContainer[] infoContainers = new HexCellInfoContainer[cells.Count];
 
@@ -104,14 +104,14 @@ public class TerrainSaver : MonoBehaviour
         Debug.Log(nodeJson);
     }
 
-    private int[] GetNeighborIndexes(_HexCell currentCell, List<_HexCell> cells)
+    private int[] GetNeighborIndexes(HexCell currentCell, List<HexCell> cells)
     {
         List<int> neighborIndexes = new List<int>();
 
         HexDirection direction = HexDirection.NE;
         do
         {
-            _HexCell neighbor = currentCell.GetNeighbor(direction);
+            HexCell neighbor = currentCell.GetNeighbor(direction);
             if (neighbor != null)
             {
                 int neighborIndex = cells.IndexOf(neighbor);

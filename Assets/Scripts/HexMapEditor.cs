@@ -30,7 +30,7 @@ public class HexMapEditor : MonoBehaviour {
 
 	bool isDrag;
 	HexDirection dragDirection;
-	_HexCell previousCell;
+	HexCell previousCell;
 
 	public void SelectColor (int index) {
 		applyColor = index >= 0;
@@ -119,7 +119,7 @@ public class HexMapEditor : MonoBehaviour {
 		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Physics.Raycast(inputRay, out hit)) {
-			_HexCell currentCell = hexGrid.GetCell(hit.point);
+			HexCell currentCell = hexGrid.GetCell(hit.point);
 			if (previousCell && previousCell != currentCell) {
 				ValidateDrag(currentCell);
 			}
@@ -134,7 +134,7 @@ public class HexMapEditor : MonoBehaviour {
 		}
 	}
 
-	void ValidateDrag (_HexCell currentCell) {
+	void ValidateDrag (HexCell currentCell) {
 		for (
 			dragDirection = HexDirection.NE;
 			dragDirection <= HexDirection.NW;
@@ -148,7 +148,7 @@ public class HexMapEditor : MonoBehaviour {
 		isDrag = false;
 	}
 
-	void EditCells (_HexCell center) {
+	void EditCells (HexCell center) {
 		int centerX = center.coordinates.X;
 		int centerZ = center.coordinates.Z;
 
@@ -164,7 +164,7 @@ public class HexMapEditor : MonoBehaviour {
 		}
 	}
 
-	void EditCell (_HexCell cell) {
+	void EditCell (HexCell cell) {
 		if (cell) {
 			if (applyColor) {
 				cell.Color = activeColor;
@@ -194,7 +194,7 @@ public class HexMapEditor : MonoBehaviour {
 				cell.Walled = walledMode == OptionalToggle.Yes;
 			}
 			if (isDrag) {
-				_HexCell otherCell = cell.GetNeighbor(dragDirection.Opposite());
+				HexCell otherCell = cell.GetNeighbor(dragDirection.Opposite());
 				if (otherCell) {
 					if (riverMode == OptionalToggle.Yes) {
 						otherCell.SetOutgoingRiver(dragDirection);

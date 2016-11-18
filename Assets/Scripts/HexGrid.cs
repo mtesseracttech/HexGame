@@ -7,7 +7,7 @@ public class HexGrid : MonoBehaviour {
 
 	public Color defaultColor = Color.white;
 
-	public _HexCell cellPrefab;
+	public HexCell cellPrefab;
 	public Text cellLabelPrefab;
 	public HexGridChunk chunkPrefab;
 
@@ -16,7 +16,7 @@ public class HexGrid : MonoBehaviour {
 	public int seed;
 
 	HexGridChunk[] chunks;
-	_HexCell[] cells;
+	HexCell[] cells;
 
 	int cellCountX, cellCountZ;
 
@@ -43,7 +43,7 @@ public class HexGrid : MonoBehaviour {
 	}
 
 	void CreateCells () {
-		cells = new _HexCell[cellCountZ * cellCountX];
+		cells = new HexCell[cellCountZ * cellCountX];
 
 		for (int z = 0, i = 0; z < cellCountZ; z++) {
 			for (int x = 0; x < cellCountX; x++) {
@@ -59,7 +59,7 @@ public class HexGrid : MonoBehaviour {
 		}
 	}
 
-	public _HexCell GetCell (Vector3 position) {
+	public HexCell GetCell (Vector3 position) {
 		position = transform.InverseTransformPoint(position);
 		HexCoordinates coordinates = HexCoordinates.FromPosition(position);
 		int index =
@@ -67,7 +67,7 @@ public class HexGrid : MonoBehaviour {
 		return cells[index];
 	}
 
-	public _HexCell GetCell (HexCoordinates coordinates) {
+	public HexCell GetCell (HexCoordinates coordinates) {
 		int z = coordinates.Z;
 		if (z < 0 || z >= cellCountZ) {
 			return null;
@@ -91,7 +91,7 @@ public class HexGrid : MonoBehaviour {
 		position.y = 0f;
 		position.z = z * (HexMetrics.outerRadius * 1.5f);
 
-		_HexCell cell = cells[i] = Instantiate<_HexCell>(cellPrefab);
+		HexCell cell = cells[i] = Instantiate<HexCell>(cellPrefab);
 		cell.transform.localPosition = position;
 		cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
 		cell.Color = defaultColor;
@@ -125,7 +125,7 @@ public class HexGrid : MonoBehaviour {
 		AddCellToChunk(x, z, cell);
 	}
 
-	void AddCellToChunk (int x, int z, _HexCell cell) {
+	void AddCellToChunk (int x, int z, HexCell cell) {
 		int chunkX = x / HexMetrics.chunkSizeX;
 		int chunkZ = z / HexMetrics.chunkSizeZ;
 		HexGridChunk chunk = chunks[chunkX + chunkZ * chunkCountX];
@@ -135,7 +135,7 @@ public class HexGrid : MonoBehaviour {
 		chunk.AddCell(localX + localZ * HexMetrics.chunkSizeX, cell);
 	}
 
-    public _HexCell[] GetCells()
+    public HexCell[] GetCells()
     {
         return cells;
     }
