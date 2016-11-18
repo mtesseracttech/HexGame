@@ -59,3 +59,6 @@ sysinfo.txt
 
 # Procedural Dump Files
 ProceduralDump/*
+
+# Rider related
+.idea.HexGame/*
