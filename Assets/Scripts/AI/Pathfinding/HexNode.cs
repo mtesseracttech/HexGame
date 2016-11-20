@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Saving;
 using UnityEngine;
 
 namespace Assets.Scripts.AI
 {
-    public class HexNode
+    public class HexNode: IComparable<HexNode>
     {
         private Color          _color;
         private HexCoordinates _coordinates;
@@ -20,8 +21,7 @@ namespace Assets.Scripts.AI
         private HexNode        _parent;
 
 
-        public float CostCurrent;
-        public float CostEstimate;
+        public float f, g, h;
 
 
         public HexNode(HexCellInfoContainer info)
@@ -89,6 +89,11 @@ namespace Assets.Scripts.AI
         public int Elevation
         {
             get { return _elevation; }
+        }
+
+        public int CompareTo(HexNode other)
+        {
+            return f.CompareTo(other.f);
         }
     }
 }
