@@ -14,85 +14,82 @@ public class AStar
     private List<HexNode> _path;
     private bool          _done             = false;
 
-    public AStar(HexNode start, HexNode end)
-    {
-        _todoList = new List<HexNode>();
-        _doneList = new List<HexNode>();
-        _startNode = start;
-        _endNode = end;
-        _todoList.Add(_startNode);
-    }
-
     public void Search()
     {
         while (!_done)
         {
             Step();
         }
-        PaintPath();
+        //PaintPath();
     }
 
-    public void Step()
+    public bool Step()
     {
-        if (_todoList.Count < 1 || _done)
+        //return false;
+
+        //are we able to find a path??
+        if (_done || _startNode == null || _endNode == null || _todoList.Count == 0)
         {
             _done = true;
-            return;
+            return true;
         }
 
-        _todoList.Sort();
+        //we are not done, start and end are set and there is at least 1 item on the open list...
+
+        //check if we were already processing nodes, if so color the last processed node as black because it is on the closed list
+        if (_currentNode != null)
+        {
+            //_currentNode.SetColor(Color.DarkSlateGray);
+        }
+
+        //get a node from the open list
         _currentNode = _todoList[0];
         _todoList.RemoveAt(0);
+
+        //_currentNode.SetColor(Color.Orange);
+
+        //and move that node to the closed list (one way or another, we are done with it...)
         _doneList.Add(_currentNode);
-        //_currentNode.SetColor(Color.red);
+        //_currentNode.info = "";
+
+        //is this our node? yay done...
         if (_currentNode == _endNode)
         {
-            _done = true;
             GeneratePath();
-            return;
+            _done = true;
         }
-
-        foreach (var neighbor in _currentNode.Neighbors)
+        else
         {
-
-            if (!_todoList.Contains(neighbor) && !_doneList.Contains(neighbor))
+            //get all children and process them
+            for (var i = 0; i < _currentNode.Neighbors.Length; i++)
             {
-                neighbor.Parent = _currentNode;
-                neighbor.CostCurrent = _currentNode.CostCurrent +
-                                       Vector2.Distance(_currentNode.GetPosition(), neighbor.GetPosition());
-                neighbor.CostEstimate = Vector2.Distance(neighbor.GetPosition(), _endNode.GetPosition());
-                _todoList.Add(neighbor);
-            }
+                HexNode neighbor = _currentNode.Neighbors[i];//_currentNode.GetConnectionAt(i);
 
-
-            /*
-            if (_doneList.Contains(neighbor)) continue;
-            if (_todoList.Contains(neighbor) || _currentNode.CostEstimate < neighbor.CostEstimate)
-            {
-                neighbor.SetParent(_currentNode);
-                neighbor.CostCurrent = _currentNode.CostCurrent +
-                                       Vector2.Distance(_currentNode.GetPosition(), neighbor.GetPosition());
-                neighbor.CostEstimate = Vector2.Distance(neighbor.GetPosition(), _endNode.GetPosition());
-                if (!_todoList.Contains(neighbor))
+                if (_doneList.IndexOf(neighbor) == -1 && _todoList.IndexOf(neighbor) == -1)
                 {
+                    //connectedNode.parentNode = _currentNode;
+
+
+                    if (neighbor.CostCurrent < _currentNode.CostCurrent)
+                    {
+                        neighbor.Parent = _currentNode;
+                    }
+                    //connectedNode.SetColor(Color.Blue);
+
+                    neighbor.CostCurrent = _currentNode.CostCurrent +
+                                                Vector3.Distance(_currentNode.Position, neighbor.Position);//DistanceTo(connectedNode.position);
+                    neighbor.CostEstimate = Vector3.Distance(neighbor.Position, _endNode.Position);//connectedNode.Position.DistanceTo(_endNode.position);
+
+
                     _todoList.Add(neighbor);
                 }
             }
-            */
 
+            _todoList.Sort();
+            //updateNodeInfo();
         }
 
-        /*
-        foreach (HexNode node in _todoList)
-        {
-            node.SetColor(Color.blue);
-        }
-        foreach (var node in _doneList)
-        {
-            node.SetColor(Color.gray);
-        }
-        */
-
+        return _done;
     }
 
     public List<HexNode> GetPath()
@@ -104,22 +101,36 @@ public class AStar
         return null;
     }
 
-    public void PaintPath()
+    public void SetStartNode(HexNode start)
     {
-        if (_path != null)
-        {
-            foreach (var node in _path)
-            {
-                //node.SetColor(Color.black);
-            }
-        }
+        if (_startNode != null) resetNode(_startNode);
+        _startNode = start;
+        ResetPathFinder();
+    }
+
+    public void SetEndNode(HexNode end)
+    {
+        if (_endNode != null) resetNode(_endNode);
+        _endNode = end;
+        ResetPathFinder();
+    }
+
+
+    public bool IsDone()
+    {
+        return _done;
+    }
+
+    public List<HexNode> GetLastFoundPath()
+    {
+        return _path;
     }
 
     private void GeneratePath()
     {
-        HexNode node = _currentNode;
         List<HexNode> nodeList = new List<HexNode>();
-        while (node.Parent != null)
+        HexNode node = _endNode;
+        while (node != null)
         {
             nodeList.Add(node);
             node = node.Parent;
@@ -127,5 +138,38 @@ public class AStar
         nodeList.Add(node);
         nodeList.Reverse();
         _path = nodeList;
+    }
+
+    private void ResetPathFinder()
+    {
+        if (_todoList != null) _todoList.ForEach(resetNode);
+        if (_doneList != null) _doneList.ForEach(resetNode);
+
+        _todoList = new List<HexNode>();
+        _doneList = new List<HexNode>();
+        _done = false;
+        _path = null;
+        _currentNode = null;
+
+        //setup for next path
+        if (_startNode != null)
+        {
+            _todoList.Add(_startNode);
+            _startNode.CostCurrent = 0;
+            _startNode.CostEstimate = 0;
+            _startNode.CostCombined = 0;
+        }
+
+        if (_endNode != null)
+        {
+        }
+    }
+
+    private void resetNode(HexNode node)
+    {
+        if (node.Parent != null)
+        {
+            node.Parent = null;
+        }
     }
 }
