@@ -19,59 +19,19 @@
     <favorites_list name="HexGame" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="HexCell.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../Assets/Scripts/Level/HexCell.cs">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="HexNodesManager.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../Assets/Scripts/AI/HexNodesManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="560">
+              <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
               <folding>
-                <marker date="1479246352604" expanded="true" signature="57:5943" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="1931:1975" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="2040:2139" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="2197:2288" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="2341:2415" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="2433:2672" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="3252:3375" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="3404:3460" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="3497:3717" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="3754:3974" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="4000:4025" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="4081:4669" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="4730:4781" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="5107:5320" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="5112:5320" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="5353:5527" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="5567:5733" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="5797:5941" ph="{...}" />
-                <marker date="1479246352604" expanded="true" signature="5802:5941" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HexMapEditor.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Assets/Scripts/Level/HexMapEditor.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1392">
-              <caret line="87" column="41" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
-              <folding>
-                <marker date="1479246587080" expanded="true" signature="6:50" ph="..." />
-                <marker date="1479246587080" expanded="true" signature="72:92" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="136:3477" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="520:543" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="561:709" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="732:1146" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="1185:1277" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="1312:1793" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="1824:2701" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="2747:2788" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="2835:2867" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="2908:2938" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="2975:3007" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="3046:3115" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="3156:3205" ph="{...}" />
-                <marker date="1479246587080" expanded="true" signature="3248:3475" ph="{...}" />
+                <marker date="1479672867109" expanded="true" signature="6:215" ph="..." />
+                <marker date="1479672867109" expanded="true" signature="261:2338" ph="{...}" />
+                <marker date="1479672867109" expanded="true" signature="383:663" ph="{...}" />
+                <marker date="1479672867109" expanded="true" signature="778:1529" ph="{...}" />
+                <marker date="1479672867109" expanded="true" signature="1587:2071" ph="{...}" />
+                <marker date="1479672867109" expanded="true" signature="2138:2336" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -84,14 +44,19 @@
       <list>
         <option value="$PROJECT_DIR$/../Assets/Scripts/Level/HexCell.cs" />
         <option value="$PROJECT_DIR$/../Assets/Scripts/Level/HexMapEditor.cs" />
+        <option value="$PROJECT_DIR$/../Assets/Scripts/AI/Node.cs" />
+        <option value="$PROJECT_DIR$/../Assets/Scripts/AI/PathFinder.cs" />
+        <option value="$PROJECT_DIR$/../Assets/Scripts/AI/HexNode.cs" />
+        <option value="$PROJECT_DIR$/../Assets/Scripts/AI/HexNodesManager.cs" />
+        <option value="$PROJECT_DIR$/../Assets/Scripts/AI/AStar.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="y" value="40" />
-    <option name="width" value="1463" />
-    <option name="height" value="1407" />
+    <option name="x" value="-8" />
+    <option name="y" value="32" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -119,98 +84,7 @@
     </navigator>
     <panes>
       <pane id="SolutionExplorer">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HexGame" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HexGame" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assembly-CSharp" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HexGame" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assembly-CSharp" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Scripts" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Level" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HexGame" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assembly-CSharp" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Scripts" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HexGame" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assembly-CSharp" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
         <option name="show-file-system" value="false" />
       </pane>
     </panes>
@@ -262,26 +136,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="40" width="1463" height="1407" extended-state="0" />
+    <frame x="-8" y="32" width="2576" height="1416" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4422944" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Errors in solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="UnitTesting" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors in solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="UnitTesting" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -302,55 +176,94 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../Assets/Scripts/Level/HexMapEditor.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1392">
-          <caret line="87" column="41" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
-          <folding>
-            <marker date="1479246587080" expanded="true" signature="6:50" ph="..." />
-            <marker date="1479246587080" expanded="true" signature="72:92" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="136:3477" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="520:543" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="561:709" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="732:1146" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="1185:1277" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="1312:1793" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="1824:2701" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="2747:2788" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="2835:2867" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="2908:2938" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="2975:3007" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="3046:3115" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="3156:3205" ph="{...}" />
-            <marker date="1479246587080" expanded="true" signature="3248:3475" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Assets/Scripts/Level/HexCell.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="8" column="17" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Assets/Scripts/Level/HexMapEditor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1392">
+          <caret line="87" column="41" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Assets/Scripts/Level/HexMapEditor.cs" />
+    <entry file="file://$PROJECT_DIR$/../Assets/Scripts/Level/HexCell.cs" />
+    <entry file="file://$PROJECT_DIR$/../Assets/Scripts/AI/Node.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-690">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Assets/Scripts/AI/HexNode.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="74" column="37" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
           <folding>
-            <marker date="1479246352604" expanded="true" signature="57:5943" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="1931:1975" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="2040:2139" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="2197:2288" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="2341:2415" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="2433:2672" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="3252:3375" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="3404:3460" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="3497:3717" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="3754:3974" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="4000:4025" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="4081:4669" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="4730:4781" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="5107:5320" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="5112:5320" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="5353:5527" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="5567:5733" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="5797:5941" ph="{...}" />
-            <marker date="1479246352604" expanded="true" signature="5802:5941" ph="{...}" />
+            <marker date="1479672078709" expanded="true" signature="6:114" ph="..." />
+            <marker date="1479672078709" expanded="true" signature="143:3672" ph="{...}" />
+            <marker date="1479672078709" expanded="true" signature="193:3670" ph="{...}" />
+            <marker date="1479672078709" expanded="true" signature="916:1377" ph="{...}" />
+            <marker date="1479672078709" expanded="true" signature="1566:1731" ph="{...}" />
+            <marker date="1479672078709" expanded="true" signature="2716:2835" ph="{...}" />
+            <marker date="1479672078709" expanded="true" signature="2878:3664" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Assets/Scripts/AI/AStar.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2689">
+          <caret line="172" column="9" selection-start-line="172" selection-start-column="9" selection-end-line="172" selection-end-column="9" />
+          <folding>
+            <marker date="1479672935831" expanded="true" signature="6:138" ph="..." />
+            <marker date="1479672935831" expanded="true" signature="158:4537" ph="{...}" />
+            <marker date="1479672935831" expanded="true" signature="460:558" ph="{...}" />
+            <marker date="1479672935831" expanded="true" signature="582:2834" ph="{...}" />
+            <marker date="1479672935831" expanded="true" signature="597:652" ph="/* ... */" />
+            <marker date="1479672935831" expanded="true" signature="818:1039" ph="/* ... */" />
+            <marker date="1479672935831" expanded="true" signature="1270:1402" ph="/* ... */" />
+            <marker date="1479672935831" expanded="true" signature="1448:1514" ph="/* ... */" />
+            <marker date="1479672935831" expanded="true" signature="2870:2985" ph="{...}" />
+            <marker date="1479672935831" expanded="true" signature="3030:3152" ph="{...}" />
+            <marker date="1479672935831" expanded="true" signature="3193:3307" ph="{...}" />
+            <marker date="1479672935831" expanded="true" signature="3334:3368" ph="{...}" />
+            <marker date="1479672935831" expanded="true" signature="3413:3447" ph="{...}" />
+            <marker date="1479672935831" expanded="true" signature="3480:3774" ph="{...}" />
+            <marker date="1479672935831" expanded="true" signature="3810:4396" ph="{...}" />
+            <marker date="1479672935831" expanded="true" signature="4438:4535" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Assets/Scripts/AI/PathFinder.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="654">
+          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding>
+            <marker date="1479671073697" expanded="true" signature="0:59" ph="/* ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Assets/Scripts/AI/HexNodesManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          <folding>
+            <marker date="1479672867109" expanded="true" signature="6:215" ph="..." />
+            <marker date="1479672867109" expanded="true" signature="261:2338" ph="{...}" />
+            <marker date="1479672867109" expanded="true" signature="383:663" ph="{...}" />
+            <marker date="1479672867109" expanded="true" signature="778:1529" ph="{...}" />
+            <marker date="1479672867109" expanded="true" signature="1587:2071" ph="{...}" />
+            <marker date="1479672867109" expanded="true" signature="2138:2336" ph="{...}" />
           </folding>
         </state>
       </provider>

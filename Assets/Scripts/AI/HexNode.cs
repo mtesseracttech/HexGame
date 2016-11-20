@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Saving;
 using UnityEngine;
 
 namespace Assets.Scripts.AI
 {
-    public class HexNode
+    public class HexNode : IComparable<HexNode>
     {
         private Color          _color;
         private HexCoordinates _coordinates;
@@ -20,8 +21,10 @@ namespace Assets.Scripts.AI
         private HexNode        _parent;
 
 
-        public float CostCurrent;
-        public float CostEstimate;
+        public float CostCurrent = 0;								//keep track of cost up to now
+        public float CostEstimate = 0;								//keep track of cost estimate to goal
+        public float CostCombined = 0;
+
 
 
         public HexNode(HexCellInfoContainer info)
@@ -60,10 +63,16 @@ namespace Assets.Scripts.AI
         {
             get { return _coordinates; }
         }
-
-        public Vector3 GetPosition()
+/*
+        public Vector3 Position()
         {
             return _position;
+        }
+*/
+
+        public Vector3 Position
+        {
+            get { return _position; }
         }
 
         public bool HasRiver
@@ -89,6 +98,40 @@ namespace Assets.Scripts.AI
         public int Elevation
         {
             get { return _elevation; }
+        }
+
+        public int Index
+        {
+            get { return _index; }
+        }
+
+        public int CompareTo (HexNode other)
+        {
+            return (CostCurrent + CostEstimate).CompareTo(other.CostCurrent + other.CostEstimate);
+        }
+
+        public override string ToString()
+        {
+            string neighborIndexes = "";
+            if (_neighbors != null)
+            {
+                for (int index = 0; index < _neighbors.Length; index++)
+                {
+                    var neighbor = _neighbors[index];
+                    if (index != 0) neighborIndexes += ",";
+                    neighborIndexes += neighbor.Index;
+                }
+            }
+            string parent = "";
+            if (_parent != null) parent = Parent.Index.ToString();
+
+            string returnString = (
+                "Node Info:\n" +
+                "Hex Coordinates: " + _coordinates + "\n" +
+                "Parent Index: " + parent + "\n" +
+                "Neighbors Indexes: " + neighborIndexes
+            );
+            return returnString;
         }
     }
 }

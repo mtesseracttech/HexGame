@@ -21,7 +21,7 @@ public class HexNodesManager : MonoBehaviour
 	        {
 	            foreach (var neighbor in node.Neighbors)
 	            {
-	                Debug.DrawLine(node.GetPosition(), neighbor.GetPosition(), Color.red);
+	                Debug.DrawLine(node.Position, neighbor.Position, Color.red);
 	            }
 	        }
 	    }
