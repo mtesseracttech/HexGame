@@ -5,18 +5,16 @@ using System.Collections.Generic;
 public class InstantiateDialog : MonoBehaviour {
 
     public TextAsset Ta;
-    public Dialog dialog;
     public int CurrentNode;
     public bool ShowDialogue;
 
     public GUISkin Skin;
-
     public List<Answers> answers = new List<Answers>();
-
+    public Dialog dialog;
     void Start()
     {
         dialog = Dialog.Load(Ta);
-        Skin = Resources.Load("Skin") as GUISkin;
+        PlayerPrefs.DeleteAll();
     }
 
     void Update()
@@ -27,10 +25,17 @@ public class InstantiateDialog : MonoBehaviour {
     void UpdateAnswers()
     {
         answers.Clear();
+       
         for (int i = 0; i < dialog.nodes[CurrentNode].answers.Length; i++)
         {
-            if (dialog.nodes[CurrentNode].answers[i].QuestName == null || dialog.nodes[CurrentNode].answers[i].NeedQuestValue == PlayerPrefs.GetInt(dialog.nodes[CurrentNode].answers[i].QuestName))
+            if (dialog.nodes[CurrentNode].answers[i].QuestName == null ||
+                dialog.nodes[CurrentNode].answers[i].NeedQuestValue ==
+                PlayerPrefs.GetInt(dialog.nodes[CurrentNode].answers[i].QuestName))
+            {
                 answers.Add(dialog.nodes[CurrentNode].answers[i]);
+            }
+                
+            
         }
     }
 
@@ -58,6 +63,7 @@ public class InstantiateDialog : MonoBehaviour {
                        // Character.Gold += answers[i].RewardGold;
                     }
                     CurrentNode = answers[i].nextNode;
+                  
                 }
             }
         }

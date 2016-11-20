@@ -8,17 +8,17 @@ public class NPC : Interactable
     //public string[] dialogue;
     //public string name;
    // public Sprite NPCImage;
-    public Dialogue dialogyue;
+    public Dialogue Dialogyue;
 
     public void Start()
     {
-        dialogyue = GetComponent<Dialogue>();
+        Dialogyue = GetComponent<Dialogue>();
     }
 
     public override void Interact()
     {
        // DialogueSystem.Instance.AddNewDialogue(dialogue,name,NPCImage);
-        dialogyue.ShowDialogue = true;
+        Dialogyue.ShowDialogue = true;
         Debug.Log("Interacting with NPC 2");
     }
 	
