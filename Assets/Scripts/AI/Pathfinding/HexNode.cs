@@ -6,7 +6,11 @@ using UnityEngine;
 
 namespace Assets.Scripts.AI
 {
+<<<<<<< HEAD:Assets/Scripts/AI/HexNode.cs
     public class HexNode : IComparable<HexNode>
+=======
+    public class HexNode: IComparable<HexNode>
+>>>>>>> 540a3f5e62b9db80296b3b15a659b5cc4825bbf5:Assets/Scripts/AI/Pathfinding/HexNode.cs
     {
         private Color          _color;
         private HexCoordinates _coordinates;
@@ -23,7 +27,7 @@ namespace Assets.Scripts.AI
 
         public float CostCurrent = 0;								//keep track of cost up to now
         public float CostEstimate = 0;								//keep track of cost estimate to goal
-        public float CostCombined = 0;
+        public float CostCombined = 0;                              //The above two added together
 
 
 
@@ -63,12 +67,6 @@ namespace Assets.Scripts.AI
         {
             get { return _coordinates; }
         }
-/*
-        public Vector3 Position()
-        {
-            return _position;
-        }
-*/
 
         public Vector3 Position
         {
@@ -132,6 +130,5 @@ namespace Assets.Scripts.AI
                 "Neighbors Indexes: " + neighborIndexes
             );
             return returnString;
-        }
     }
 }

@@ -83,4 +83,10 @@ public class HexNodesManager : MonoBehaviour
                !other.IsUnderWater && !current.IsUnderWater &&
                !other.HasRiver && !current.HasRiver;
     }
+
+    public HexNode GetHexNode(int i)
+    {
+        if(_nodes != null && i < _nodes.Length) return _nodes[i];
+        return null;
+    }
 }
