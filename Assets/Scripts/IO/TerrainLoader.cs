@@ -2,9 +2,14 @@
 using UnityEngine;
 using System.IO;
 using Assets.Scripts.Saving;
+using UnityEditor;
 
 public class TerrainLoader : MonoBehaviour
 {
+    [Header("Settings: (Loading terrain meshes through this is volatile)")]
+    public bool LoadTerrainMeshes = true;
+    public bool LoadCellInfo = true;
+    public string LoadRootFolderName = "ProceduralDump";
 
     public GameObject HexNodesManagerRef;
 
@@ -23,7 +28,29 @@ public class TerrainLoader : MonoBehaviour
 
     private void LoadLevelData()
     {
-        HexCellInfoContainerList loadedNodes = JsonUtility.FromJson<HexCellInfoContainerList>(FileAtPath("/ProceduralDump/Data/HexNodes.json"));
+        if(LoadTerrainMeshes) LoadTerrain();
+        if(LoadCellInfo) LoadNavNodes();
+        Debug.Log("Load Sequence Finished!");
+    }
+
+    private void LoadTerrain()
+    {
+        var prefabs = Resources.LoadAll(LoadRootFolderName + "/prefabs");
+        Debug.Log(prefabs.Length);
+
+        GameObject Base = new GameObject();
+        Base.name = "MapBase";
+
+        foreach (var prefab in prefabs)
+        {
+            GameObject instantiated = (GameObject)Instantiate(prefab);
+            instantiated.transform.parent = Base.transform;
+        }
+    }
+
+    private void LoadNavNodes()
+    {
+        HexCellInfoContainerList loadedNodes = JsonUtility.FromJson<HexCellInfoContainerList>(FileAtPath("/Resources/" + LoadRootFolderName + "/data/HexNodes.json"));
         HexNodesManager hexNodeManager = HexNodesManagerRef.GetComponent<HexNodesManager>();
         if (hexNodeManager != null)
         {
@@ -35,6 +62,7 @@ public class TerrainLoader : MonoBehaviour
             Debug.Log("The HexNodeManager reference does not have a HexNodeManager component!");
         }
     }
+
 
     private string FileAtPath(string path)
     {

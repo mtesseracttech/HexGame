@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.Serialization.Formatters;
 using Assets;
 using Assets.Scripts.AI;
@@ -14,19 +15,27 @@ public class AStar
     private List<HexNode> _path;
     private bool          _done             = false;
 
+    public void Search(HexNode start, HexNode end)
+    {
+        SetStartNode(start);
+        SetEndNode(end);
+        while (!_done)
+        {
+            Step();
+        }
+    }
+
+
     public void Search()
     {
         while (!_done)
         {
             Step();
         }
-        //PaintPath();
     }
 
     public bool Step()
     {
-        //return false;
-
         //are we able to find a path??
         if (_done || _startNode == null || _endNode == null || _todoList.Count == 0)
         {
@@ -50,9 +59,7 @@ public class AStar
 
         //and move that node to the closed list (one way or another, we are done with it...)
         _doneList.Add(_currentNode);
-        //_currentNode.info = "";
 
-        //is this our node? yay done...
         if (_currentNode == _endNode)
         {
             GeneratePath();
@@ -63,42 +70,30 @@ public class AStar
             //get all children and process them
             for (var i = 0; i < _currentNode.Neighbors.Length; i++)
             {
-                HexNode neighbor = _currentNode.Neighbors[i];//_currentNode.GetConnectionAt(i);
+                HexNode neighbor = _currentNode.Neighbors[i];
 
                 if (_doneList.IndexOf(neighbor) == -1 && _todoList.IndexOf(neighbor) == -1)
                 {
-                    //connectedNode.parentNode = _currentNode;
-
-
                     if (neighbor.CostCurrent < _currentNode.CostCurrent)
                     {
                         neighbor.Parent = _currentNode;
                     }
-                    //connectedNode.SetColor(Color.Blue);
 
                     neighbor.CostCurrent = _currentNode.CostCurrent +
-                                                Vector3.Distance(_currentNode.Position, neighbor.Position);//DistanceTo(connectedNode.position);
-                    neighbor.CostEstimate = Vector3.Distance(neighbor.Position, _endNode.Position);//connectedNode.Position.DistanceTo(_endNode.position);
+                                                Vector3.Distance(_currentNode.Position, neighbor.Position);
 
+                    neighbor.CostEstimate = Vector3.Distance(neighbor.Position, _endNode.Position);
+
+                    neighbor.CostCombined = neighbor.CostCurrent + neighbor.CostEstimate;
 
                     _todoList.Add(neighbor);
                 }
             }
 
             _todoList.Sort();
-            //updateNodeInfo();
         }
 
         return _done;
-    }
-
-    public List<HexNode> GetPath()
-    {
-        if (_done && _path != null)
-        {
-            return _path;
-        }
-        return null;
     }
 
     public void SetStartNode(HexNode start)
@@ -115,19 +110,27 @@ public class AStar
         ResetPathFinder();
     }
 
-
-    public bool IsDone()
+    public bool Done
     {
-        return _done;
+        get { return _done; }
     }
 
-    public List<HexNode> GetLastFoundPath()
+    public List<HexNode> Path
     {
-        return _path;
+        get
+        {
+            if (_done && _path != null)
+            {
+                return _path;
+            }
+            return null;
+        }
     }
 
     private void GeneratePath()
     {
+        Debug.Log("first node is: " );
+        Debug.Log("last node is: ");
         List<HexNode> nodeList = new List<HexNode>();
         HexNode node = _endNode;
         while (node != null)
