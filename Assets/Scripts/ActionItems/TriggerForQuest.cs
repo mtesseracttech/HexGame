@@ -3,19 +3,10 @@ using System.Collections;
 
 public class TriggerForQuest : Interactable
 {
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (gameObject.tag == "Player")
-        {
-            Debug.Log("it was triggeredsefsefhjue");
-            if (PlayerPrefs.GetInt("Quest1") == 0)
-            {
-                Debug.Log("it was triggered");
-               // PlayerPrefs.SetInt("Quest1",2);
-            }
-        }   
-    }
+    
+    public string QuestName = "Quest1";
+    [SerializeField]
+    public int QuestAmount = 2;
 
 
     public override void Interact()
@@ -24,7 +15,7 @@ public class TriggerForQuest : Interactable
         if (PlayerPrefs.GetInt("Quest1") >= 0)
         {
             Debug.Log("it was triggered");
-             PlayerPrefs.SetInt("Quest1",2);
+             PlayerPrefs.SetInt(QuestName,QuestAmount);
         }
     }
 }

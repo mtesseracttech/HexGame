@@ -8,11 +8,11 @@ public class NPC : Interactable
     //public string[] dialogue;
     //public string name;
    // public Sprite NPCImage;
-    public Dialogue Dialogyue;
+    private InstantiateDialog Dialogyue;
 
     public void Start()
     {
-        Dialogyue = GetComponent<Dialogue>();
+        Dialogyue = GetComponent<InstantiateDialog>();
     }
 
     public override void Interact()
