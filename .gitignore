@@ -62,3 +62,6 @@ ProceduralDump/*
 
 # Rider related
 .idea.HexGame/*
+Assets/ProceduralDump/
+Assets/ProceduralDump.meta
+Assets/Resources/ProceduralDump/

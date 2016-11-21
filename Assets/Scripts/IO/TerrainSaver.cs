@@ -8,8 +8,12 @@ using UnityEditor;
 
 public class TerrainSaver : MonoBehaviour
 {
-    [Header("Settings:")] public bool SaveTerrainMeshes = true;
+    [Header("Settings:")]
+    public bool SaveTerrainMeshes = true;
     public bool SaveCellInfo = true;
+
+    [Header("(IF YOU CHANGE THIS, ADD THE FOLDER AND META TO THE .GITIGNORE!!!)")]
+    public string SaveRootFolderName = "ProceduralDump";
 
     [Header("Map:")] public GameObject HexGridMap;
 
@@ -49,9 +53,17 @@ public class TerrainSaver : MonoBehaviour
     {
         HexGrid grid = HexGridMap.GetComponent<HexGrid>();
 
+
+        if (SaveTerrainMeshes || SaveCellInfo)
+        {
+            bool rootFolderExists = AssetDatabase.IsValidFolder("Assets/Resources/" + SaveRootFolderName);
+            if(!rootFolderExists) AssetDatabase.CreateFolder("Assets/Resources", SaveRootFolderName);
+        }
+
+
         if (SaveTerrainMeshes) CreateTerrainGameObjects(grid);
         if (SaveCellInfo) SaveCellInfoToJson(grid);
-
+        Debug.Log("Save Sequence Finished!");
     }
 
     private void SaveCellInfoToJson(HexGrid grid)
@@ -63,7 +75,6 @@ public class TerrainSaver : MonoBehaviour
 
         for (int i = 0; i < infoContainers.Length; i++)
         {
-            //infoContainers[i] = new HexCellInfoContainer(cells[i], i)
             infoContainers[i] = new HexCellInfoContainer()
             {
                 Color        = cells[i].Color,
@@ -92,12 +103,17 @@ public class TerrainSaver : MonoBehaviour
 
         try
         {
-            File.WriteAllText(Application.dataPath + "/ProceduralDump/Data/HexNodes.json", nodeJson);
+            bool dataFolderExists = AssetDatabase.IsValidFolder("Assets/Resources/" + SaveRootFolderName + "/data");
+            if(!dataFolderExists) AssetDatabase.CreateFolder("Assets/Resources/" + SaveRootFolderName, "data");
+            File.WriteAllText(Application.dataPath + "/Resources/" + SaveRootFolderName +"/Data/HexNodes.json", nodeJson);
             Debug.Log("Completed saving HexNodes.json");
         }
         catch (Exception ex)
         {
-            Debug.Log("Failed to save HexNodes.json\nException:\n" + ex);
+            Debug.Log("Failed to save HexNodes.json\n" +
+                      "Exception:\n"+
+                      ex
+            );
         }
 
 
@@ -126,6 +142,11 @@ public class TerrainSaver : MonoBehaviour
 
     private void CreateTerrainGameObjects(HexGrid grid)
     {
+        bool meshFolderExists = AssetDatabase.IsValidFolder("Assets/Resources/" + SaveRootFolderName + "/meshes");
+        if(!meshFolderExists) AssetDatabase.CreateFolder("Assets/Resources/" + SaveRootFolderName, "meshes");
+        bool prefabFolderExists = AssetDatabase.IsValidFolder("Assets/Resources/" + SaveRootFolderName + "/prefabs");
+        if(!prefabFolderExists) AssetDatabase.CreateFolder("Assets/Resources/" + SaveRootFolderName, "prefabs");
+
         int nameIter = 0;
         for (int i = 0; i < grid.transform.childCount; i++)
         {
@@ -140,12 +161,12 @@ public class TerrainSaver : MonoBehaviour
                 if (chunkSubComponentMeshFilter)
                 {
                     string fixedName = chunkComponentName.Replace(" ", "_");
-                    var savePath = "Assets/ProceduralDump/mesh" + fixedName + nameIter + ".asset";
+                    var savePath = "Assets/Resources/" + SaveRootFolderName +"/meshes/mesh" + fixedName + nameIter + ".asset";
                     MeshFilter chunkMeshFilter = chunkSubComponent.GetComponent<MeshFilter>();
                     Mesh chunkMesh = chunkMeshFilter.mesh;
                     AssetDatabase.CreateAsset(chunkMesh, savePath);
 
-                    GameObject go = PrefabUtility.CreatePrefab("Assets/ProceduralDump/go_" + fixedName + nameIter + ".prefab", new GameObject());
+                    GameObject go = PrefabUtility.CreatePrefab("Assets/Resources/" + SaveRootFolderName +"/prefabs/go_" + fixedName + nameIter + ".prefab", new GameObject());
                     go.AddComponent<MeshRenderer>();
                     go.AddComponent<MeshFilter>();
                     go.GetComponent<MeshFilter>().sharedMesh = AssetDatabase.LoadAssetAtPath<Mesh>(savePath);

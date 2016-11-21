@@ -6,42 +6,35 @@ using UnityEngine;
 
 namespace Assets.Scripts.AI
 {
-<<<<<<< HEAD:Assets/Scripts/AI/HexNode.cs
     public class HexNode : IComparable<HexNode>
-=======
-    public class HexNode: IComparable<HexNode>
->>>>>>> 540a3f5e62b9db80296b3b15a659b5cc4825bbf5:Assets/Scripts/AI/Pathfinding/HexNode.cs
     {
-        private Color          _color;
+        private Color _color;
         private HexCoordinates _coordinates;
-        private int            _elevation;
-        private bool           _hasRiver;
-        private bool           _hasRoads;
-        private bool           _isUnderWater;
-        private bool           _isWalled;
-        private Vector3        _position;
-        private HexNode[]      _neighbors;
-        private int            _index;
-        private HexNode        _parent;
+        private int _elevation;
+        private bool _hasRiver;
+        private bool _hasRoads;
+        private bool _isUnderWater;
+        private bool _isWalled;
+        private Vector3 _position;
+        private HexNode[] _neighbors;
+        private int _index;
+        private HexNode _parent;
 
-
-        public float CostCurrent = 0;								//keep track of cost up to now
-        public float CostEstimate = 0;								//keep track of cost estimate to goal
-        public float CostCombined = 0;                              //The above two added together
-
-
+        public float CostCurrent = 0; //keep track of cost up to now
+        public float CostEstimate = 0; //keep track of cost estimate to goal
+        public float CostCombined = 0; //The above two added together
 
         public HexNode(HexCellInfoContainer info)
         {
-            _color        = info.Color;
-            _coordinates  = new HexCoordinates((int)info.Coordinates.x, (int)info.Coordinates.z);
-            _elevation    = info.Elevation;
-            _hasRiver     = info.HasRiver;
-            _hasRoads     = info.HasRoads;
+            _color = info.Color;
+            _coordinates = new HexCoordinates((int) info.Coordinates.x, (int) info.Coordinates.z);
+            _elevation = info.Elevation;
+            _hasRiver = info.HasRiver;
+            _hasRoads = info.HasRoads;
             _isUnderWater = info.IsUnderWater;
-            _isWalled     = info.IsWalled;
-            _position     = info.Position;
-            _index        = info.Index;
+            _isWalled = info.IsWalled;
+            _position = info.Position;
+            _index = info.Index;
         }
 
         public HexNode[] Neighbors
@@ -103,7 +96,7 @@ namespace Assets.Scripts.AI
             get { return _index; }
         }
 
-        public int CompareTo (HexNode other)
+        public int CompareTo(HexNode other)
         {
             return (CostCurrent + CostEstimate).CompareTo(other.CostCurrent + other.CostEstimate);
         }
@@ -130,5 +123,6 @@ namespace Assets.Scripts.AI
                 "Neighbors Indexes: " + neighborIndexes
             );
             return returnString;
+        }
     }
 }
