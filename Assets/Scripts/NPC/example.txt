@@ -2,31 +2,29 @@
     <node>
         <npctext>Hi there Bitch. </npctext>
         <answers>
-            <answer tonode = "1" needquestvalue = "0"><text>Do you have work for me?</text><questname>Quest1</questname></answer>
-            <answer tonode = "2"><text>Hi.</text></answer>
-            <answer tonode = "0"><text>I'm going bitch. BYE</text><dialend>true</dialend></answer>
-            <answer tonode = "3" needquestvalue = "1"><text>Yes. Kill</text><questname>Quest1</questname></answer>
-            <answer tonode = "4" needquestvalue = "2"><text>What the hell.?</text><questname>Quest1</questname></answer>
+		    <answer tonode = "1" needquestvalue = "0"><text>Do you have work for me?</text><questname>Quest1</questname></answer>
+            <answer tonode = "3"><text>Hi.Do you sell fish</text></answer>
+			<answer tonode = "2" needquestvalue = "1"><text>Can you remind me what to do for the quest?</text><questname>Quest1</questname></answer>
+			<answer tonode = "4" needquestvalue = "2"><text>I did the quest</text><questname>Quest1</questname></answer>
         </answers>
     </node>
     <node>
-        <npctext>Yes. Find something. Idk what yet</npctext>
+        <npctext>Yese indeed. YOu have to find the trigger</npctext>
         <answers>
-            <answer tonode = "0" questvalue = "1"><text>OK. Im goin to do that</text><dialend>true</dialend><questname>Quest1</questname></answer>
-            <answer tonode = "0"><text>Nope. I hate it</text><dialend>true</dialend></answer>
+			<answer tonode ="0" needquestvalue = "0" questvalue = "1" ><text>OK. Im goin to do that </text><dialend>true</dialend><questname>Quest1</questname></answer>
+            <answer tonode="0"><text>Nope. I hate it</text><dialend>true</dialend></answer>
         </answers>
     </node>
     <node>
-        <npctext>SOmething blah blah</npctext>
+        <npctext>You have to trigger shit bruh</npctext>
         <answers>
-            <answer tonode = "1" needquestvalue = "0"><text>Is ther work for me?</text><questname>Quest1</questname></answer>
-            <answer tonode = "0"><text>Im leaving then</text><dialend>true</dialend></answer>
+            <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
         </answers>
     </node>
     <node>
-        <npctext>You need to reach trigger or something. IDK</npctext>
+        <npctext>No i don't. fuck off shitfucker</npctext>
         <answers>
-            <answer tonode = "0"><text>Easy as fuck bitch</text><dialend>true</dialend></answer>
+              <answer tonode="0"><text>Suck your balls fucker cunt jog sucker</text><dialend>true</dialend></answer>
         </answers>
     </node>
     <node>
