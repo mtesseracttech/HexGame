@@ -15,6 +15,7 @@ public class InstantiateDialog : MonoBehaviour {
     {
         dialog = Dialog.Load(Ta);
         PlayerPrefs.DeleteAll();
+        ShowDialogue = false;
     }
 
     void Update()
