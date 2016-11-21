@@ -2,16 +2,16 @@
     <node>
         <npctext>Hi there Bitch. </npctext>
         <answers>
-		    <answer tonode = "1" needquestvalue = "0"><text>Do you have work for me?</text><questname>Quest1</questname></answer>
+		    <answer tonode = "1" needquestvalue = "0"><text>Yo. Work for me?</text><questname>Quest2</questname></answer>
             <answer tonode = "3"><text>Hi.Do you sell fish</text></answer>
-			<answer tonode = "2" needquestvalue = "1"><text>Can you remind me what to do for the quest?</text><questname>Quest1</questname></answer>
-			<answer tonode = "4" needquestvalue = "2"><text>I did the quest</text><questname>Quest1</questname></answer>
+			<answer tonode = "2" needquestvalue = "1"><text>Can you remind me what to do for the quest?</text><questname>Quest2</questname></answer>
+			<answer tonode = "4" needquestvalue = "2"><text>I did the quest</text><questname>Quest2</questname></answer>
         </answers>
     </node>
     <node>
         <npctext>Yese indeed. YOu have to find the trigger</npctext>
         <answers>
-			<answer tonode ="0" needquestvalue = "0" questvalue = "1" ><text>OK. Im goin to do that </text><dialend>true</dialend><questname>Quest1</questname></answer>
+			<answer tonode ="0" needquestvalue = "0" questvalue = "1" ><text>OK. Im goin to do that </text><dialend>true</dialend><questname>Quest2</questname></answer>
             <answer tonode="0"><text>Nope. I hate it</text><dialend>true</dialend></answer>
         </answers>
     </node>
@@ -30,7 +30,7 @@
     <node>
         <npctext>Wow. you did it.Great job fucker</npctext>
         <answers>
-            <answer tonode = "0" needquestvalue = "2" questvalue = "3"  rewardgold = "400" > <text>Going to jerk off now</text><dialend>true</dialend><questname>Quest1</questname></answer>
+            <answer tonode = "0" needquestvalue = "2" questvalue = "3"  rewardgold = "400" > <text>Going to jerk off now</text><dialend>true</dialend><questname>Quest2</questname></answer>
         </answers>
     </node>
 </dialogue>

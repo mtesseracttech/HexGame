@@ -21,7 +21,7 @@ public class HexNodesManager : MonoBehaviour
 	        {
 	            foreach (var neighbor in node.Neighbors)
 	            {
-	                Debug.DrawLine(node.GetPosition(), neighbor.GetPosition(), Color.red);
+	                Debug.DrawLine(node.Position, neighbor.Position, Color.red);
 	            }
 	        }
 	    }
@@ -82,5 +82,11 @@ public class HexNodesManager : MonoBehaviour
         return Mathf.Abs(current.Elevation - other.Elevation) <= 1 &&
                !other.IsUnderWater && !current.IsUnderWater &&
                !other.HasRiver && !current.HasRiver;
+    }
+
+    public HexNode GetHexNode(int i)
+    {
+        if(_nodes != null && i < _nodes.Length) return _nodes[i];
+        return null;
     }
 }
