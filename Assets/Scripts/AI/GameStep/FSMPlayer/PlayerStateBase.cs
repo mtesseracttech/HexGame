@@ -8,8 +8,14 @@ namespace Assets.Scripts.AI
 
         protected PlayerStateBase(PlayerActor actor)
         {
+
         }
 
+
         public abstract void Update();
+
+        public abstract void BeginState();
+
+        public abstract void EndState();
     }
 }

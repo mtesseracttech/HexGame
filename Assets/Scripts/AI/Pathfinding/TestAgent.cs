@@ -42,8 +42,8 @@ public class TestAgent : MonoBehaviour
 	    }
 	    if (startNode != null && endNode != null)
 	    {
-            Debug.Log(startNode);
-            Debug.Log(endNode);
+            //Debug.Log(startNode);
+            //Debug.Log(endNode);
 	        Vector3 sP = startNode.Position;
 	        Debug.DrawLine(sP, new Vector3(sP.x, sP.y + 20, sP.z), Color.blue);
 	        Vector3 eP = endNode.Position;
@@ -61,6 +61,13 @@ public class TestAgent : MonoBehaviour
 	                if (_path != null)
 	                {
 	                    Debug.Log("Path found!\n" + "Path length : " + _path.Count);
+
+	                    string pathIndexes = "PathIndexes: \n";
+	                    foreach (var node in _path)
+	                    {
+	                        pathIndexes += node.Index + " ";
+	                    }
+	                    Debug.Log(pathIndexes);
 	                }
 	                else
 	                {
@@ -86,14 +93,14 @@ public class TestAgent : MonoBehaviour
     {
         for (int i = 0; i < _path.Count -1 ; i++)
         {
-            try
-            {
+            //try
+            //{
                 Debug.DrawLine(_path[i].Position, _path[i+1].Position);
-            }
-            catch (Exception)
-            {
-                Debug.Log("Shit goes wrong at " + i);
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    Debug.Log("Shit goes wrong at " + i);
+            //}
 
         }
     }
