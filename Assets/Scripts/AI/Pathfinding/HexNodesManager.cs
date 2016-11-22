@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters;
 using Assets.Scripts.AI;
 using Assets.Scripts.Saving;
-using UnityEngine.Networking.Types;
 
 public class HexNodesManager : MonoBehaviour
 {
