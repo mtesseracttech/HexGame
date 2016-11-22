@@ -1,10 +1,13 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Assets.Scripts.ObjectBehavior.Interactions;
+using UnityEngine;
 
-public class PickUpItem : Interactable {
+namespace Assets.Scripts.ActionItems
+{
+    public class PickUpItem : Interactable {
 
-    public override void Interact()
-    {
-        Debug.Log("Interacting with item");
+        public override void Interact()
+        {
+            Debug.Log("Interacting with item");
+        }
     }
 }

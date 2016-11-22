@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class ActionItem : Interactable
+namespace Assets.Scripts.ObjectBehavior.Interactions
 {
-
-    public string[] dialogue;
-	//performs a damn action
-    public override void Interact()
+    public class ActionItem : Interactable
     {
-       // DialogueSystem.Instance.AddNewDialogue(dialogue,"awdw");
-        Debug.Log("Interacting base action Item");
+
+        public string[] Dialogue;
+        //performs a damn action
+        public override void Interact()
+        {
+            // DialogueSystem.Instance.AddNewDialogue(dialogue,"awdw");
+            Debug.Log("Interacting base action Item");
+        }
     }
 }

@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-[System.Serializable]
-public class TileType
+namespace Assets.Scripts.TilePathFinding
 {
+    [System.Serializable]
+    public class TileType
+    {
 
-    public string Name;
-    public GameObject TileVisualPrefab;
+        public string Name;
+        public GameObject TileVisualPrefab;
 
-    public bool IsWalkable = true;
-    public float MovementCost = 1;
+        public bool IsWalkable = true;
+        public float MovementCost = 1;
 
+    }
 }

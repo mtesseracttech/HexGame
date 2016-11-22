@@ -1,21 +1,23 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Assets.Scripts.ObjectBehavior.Interactions;
+using UnityEngine;
 
-public class TriggerForQuest : Interactable
+namespace Assets.Scripts.ActionItems
 {
-    
-    public string QuestName = "Quest1";
-    [SerializeField]
-    public int QuestAmount = 2;
-
-
-    public override void Interact()
+    public class TriggerForQuest : Interactable
     {
-       Debug.Log("Triggered the trig");
-        if (PlayerPrefs.GetInt("Quest1") >= 0)
+        public string QuestName ;
+        [SerializeField]
+        public int QuestAmount ;
+
+
+        public override void Interact()
         {
-            Debug.Log("it was triggered");
-             PlayerPrefs.SetInt(QuestName,QuestAmount);
+            Debug.Log("Triggered the trig");
+            if (PlayerPrefs.GetInt(QuestName) > 0)
+            {
+                Debug.Log("it was triggered");
+                PlayerPrefs.SetInt(QuestName,QuestAmount);
+            }
         }
     }
 }

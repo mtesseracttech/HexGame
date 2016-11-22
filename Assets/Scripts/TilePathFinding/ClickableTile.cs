@@ -1,20 +1,22 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.EventSystems;
 
-public class ClickableTile : MonoBehaviour {
+namespace Assets.Scripts.TilePathFinding
+{
+    public class ClickableTile : MonoBehaviour {
 
-    public int TileX;
-    public int TileY;
-    public TileMap Map;
+        public int TileX;
+        public int TileY;
+        public TileMap Map;
 
-    void OnMouseUp()
-    {
-        Debug.Log("Click!");
+        void OnMouseUp()
+        {
+            Debug.Log("Click!");
 
-        if (EventSystem.current.IsPointerOverGameObject())
-            return;
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
 
-        Map.GeneratePathTo(TileX, TileY);
+            Map.GeneratePathTo(TileX, TileY);
+        }
     }
 }
