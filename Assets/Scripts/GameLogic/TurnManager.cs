@@ -1,109 +1,40 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSMEnemy;
+using UnityEngine;
 
-public class TurnManager : MonoBehaviour
+namespace Assets.Scripts.GameLogic.FSMTurn
 {
-    public GameObject Player;
-    public GameObject Grid;
-
-    private PlayerActor _player;
-    private List<EnemyActor> _enemies;
-
-
-	// Use this for initialization
-	void Start ()
-	{
-        _enemies = new List<EnemyActor>();
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}
-
-
-    private void StartStep()
+    public class TurnManager : MonoBehaviour
     {
-        PlayerStep();
-        EnemiesStep();
-    }
+        public GameObject Player;
+        public GameObject Grid;
 
-    private void PlayerStep()
-    {
-        PlayerChoicePhase();
-        PlayerActionPhase();
-    }
+        private PlayerActor _player;
+        private List<EnemyActor> _enemies;
 
-    private void PlayerChoicePhase()
-    {
-        _player.SetState(typeof(PlayerStateIdle));
-        bool playerChoicesMade = false;
-        while (!playerChoicesMade)
+        private Dictionary<Type, TurnPhaseBase> _phases;
+        private TurnPhaseBase _currentPhase;
+        private EnemyActor _currentEnemy;
+
+        void Start()
         {
-            Debug.Log("Player is making choices");
-            playerChoicesMade = true; //TEMP FOR DEBUGGING, SHOULD ONLY BECOME TRUE WHEN CHOICE IS ACTUALLY MADE!
+            _phases = new Dictionary<Type, TurnPhaseBase>();
+            _phases.Add(typeof(TurnPhaseIdle),            new TurnPhaseIdle           (this)               );
+            _phases.Add(typeof(TurnPhasePlayerSelection), new TurnPhasePlayerSelection(this, _player)      );
+            _phases.Add(typeof(TurnPhasePlayerAction),    new TurnPhasePlayerAction   (this, _player)      );
+            _phases.Add(typeof(TurnPhaseEnemySelection),  new TurnPhaseEnemySelection (this, _currentEnemy));
+            _phases.Add(typeof(TurnPhaseEnemyAction),     new TurnPhaseEnemyAction    (this, _currentEnemy));
+            _currentPhase = _phases[typeof(TurnPhaseIdle)];
+        }
+
+        public void ChangePhase(Type newPhase)
+        {
+            Debug.Log("Changing from phase: " + _currentPhase.GetType() + " to: " + newPhase);
+            _currentPhase.End();
+            _currentPhase = _phases[newPhase];
+            _currentPhase.Start();
         }
     }
-
-    private void PlayerActionPhase()
-    {
-        _player.SetState(typeof(PlayerStateStepMovement));
-        bool moving = true;
-        while (moving)
-        {
-            Debug.Log("Player is moving");
-            moving = false; //TEMP FOR DEBUGGING, SHOULD ONLY BECOME TRUE WHEN MOVEMENT IS FINISHED!
-        }
-        _player.SetState(typeof(PlayerStateAttack));
-        bool attacking = true;
-        while (attacking)
-        {
-            Debug.Log("Player is attacking");
-            attacking = false; //TEMP FOR DEBUGGING, SHOULD ONLY BECOME TRUE WHEN ATTACKING IS FINISHED!
-        }
-        _player.SetState(typeof(PlayerStateIdle));
-    }
-
-    private void EnemiesStep()
-    {
-        foreach (var enemy in _enemies)
-        {
-            EnemyStep(enemy);
-        }
-    }
-    private void EnemyStep(EnemyActor enemy)
-    {
-        EnemyChoicePhase(enemy);
-        EnemyActionPhase(enemy);
-    }
-
-    private void EnemyChoicePhase(EnemyActor enemy)
-    {
-        enemy.SetState(typeof(EnemyStateIdle));
-
-    }
-
-
-    private void EnemyActionPhase(EnemyActor enemy)
-    {
-
-    }
-
-    public void AddEnemy(EnemyActor enemy)
-    {
-        _enemies.Add(enemy);
-    }
-
-    public void RemoveEnemy(EnemyActor enemy)
-    {
-        if (_enemies.Contains(enemy))
-        {
-            _enemies.Remove(enemy);
-        }
-    }
-
 }
