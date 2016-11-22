@@ -19,6 +19,7 @@ namespace Assets.Scripts.AI
         private HexNode[] _neighbors;
         private int _index;
         private HexNode _parent;
+		private int _expansion;
 
         public float CostCurrent = 0; //keep track of cost up to now
         public float CostEstimate = 0; //keep track of cost estimate to goal
@@ -100,6 +101,12 @@ namespace Assets.Scripts.AI
         {
             return (CostCurrent + CostEstimate).CompareTo(other.CostCurrent + other.CostEstimate);
         }
+
+		public int Expansion
+		{
+			get { return _expansion; }
+			set { _expansion = value; }
+		}
 
         public override string ToString()
         {
