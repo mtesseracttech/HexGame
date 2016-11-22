@@ -21,6 +21,8 @@ namespace Assets.Scripts.AI
         private HexNode _parent;
 		private int _expansion;
 
+        private HexNodeObject gameObject;
+
         public float CostCurrent = 0; //keep track of cost up to now
         public float CostEstimate = 0; //keep track of cost estimate to goal
         public float CostCombined = 0; //The above two added together

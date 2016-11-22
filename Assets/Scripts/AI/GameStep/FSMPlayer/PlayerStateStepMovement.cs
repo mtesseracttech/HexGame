@@ -10,5 +10,15 @@
         {
 
         }
+
+        public override void BeginState()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void EndState()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

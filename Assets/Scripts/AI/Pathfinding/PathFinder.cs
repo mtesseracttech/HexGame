@@ -46,16 +46,13 @@ public class AStar
         //we are not done, start and end are set and there is at least 1 item on the open list...
 
         //check if we were already processing nodes, if so color the last processed node as black because it is on the closed list
-        if (_currentNode != null)
-        {
-            //_currentNode.SetColor(Color.DarkSlateGray);
-        }
+        //if (_currentNode != null)
+        //{
+        //}
 
         //get a node from the open list
         _currentNode = _todoList[0];
         _todoList.RemoveAt(0);
-
-        //_currentNode.SetColor(Color.Orange);
 
         //and move that node to the closed list (one way or another, we are done with it...)
         _doneList.Add(_currentNode);
@@ -112,7 +109,10 @@ public class AStar
 
     public bool Done
     {
-        get { return _done; }
+        get
+        {
+            return _done;
+        }
     }
 
     public List<HexNode> Path
@@ -129,8 +129,7 @@ public class AStar
 
     private void GeneratePath()
     {
-        Debug.Log("first node is: " );
-        Debug.Log("last node is: ");
+
         List<HexNode> nodeList = new List<HexNode>();
         HexNode node = _endNode;
         while (node != null)
@@ -138,9 +137,12 @@ public class AStar
             nodeList.Add(node);
             node = node.Parent;
         }
-        nodeList.Add(node);
         nodeList.Reverse();
+
         _path = nodeList;
+
+        Debug.Log("First node is: \n" + _path[0]);
+        Debug.Log("Last node is: \n" + _path[_path.Count-1]);
     }
 
     private void ResetPathFinder()
