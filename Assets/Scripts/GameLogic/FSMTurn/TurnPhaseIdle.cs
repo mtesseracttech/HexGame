@@ -31,6 +31,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         public override void Start()
         {
             Done = false;
+            Manager.RemoveDeadEnemies();
             Manager.SetPlayerStates(typeof(PlayerStateIdle));
             Manager.SetEnemyStates (typeof(EnemyStateIdle) );
         }

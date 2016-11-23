@@ -79,7 +79,7 @@ public class BreadthFirst : MonoBehaviour {
 						}
 
 					}
-					Debug.Log (next.Index);
+					//Debug.Log (next.Index);
 				}
 			}
 		}

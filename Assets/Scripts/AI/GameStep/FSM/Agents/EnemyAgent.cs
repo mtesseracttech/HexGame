@@ -9,6 +9,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
     {
         private Dictionary<Type, EnemyStateBase> _states;
         private EnemyStateBase _currentState;
+        private bool _alive = true;
 
         void Start()
         {
@@ -33,6 +34,11 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             _currentState.EndState();
             _currentState = _states[state];
             _currentState.BeginState();
+        }
+
+        public bool IsDead()
+        {
+            return !_alive;
         }
     }
 }

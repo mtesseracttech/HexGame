@@ -46,111 +46,52 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                         SelectionHexRenderer hex = hit.collider.gameObject.GetComponent<SelectionHexRenderer>();
                         if (hex != null)
                         {
-                            Debug.Log("Pathfinder gets: " + Player.GetCurrentNode().Index + " , " +
-                                      hex.GetUnderlyingNode().Index);
                             _pathfinder = new Pathfinder();
-                            _pathfinder.Search(Player.GetCurrentNode(), hex.GetUnderlyingNode());
+                            _pathfinder.Search(Player.CurrentNode, hex.GetUnderlyingNode());
                             _path = _pathfinder.Path;
                             if (_path != null)
                             {
                                 if (_path.Count <= 2 && hex.GetUnderlyingNode().HasEnemy)
                                 {
                                     Debug.Log("Has enemy, moving to closest tile");
-                                    //SetWalkInfo
-                                    //SetAttackInfo
+                                    List<HexNode> tempPath = new List<HexNode>();
+                                    tempPath.Add(_path[0]);
+                                    Manager.WalkPath = tempPath;
+                                    Manager.AttackTarget = hex.GetUnderlyingNode();
+                                    Done = true;
+
                                 }
                                 else if (_path.Count == 1)
                                 {
                                     Debug.Log("Moving to close tile");
-                                    //SetWalkInfo
+                                    List<HexNode> tempPath = new List<HexNode>();
+                                    tempPath.Add(_path[0]);
+                                    Manager.WalkPath = tempPath;
+                                    Manager.AttackTarget = null;
+                                    Done = true;
+                                }
+                                else
+                                {
+                                    Debug.Log("That tile is too far away to walk to/attack!");
                                 }
                             }
                         }
                     }
                 }
             }
-            //PSEUDOCODE:
-            /*
-
-            display available tiles
-            Raycast mouseloc
-            if(ray hit tag == selectabletile)
-            {
-                end = hit.tilemeh
-                path = findPath(current, end)
-                if(path.Count <= 2 && end.containsEnemy)
-                {
-                    show lines on path to enemy
-                }
-                elseif(path.Count = 1)
-                {
-                    show line on path
-                }
-                else
-                {
-                    Nothing ofc
-                }
-            }
-
-            Raycast mouseclick
-            if(ray hit tag == selectabletile)
-            {
-                end = hit.tilemeh
-                path = findPath(current, end)
-                if(path.Count <= 2 && end.containsEnemy)
-                {
-                    SetWalkInfo
-                    SetAttackInfo
-                }
-                elseif(path.Count = 1)
-                {
-                    SetWalkInfo
-                }
-                else
-                {
-                    Nothing ofc
-                    fml, end my suffering please
-                }
-            }
-
-            fucking consumables
-            */
-
-
-            if (_path != null)
-            {
-                foreach (var hexNode in _path)
-                {
-                    try
-                    {
-                        Debug.DrawLine(hexNode.Position, hexNode.Parent.Position);
-                    }
-                    catch (Exception)
-                    {
-                    }
-
-                }
-            }
-
+            //fucking consumables
 
             if (Done)
             {
                 Manager.ChangePhase(typeof(TurnPhasePlayerAction));
             }
-            else
-            {
-                Debug.Log("Player Making Selection");
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    Player.IsIdling();
-                    Done = true;
-                }
-            }
         }
 
         public override void Start()
         {
-            Done = false;
+            Done                 = false;
+            Manager.AttackTarget = null;
+            Manager.WalkPath     = null;
             Player.SetState(typeof(PlayerStateIdle));
         }
 

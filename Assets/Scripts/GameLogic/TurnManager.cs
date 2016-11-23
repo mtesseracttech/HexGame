@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
 using Assets.Scripts.GameLogic.FSMTurn;
 using UnityEngine;
@@ -19,6 +20,9 @@ namespace Assets.Scripts.GameLogic
         private EnemyAgent                      _currentEnemy;
         private int                             _currentEnemyIterator = 0;
         private HexNodesManager                 _hexNodesManager;
+        private HexNode                         _attackTarget;
+        private List<HexNode>                   _walkPath;
+
 
         void Start()
         {
@@ -154,6 +158,30 @@ namespace Assets.Scripts.GameLogic
         public Type GetPhase()
         {
             return _currentPhase.GetType();
+        }
+
+        public HexNode AttackTarget
+        {
+            get { return  _attackTarget; }
+            set { _attackTarget = value; }
+        }
+
+        public List<HexNode> WalkPath
+        {
+            get { return  _walkPath; }
+            set { _walkPath = value; }
+        }
+
+        public void RemoveDeadEnemies()
+        {
+            for (int i = _enemies.Count - 1; i >= 0; i--)
+            {
+                if (_enemies[i].IsDead())
+                {
+                    Destroy(_enemies[i].gameObject);
+                    _enemies.RemoveAt(i);
+                }
+            }
         }
     }
 }
