@@ -8,7 +8,8 @@ public class HexNodesManager : MonoBehaviour
     public bool DebugMode = false;
 
     private HexNode[] _nodes;
-	
+
+
 	// Update is called once per frame
 	void Update ()
 	{
@@ -22,6 +23,16 @@ public class HexNodesManager : MonoBehaviour
 	            }
 	        }
 	    }
+	}
+
+	public void SetBuildingTiles () {
+		HexNode i = GetHexNode (301);
+		i.HasBuilding = true;
+	}
+
+	public void SetEnemyTiles () {
+		HexNode i = GetHexNode (304);
+		i.HasEnemy = true;
 	}
 
     public void SetNodesFromInfoContainer(HexCellInfoContainer[] infoContainers, bool cullBadConnections = false)
