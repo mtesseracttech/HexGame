@@ -31,7 +31,7 @@ public class HexNodesManager : MonoBehaviour
 	}
 
 	public void SetEnemyTiles () {
-		HexNode i = GetHexNode (304);
+		HexNode i = GetHexNode (261);
 		i.HasEnemy = true;
 	}
 

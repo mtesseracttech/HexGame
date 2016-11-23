@@ -9,7 +9,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         public  GameObject                        HexNodeManager;
         public  int                               StartNodeIndex;
         public  int                               EndNodeIndex;
-
         private Dictionary<Type, PlayerStateBase> _states;
         private PlayerStateBase                   _currentState;
         private HexNode                           _targetNode;
@@ -17,6 +16,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private Pathfinder                        _pathfinder;
         private List<HexNode>                     _path;
         private HexNodesManager                   _hexNodesManager;
+        private HexNode                           _attackTarget;
 
         void Start()
         {
@@ -48,6 +48,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             _states = new Dictionary<Type, PlayerStateBase>();
             _states.Add(typeof(PlayerStateFreeMovement), new PlayerStateFreeMovement(this));
             _states.Add(typeof(PlayerStateStepMovement), new PlayerStateStepMovement(this));
+            _states.Add(typeof(PlayerStateAttack),       new PlayerStateAttack      (this));
             _states.Add(typeof(PlayerStateIdle),         new PlayerStateIdle        (this));
 
             //Starting first state manually
@@ -80,14 +81,16 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             return _path;
         }
 
-        public HexNode GetCurrentNode()
+        public HexNode CurrentNode
         {
-            return _currentNode;
+            get { return  _currentNode; }
+            set { _currentNode = value; }
         }
 
-        public HexNode GetCurrentTarget()
+        public HexNode TargetNode
         {
-            return _targetNode;
+            get { return  _targetNode; }
+            set { _targetNode = value; }
         }
 
         public void SetCurrentNode(HexNode node)
@@ -105,6 +108,12 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         {
             get { return  transform.rotation; }
             set { transform.rotation = value; }
+        }
+
+        public HexNode AttackTarget
+        {
+            get { return  _attackTarget; }
+            set { _attackTarget = value; }
         }
 
         public bool IsIdling()

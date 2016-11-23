@@ -1,7 +1,5 @@
-﻿
-using Assets.Scripts.AI;
+﻿using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
-using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {
@@ -13,21 +11,40 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void Update()
         {
-            Debug.Log("Player Action Time");
             if (Player.IsIdling())
             {
-                Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
+                //First Walking is done till the player is idling again if data is present
+                if (Manager.WalkPath != null)
+                {
+                    Player.TargetNode = Manager.WalkPath[0]; //Just a single step is allowed!
+                    Manager.WalkPath  = null;
+                    Player.SetState(typeof(PlayerStateStepMovement));
+                }
+                //Then Attacking is executed till idling again if the data is present
+                else if (Manager.AttackTarget != null)
+                {
+                    Player.AttackTarget  = Manager.AttackTarget;
+                    Manager.AttackTarget = null;
+                    Player.SetState(typeof(PlayerStateAttack));
+                }
+                //If both datas are set to null and the player is idling again, the next state is loaded
+                else if (Manager.WalkPath == null && Manager.AttackTarget == null)
+                {
+                    Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
+                }
             }
         }
 
         public override void Start()
         {
-            Done = false;
-            Player.SetState(typeof(PlayerStateStepMovement));
+            Player.SetState(typeof(PlayerStateIdle));
         }
 
         public override void End()
         {
+            Player.AttackTarget = null;
+            Player.TargetNode   = null;
+            Player.SetState(typeof(PlayerStateIdle));
         }
     }
 }

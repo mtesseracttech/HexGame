@@ -33,8 +33,8 @@ namespace Assets.Scripts.AI
 
         public override void BeginState()
         {
-            _currentNode = Agent.GetCurrentNode();
-            _targetNode  = Agent.GetCurrentTarget();
+            _currentNode = Agent.CurrentNode;
+            _targetNode  = Agent.TargetNode;
             _path        = _currentNode.Position - _targetNode.Position;
             _speedStep   = _path.normalized * _speed;
         }

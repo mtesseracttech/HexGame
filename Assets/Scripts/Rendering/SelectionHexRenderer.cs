@@ -6,28 +6,19 @@ using JetBrains.Annotations;
 
 public class SelectionHexRenderer : MonoBehaviour
 {
-    //UNCOMMENT NODE RELATED THINGS AND REMOVE START() BEFORE USING!!!
 
     public Material tempMaterial;
 
     private HexNode _node;
 
-    void Start() {
-		//_node = GameObject.Find ("HexNodes").GetComponent <HexNodesManager> ().GetHexNode (30);
-		Create ();
-	}
-
-//	GameObject temp = (GameObject)Instantiate (original);
-//	temp.SendMessage(Node);
-
-    void Create(/*HexNode node*/)
+    void Create(HexNode node)
     {
         if (_node != null)
         {
             Debug.Log("This SelectionHex is already created");
             return;
         }
-        //_node = node;
+        _node = node;
         CreateShape();
     }
 
@@ -141,10 +132,6 @@ public class SelectionHexRenderer : MonoBehaviour
         
         /////////////////////////////////////////////
 
-
-
-
-
         totalMesh.vertices = vertices.ToArray();
         totalMesh.triangles = indices.ToArray();
         totalMesh.uv = uvs.ToArray();
@@ -155,7 +142,7 @@ public class SelectionHexRenderer : MonoBehaviour
         gameObject.AddComponent<MeshCollider>();
         gameObject.GetComponent<MeshRenderer>().sharedMaterial = tempMaterial;
 
-        //transform.position = _node.Position;
+        transform.position = _node.Position;
     }
 
     // Update is called once per frame
@@ -167,5 +154,10 @@ public class SelectionHexRenderer : MonoBehaviour
     void SetColor(Color color)
     {
 
+    }
+
+    public HexNode GetUnderlyingNode()
+    {
+        return _node;
     }
 }
