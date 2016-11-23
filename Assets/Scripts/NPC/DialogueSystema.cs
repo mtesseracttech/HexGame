@@ -16,7 +16,7 @@ namespace Assets.Scripts.NPC
         public DialogXmLreader DialogXmlReader;
 
         [Header("HUD references")]
-        public GameObject DialogueHUD;
+        public GameObject DialogueHud;
         public Image NpcImage;
         public Text NpCtext;
         public Text Npcname;
@@ -83,7 +83,7 @@ namespace Assets.Scripts.NPC
                         if (Answers[i].End == "true")
                         {
                             ShowDialogue = false;
-                            DialogueHUD.SetActive(false);
+                            DialogueHud.SetActive(false);
                             //play animation of fading back
                             
                         }
