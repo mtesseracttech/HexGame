@@ -77,9 +77,6 @@ namespace Assets.Scripts.GameLogic
                 _enemies = new List<EnemyAgent>();
             }
 
-
-            SetDebugActors();
-
             //Setting up the cache
             _phases = new Dictionary<Type, TurnPhaseBase>();
             _phases.Add(typeof(TurnPhaseIdle),            new TurnPhaseIdle           (this)               );
@@ -120,15 +117,6 @@ namespace Assets.Scripts.GameLogic
             }
             _currentEnemy = _enemies[_currentEnemyIterator];
             return true;
-        }
-
-
-        void SetDebugActors()
-        {
-            _player = new PlayerAgent(new GameObject());
-            _enemies.Add(new EnemyAgent());
-            _enemies.Add(new EnemyAgent());
-            _enemies.Add(new EnemyAgent());
         }
 
         public void AddEnemy(EnemyAgent enemy)

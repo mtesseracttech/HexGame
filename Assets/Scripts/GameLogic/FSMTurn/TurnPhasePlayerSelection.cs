@@ -22,6 +22,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 Debug.Log("Player Making Selection");
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    Player.IsIdling();
                     Done = true;
                 }
             }

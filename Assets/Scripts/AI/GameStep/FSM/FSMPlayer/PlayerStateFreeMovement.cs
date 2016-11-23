@@ -14,7 +14,6 @@ namespace Assets.Scripts.AI
         public override void BeginState()
         {
             _totalPath = Agent.GetPath();
-
         }
 
         public override void Update()

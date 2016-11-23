@@ -14,7 +14,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         public override void Update()
         {
             Debug.Log("Player Action Time");
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Player.IsIdling())
             {
                 Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
             }

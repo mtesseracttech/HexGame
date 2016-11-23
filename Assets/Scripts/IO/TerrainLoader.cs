@@ -13,6 +13,16 @@ public class TerrainLoader : MonoBehaviour
 
     public GameObject HexNodesManagerRef;
 
+    void Awake()
+    {
+        if (HexNodesManagerRef != null) LoadLevelData();
+        else
+        {
+            Debug.Log("The Hex Node Manager was not linked! Cannot Load Hex Node Data");
+        }
+    }
+
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +35,8 @@ public class TerrainLoader : MonoBehaviour
             }
         }
     }
+    */
+
 
     private void LoadLevelData()
     {

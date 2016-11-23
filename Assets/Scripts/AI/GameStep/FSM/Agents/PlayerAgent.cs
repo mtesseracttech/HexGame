@@ -1,26 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Assets.Scripts.AI.GameStep.FSM.Agents
 {
-    public class PlayerAgent
+    public class PlayerAgent : MonoBehaviour
     {
+        public  GameObject                        HexNodeManager;
+        public  int                               StartNodeIndex;
+        public  int                               EndNodeIndex;
+
         private Dictionary<Type, PlayerStateBase> _states;
         private PlayerStateBase                   _currentState;
         private HexNode                           _targetNode;
         private HexNode                           _currentNode;
         private Pathfinder                        _pathfinder;
-        private HexNode                           _pathEndNode;
         private List<HexNode>                     _path;
-        private bool                              _doneMoving;
-        private GameObject                        _gameObject;
+        private HexNodesManager                   _hexNodesManager;
 
-        public PlayerAgent(GameObject gameObject)
+        void Start()
         {
-            _gameObject = gameObject;
+            if (HexNodeManager != null)
+            {
+                _hexNodesManager = HexNodeManager.GetComponent<HexNodesManager>();
+                if (_hexNodesManager == null)
+                {
+                    Debug.Log("There was no HexNodesManager script bound to the given HexNodeManager instance!");
+                }
+                else
+                {
+                    Debug.Log("Successfully linked the HexNodeManager to the PlayerAgent!");
+                    _currentNode = _hexNodesManager.GetHexNode(StartNodeIndex);
+                    _targetNode  = _hexNodesManager.GetHexNode(EndNodeIndex);
+                    transform.position = _currentNode.Position;
+
+                }
+            }
+            else
+            {
+                Debug.Log("No HexNodeManager instance was supplied to the PlayerAgent!");
+            }
+
+            _pathfinder = new Pathfinder();
+
 
             //Setting up the Cache
             _states = new Dictionary<Type, PlayerStateBase>();
@@ -33,7 +55,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             _currentState.BeginState();
         }
 
-        public void UpdateState()
+        void Update()
         {
             _currentState.Update();
         }
@@ -68,16 +90,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             return _targetNode;
         }
 
-        public HexNode GetCurrentEndPoint()
-        {
-            return _pathEndNode;
-        }
-
-        public bool IsDoneMoving()
-        {
-            return _doneMoving;
-        }
-
         public void SetCurrentNode(HexNode node)
         {
             _currentNode = node;
@@ -85,14 +97,14 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
 
         public Vector3 Position
         {
-            get { return  _gameObject.transform.position; }
-            set { _gameObject.transform.position = value; }
+            get { return  transform.position; }
+            set { transform.position = value; }
         }
 
         public Quaternion Rotation
         {
-            get { return  _gameObject.transform.rotation; }
-            set { _gameObject.transform.rotation = value; }
+            get { return  transform.rotation; }
+            set { transform.rotation = value; }
         }
 
         public bool IsIdling()

@@ -10,10 +10,13 @@ namespace Assets.Scripts.AI
         private HexNode _currentNode;
         private HexNode _targetNode;
         private Vector3 _path;
-        private float   _speed = 0.1f;
+        private float   _speed = 0.5f;
         private Vector3 _speedStep;
 
-        public PlayerStateStepMovement(PlayerAgent agent) : base(agent){}
+        public PlayerStateStepMovement(PlayerAgent agent) : base(agent)
+        {
+            Agent = agent;
+        }
 
         public override void Update()
         {
@@ -23,6 +26,7 @@ namespace Assets.Scripts.AI
             }
             else
             {
+                Agent.Position = _targetNode.Position;
                 Agent.SetState(typeof(PlayerStateIdle));
             }
         }
@@ -32,7 +36,7 @@ namespace Assets.Scripts.AI
             _currentNode = Agent.GetCurrentNode();
             _targetNode  = Agent.GetCurrentTarget();
             _path        = _currentNode.Position - _targetNode.Position;
-            _speedStep   = _path * _speed;
+            _speedStep   = _path.normalized * _speed;
         }
 
         public override void EndState()

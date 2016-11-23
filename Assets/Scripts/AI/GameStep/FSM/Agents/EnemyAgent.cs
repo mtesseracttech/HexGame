@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace Assets.Scripts.AI.GameStep.FSM.Agents
 {
-    public class EnemyAgent
+    public class EnemyAgent : MonoBehaviour
     {
         private Dictionary<Type, EnemyStateBase> _states;
         private EnemyStateBase _currentState;
 
-        public EnemyAgent()
+        void Start()
         {
             _states = new Dictionary<Type, EnemyStateBase>();
 
@@ -21,7 +21,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             _currentState = _states[typeof(EnemyStateIdle)];
         }
 
-        public void Update()
+        void Update()
         {
             _currentState.Update();
         }
