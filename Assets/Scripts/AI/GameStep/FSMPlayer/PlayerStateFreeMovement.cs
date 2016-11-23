@@ -2,7 +2,11 @@
 {
     public class PlayerStateFreeMovement : PlayerStateBase
     {
-        public PlayerStateFreeMovement(PlayerActor actor) : base(actor)
+        private Node targetNode;
+        private Node currentNode;
+        private Node totalPath;
+
+        public PlayerStateFreeMovement(PlayerAgent agent) : base(agent)
         {
         }
 
