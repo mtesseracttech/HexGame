@@ -9,7 +9,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         public  GameObject                        HexNodeManager;
         public  int                               StartNodeIndex;
         public  int                               EndNodeIndex;
-
         private Dictionary<Type, PlayerStateBase> _states;
         private PlayerStateBase                   _currentState;
         private HexNode                           _targetNode;

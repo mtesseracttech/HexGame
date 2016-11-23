@@ -13,6 +13,14 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void Update()
         {
+            //PseudoCode
+            /*
+            if(WalkInfo != null)
+            {
+                Let run till player is idle again
+            }
+            */
+
             Debug.Log("Player Action Time");
             if (Player.IsIdling())
             {

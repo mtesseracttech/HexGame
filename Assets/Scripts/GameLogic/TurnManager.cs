@@ -150,5 +150,10 @@ namespace Assets.Scripts.GameLogic
         {
             return _currentEnemy;
         }
+
+        public Type GetPhase()
+        {
+            return _currentPhase.GetType();
+        }
     }
 }
