@@ -1,4 +1,6 @@
-﻿namespace Assets.Scripts.AI.GameStep.FSMEnemy
+﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
+
+namespace Assets.Scripts.AI.GameStep.FSMEnemy
 {
     public class EnemyStateStepMovement : EnemyStateBase
     {

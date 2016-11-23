@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.AI;
+using Assets.Scripts.AI.GameStep.FSM.Agents;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
@@ -7,6 +8,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
     {
         public TurnPhasePlayerSelection(TurnManager manager, PlayerAgent player) : base(manager, player)
         {
+            Player = player;
         }
 
         public override void Update()

@@ -1,4 +1,5 @@
 ﻿
+using Assets.Scripts.AI.GameStep.FSM.Agents;
 using Assets.Scripts.AI.GameStep.FSMEnemy;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void Start()
         {
+            Enemy = Manager.RefreshCurrentEnemy();
             Debug.Log("Enemy Making Selection!");
             Manager.ChangePhase(typeof(TurnPhaseEnemyAction));
         }

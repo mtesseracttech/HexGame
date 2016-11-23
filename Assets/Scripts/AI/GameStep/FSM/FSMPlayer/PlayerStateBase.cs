@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
+using UnityEngine;
 
 namespace Assets.Scripts.AI
 {
@@ -10,7 +11,6 @@ namespace Assets.Scripts.AI
         {
 
         }
-
 
         public abstract void Update();
 

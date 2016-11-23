@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.AI.GameStep.FSMEnemy;
 using UnityEngine;
 
-namespace Assets.Scripts.AI.GameStep.FSMEnemy
+namespace Assets.Scripts.AI.GameStep.FSM.Agents
 {
     public class EnemyAgent
     {
@@ -27,7 +28,8 @@ namespace Assets.Scripts.AI.GameStep.FSMEnemy
 
         public void SetState(Type state)
         {
-            Debug.Log("Player Changing from: " + _currentState.GetType() + " to: " + state);
+            if (_currentState.GetType() == state) return;
+            Debug.Log("Enemy Changing from: " + _currentState.GetType() + " to: " + state);
             _currentState.EndState();
             _currentState = _states[state];
             _currentState.BeginState();

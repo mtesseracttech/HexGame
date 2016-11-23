@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.AI;
+﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {

@@ -1,8 +1,10 @@
-﻿namespace Assets.Scripts.AI
+using Assets.Scripts.AI.GameStep.FSM.Agents;
+
+namespace Assets.Scripts.AI.GameStep.FSMEnemy
 {
-    public class PlayerStateStepMovement : PlayerStateBase
+    public class EnemyStateIdle : EnemyStateBase
     {
-        public PlayerStateStepMovement(PlayerAgent agent) : base(agent)
+        public EnemyStateIdle(EnemyAgent agent) : base(agent)
         {
         }
 
@@ -12,12 +14,10 @@
 
         public override void BeginState()
         {
-
         }
 
         public override void EndState()
         {
-
         }
     }
 }

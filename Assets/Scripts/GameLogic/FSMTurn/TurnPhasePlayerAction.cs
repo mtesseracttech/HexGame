@@ -1,5 +1,6 @@
 ﻿
 using Assets.Scripts.AI;
+using Assets.Scripts.AI.GameStep.FSM.Agents;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
