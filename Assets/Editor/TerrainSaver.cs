@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Assets.Scripts.Saving;
+
+# if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class TerrainSaver : MonoBehaviour
 {
