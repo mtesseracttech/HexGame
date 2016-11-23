@@ -31,18 +31,16 @@ public class Inventory : MonoBehaviour {
 			slots [i].GetComponent <Slot> ().id = i;
 			slots [i].transform.SetParent (_slotPanel.transform, false);
 		}
-
-		AddItem(4);
         AddItem(5);
-        AddItem(6);
-        AddItem(7);
+        AddItem(5);
+        AddItem(5);
     }
 
 	public void AddItem (int id)
     {
 		Item itemToAdd = _database.FetchItemByID (id);
 
-		if (itemToAdd.Stackable == true && CheckIfItemIsInInventory (itemToAdd) == true) {
+		if (itemToAdd.Stackable && CheckIfItemIsInInventory (itemToAdd)) {
 			for (int i = 0; i < items.Count; i++) {
 				if (items [i].ID == id) {
 					ItemInfo data = slots [i].transform.GetChild (0).GetComponent<ItemInfo> ();
@@ -70,7 +68,7 @@ public class Inventory : MonoBehaviour {
 		}
 	}
 
-	bool CheckIfItemIsInInventory (Item item) {
+	public bool CheckIfItemIsInInventory (Item item) {
 		for (int i = 0; i < items.Count; i++) {
 			if (items [i].ID == item.ID) {
 				return true;
@@ -78,4 +76,30 @@ public class Inventory : MonoBehaviour {
 		}
 		return false;
 	}
+
+    public void RemoveItemFromInventory(int itemId, int amountToRemove)
+    {
+        ItemInfo data;
+
+        for (int i = 0; i < _slotAmount; i++)
+        {
+            if (items[i].ID == itemId)
+            {
+                data = slots[i].transform.GetChild(0).GetComponent<ItemInfo>();
+
+                if (data.amount > amountToRemove)
+                {
+                    data.amount -= amountToRemove;
+                    data.transform.GetChild(0).GetComponent<Text>().text = data.amount.ToString();
+                    break;
+                }
+                else
+                {
+                    Destroy(data.gameObject);
+                    items[i] = new Item();
+                    break;
+                }
+            }
+        }
+    }
 }

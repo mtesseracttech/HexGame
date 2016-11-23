@@ -24,6 +24,26 @@ namespace Assets.Scripts.NPC
         [Header("NPC info")]
         public Sprite NpcAvatar;
         public string NameNpc;
+        
+        [Header("NPC name position")]
+        private int NpcNameX = 20;
+        private int NpcNameY = 785;
+
+        [Header("NPC text position")]
+        private int NpcTextX = 150;
+        private int NpcTextY = 560;
+
+        [Header("NPC box position")]
+        private int BoxPositionX = -5;
+        private int BoxPositionY = 530;
+
+        [Header("BOX size")]
+        private int BoxWidth = 700;
+        private int BoxHeight = 300;
+
+        [Header("Answer position")]
+        public int PositionX;
+        public int PositionY;
 
         void Start()
         {
@@ -70,11 +90,14 @@ namespace Assets.Scripts.NPC
             GUI.skin = Skin;
             if (ShowDialogue)//and animation is finished
             {
-                // GUI.Box(new Rect(Screen.width / 2 - 300, Screen.height - 300, 600, 250), "");
-                // GUI.Label(new Rect(Screen.width / 2 - 250, Screen.height - 280, 500, 90), DialogXmlReader.nodes[CurrentNode].NpcText);
+               //  GUI.Box(new Rect(BoxPositionX,BoxPositionY, BoxWidth, BoxHeight), "");
+                // GUI.Label(new Rect(NpcTextX, NpcTextY, 500, 90), DialogXmlReader.Nodes[CurrentNode].NpcText);
+                // GUI.Label(new Rect(NpcNameX,NpcNameY,200,100),NameNpc);
+                
+
                 for (int i = 0; i < Answers.Count; i++)
                 {
-                    if (GUI.Button(new Rect(Screen.width / 2 - 450, Screen.height - 150 + 25 * i, 500, 25), Answers[i].Text, Skin.label))
+                    if (GUI.Button(new Rect(PositionX , Screen.height - PositionY + 25 * i, 500, 25), Answers[i].Text, Skin.label))
                     {
                         if (Answers[i].QuestValue > 0)
                         {
