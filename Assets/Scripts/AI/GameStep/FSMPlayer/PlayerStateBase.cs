@@ -4,9 +4,9 @@ namespace Assets.Scripts.AI
 {
     public abstract class PlayerStateBase
     {
-        protected PlayerActor Actor;
+        protected PlayerAgent Agent;
 
-        protected PlayerStateBase(PlayerActor actor)
+        protected PlayerStateBase(PlayerAgent agent)
         {
 
         }

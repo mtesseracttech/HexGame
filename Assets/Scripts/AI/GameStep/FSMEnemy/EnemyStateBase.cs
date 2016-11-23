@@ -2,9 +2,9 @@
 {
     public abstract class EnemyStateBase
     {
-        protected EnemyActor Actor;
+        protected EnemyAgent Agent;
 
-        protected EnemyStateBase(EnemyActor actor)
+        protected EnemyStateBase(EnemyAgent agent)
         {
 
         }

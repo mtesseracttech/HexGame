@@ -7,7 +7,7 @@ namespace Assets.Scripts.ObjectBehavior.Interactions
         // protected NavMeshAgent playerAgent;
         // private bool hasInteracted;
 
-        public virtual void MoveToInteraction(UnityEngine.AI.NavMeshAgent pPlayerAgent)
+        public virtual void MoveToInteraction(/*UnityEngine.AI.*/NavMeshAgent pPlayerAgent)
         {
             // hasInteracted = false;
             //  playerAgent = pPlayerAgent;

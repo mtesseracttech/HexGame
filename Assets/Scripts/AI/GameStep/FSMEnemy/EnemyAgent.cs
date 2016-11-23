@@ -4,15 +4,19 @@ using UnityEngine;
 
 namespace Assets.Scripts.AI.GameStep.FSMEnemy
 {
-    public class EnemyActor
+    public class EnemyAgent
     {
         private Dictionary<Type, EnemyStateBase> _states;
         private EnemyStateBase _currentState;
 
-        public EnemyActor()
+        public EnemyAgent()
         {
-            _states.Add(typeof(PlayerStateStepMovement), new EnemyStateStepMovement(this));
-            _states.Add(typeof(PlayerStateIdle),         new EnemyStateIdle        (this));
+            _states = new Dictionary<Type, EnemyStateBase>();
+
+            _states.Add(typeof(EnemyStateStepMovement), new EnemyStateStepMovement(this));
+            _states.Add(typeof(EnemyStateAttacking),    new EnemyStateAttacking   (this));
+            _states.Add(typeof(EnemyStateIdle),         new EnemyStateIdle        (this));
+
             _currentState = _states[typeof(EnemyStateIdle)];
         }
 

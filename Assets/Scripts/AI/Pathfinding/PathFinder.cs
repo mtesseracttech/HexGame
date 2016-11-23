@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters;
 using Assets;
 using Assets.Scripts.AI;
 
-public class AStar
+public class Pathfinder
 {
     private List<HexNode> _todoList;
     private List<HexNode> _doneList;

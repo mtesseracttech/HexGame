@@ -2,7 +2,7 @@
 {
     public class EnemyStateStepMovement : EnemyStateBase
     {
-        public EnemyStateStepMovement(EnemyActor actor) : base(actor)
+        public EnemyStateStepMovement(EnemyAgent agent) : base(agent)
         {
         }
 

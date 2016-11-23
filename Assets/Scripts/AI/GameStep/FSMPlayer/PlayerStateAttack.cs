@@ -2,7 +2,7 @@ namespace Assets.Scripts.AI
 {
     public class PlayerStateAttack : PlayerStateBase
     {
-        public PlayerStateAttack(PlayerActor actor) : base(actor)
+        public PlayerStateAttack(PlayerAgent agent) : base(agent)
         {
         }
 

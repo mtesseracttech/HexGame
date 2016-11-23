@@ -1,21 +1,25 @@
-namespace Assets.Scripts.AI.GameStep.FSMEnemy
+﻿namespace Assets.Scripts.AI.GameStep.FSMEnemy
 {
-    public class EnemyStateIdle : EnemyStateBase
+    public class EnemyStateAttacking : EnemyStateBase
     {
-        public EnemyStateIdle(EnemyAgent agent) : base(agent)
+        public EnemyStateAttacking(EnemyAgent agent) : base(agent)
         {
+
         }
 
         public override void Update()
         {
+            
         }
 
         public override void BeginState()
         {
+
         }
 
         public override void EndState()
         {
+
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class PlayerStateIdle : PlayerStateBase
     {
-        public PlayerStateIdle(PlayerActor actor) : base(actor)
+        public PlayerStateIdle(PlayerAgent agent) : base(agent)
         {
         }
 
