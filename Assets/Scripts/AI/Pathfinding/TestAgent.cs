@@ -15,12 +15,12 @@ public class TestAgent : MonoBehaviour
     private HexNode startNode;
     private HexNode endNode;
     private List<HexNode> _path;
-    private AStar _pathfinder;
+    private Pathfinder _pathfinder;
 	// Use this for initialization
 	void Start ()
 	{
 	    _manager = Manager.GetComponent<HexNodesManager>();
-	    _pathfinder = new AStar();
+	    _pathfinder = new Pathfinder();
 	}
 	
 	// Update is called once per frame

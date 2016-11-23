@@ -8,6 +8,7 @@ public class DialogueSystem : MonoBehaviour
     public GameObject dialoguePanel;
     public static DialogueSystem Instance { get; set; }
     private List<string> DialogueLines = new List<string>();
+
     private string npcName;
     private Sprite NpcImage;
 

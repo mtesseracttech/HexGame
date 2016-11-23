@@ -1,12 +1,12 @@
-﻿using Assets.Scripts.AI;
+﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {
     public abstract class TurnPhasePlayerBase : TurnPhaseBase
     {
-        public PlayerActor Player;
+        public PlayerAgent Player;
 
-        public TurnPhasePlayerBase(TurnManager manager, PlayerActor player) : base(manager)
+        protected TurnPhasePlayerBase(TurnManager manager, PlayerAgent player) : base(manager)
         {
             Player = player;
         }
