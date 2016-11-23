@@ -20,6 +20,8 @@ namespace Assets.Scripts.AI
         private int _index;
         private HexNode _parent;
 		private int _expansion;
+		private bool _hasBuilding;
+		private bool _hasEnemy;
 
         private HexNodeObject gameObject;
 
@@ -108,6 +110,18 @@ namespace Assets.Scripts.AI
 		{
 			get { return _expansion; }
 			set { _expansion = value; }
+		}
+
+		public bool HasBuilding
+		{
+			get { return _hasBuilding; }
+			set { _hasBuilding = value; }
+		}
+
+		public bool HasEnemy
+		{
+			get { return _hasEnemy; }
+			set { _hasEnemy = value; }
 		}
 
         public override string ToString()

@@ -1,5 +1,6 @@
 ﻿
 using Assets.Scripts.AI;
+using Assets.Scripts.AI.GameStep.FSM.Agents;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
@@ -13,7 +14,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         public override void Update()
         {
             Debug.Log("Player Action Time");
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Player.IsIdling())
             {
                 Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
             }

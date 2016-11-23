@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.AI.GameStep.FSMEnemy;
+﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.AI.GameStep.FSMEnemy;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
@@ -15,12 +16,12 @@ namespace Assets.Scripts.GameLogic.FSMTurn
             {
                 if (Manager.SetNextEnemy(Enemy))
                 {
-                    Debug.Log("Ending Current Enemy Phase, Setting next one!");
+                    Debug.Log("Ending Current Enemy Phase, Changed to next one!");
                     Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
                 }
                 else
                 {
-                    Debug.Log("End of the step!");
+                    Debug.Log("No more enemies to do, of the step!");
                     Manager.ChangePhase(typeof(TurnPhaseIdle));
                 }
             }
@@ -36,6 +37,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void Start()
         {
+            Enemy = Manager.RefreshCurrentEnemy();
             Done = false;
         }
 
