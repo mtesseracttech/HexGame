@@ -7,13 +7,13 @@ namespace Assets.Scripts.AI
     public class PlayerAgent// : MonoBehaviour
     {
         private Dictionary<Type, PlayerStateBase> _states;
-        private PlayerStateBase _currentState;
-        private HexNode _targetNode;
-        private HexNode _currentNode;
-        private Pathfinder _pathfinder;
-        private HexNode _pathEndNode;
-        private List<HexNode> _path;
-        private bool _doneMoving;
+        private PlayerStateBase                   _currentState;
+        private HexNode                           _targetNode;
+        private HexNode                           _currentNode;
+        private Pathfinder                        _pathfinder;
+        private HexNode                           _pathEndNode;
+        private List<HexNode>                     _path;
+        private bool                              _doneMoving;
 
 
         public PlayerAgent()

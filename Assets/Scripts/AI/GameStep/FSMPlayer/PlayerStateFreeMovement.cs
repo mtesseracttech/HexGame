@@ -2,9 +2,9 @@
 {
     public class PlayerStateFreeMovement : PlayerStateBase
     {
-        private Node targetNode;
-        private Node currentNode;
-        private Node totalPath;
+        private HexNode _targetNode;
+        private HexNode _currentNode;
+        private HexNode _totalPath;
 
         public PlayerStateFreeMovement(PlayerAgent agent) : base(agent)
         {

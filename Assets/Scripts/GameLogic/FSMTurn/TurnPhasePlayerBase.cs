@@ -6,7 +6,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
     {
         public PlayerAgent Player;
 
-        public TurnPhasePlayerBase(TurnManager manager, PlayerAgent player) : base(manager)
+        protected TurnPhasePlayerBase(TurnManager manager, PlayerAgent player) : base(manager)
         {
             Player = player;
         }

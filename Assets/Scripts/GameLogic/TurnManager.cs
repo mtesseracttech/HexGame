@@ -54,19 +54,13 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public bool SetNextEnemy(EnemyAgent enemy)
         {
-            string debug = "Changing from enemy " + _currentEnemyIterator + " to ";
             _currentEnemyIterator += 1;
-
             if (_currentEnemyIterator >= _enemies.Count || _currentEnemyIterator < 0)
             {
                 _currentEnemyIterator = 0;
-                debug += _currentEnemyIterator;
-                Debug.Log(debug);
                 return false;
             }
             _currentEnemy = _enemies[_currentEnemyIterator];
-            debug += _currentEnemyIterator;
-            Debug.Log(debug);
             return true;
         }
 
