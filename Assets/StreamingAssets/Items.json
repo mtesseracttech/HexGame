@@ -1,0 +1,123 @@
+[
+  {
+    "id": 0,
+    "itemName": "Fireaxe",
+    "description": "Trusty old Fireaxe. Helped you before the catastrophe, helps you even better now.",
+    "stackable": false,
+    "stats": {
+      "attack": 2,
+      "defence": 0,
+      "bonus coins": 2
+    },
+    "slug": "fireaxe"
+  },
+  {
+    "id": 1,
+    "itemName": "9mm",
+    "description": "Standard 9mm pistol, military issue. Does not pack a lot of punch but keeps you mobile in combat.",
+    "stackable": false,
+    "stats": {
+      "attack": 0,
+      "defence": 5,
+      "bonus coins": 0
+    },
+    "slug": "9mm"
+  },
+  {
+    "id": 2,
+    "itemName": "Ak-47",
+    "description": "
+Soviet favourite. If you plan on riddling your opponent with bullets, this is your best bet.",
+    "stackable": false,
+    "stats": {
+      "attack": 0,
+      "defence": 0,
+      "bonus coins": 0
+    },
+    "slug": "ak-47"
+  },
+  {
+    "id": 3,
+    "itemName": "Shashka",
+    "description": "Traditional russian sword. Although not used in a while, traditional weaponry seems to have it's spot in the post-apocalypse.",
+    "stackable": false,
+    "stats": {
+      "attack": 0,
+      "defence": 0,
+      "bonus coins": 0
+    },
+    "slug": "shashka"
+  },
+  {
+    "id": 4,
+    "itemName": "Health Kit",
+    "description": "Consumable. Used to treat your wounds. Good care is the most important part of making your wounds heal in an instant.",
+    "stackable": true,
+    "stats": {
+      "attack": 0,
+      "defence": 0,
+      "bonus coins": 0
+    },
+    "slug": "health_kit"
+  },
+  {
+    "id": 5,
+    "itemName": "Anti-Radiation",
+    "description": "Consumable. Lowers your radiation level. The nuclear fallout can press hard onto ones health, luckily this drug an bring relief.",
+    "stackable": true,
+    "stats": {
+      "attack": 0,
+      "defence": 0,
+      "bonus coins": 0
+    },
+    "slug": "anti_radiation"
+  },
+  {
+    "id": 6,
+    "itemName": "Adrenalin",
+    "description": "Consumable. Grants you an additional combat coin for the next fight. Sometimes all you need is a little push forward.",
+    "stackable": true,
+    "stats": {
+      "attack": 0,
+      "defence": 0,
+      "bonus coins": 0
+    },
+    "slug": "adrenalin"
+  },
+  {
+    "id": 7,
+    "itemName": "Painkiller",
+    "description": "Consumable. Used to heal the player but raises his radiation level slightly at the same time. Medicine found around Chernobyl might be good but it comes at a cost.",
+    "stackable": true,
+    "stats": {
+      "attack": 0,
+      "defence": 0,
+      "bonus coins": 0
+    },
+    "slug": "painkiller"
+  },
+  {
+    "id": 8,
+    "itemName": "Red Pill",
+    "description": "Consumable. Grants you an additional attack coin for the next fight. Drug with mysterious origin.",
+    "stackable": true,
+    "stats": {
+      "attack": 0,
+      "defence": 0,
+      "bonus coins": 0
+    },
+    "slug": "red_pill"
+  },
+  {
+    "id": 9,
+    "itemName": "Blue Pill",
+    "description": "Consumable. Grants you an additional defense coin for the next fight. Drug with mysterious origin.",
+    "stackable": true,
+    "stats": {
+      "attack": 0,
+      "defence": 0,
+      "bonus coins": 0
+    },
+    "slug": "blue_pill"
+  }
+]

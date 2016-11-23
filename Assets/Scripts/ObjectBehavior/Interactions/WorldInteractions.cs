@@ -1,42 +1,39 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class WorldInteractions : MonoBehaviour
+namespace Assets.Scripts.ObjectBehavior.Interactions
 {
-    private NavMeshAgent playerAgent;
-
-    void Start()
+    public class WorldInteractions : MonoBehaviour
     {
-        playerAgent = GetComponent<NavMeshAgent>();
-    }
 
-
-    void Update()
-    {
-        //check if we are howering over the UI and going to stop there and not send an array to the world
-        if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        void Update()
         {
-            GetInteraction();
-        }
-    }
-
-
-    //it's going to handle checking what are we going to interact with
-    void GetInteraction()
-    {
-        Ray ineractionRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit interactionInfo;
-        if (Physics.Raycast(ineractionRay, out interactionInfo, Mathf.Infinity))
-        {
-            GameObject interactionObject = interactionInfo.collider.gameObject;
-            if (interactionObject.tag == "Interactable object")
+            //check if we are howering over the UI and going to stop there and not send an array to the world
+            if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
             {
-                interactionObject.GetComponent<Interactable>().MoveToInteraction(playerAgent);
+                GetInteraction();
             }
-            else
+        }
+
+
+        //it's going to handle checking what are we going to interact with
+        void GetInteraction()
+        {
+            Ray ineractionRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit interactionInfo;
+            if (Physics.Raycast(ineractionRay, out interactionInfo, Mathf.Infinity))
             {
-                playerAgent.stoppingDistance = 0;
-                playerAgent.destination = interactionInfo.point;
+                GameObject interactionObject = interactionInfo.collider.gameObject;
+                if (interactionObject.tag == "Interactable object")
+                {
+                    //move to object position
+                    //interactionObject.GetComponent<Interactable>().MoveToInteraction();
+                }
+                else
+                {
+                    //move player to pressed tile
+                    // playerAgent.stoppingDistance = 0;
+                    // playerAgent.destination = interactionInfo.point;
+                }
             }
         }
     }
