@@ -1,54 +1,5 @@
 [
   {
-    "id": 0,
-    "itemName": "Fireaxe",
-    "description": "Trusty old Fireaxe. Helped you before the catastrophe, helps you even better now.",
-    "stackable": false,
-    "stats": {
-      "attack": 2,
-      "defence": 0,
-      "bonus coins": 2
-    },
-    "slug": "fireaxe"
-  },
-  {
-    "id": 1,
-    "itemName": "9mm",
-    "description": "Standard 9mm pistol, military issue. Does not pack a lot of punch but keeps you mobile in combat.",
-    "stackable": false,
-    "stats": {
-      "attack": 0,
-      "defence": 5,
-      "bonus coins": 0
-    },
-    "slug": "9mm"
-  },
-  {
-    "id": 2,
-    "itemName": "Ak-47",
-    "description": "
-Soviet favourite. If you plan on riddling your opponent with bullets, this is your best bet.",
-    "stackable": false,
-    "stats": {
-      "attack": 0,
-      "defence": 0,
-      "bonus coins": 0
-    },
-    "slug": "ak-47"
-  },
-  {
-    "id": 3,
-    "itemName": "Shashka",
-    "description": "Traditional russian sword. Although not used in a while, traditional weaponry seems to have it's spot in the post-apocalypse.",
-    "stackable": false,
-    "stats": {
-      "attack": 0,
-      "defence": 0,
-      "bonus coins": 0
-    },
-    "slug": "shashka"
-  },
-  {
     "id": 4,
     "itemName": "Health Kit",
     "description": "Consumable. Used to treat your wounds. Good care is the most important part of making your wounds heal in an instant.",
@@ -80,7 +31,8 @@ Soviet favourite. If you plan on riddling your opponent with bullets, this is yo
     "stats": {
       "attack": 0,
       "defence": 0,
-      "bonus coins": 0
+      "bonus coins": 1
+	  
     },
     "slug": "adrenalin"
   },
@@ -102,7 +54,7 @@ Soviet favourite. If you plan on riddling your opponent with bullets, this is yo
     "description": "Consumable. Grants you an additional attack coin for the next fight. Drug with mysterious origin.",
     "stackable": true,
     "stats": {
-      "attack": 0,
+      "attack": 1,
       "defence": 0,
       "bonus coins": 0
     },
@@ -115,7 +67,7 @@ Soviet favourite. If you plan on riddling your opponent with bullets, this is yo
     "stackable": true,
     "stats": {
       "attack": 0,
-      "defence": 0,
+      "defence": 1,
       "bonus coins": 0
     },
     "slug": "blue_pill"

@@ -17,7 +17,7 @@ public class ToolTip : MonoBehaviour {
 	void Update () {
 		if (tooltip.activeSelf) {
 			//tooltip.transform.position = Input.mousePosition;
-			tooltip.transform.position = new Vector2 (500, 500);
+			tooltip.transform.position = new Vector2 (850, 180);
 		}
 	}
 
