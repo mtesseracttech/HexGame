@@ -1,38 +1,40 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
-public class ToolTip : MonoBehaviour {
+namespace Assets.Scripts.Inventory
+{
+    public class ToolTip : MonoBehaviour {
 
-	private Item item;
-	string data;
-	GameObject tooltip;
+        private Item _item;
+        private string _data;
+        private GameObject _tooltip;
 
-	void Start () {
-		tooltip = GameObject.Find ("Tooltip");
-		tooltip.SetActive (false);
+        void Start () {
+            _tooltip = GameObject.Find ("Tooltip");
+            _tooltip.SetActive (false);
 
-	}
+        }
 
-	void Update () {
-		if (tooltip.activeSelf) {
-			//tooltip.transform.position = Input.mousePosition;
-			tooltip.transform.position = new Vector2 (850, 180);
-		}
-	}
+        void Update () {
+            if (_tooltip.activeSelf) {
+                //tooltip.transform.position = Input.mousePosition;
+                _tooltip.transform.position = new Vector2 (850, 180);
+            }
+        }
 
-	public void Activate (Item item) {
-		this.item = item;
-		ConstructDataString ();
-		tooltip.SetActive (true);
-	}
+        public void Activate (Item item) {
+            this._item = item;
+            ConstructDataString ();
+            _tooltip.SetActive (true);
+        }
 
-	public void Deactivate () {
-		tooltip.SetActive (false);
-	}
+        public void Deactivate () {
+            _tooltip.SetActive (false);
+        }
 
-	public void ConstructDataString () {
-		data = "<color=#000000><b>" +item.ItemName + "</b></color>\n\n" + item.Description;
-		tooltip.transform.GetChild (0).GetComponent <Text> ().text = data;
-	}
+        public void ConstructDataString () {
+            _data = "<color=#000000><b>" +_item.ItemName + "</b></color>\n\n" + _item.Description;
+            _tooltip.transform.GetChild (0).GetComponent <Text> ().text = _data;
+        }
+    }
 }

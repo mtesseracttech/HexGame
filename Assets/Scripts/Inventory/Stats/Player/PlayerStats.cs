@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Inventory.Stats.Player
 {
@@ -19,6 +20,7 @@ namespace Assets.Scripts.Inventory.Stats.Player
         public int DamageIsDone;
         public int Radiation;
 
+        public Image healthBar;
 
         void Update()
         {
@@ -45,6 +47,7 @@ namespace Assets.Scripts.Inventory.Stats.Player
                 Debug.Log("damage done to player");
                 DamageIsDone = Mathf.Abs(defense - attack);
                 CurrentHealth -= DamageIsDone;
+                healthBar.fillAmount -=  0.1f;
             }
         
         }
