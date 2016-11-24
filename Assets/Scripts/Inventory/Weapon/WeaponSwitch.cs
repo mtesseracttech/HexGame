@@ -67,13 +67,8 @@ public class WeaponSwitch : MonoBehaviour
             // Debug.Log("fourth weapon");
             WeaponImage.sprite = Weapons[3];
         }
-        else if (_index == 5)
-        {
-            // Debug.Log("fifth weapon");
-            WeaponImage.sprite = Weapons[4];
-        }
-        else if (_index >= 5)
-            _index = 5;
+        else if (_index >= 4)
+            _index = 4;
         else if (_index <= 1)
             _index = 1;
 
