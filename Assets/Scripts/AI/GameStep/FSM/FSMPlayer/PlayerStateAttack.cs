@@ -1,4 +1,5 @@
 using Assets.Scripts.AI.GameStep.FSM.Agents;
+using UnityEngine;
 
 namespace Assets.Scripts.AI
 {
@@ -6,10 +7,17 @@ namespace Assets.Scripts.AI
     {
         public PlayerStateAttack(PlayerAgent agent) : base(agent)
         {
+            Agent = agent;
         }
 
         public override void Update()
         {
+            Debug.Log("Attacking Enemy!!!");
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Debug.Log("Done attacking");
+                Agent.SetState(typeof(PlayerStateIdle));
+            }
         }
 
         public override void BeginState()

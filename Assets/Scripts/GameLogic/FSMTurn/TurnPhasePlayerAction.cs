@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
-using Assets.Scripts.NPC;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {
@@ -15,25 +14,25 @@ namespace Assets.Scripts.GameLogic.FSMTurn
             if (Player.IsIdling())
             {
                 //First Walking is done till the player is idling again if data is present
-                if (Manager.WalkPath != null)
+                if (Player.WalkPath != null)
                 {
-                    if (Manager.WalkPath.Count > 0)
+                    if (Player.WalkPath.Count > 0)
                     {
-                        Player.TargetNode = Manager.WalkPath[0]; //Just a single step is allowed!
+                        Player.TargetNode = Player.WalkPath[0]; //Just a single step is allowed!
                     }
                     else Player.TargetNode = Player.CurrentNode;
-                    Manager.WalkPath  = null;
+                    Player.WalkPath  = null;
                     Player.SetState(typeof(PlayerStateStepMovement));
                 }
                 //Then Attacking is executed till idling again if the data is present
-                else if (Manager.AttackTarget != null)
+                else if (Player.AttackTarget != null)
                 {
-                    Player.AttackTarget  = Manager.AttackTarget;
-                    Manager.AttackTarget = null;
+                    Player.AttackTarget  = Player.AttackTarget;
+                    Player.AttackTarget = null;
                     Player.SetState(typeof(PlayerStateAttack));
                 }
                 //If both datas are set to null and the player is idling again, the next state is loaded
-                else if (Manager.WalkPath == null && Manager.AttackTarget == null)
+                else if (Player.WalkPath == null && Player.AttackTarget == null)
                 {
                     Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
                 }

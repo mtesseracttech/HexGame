@@ -20,8 +20,7 @@ namespace Assets.Scripts.GameLogic
         private EnemyAgent                      _currentEnemy;
         private int                             _currentEnemyIterator = 0;
         private HexNodesManager                 _hexNodesManager;
-        private HexNode                         _attackTarget;
-        private List<HexNode>                   _walkPath;
+
 
 
         void Start()
@@ -99,6 +98,14 @@ namespace Assets.Scripts.GameLogic
         public void ChangePhase(Type newPhase)
         {
             Debug.Log("Changing from phase: " + _currentPhase.GetType() + " to: " + newPhase);
+            if (_currentPhase.GetType() == typeof(TurnPhasePlayerAction) && newPhase == typeof(TurnPhaseEnemySelection))
+            {
+                if (_enemies.Count == 0)
+                {
+                    Debug.Log("No enemies available, going back to idle state!");
+                    newPhase = typeof(TurnPhaseIdle); //if no enemies are present, switching back to
+                }
+            }
             _currentPhase.End();
             _currentPhase = _phases[newPhase];
             _currentPhase.Start();
@@ -161,18 +168,6 @@ namespace Assets.Scripts.GameLogic
         public Type GetPhase()
         {
             return _currentPhase.GetType();
-        }
-
-        public HexNode AttackTarget
-        {
-            get { return  _attackTarget; }
-            set { _attackTarget = value; }
-        }
-
-        public List<HexNode> WalkPath
-        {
-            get { return  _walkPath; }
-            set { _walkPath = value; }
         }
 
         public void RemoveDeadEnemies()

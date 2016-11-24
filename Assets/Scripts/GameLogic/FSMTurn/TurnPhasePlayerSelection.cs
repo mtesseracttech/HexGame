@@ -57,10 +57,12 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                 if (_path.Count <= 2 && hex.GetUnderlyingNode().HasEnemy)
                                 {
                                     Debug.Log("Has enemy, moving to closest tile");
-                                    List<HexNode> tempPath = new List<HexNode>();
-                                    if(_path.Count == 2) tempPath.Add(_path[0]);
-                                    Manager.WalkPath = tempPath;
-                                    Manager.AttackTarget = hex.GetUnderlyingNode();
+                                    if (_path.Count == 2)
+                                    {
+                                        List<HexNode> tempPath = new List<HexNode> {_path[0]};
+                                        Player.WalkPath = tempPath;
+                                    }
+                                    Player.AttackTarget = hex.GetUnderlyingNode();
                                     Manager.ChangePhase(typeof(TurnPhasePlayerAction));
 
                                 }
@@ -69,8 +71,8 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                     Debug.Log("Moving to close tile");
                                     List<HexNode> tempPath = new List<HexNode>();
                                     tempPath.Add(_path[0]);
-                                    Manager.WalkPath = tempPath;
-                                    Manager.AttackTarget = null;
+                                    Player.WalkPath = tempPath;
+                                    Player.AttackTarget = null;
                                     Manager.ChangePhase(typeof(TurnPhasePlayerAction));
                                 }
                                 else
@@ -87,10 +89,10 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void Start()
         {
-            Manager.AttackTarget = null;
-            Manager.WalkPath     = null;
+            Player.AttackTarget = null;
+            Player.WalkPath     = null;
             Player.SetState(typeof(PlayerStateIdle));
-            //show the highlights
+            //Here is where the highlights should be enabled!
         }
 
         public override void End()
