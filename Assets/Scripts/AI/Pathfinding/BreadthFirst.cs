@@ -40,13 +40,15 @@ public class BreadthFirst : MonoBehaviour {
 					if (_cameFrom.Contains (next) || next.HasBuilding == true || next.HasEnemy == true) {
 						if (next.HasBuilding == true && !_cameFrom.Contains (next) && current.Expansion < _maxExpansion) {
 							GameObject terrainHighlight = (GameObject)Instantiate (_terrainHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
-							_highlights.Add (terrainHighlight);
+							terrainHighlight.SendMessage("Create", next);
+						    _highlights.Add (terrainHighlight);
 							_cameFrom.Add (next);
 						}
 
 						if (next.HasEnemy == true && !_cameFrom.Contains (next) && current.Expansion < _maxExpansion) {
 							GameObject enemyHighlight = (GameObject)Instantiate (_attackHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
-							_highlights.Add (enemyHighlight);
+						    enemyHighlight.SendMessage("Create", next);
+						    _highlights.Add (enemyHighlight);
 							_cameFrom.Add (next);
 						}
 						continue;
@@ -70,12 +72,14 @@ public class BreadthFirst : MonoBehaviour {
 							if (next.Expansion <= _maxExpansion && next.HasBuilding == false) {
 								//Add the walkable tile indication here
 								GameObject walkHighlight = (GameObject)Instantiate (_walkHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
-								_highlights.Add (walkHighlight);
+							    walkHighlight.SendMessage("Create", next);
+
+							    _highlights.Add (walkHighlight);
 							}
 						}
 
 					}
-					Debug.Log (next.Index);
+					//Debug.Log (next.Index);
 				}
 			}
 		}

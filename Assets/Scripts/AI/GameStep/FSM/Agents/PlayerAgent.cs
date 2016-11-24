@@ -8,8 +8,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
     {
         public  GameObject                        HexNodeManager;
         public  int                               StartNodeIndex;
-        public  int                               EndNodeIndex;
-
         private Dictionary<Type, PlayerStateBase> _states;
         private PlayerStateBase                   _currentState;
         private HexNode                           _targetNode;
@@ -17,28 +15,37 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private Pathfinder                        _pathfinder;
         private List<HexNode>                     _path;
         private HexNodesManager                   _hexNodesManager;
+        private HexNode                           _attackTarget;
 
         void Start()
         {
+            string startDebug = "Player Start Debug Info:\n";
             if (HexNodeManager != null)
             {
                 _hexNodesManager = HexNodeManager.GetComponent<HexNodesManager>();
                 if (_hexNodesManager == null)
                 {
-                    Debug.Log("There was no HexNodesManager script bound to the given HexNodeManager instance!");
+                    startDebug += "There was no HexNodesManager script bound to the given HexNodeManager instance!\n";
                 }
                 else
                 {
                     Debug.Log("Successfully linked the HexNodeManager to the PlayerAgent!");
-                    _currentNode = _hexNodesManager.GetHexNode(StartNodeIndex);
-                    _targetNode  = _hexNodesManager.GetHexNode(EndNodeIndex);
-                    transform.position = _currentNode.Position;
-
+                    bool spawnSuccess = SetSpawn(_hexNodesManager.GetHexNode(StartNodeIndex));
+                    if (spawnSuccess)
+                    {
+                        startDebug += "Successfully managed to spawn the player on Node "
+                                      + _currentNode.Index + "at position: " + _currentNode.Position + "\n";
+                    }
+                    else
+                    {
+                        startDebug += "Failed to spawn the player on Node " + _currentNode.Index + "at position: " +
+                                  _currentNode.Position+ "\n";
+                    }
                 }
             }
             else
             {
-                Debug.Log("No HexNodeManager instance was supplied to the PlayerAgent!");
+                startDebug += "No HexNodeManager instance was supplied to the PlayerAgent!\n";
             }
 
             _pathfinder = new Pathfinder();
@@ -48,11 +55,14 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             _states = new Dictionary<Type, PlayerStateBase>();
             _states.Add(typeof(PlayerStateFreeMovement), new PlayerStateFreeMovement(this));
             _states.Add(typeof(PlayerStateStepMovement), new PlayerStateStepMovement(this));
+            _states.Add(typeof(PlayerStateAttack),       new PlayerStateAttack      (this));
             _states.Add(typeof(PlayerStateIdle),         new PlayerStateIdle        (this));
 
             //Starting first state manually
             _currentState = _states[typeof(PlayerStateIdle)];
             _currentState.BeginState();
+
+            Debug.Log(startDebug);
         }
 
         void Update()
@@ -80,19 +90,20 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             return _path;
         }
 
-        public HexNode GetCurrentNode()
+        public HexNode CurrentNode
         {
-            return _currentNode;
+            get { return  _currentNode; }
+            set
+            {
+                _currentNode = value;
+                Position = value.Position;
+            }
         }
 
-        public HexNode GetCurrentTarget()
+        public HexNode TargetNode
         {
-            return _targetNode;
-        }
-
-        public void SetCurrentNode(HexNode node)
-        {
-            _currentNode = node;
+            get { return  _targetNode; }
+            set { _targetNode = value; }
         }
 
         public Vector3 Position
@@ -107,10 +118,27 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { transform.rotation = value; }
         }
 
+        public HexNode AttackTarget
+        {
+            get { return  _attackTarget; }
+            set { _attackTarget = value; }
+        }
+
         public bool IsIdling()
         {
             if (_currentState.GetType() == typeof(PlayerStateIdle))
             {
+                return true;
+            }
+            return false;
+        }
+
+        public bool SetSpawn(HexNode spawnNode)
+        {
+            if (!spawnNode.IsOccupiedByAnything())
+            {
+                _currentNode = spawnNode;
+                Position = _currentNode.Position;
                 return true;
             }
             return false;

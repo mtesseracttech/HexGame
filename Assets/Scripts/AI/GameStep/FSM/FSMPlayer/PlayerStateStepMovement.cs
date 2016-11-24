@@ -10,7 +10,8 @@ namespace Assets.Scripts.AI
         private HexNode _currentNode;
         private HexNode _targetNode;
         private Vector3 _path;
-        private float   _speed = 0.5f;
+        private float   _speed         = 0.5f;
+        private float   _slerpSpeed    = 0.05f;
         private Vector3 _speedStep;
 
         public PlayerStateStepMovement(PlayerAgent agent) : base(agent)
@@ -33,8 +34,8 @@ namespace Assets.Scripts.AI
 
         public override void BeginState()
         {
-            _currentNode = Agent.GetCurrentNode();
-            _targetNode  = Agent.GetCurrentTarget();
+            _currentNode = Agent.CurrentNode;
+            _targetNode  = Agent.TargetNode;
             _path        = _currentNode.Position - _targetNode.Position;
             _speedStep   = _path.normalized * _speed;
         }

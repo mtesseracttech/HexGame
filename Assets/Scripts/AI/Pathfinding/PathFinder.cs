@@ -13,7 +13,7 @@ public class Pathfinder
     private HexNode       _endNode;
     private HexNode       _startNode;
     private List<HexNode> _path;
-    private bool          _done             = false;
+    private bool          _done;
 
     public void Search(HexNode start, HexNode end)
     {
@@ -141,8 +141,8 @@ public class Pathfinder
 
         _path = nodeList;
 
-        Debug.Log("First node is: \n" + _path[0]);
-        Debug.Log("Last node is: \n" + _path[_path.Count-1]);
+        //Debug.Log("First node is: \n" + _path[0]);
+        //Debug.Log("Last node is: \n" + _path[_path.Count-1]);
     }
 
     private void ResetPathFinder()
