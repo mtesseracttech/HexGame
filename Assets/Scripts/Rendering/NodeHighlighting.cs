@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Assets.Scripts.AI.GameStep.FSM.Agents;
 
 public class NodeHighlighting : MonoBehaviour {
 
@@ -7,11 +7,13 @@ public class NodeHighlighting : MonoBehaviour {
 	private HexNodesManager _nodeManager;
 	private BreadthFirst _pathfinder;
 
-	public int currentPositionOfPlayer;
+	private int currentPositionOfPlayer;
+    public PlayerAgent playerAgent;
+
 	// Use this for initialization
 	void Start ()
 	{
-	    //currentPositionOfPlayer = 1000;
+	    currentPositionOfPlayer = playerAgent.StartNodeIndex;
 		_nodeManager = NodeManager.GetComponent<HexNodesManager>();
 		_pathfinder = GetComponent <BreadthFirst> ();
 	}

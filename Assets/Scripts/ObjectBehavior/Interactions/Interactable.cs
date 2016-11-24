@@ -7,13 +7,13 @@ namespace Assets.Scripts.ObjectBehavior.Interactions
         // protected NavMeshAgent playerAgent;
         // private bool hasInteracted;
 
-        public virtual void MoveToInteraction(/*UnityEngine.AI*/UnityEngine.AI.NavMeshAgent pPlayerAgent)
+        public virtual void MoveToInteraction(/*UnityEngine.AIUnityEngine.AI.NavMeshAgent pPlayerAgent)*/)
         {
             // hasInteracted = false;
             //  playerAgent = pPlayerAgent;
-            pPlayerAgent.stoppingDistance = 3f;
-            pPlayerAgent.destination = transform.position;
-        
+           // pPlayerAgent.stoppingDistance = 3f;
+           // pPlayerAgent.destination = transform.position;
+            
             Interact();
         }
 
