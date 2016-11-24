@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Assets.Scripts.AI;
+using Assets.Scripts.AI.GameStep.FSM.Agents;
+
 
 public class NodeHighlighting : MonoBehaviour
 {
-
     public int CurrentNodeIndex = 300;
     private HexNode _currentNode;
 	public GameObject NodeManager;
 	private HexNodesManager _nodeManager;
 	private BreadthFirst _pathfinder;
 
-	// Use this for initialization
+
 	void Start ()
 	{
 		_nodeManager = NodeManager.GetComponent<HexNodesManager>();
