@@ -28,10 +28,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
             else
             {
                 Debug.Log("Enemy is executing actions");
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    Done = true;
-                }
+
             }
         }
 

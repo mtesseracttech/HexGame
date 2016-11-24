@@ -10,7 +10,8 @@ namespace Assets.Scripts.AI
         private HexNode _currentNode;
         private HexNode _targetNode;
         private Vector3 _path;
-        private float   _speed = 0.5f;
+        private float   _speed         = 0.5f;
+        private float   _slerpSpeed    = 0.05f;
         private Vector3 _speedStep;
 
         public PlayerStateStepMovement(PlayerAgent agent) : base(agent)

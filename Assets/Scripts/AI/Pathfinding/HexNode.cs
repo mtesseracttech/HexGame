@@ -147,5 +147,10 @@ namespace Assets.Scripts.AI
             );
             return returnString;
         }
+
+        public bool IsOccupiedByAnything()
+        {
+            return _hasBuilding || _hasEnemy || _hasRiver || _isUnderWater;
+        }
     }
 }

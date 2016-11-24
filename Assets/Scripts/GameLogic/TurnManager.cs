@@ -128,10 +128,8 @@ namespace Assets.Scripts.GameLogic
             _enemies.Add(enemy);
         }
 
-
         // Don't call inside of step cycle!
         // OutOfBounds problems will happen!
-
         public void RemoveEnemy(EnemyAgent enemy)
         {
             _enemies.Remove(enemy);
