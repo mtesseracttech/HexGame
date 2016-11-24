@@ -7,12 +7,11 @@ public class NodeHighlighting : MonoBehaviour {
 	private HexNodesManager _nodeManager;
 	private BreadthFirst _pathfinder;
 
-	int currentPositionOfPlayer;
-
+	public int currentPositionOfPlayer;
 	// Use this for initialization
-	void Start () 
+	void Start ()
 	{
-		currentPositionOfPlayer = 300;
+	    //currentPositionOfPlayer = 1000;
 		_nodeManager = NodeManager.GetComponent<HexNodesManager>();
 		_pathfinder = GetComponent <BreadthFirst> ();
 	}
@@ -29,9 +28,8 @@ public class NodeHighlighting : MonoBehaviour {
 		{
 			//_pathfinder.ClearHighlights ();
 			StartCoroutine (_pathfinder.Search (_nodeManager.GetHexNode (currentPositionOfPlayer)));
-			//_nodeManager.GetHexNode (currentPositionOfPlayer);
-
-		}
+            //_nodeManager.GetHexNode (currentPositionOfPlayer);
+        }
 
 		if (Input.GetKeyDown (KeyCode.H)) {
 			_pathfinder.ClearHighlights ();
