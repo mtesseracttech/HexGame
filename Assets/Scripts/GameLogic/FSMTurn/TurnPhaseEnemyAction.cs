@@ -32,6 +32,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 {
                     Done = true;
                 }
+             
             }
         }
 
