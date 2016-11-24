@@ -1,14 +1,16 @@
-﻿
+﻿using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
-using Assets.Scripts.AI.GameStep.FSMEnemy;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {
     public class TurnPhaseEnemySelection : TurnPhaseEnemyBase
     {
+        private PlayerAgent _player;
+
         public TurnPhaseEnemySelection(TurnManager manager, EnemyAgent enemy) : base(manager, enemy)
         {
+            _player = Manager.GetPlayerAgent();
         }
 
         public override void Update()
@@ -20,6 +22,22 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         {
             Enemy = Manager.RefreshCurrentEnemy();
             Debug.Log("Enemy Making Selection!");
+
+            HexNode playerNode = _player.CurrentNode;
+            HexNode ownNode    = Enemy.CurrentNode;
+
+
+
+
+
+
+
+
+
+
+
+
+
             Manager.ChangePhase(typeof(TurnPhaseEnemyAction));
         }
 

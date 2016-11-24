@@ -72,7 +72,11 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         public HexNode CurrentNode
         {
             get { return  _currentNode; }
-            set { _currentNode = value; }
+            set
+            {
+                _currentNode = value;
+                Position = value.Position;
+            }
         }
 
         public HexNode TargetNode
