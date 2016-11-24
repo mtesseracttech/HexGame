@@ -27,7 +27,8 @@ namespace Assets.Scripts.AI
             }
             else
             {
-                Agent.Position = _targetNode.Position;
+                Agent.CurrentNode = _targetNode;
+                //Agent.Position = _targetNode.Position;
                 Agent.SetState(typeof(PlayerStateIdle));
             }
         }

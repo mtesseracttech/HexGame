@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSMEnemy;
+using Assets.Scripts.GameLogic.FSMTurn;
 using UnityEngine;
 
 namespace Assets.Scripts.AI.GameStep.FSM.Agents
@@ -15,6 +16,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private List<HexNode>                    _path;
         private HexNodesManager                  _hexNodesManager;
         private HexNode                          _attackTarget;
+        private List<HexNode>                    _walkPath;
         private bool                             _alive            = true;
 
         void Start()
@@ -97,15 +99,21 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { transform.rotation = value; }
         }
 
+        public bool IsIdling()
+        {
+            return _currentState.GetType() == typeof(PlayerStateIdle);
+        }
+
         public HexNode AttackTarget
         {
             get { return  _attackTarget; }
             set { _attackTarget = value; }
         }
 
-        public bool IsIdling()
+        public List<HexNode> WalkPath
         {
-            return _currentState.GetType() == typeof(PlayerStateIdle);
+            get { return  _walkPath; }
+            set { _walkPath = value; }
         }
 
     }
