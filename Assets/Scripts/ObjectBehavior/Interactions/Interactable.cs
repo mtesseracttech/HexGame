@@ -8,6 +8,7 @@ namespace Assets.Scripts.ObjectBehavior.Interactions
         // private bool hasInteracted;
 
         public virtual void MoveToInteraction(/*UnityEngine.AIUnityEngine.AI.NavMeshAgent pPlayerAgent)*/)
+
         {
             // hasInteracted = false;
             //  playerAgent = pPlayerAgent;

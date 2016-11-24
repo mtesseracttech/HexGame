@@ -148,6 +148,11 @@ namespace Assets.Scripts.GameLogic
             }
         }
 
+        public PlayerAgent GetPlayerAgent()
+        {
+            return _player;
+        }
+
         public EnemyAgent RefreshCurrentEnemy()
         {
             return _currentEnemy;

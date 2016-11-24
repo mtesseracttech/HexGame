@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
+using System.Collections;
+using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
 
-public class NodeHighlighting : MonoBehaviour {
 
+public class NodeHighlighting : MonoBehaviour
+{
+    public int CurrentNodeIndex = 300;
+    private HexNode _currentNode;
 	public GameObject NodeManager;
 	private HexNodesManager _nodeManager;
 	private BreadthFirst _pathfinder;
 
-	private int currentPositionOfPlayer;
-    public PlayerAgent playerAgent;
 
-	// Use this for initialization
 	void Start ()
 	{
-	    currentPositionOfPlayer = playerAgent.StartNodeIndex;
 		_nodeManager = NodeManager.GetComponent<HexNodesManager>();
 		_pathfinder = GetComponent <BreadthFirst> ();
 	}
@@ -29,8 +30,8 @@ public class NodeHighlighting : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.L))
 		{
 			//_pathfinder.ClearHighlights ();
-			StartCoroutine (_pathfinder.Search (_nodeManager.GetHexNode (currentPositionOfPlayer)));
-            //_nodeManager.GetHexNode (currentPositionOfPlayer);
+			StartCoroutine (_pathfinder.Search (_nodeManager.GetHexNode (CurrentNodeIndex)));
+            //_nodeManager.GetHexNode (CurrentNodeIndex);
         }
 
 		if (Input.GetKeyDown (KeyCode.H)) {
@@ -38,12 +39,12 @@ public class NodeHighlighting : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.A)) {
-			currentPositionOfPlayer += 1;
-			Debug.Log (currentPositionOfPlayer);
+		    CurrentNodeIndex += 1;
+			Debug.Log (CurrentNodeIndex);
 		}
 	}
 
 	void SetCurrentPosition (int position) {
-		currentPositionOfPlayer = position;
+	    CurrentNodeIndex = position;
 	}
 }

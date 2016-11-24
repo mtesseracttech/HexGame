@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.NPC;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {
@@ -16,7 +17,11 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 //First Walking is done till the player is idling again if data is present
                 if (Manager.WalkPath != null)
                 {
-                    Player.TargetNode = Manager.WalkPath[0]; //Just a single step is allowed!
+                    if (Manager.WalkPath.Count > 0)
+                    {
+                        Player.TargetNode = Manager.WalkPath[0]; //Just a single step is allowed!
+                    }
+                    else Player.TargetNode = Player.CurrentNode;
                     Manager.WalkPath  = null;
                     Player.SetState(typeof(PlayerStateStepMovement));
                 }

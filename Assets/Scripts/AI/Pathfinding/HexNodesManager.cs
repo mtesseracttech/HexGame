@@ -31,7 +31,7 @@ public class HexNodesManager : MonoBehaviour
 	}
     //set enemy occupied tiles
 	public void SetEnemyTiles () {
-		HexNode i = GetHexNode (308);
+		HexNode i = GetHexNode (281);
 		i.HasEnemy = true;
 	}
 

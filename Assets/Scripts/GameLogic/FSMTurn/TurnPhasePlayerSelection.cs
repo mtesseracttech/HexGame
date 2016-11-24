@@ -31,7 +31,9 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                     SelectionHexRenderer hex = hit.collider.gameObject.GetComponent<SelectionHexRenderer>();
                     if (hex != null)
                     {
-
+                        Debug.Log("Hovering over selection tile! Connected node: Index: " +
+                                  hex.GetUnderlyingNode().Index + " at " +
+                                  hex.GetUnderlyingNode().Position);
                     }
                 }
             }
@@ -56,10 +58,10 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                 {
                                     Debug.Log("Has enemy, moving to closest tile");
                                     List<HexNode> tempPath = new List<HexNode>();
-                                    tempPath.Add(_path[0]);
+                                    if(_path.Count == 2) tempPath.Add(_path[0]);
                                     Manager.WalkPath = tempPath;
                                     Manager.AttackTarget = hex.GetUnderlyingNode();
-                                    Done = true;
+                                    Manager.ChangePhase(typeof(TurnPhasePlayerAction));
 
                                 }
                                 else if (_path.Count == 1)
@@ -69,7 +71,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                     tempPath.Add(_path[0]);
                                     Manager.WalkPath = tempPath;
                                     Manager.AttackTarget = null;
-                                    Done = true;
+                                    Manager.ChangePhase(typeof(TurnPhasePlayerAction));
                                 }
                                 else
                                 {
@@ -81,16 +83,10 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 }
             }
             //fucking consumables
-
-            if (Done)
-            {
-                Manager.ChangePhase(typeof(TurnPhasePlayerAction));
-            }
         }
 
         public override void Start()
         {
-            Done                 = false;
             Manager.AttackTarget = null;
             Manager.WalkPath     = null;
             Player.SetState(typeof(PlayerStateIdle));
@@ -100,6 +96,9 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         public override void End()
         {
             _breathFirstfinder.ClearHighlights();
+
+            //Here is where the highlights should be disabled!
+
         }
     }
 }
