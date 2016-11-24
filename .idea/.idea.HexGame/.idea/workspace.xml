@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3232bdbf-4c2a-4541-9e36-26a90aa8f71f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/PlayerBehavior.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Sprites/HUD/Inventory.meta" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateStepMovement.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateStepMovement.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/BreadthFirst.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/BreadthFirst.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseIdle.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseIdle.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerAction.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerAction.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/ObjectBehavior/Interactions/Interactable.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/ObjectBehavior/Interactions/Interactable.cs" />
-    </list>
+    <list default="true" id="3232bdbf-4c2a-4541-9e36-26a90aa8f71f" name="Default" comment="" />
     <ignored path="HexGame.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -84,7 +72,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TurnPhasePlayerSelection.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TurnPhasePlayerSelection.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -102,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerStateStepMovement.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlayerStateStepMovement.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateStepMovement.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="645">
+              <caret line="43" column="32" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
               <folding>
                 <marker date="1479936191000" expanded="true" signature="6:116" ph="..." />
                 <marker date="1479936191000" expanded="true" signature="145:1382" ph="{...}" />
@@ -115,6 +103,23 @@
                 <marker date="1479936191000" expanded="true" signature="552:884" ph="{...}" />
                 <marker date="1479936191000" expanded="true" signature="927:1165" ph="{...}" />
                 <marker date="1479936191000" expanded="true" signature="1206:1374" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerStateAttack.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateAttack.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1479889828000" expanded="true" signature="73:411" ph="{...}" />
+                <marker date="1479889828000" expanded="true" signature="128:409" ph="{...}" />
+                <marker date="1479889828000" expanded="true" signature="200:220" ph="{...}" />
+                <marker date="1479889828000" expanded="true" signature="259:279" ph="{...}" />
+                <marker date="1479889828000" expanded="true" signature="322:342" ph="{...}" />
+                <marker date="1479889828000" expanded="true" signature="383:403" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -341,6 +346,10 @@
               <option name="myItemId" value="AI" />
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pathfinding" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -522,12 +531,12 @@
       <workItem from="1479861884961" duration="1587000" />
       <workItem from="1479888545112" duration="18557000" />
       <workItem from="1479922851477" duration="39000" />
-      <workItem from="1479922956118" duration="7919000" />
+      <workItem from="1479922956118" duration="9012000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28102000" />
+    <option name="totallyTimeSpent" value="29195000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -808,13 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateAttack.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateBase.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1089,22 +1091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateStepMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <marker date="1479936191000" expanded="true" signature="6:116" ph="..." />
-            <marker date="1479936191000" expanded="true" signature="145:1382" ph="{...}" />
-            <marker date="1479936191000" expanded="true" signature="206:1380" ph="{...}" />
-            <marker date="1479936191000" expanded="true" signature="466:513" ph="{...}" />
-            <marker date="1479936191000" expanded="true" signature="552:884" ph="{...}" />
-            <marker date="1479936191000" expanded="true" signature="927:1165" ph="{...}" />
-            <marker date="1479936191000" expanded="true" signature="1206:1374" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerAction.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -1151,6 +1137,37 @@
             <marker date="1479936934000" expanded="true" signature="568:3429" ph="{...}" />
             <marker date="1479936934000" expanded="true" signature="3467:3665" ph="{...}" />
             <marker date="1479936934000" expanded="true" signature="3701:3721" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateAttack.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479889828000" expanded="true" signature="73:411" ph="{...}" />
+            <marker date="1479889828000" expanded="true" signature="128:409" ph="{...}" />
+            <marker date="1479889828000" expanded="true" signature="200:220" ph="{...}" />
+            <marker date="1479889828000" expanded="true" signature="259:279" ph="{...}" />
+            <marker date="1479889828000" expanded="true" signature="322:342" ph="{...}" />
+            <marker date="1479889828000" expanded="true" signature="383:403" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateStepMovement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="32" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+          <folding>
+            <marker date="1479936191000" expanded="true" signature="6:116" ph="..." />
+            <marker date="1479936191000" expanded="true" signature="145:1382" ph="{...}" />
+            <marker date="1479936191000" expanded="true" signature="206:1380" ph="{...}" />
+            <marker date="1479936191000" expanded="true" signature="466:513" ph="{...}" />
+            <marker date="1479936191000" expanded="true" signature="552:884" ph="{...}" />
+            <marker date="1479936191000" expanded="true" signature="927:1165" ph="{...}" />
+            <marker date="1479936191000" expanded="true" signature="1206:1374" ph="{...}" />
           </folding>
         </state>
       </provider>
