@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.Rendering;
 using UnityEngine;
 
 namespace Assets.Scripts.AI.GameStep.FSM.Agents
-{
+{   [RequireComponent(typeof(NodeHighlighting))]
     public class PlayerAgent : MonoBehaviour
     {
         public  GameObject                        HexNodeManager;
@@ -17,10 +18,11 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private HexNodesManager                   _hexNodesManager;
         private HexNode                           _attackTarget;
         private List<HexNode>                     _walkPath;
-        public NodeHighlighting                    Highlight;
-
+        private NodeHighlighting                  _highlight;
+    
         void Start()
         {
+            _highlight = GetComponent<NodeHighlighting>();
             string startDebug = "Player Start Debug Info:\n";
             if (HexNodeManager != null)
             {
@@ -73,14 +75,14 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             {
                 //show it
                 //StartCoroutine (_pathfinder.Search (_nodeManager.GetHexNode (CurrentNodeIndex)));
-                Highlight.OnGridShow();
+                _highlight.OnGridShow();
 
             }
             else
             {
                 //hide highlights
                 //_pathfinder.ClearHighlights ();
-                Highlight.ClearGrid();
+                _highlight.ClearGrid();
 
             }
         }
