@@ -17,7 +17,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private HexNodesManager                   _hexNodesManager;
         private HexNode                           _attackTarget;
         private List<HexNode>                     _walkPath;
-
+        public NodeHighlighting                    Highlight;
 
         void Start()
         {
@@ -65,6 +65,24 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             _currentState.BeginState();
 
             Debug.Log(startDebug);
+        }
+
+        public void ShowHighLight(bool show)
+        {
+            if (show)
+            {
+                //show it
+                //StartCoroutine (_pathfinder.Search (_nodeManager.GetHexNode (CurrentNodeIndex)));
+                Highlight.OnGridShow();
+
+            }
+            else
+            {
+                //hide highlights
+                //_pathfinder.ClearHighlights ();
+                Highlight.ClearGrid();
+
+            }
         }
 
         void Update()

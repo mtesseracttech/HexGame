@@ -10,13 +10,11 @@ namespace Assets.Scripts.GameLogic.FSMTurn
     {
         private Pathfinder _pathfinder;
         private List<HexNode> _path;
-        private BreadthFirst _breathFirstfinder;
 
         public TurnPhasePlayerSelection(TurnManager manager, PlayerAgent player) : base(manager, player)
         {
             Player = player;
             _pathfinder = new Pathfinder();
-            _breathFirstfinder = new BreadthFirst();
         }
 
         public override void Update()
@@ -92,14 +90,16 @@ namespace Assets.Scripts.GameLogic.FSMTurn
             Player.AttackTarget = null;
             Player.WalkPath     = null;
             Player.SetState(typeof(PlayerStateIdle));
+
             //Here is where the highlights should be enabled!
+            Player.ShowHighLight(true);
+            
         }
 
         public override void End()
         {
-            _breathFirstfinder.ClearHighlights();
-
             //Here is where the highlights should be disabled!
+            Player.ShowHighLight(false);
 
         }
     }
