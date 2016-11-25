@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3232bdbf-4c2a-4541-9e36-26a90aa8f71f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/NodeHighLighter.cs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/Models.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/MobileNodeOccupant.cs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiNodeOccupant.cs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticSingleNodeOccupant.cs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/Textures.meta" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/BreadthFirst.cs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/BuildingOccupant.cs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/EnemyOccupant.cs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/EnemyOccupant.cs.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/MultiBuildingOccupant.cs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/PlayerOccupant.cs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/PropsOccupant.cs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/PropsOccupant.cs.meta" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/BuildingOccupant.cs.meta" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/MobileNodeOccupant.cs.meta" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/MultiBuildingOccupant.cs.meta" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticSingleNodeOccupant.cs.meta" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/PlayerOccupant.cs.meta" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiNodeOccupant.cs.meta" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/PlayerBehavior.meta" afterPath="$PROJECT_DIR$/../../Assets/Sprites/HUD/Inventory.meta" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateFreeMovement.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateFreeMovement.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateStepMovement.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateStepMovement.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodesManager.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodesManager.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/PathFinder.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/PathFinder.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/TestAgent.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/TestAgent.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/NodeOccupant.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/NodeOccupant.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighting.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighting.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/Rendering/SelectionHexRenderer.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/Rendering/SelectionHexRenderer.cs" />
     </list>
     <ignored path="HexGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,20 +80,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HexNode.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HexNode.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="495">
+              <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
               <folding>
-                <marker date="1480087369000" expanded="true" signature="6:114" ph="..." />
-                <marker date="1480087369000" expanded="true" signature="155:4795" ph="{...}" />
-                <marker date="1480087369000" expanded="true" signature="205:4793" ph="{...}" />
-                <marker date="1480087369000" expanded="true" signature="1321:1784" ph="{...}" />
-                <marker date="1480087369000" expanded="true" signature="1974:2139" ph="{...}" />
-                <marker date="1480087369000" expanded="true" signature="3034:3119" ph="{...}" />
-                <marker date="1480087369000" expanded="true" signature="3450:4236" ph="{...}" />
-                <marker date="1480087369000" expanded="true" signature="4689:4787" ph="{...}" />
+                <marker date="1480087672000" expanded="true" signature="6:114" ph="..." />
+                <marker date="1480087672000" expanded="true" signature="155:4520" ph="{...}" />
+                <marker date="1480087672000" expanded="true" signature="205:4518" ph="{...}" />
+                <marker date="1480087672000" expanded="true" signature="1255:1718" ph="{...}" />
+                <marker date="1480087672000" expanded="true" signature="1908:2073" ph="{...}" />
+                <marker date="1480087672000" expanded="true" signature="2968:3053" ph="{...}" />
+                <marker date="1480087672000" expanded="true" signature="3191:3977" ph="{...}" />
+                <marker date="1480087672000" expanded="true" signature="4430:4512" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -144,7 +112,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NodeHighLighter.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NodeHighLighter.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/NodeHighLighter.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
@@ -249,11 +217,11 @@
         <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiOccupant.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiNodeOccupant.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/NodeOccupant.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/TestAgent.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/PathFinder.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/BreadthFirst.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs" />
       </list>
     </option>
   </component>
@@ -495,12 +463,12 @@
       <workItem from="1479977752277" duration="16595000" />
       <workItem from="1480065934545" duration="6362000" />
       <workItem from="1480078852157" duration="1688000" />
-      <workItem from="1480083585461" duration="3243000" />
+      <workItem from="1480083585461" duration="3410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57156000" />
+    <option name="totallyTimeSpent" value="57323000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -890,34 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1480087369000" expanded="true" signature="59:122" ph="{...}" />
-            <marker date="1480087369000" expanded="true" signature="108:120" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1480087369000" expanded="true" signature="6:114" ph="..." />
-            <marker date="1480087369000" expanded="true" signature="155:4795" ph="{...}" />
-            <marker date="1480087369000" expanded="true" signature="205:4793" ph="{...}" />
-            <marker date="1480087369000" expanded="true" signature="1321:1784" ph="{...}" />
-            <marker date="1480087369000" expanded="true" signature="1974:2139" ph="{...}" />
-            <marker date="1480087369000" expanded="true" signature="3034:3119" ph="{...}" />
-            <marker date="1480087369000" expanded="true" signature="3450:4236" ph="{...}" />
-            <marker date="1480087369000" expanded="true" signature="4689:4787" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/PathFinder.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -949,6 +889,34 @@
             <marker date="1480087440000" expanded="true" signature="171:3926" ph="{...}" />
             <marker date="1480087440000" expanded="true" signature="640:3712" ph="{...}" />
             <marker date="1480087440000" expanded="true" signature="3753:3920" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1480087369000" expanded="true" signature="59:122" ph="{...}" />
+            <marker date="1480087369000" expanded="true" signature="108:120" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+          <folding>
+            <marker date="1480087672000" expanded="true" signature="6:114" ph="..." />
+            <marker date="1480087672000" expanded="true" signature="155:4520" ph="{...}" />
+            <marker date="1480087672000" expanded="true" signature="205:4518" ph="{...}" />
+            <marker date="1480087672000" expanded="true" signature="1255:1718" ph="{...}" />
+            <marker date="1480087672000" expanded="true" signature="1908:2073" ph="{...}" />
+            <marker date="1480087672000" expanded="true" signature="2968:3053" ph="{...}" />
+            <marker date="1480087672000" expanded="true" signature="3191:3977" ph="{...}" />
+            <marker date="1480087672000" expanded="true" signature="4430:4512" ph="{...}" />
           </folding>
         </state>
       </provider>

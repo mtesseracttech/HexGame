@@ -30,9 +30,8 @@ namespace Assets.Scripts.AI.Pathfinding
         private bool           _isWalled;
         private int            _index;
 		private int            _expansion;
-		private bool           _hasBuilding;
-		private bool           _hasEnemy;
 
+        
         //Constructor from the JSON info
         public HexNode(HexCellInfoContainer info)
         {
@@ -117,18 +116,6 @@ namespace Assets.Scripts.AI.Pathfinding
 			set { _expansion = value; }
 		}
 
-		public bool HasBuilding
-		{
-			get { return  _hasBuilding; }
-			set { _hasBuilding = value; }
-		}
-
-		public bool HasEnemy
-		{
-			get { return  _hasEnemy; }
-			set { _hasEnemy = value; }
-		}
-
 
         public override string ToString()
         {
@@ -171,7 +158,7 @@ namespace Assets.Scripts.AI.Pathfinding
 
         public bool IsOccupiedByAnything()
         {
-            return _hasBuilding || _hasRiver || _isUnderWater || HasOccupant;
+            return _hasRiver || _isUnderWater || HasOccupant;
         }
     }
 }
