@@ -28,6 +28,8 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         public override void End()
         {
             //Manager.EnemyRadar!!!
+
+            Manager.SetFirstEnemy();//Run after enemyradar, so every enemy gets picked up for this.
         }
     }
 }

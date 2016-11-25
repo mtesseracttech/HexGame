@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSM.FSMEnemy;
-using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
 using Assets.Scripts.AI.Pathfinding;
 using Assets.Scripts.NodeGrid.Occupants.Specifics;
 using UnityEngine;
@@ -26,7 +25,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             //Setting up the Cache/////////////////
             _states = new Dictionary<Type, EnemyStateBase>();
             _states.Add(typeof(EnemyStateStepMovement), new EnemyStateStepMovement(this));
-            _states.Add(typeof(EnemyStateAttacking),    new EnemyStateAttacking   (this));
+            _states.Add(typeof(EnemyStateAttack),    new EnemyStateAttack   (this));
             _states.Add(typeof(EnemyStateIdle),         new EnemyStateIdle        (this));
 
             //Starting First State Manually////////
@@ -53,7 +52,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
 
         public bool IsIdling()
         {
-            return _currentState.GetType() == typeof(PlayerStateIdle);
+            return _currentState.GetType() == typeof(EnemyStateIdle);
         }
 
         //Navigation Related///////////////////////
@@ -96,6 +95,12 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         {
             get { return  transform.rotation; }
             set { transform.rotation = value; }
+        }
+
+        public string Name
+        {
+            get { return  gameObject.name; }
+            set { gameObject.name = value; }
         }
 
         //FSM Related//////////////////////////////

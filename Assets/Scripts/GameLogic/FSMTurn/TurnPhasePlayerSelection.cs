@@ -10,7 +10,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 {
     public class TurnPhasePlayerSelection : TurnPhasePlayerBase
     {
-        private Pathfinder _pathfinder;
+        //private Pathfinder _pathfinder;
         private List<HexNode> _path;
         private List<HexNode> _debugPath;
         private HexNode _debugCurrentNode;
@@ -19,7 +19,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         public TurnPhasePlayerSelection(TurnManager manager, PlayerAgent player) : base(manager, player)
         {
             Player = player;
-            _pathfinder = new Pathfinder();
+            //Pathfinder _pathfinder = new Pathfinder();
         }
 
         public override void Update()
@@ -54,10 +54,10 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                         {
                             _debugCurrentNode = Player.CurrentNode;
                             _debugHexNode = hex.GetUnderlyingNode();
-                            _pathfinder = new Pathfinder();
-                            _pathfinder.Search(_debugCurrentNode, _debugHexNode);
+                            Pathfinder pathfinder = new Pathfinder();
+                            pathfinder.Search(_debugCurrentNode, _debugHexNode);
 
-                            _path = _pathfinder.Path;
+                            _path = pathfinder.Path;
                             if (_path != null)
                             {
                                 if (_path.Count <= 2 && hex.GetUnderlyingNode().HasEnemy)
@@ -79,6 +79,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                     tempPath.Add(_path[0]);
                                     Player.WalkPath = tempPath;
                                     Player.AttackTarget = null;
+                                    pathfinder = null;
                                     Manager.ChangePhase(typeof(TurnPhasePlayerAction));
                                 }
                                 else

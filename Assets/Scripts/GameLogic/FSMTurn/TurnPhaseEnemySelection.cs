@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
 using Assets.Scripts.AI.Pathfinding;
-using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
@@ -17,11 +16,83 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void Update()
         {
-            //Not Needed here, enemy can make selection and nextphase in 1 go in the start block
+            Enemy.WalkPath     = null;
+            Enemy.AttackTarget = null;
+
+            HexNode playerLocation = _player.GetCurrentNode();
+            HexNode enemyLocation  =  Enemy .GetCurrentNode();
+
+            Pathfinder pathfinder = new Pathfinder();
+
+            pathfinder.Search(enemyLocation, playerLocation);
+            List<HexNode> path = pathfinder.Path;
+
+            if (path != null)
+            {
+                if (path.Count <= 2 && playerLocation.HasPlayer)
+                {
+                    Debug.Log("Node contains player, moving to closest tile");
+                    if (path.Count == 2)
+                    {
+                        List<HexNode> tempPath = new List<HexNode> {path[0]};
+                        Enemy.WalkPath = tempPath;
+                    }
+                    Enemy.AttackTarget = playerLocation;
+                    Manager.ChangePhase(typeof(TurnPhaseEnemyAction));
+
+                }
+                else if (path.Count == 1)
+                {
+                    Debug.Log("Moving to closer tile");
+                    List<HexNode> tempPath = new List<HexNode>();
+                    tempPath.Add(path[0]);
+                    Enemy.WalkPath = tempPath;
+                    Enemy.AttackTarget = null;
+                    Manager.ChangePhase(typeof(TurnPhaseEnemyAction));
+                }
+                else
+                {
+                    //Debug.Log(path.Count);
+                    Debug.Log("The player is too far away to walk to/attack!");
+                }
+            }
+            else
+            {
+                Debug.Log("No possible way found to get to the player");
+                Manager.ChangePhase(typeof(TurnPhaseEnemyAction));
+            }
         }
 
         public override void Start()
         {
+            Enemy = Manager.GetCurrentEnemy();
+        }
+
+        public override void End()
+        {
+            //Not Needed
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
             Enemy = Manager.GetCurrentEnemy();
             Enemy.WalkPath = null;
             Enemy.AttackTarget = null;
@@ -61,14 +132,5 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 Debug.Log("Could not find any way to get to the player!");
             }
 
-            Debug.Break();
-
             Manager.ChangePhase(typeof(TurnPhaseEnemyAction));
-        }
-
-        public override void End()
-        {
-            //Not Needed
-        }
-    }
-}
+            */
