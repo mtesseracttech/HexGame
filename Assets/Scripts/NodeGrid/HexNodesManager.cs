@@ -7,6 +7,7 @@ using Assets.Scripts.Saving;
 public class HexNodesManager : MonoBehaviour
 {
     public bool DebugMode = false;
+    public bool ShowAllOccupiedNodes = true;
 
     private HexNode[] _nodes;
 
@@ -24,6 +25,18 @@ public class HexNodesManager : MonoBehaviour
 	            }
 	        }
 	    }
+
+	    if (ShowAllOccupiedNodes && _nodes != null)
+	    {
+	        foreach (var node in _nodes)
+	        {
+	            if (node.HasOccupant)
+	            {
+	                Debug.DrawLine(node.Position, node.Position + Vector3.up*10 + Vector3.left, Color.white);
+	            }
+	        }
+	    }
+
 	}
 
 	public void SetBuildingTiles () {

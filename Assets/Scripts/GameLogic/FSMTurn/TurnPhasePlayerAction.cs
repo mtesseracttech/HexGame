@@ -35,8 +35,8 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 //If both datas are set to null and the player is idling again, the next state is loaded
                 else if (Player.WalkPath == null && Player.AttackTarget == null)
                 {
-                    //Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
-                    Manager.ChangePhase(typeof(TurnPhaseIdle));
+                    Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
+                    //Manager.ChangePhase(typeof(TurnPhaseIdle));
                 }
             }
         }

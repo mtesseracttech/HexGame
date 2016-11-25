@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
 using Assets.Scripts.AI.Pathfinding;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
@@ -22,7 +23,6 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         public override void Start()
         {
             Enemy = Manager.GetCurrentEnemy();
-            //Enemy = Manager.RefreshCurrentEnemy();
             Enemy.WalkPath = null;
             Enemy.AttackTarget = null;
 
@@ -60,6 +60,8 @@ namespace Assets.Scripts.GameLogic.FSMTurn
             {
                 Debug.Log("Could not find any way to get to the player!");
             }
+
+            Debug.Break();
 
             Manager.ChangePhase(typeof(TurnPhaseEnemyAction));
         }

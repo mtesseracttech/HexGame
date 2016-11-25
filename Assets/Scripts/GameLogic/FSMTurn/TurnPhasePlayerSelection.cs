@@ -14,6 +14,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         private List<HexNode> _path;
         private List<HexNode> _debugPath;
         private HexNode _debugCurrentNode;
+        private HexNode _debugHexNode;
 
         public TurnPhasePlayerSelection(TurnManager manager, PlayerAgent player) : base(manager, player)
         {
@@ -51,9 +52,10 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                         SelectionHexRenderer hex = hit.collider.gameObject.GetComponent<SelectionHexRenderer>();
                         if (hex != null)
                         {
-                            //_debugCurrentNode = Player.CurrentNode;
+                            _debugCurrentNode = Player.CurrentNode;
+                            _debugHexNode = hex.GetUnderlyingNode();
                             _pathfinder = new Pathfinder();
-                            _pathfinder.Search(Player.CurrentNode, hex.GetUnderlyingNode());
+                            _pathfinder.Search(_debugCurrentNode, _debugHexNode);
 
                             _path = _pathfinder.Path;
                             if (_path != null)
@@ -81,8 +83,8 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                 }
                                 else
                                 {
-                                    //Debug.Log(_path.Count);
-                                    //DebugPath(_path);
+                                    Debug.Log(_path.Count);
+                                    DebugPath(_path);
                                     Debug.Log("That tile is too far away to walk to/attack!");
                                 }
                             }
@@ -90,9 +92,9 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                     }
                 }
             }
+
             //fucking consumables
 
-            /*
             if (_debugPath != null)
             {
                 foreach (var node in _debugPath)
@@ -106,9 +108,13 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
             if (_debugCurrentNode != null)
             {
-                Debug.DrawLine(_debugCurrentNode.Position, _debugCurrentNode.Position + Vector3.up*20, Color.magenta);
+                Debug.DrawLine(_debugCurrentNode.Position, _debugCurrentNode.Position + Vector3.up*10 + Vector3.forward, Color.magenta);
             }
-            */
+            if (_debugHexNode != null)
+            {
+                Debug.DrawLine(_debugHexNode .Position, _debugHexNode .Position + Vector3.up*10 + Vector3.right, Color.blue);
+            }
+
         }
 
         private void DebugPath(List<HexNode> path)

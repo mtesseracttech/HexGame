@@ -38,7 +38,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         void Update()
         {
             _currentState.Update();
-            Debug.DrawLine(CurrentNode.Position, CurrentNode.Position + (Vector3.up*10), Color.yellow);
+            Debug.DrawLine(CurrentNode.Position, CurrentNode.Position + (Vector3.up*10) + Vector3.back, Color.yellow);
         }
 
         //State Related Methods////////////////////

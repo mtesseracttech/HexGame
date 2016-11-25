@@ -11,8 +11,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void Update()
         {
-            /*
-            if (Done)
+            if (Enemy.IsIdling())
             {
                 if (Manager.HasNextEnemy())
                 {
@@ -41,11 +40,12 @@ namespace Assets.Scripts.GameLogic.FSMTurn
             {
                 Manager.ChangePhase(typeof(TurnPhaseIdle));
             }
-            */
+
         }
 
         public override void Start()
         {
+            Enemy = Manager.GetCurrentEnemy();
             Done = false;
         }
 
