@@ -29,9 +29,9 @@ namespace Assets.Scripts.AI.Pathfinding
         private bool           _isUnderWater;
         private bool           _isWalled;
         private int            _index;
-		private int            _expansion;
+        private int            _expansion;
 
-        
+
         //Constructor from the JSON info
         public HexNode(HexCellInfoContainer info)
         {
@@ -110,11 +110,11 @@ namespace Assets.Scripts.AI.Pathfinding
             return (CostCombined.CompareTo(other.CostCombined));
         }
 
-		public int Expansion
-		{
-			get { return  _expansion; }
-			set { _expansion = value; }
-		}
+        public int Expansion
+        {
+        	get { return  _expansion; }
+        	set { _expansion = value; }
+        }
 
 
         public override string ToString()

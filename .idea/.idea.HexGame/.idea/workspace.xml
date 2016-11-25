@@ -83,17 +83,17 @@
       <file leaf-file-name="HexNode.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+            <state relative-caret-position="471">
+              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
               <folding>
-                <marker date="1480087672000" expanded="true" signature="6:114" ph="..." />
-                <marker date="1480087672000" expanded="true" signature="155:4520" ph="{...}" />
-                <marker date="1480087672000" expanded="true" signature="205:4518" ph="{...}" />
-                <marker date="1480087672000" expanded="true" signature="1255:1718" ph="{...}" />
-                <marker date="1480087672000" expanded="true" signature="1908:2073" ph="{...}" />
-                <marker date="1480087672000" expanded="true" signature="2968:3053" ph="{...}" />
-                <marker date="1480087672000" expanded="true" signature="3191:3977" ph="{...}" />
-                <marker date="1480087672000" expanded="true" signature="4430:4512" ph="{...}" />
+                <marker date="1480087772000" expanded="true" signature="6:114" ph="..." />
+                <marker date="1480087772000" expanded="true" signature="155:4548" ph="{...}" />
+                <marker date="1480087772000" expanded="true" signature="205:4546" ph="{...}" />
+                <marker date="1480087772000" expanded="true" signature="1253:1716" ph="{...}" />
+                <marker date="1480087772000" expanded="true" signature="1906:2071" ph="{...}" />
+                <marker date="1480087772000" expanded="true" signature="2966:3051" ph="{...}" />
+                <marker date="1480087772000" expanded="true" signature="3219:4005" ph="{...}" />
+                <marker date="1480087772000" expanded="true" signature="4458:4540" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -463,12 +463,12 @@
       <workItem from="1479977752277" duration="16595000" />
       <workItem from="1480065934545" duration="6362000" />
       <workItem from="1480078852157" duration="1688000" />
-      <workItem from="1480083585461" duration="3410000" />
+      <workItem from="1480083585461" duration="3515000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57323000" />
+    <option name="totallyTimeSpent" value="57428000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -906,17 +906,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+        <state relative-caret-position="471">
+          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
           <folding>
-            <marker date="1480087672000" expanded="true" signature="6:114" ph="..." />
-            <marker date="1480087672000" expanded="true" signature="155:4520" ph="{...}" />
-            <marker date="1480087672000" expanded="true" signature="205:4518" ph="{...}" />
-            <marker date="1480087672000" expanded="true" signature="1255:1718" ph="{...}" />
-            <marker date="1480087672000" expanded="true" signature="1908:2073" ph="{...}" />
-            <marker date="1480087672000" expanded="true" signature="2968:3053" ph="{...}" />
-            <marker date="1480087672000" expanded="true" signature="3191:3977" ph="{...}" />
-            <marker date="1480087672000" expanded="true" signature="4430:4512" ph="{...}" />
+            <marker date="1480087772000" expanded="true" signature="6:114" ph="..." />
+            <marker date="1480087772000" expanded="true" signature="155:4548" ph="{...}" />
+            <marker date="1480087772000" expanded="true" signature="205:4546" ph="{...}" />
+            <marker date="1480087772000" expanded="true" signature="1253:1716" ph="{...}" />
+            <marker date="1480087772000" expanded="true" signature="1906:2071" ph="{...}" />
+            <marker date="1480087772000" expanded="true" signature="2966:3051" ph="{...}" />
+            <marker date="1480087772000" expanded="true" signature="3219:4005" ph="{...}" />
+            <marker date="1480087772000" expanded="true" signature="4458:4540" ph="{...}" />
           </folding>
         </state>
       </provider>
