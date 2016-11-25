@@ -23,6 +23,8 @@ namespace Assets.Scripts.AI
 		private bool _hasBuilding;
 		private bool _hasEnemy;
 
+		private NodeOccupant _occupant;
+
         private HexNodeObject gameObject;
 
         public float CostCurrent = 0; //keep track of cost up to now
@@ -122,6 +124,12 @@ namespace Assets.Scripts.AI
 		{
 			get { return _hasEnemy; }
 			set { _hasEnemy = value; }
+		}
+
+		public NodeOccupant Occupant 
+		{
+			get { return _occupant; }
+			set { _occupant = value; }
 		}
 
         public override string ToString()
