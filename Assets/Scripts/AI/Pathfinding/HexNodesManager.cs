@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Assets.Scripts.AI;
+using Assets.Scripts.AI.Pathfinding;
 using Assets.Scripts.Saving;
 
 public class HexNodesManager : MonoBehaviour

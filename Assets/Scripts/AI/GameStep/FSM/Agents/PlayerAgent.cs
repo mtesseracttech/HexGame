@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.AI.Pathfinding;
 using UnityEngine;
 
 namespace Assets.Scripts.AI.GameStep.FSM.Agents

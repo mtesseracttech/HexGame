@@ -2,6 +2,7 @@
 using System.Collections;
 using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.AI.Pathfinding;
 
 
 public class NodeHighlighting : MonoBehaviour
@@ -10,13 +11,13 @@ public class NodeHighlighting : MonoBehaviour
     private HexNode _currentNode;
 	public GameObject NodeManager;
 	private HexNodesManager _nodeManager;
-	private BreadthFirst _pathfinder;
+	private NodeHighLighter _pathfinder;
     public PlayerAgent Player;
 
 	void Start ()
 	{
 		_nodeManager = NodeManager.GetComponent<HexNodesManager>();
-		_pathfinder = GetComponent <BreadthFirst> ();
+		_pathfinder = GetComponent <NodeHighLighter> ();
 	}
 	
 	// Update is called once per frame
