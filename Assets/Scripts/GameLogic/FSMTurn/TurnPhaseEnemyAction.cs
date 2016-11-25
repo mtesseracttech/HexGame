@@ -14,6 +14,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                Enemy = Manager.GetCurrentEnemy();
                 if (Manager.HasNextEnemy())
                 {
                     Debug.Log("The current enemy is: " + Enemy.Name);
@@ -21,12 +22,16 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                     {
                         Enemy = Manager.GetCurrentEnemy();
                         Debug.Log("Refreshed to enemy" + Enemy.Name);
-                        Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
+                        //Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
                     }
                 }
                 else
                 {
-                    Manager.ChangePhase(typeof(TurnPhaseIdle));
+                    Debug.Log("The current enemy is: " + Enemy.Name);
+                    Manager.SetFirstEnemy();
+                    Enemy = Manager.GetCurrentEnemy();
+                    Debug.Log("Reset to enemy" + Enemy.Name);
+                    //Manager.ChangePhase(typeof(TurnPhaseIdle));
                 }
 
 

@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3232bdbf-4c2a-4541-9e36-26a90aa8f71f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMEnemy/EnemyStateAttacking.cs.meta" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMEnemy/EnemyStateAttacking.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMEnemy/EnemyStateAttack.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMEnemy/EnemyStateStepMovement.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMEnemy/EnemyStateStepMovement.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseIdle.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseIdle.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs" />
     </list>
     <ignored path="HexGame.iws" />
@@ -54,17 +46,17 @@
       <file leaf-file-name="TurnPhaseEnemyAction.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="165">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="34" selection-end-column="17" />
               <folding>
-                <marker date="1480112188000" expanded="true" signature="6:110" ph="..." />
-                <marker date="1480112188000" expanded="true" signature="154:3121" ph="{...}" />
-                <marker date="1480112188000" expanded="true" signature="215:3119" ph="{...}" />
-                <marker date="1480112188000" expanded="true" signature="319:339" ph="{...}" />
-                <marker date="1480112188000" expanded="true" signature="378:2926" ph="{...}" />
-                <marker date="1480112188000" expanded="true" signature="1036:2902" ph="/* if (Enemy.IsIdling()) ... */" />
-                <marker date="1480112188000" expanded="true" signature="2964:3057" ph="{...}" />
-                <marker date="1480112188000" expanded="true" signature="3093:3113" ph="{...}" />
+                <marker date="1480113192000" expanded="true" signature="6:110" ph="..." />
+                <marker date="1480113192000" expanded="true" signature="154:3408" ph="{...}" />
+                <marker date="1480113192000" expanded="true" signature="215:3406" ph="{...}" />
+                <marker date="1480113192000" expanded="true" signature="319:339" ph="{...}" />
+                <marker date="1480113192000" expanded="true" signature="378:3213" ph="{...}" />
+                <marker date="1480113192000" expanded="true" signature="1323:3189" ph="/* if (Enemy.IsIdling()) ... */" />
+                <marker date="1480113192000" expanded="true" signature="3251:3344" ph="{...}" />
+                <marker date="1480113192000" expanded="true" signature="3380:3400" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -73,25 +65,24 @@
       <file leaf-file-name="TurnManager.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="133" column="24" selection-start-line="133" selection-start-column="24" selection-end-line="133" selection-end-column="24" />
+            <state relative-caret-position="397">
+              <caret line="107" column="105" selection-start-line="107" selection-start-column="105" selection-end-line="107" selection-end-column="105" />
               <folding>
-                <marker date="1480111268000" expanded="true" signature="6:151" ph="..." />
-                <marker date="1480111268000" expanded="true" signature="187:6545" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="234:6543" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="878:3996" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="4045:4684" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="4708:4764" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="5168:5221" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="5231:5311" ph="/* Don't call inside of step cycle! ... */" />
-                <marker date="1480111268000" expanded="true" signature="5361:5417" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="5466:5523" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="5571:5702" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="5747:5795" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="5827:5891" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="5936:6008" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="6049:6328" ph="{...}" />
-                <marker date="1480111268000" expanded="true" signature="6365:6537" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="6:151" ph="..." />
+                <marker date="1480112661000" expanded="true" signature="187:6550" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="234:6548" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="878:3996" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="4713:4769" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="5173:5226" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="5236:5316" ph="/* Don't call inside of step cycle! ... */" />
+                <marker date="1480112661000" expanded="true" signature="5366:5422" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="5471:5528" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="5576:5707" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="5752:5800" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="5832:5896" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="5941:6013" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="6054:6333" ph="{...}" />
+                <marker date="1480112661000" expanded="true" signature="6370:6542" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -172,8 +163,8 @@
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseIdle.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs" />
       </list>
     </option>
@@ -534,12 +525,12 @@
       <workItem from="1479977752277" duration="16595000" />
       <workItem from="1480065934545" duration="6362000" />
       <workItem from="1480078852157" duration="1688000" />
-      <workItem from="1480083585461" duration="23949000" />
+      <workItem from="1480083585461" duration="24772000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77862000" />
+    <option name="totallyTimeSpent" value="78685000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1160,23 +1151,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="101" column="26" selection-start-line="101" selection-start-column="26" selection-end-line="101" selection-end-column="26" />
-          <folding>
-            <marker date="1480110670000" expanded="true" signature="6:201" ph="..." />
-            <marker date="1480110670000" expanded="true" signature="250:3528" ph="{...}" />
-            <marker date="1480110670000" expanded="true" signature="296:3526" ph="{...}" />
-            <marker date="1480110670000" expanded="true" signature="758:1437" ph="{...}" />
-            <marker date="1480110670000" expanded="true" signature="1512:1687" ph="{...}" />
-            <marker date="1480110670000" expanded="true" signature="1781:2073" ph="{...}" />
-            <marker date="1480110670000" expanded="true" signature="2105:2195" ph="{...}" />
-            <marker date="1480110670000" expanded="true" signature="3472:3520" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -1196,42 +1170,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="133" column="24" selection-start-line="133" selection-start-column="24" selection-end-line="133" selection-end-column="24" />
+        <state relative-caret-position="397">
+          <caret line="107" column="105" selection-start-line="107" selection-start-column="105" selection-end-line="107" selection-end-column="105" />
           <folding>
-            <marker date="1480111268000" expanded="true" signature="6:151" ph="..." />
-            <marker date="1480111268000" expanded="true" signature="187:6545" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="234:6543" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="878:3996" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="4045:4684" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="4708:4764" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="5168:5221" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="5231:5311" ph="/* Don't call inside of step cycle! ... */" />
-            <marker date="1480111268000" expanded="true" signature="5361:5417" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="5466:5523" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="5571:5702" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="5747:5795" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="5827:5891" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="5936:6008" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="6049:6328" ph="{...}" />
-            <marker date="1480111268000" expanded="true" signature="6365:6537" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="6:151" ph="..." />
+            <marker date="1480112661000" expanded="true" signature="187:6550" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="234:6548" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="878:3996" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="4713:4769" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="5173:5226" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="5236:5316" ph="/* Don't call inside of step cycle! ... */" />
+            <marker date="1480112661000" expanded="true" signature="5366:5422" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="5471:5528" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="5576:5707" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="5752:5800" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="5832:5896" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="5941:6013" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="6054:6333" ph="{...}" />
+            <marker date="1480112661000" expanded="true" signature="6370:6542" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="101" column="26" selection-start-line="101" selection-start-column="26" selection-end-line="101" selection-end-column="26" />
+          <folding>
+            <marker date="1480110670000" expanded="true" signature="6:201" ph="..." />
+            <marker date="1480110670000" expanded="true" signature="250:3528" ph="{...}" />
+            <marker date="1480110670000" expanded="true" signature="296:3526" ph="{...}" />
+            <marker date="1480110670000" expanded="true" signature="758:1437" ph="{...}" />
+            <marker date="1480110670000" expanded="true" signature="1512:1687" ph="{...}" />
+            <marker date="1480110670000" expanded="true" signature="1781:2073" ph="{...}" />
+            <marker date="1480110670000" expanded="true" signature="2105:2195" ph="{...}" />
+            <marker date="1480110670000" expanded="true" signature="3472:3520" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="165">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="34" selection-end-column="17" />
           <folding>
-            <marker date="1480112188000" expanded="true" signature="6:110" ph="..." />
-            <marker date="1480112188000" expanded="true" signature="154:3121" ph="{...}" />
-            <marker date="1480112188000" expanded="true" signature="215:3119" ph="{...}" />
-            <marker date="1480112188000" expanded="true" signature="319:339" ph="{...}" />
-            <marker date="1480112188000" expanded="true" signature="378:2926" ph="{...}" />
-            <marker date="1480112188000" expanded="true" signature="1036:2902" ph="/* if (Enemy.IsIdling()) ... */" />
-            <marker date="1480112188000" expanded="true" signature="2964:3057" ph="{...}" />
-            <marker date="1480112188000" expanded="true" signature="3093:3113" ph="{...}" />
+            <marker date="1480113192000" expanded="true" signature="6:110" ph="..." />
+            <marker date="1480113192000" expanded="true" signature="154:3408" ph="{...}" />
+            <marker date="1480113192000" expanded="true" signature="215:3406" ph="{...}" />
+            <marker date="1480113192000" expanded="true" signature="319:339" ph="{...}" />
+            <marker date="1480113192000" expanded="true" signature="378:3213" ph="{...}" />
+            <marker date="1480113192000" expanded="true" signature="1323:3189" ph="/* if (Enemy.IsIdling()) ... */" />
+            <marker date="1480113192000" expanded="true" signature="3251:3344" ph="{...}" />
+            <marker date="1480113192000" expanded="true" signature="3380:3400" ph="{...}" />
           </folding>
         </state>
       </provider>

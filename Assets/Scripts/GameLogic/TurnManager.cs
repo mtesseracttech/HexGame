@@ -105,7 +105,7 @@ namespace Assets.Scripts.GameLogic
                 if (_enemies.Count == 0)
                 {
                     Debug.Log("No enemies available, going back to idle state!");
-                    newPhase = typeof(TurnPhaseIdle); //if no enemies are present, switching back to
+                    newPhase = typeof(TurnPhaseIdle); //if no enemies are present, switching back to Idle
                 }
             }
             _currentPhase.End();
