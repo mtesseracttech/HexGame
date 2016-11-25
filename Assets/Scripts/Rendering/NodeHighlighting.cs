@@ -22,7 +22,7 @@ public class NodeHighlighting : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-
+        UpdateCurrentPosition();
 		if(Input.GetKeyDown(KeyCode.L))
 		{
 			//_pathfinder.ClearHighlights ();
