@@ -19,15 +19,7 @@ namespace Assets.Scripts.NodeGrid.Occupants.Primitives
 
         public void SetCurrentNode(HexNode targetNode)
         {
-            if (prCurrentNode != null)
-            {
-                if (prCurrentNode.Occupant is SingleNodeOccupant)
-                {
-                    SingleNodeOccupant temp = prCurrentNode.Occupant as SingleNodeOccupant;
-                    temp.SetCurrentNode(null);
-                }
-                prCurrentNode.Occupant = null;
-            }
+            if (prCurrentNode != null) prCurrentNode.Occupant = null;
             prCurrentNode = targetNode;
             prCurrentNode.Occupant = this;
         }

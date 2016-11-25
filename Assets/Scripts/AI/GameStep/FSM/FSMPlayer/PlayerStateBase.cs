@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
-using UnityEngine;
 
-namespace Assets.Scripts.AI
+namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 {
     public abstract class PlayerStateBase
     {

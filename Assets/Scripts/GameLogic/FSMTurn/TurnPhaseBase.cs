@@ -5,7 +5,7 @@
         protected bool Done;
         protected TurnManager Manager;
 
-        public TurnPhaseBase(TurnManager manager)
+        protected TurnPhaseBase(TurnManager manager)
         {
             Manager = manager;
         }

@@ -35,12 +35,13 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                     Debug.Log("Continuing to next");
                 }
             }
-            */
+
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Manager.ChangePhase(typeof(TurnPhaseIdle));
             }
+            */
         }
 
         public override void Start()

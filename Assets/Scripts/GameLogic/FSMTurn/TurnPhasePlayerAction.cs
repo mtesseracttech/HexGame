@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {
@@ -34,7 +35,8 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 //If both datas are set to null and the player is idling again, the next state is loaded
                 else if (Player.WalkPath == null && Player.AttackTarget == null)
                 {
-                    Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
+                    //Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
+                    Manager.ChangePhase(typeof(TurnPhaseIdle));
                 }
             }
         }

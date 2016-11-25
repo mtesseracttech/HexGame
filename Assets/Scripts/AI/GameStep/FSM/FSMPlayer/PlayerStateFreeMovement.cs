@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using Assets.Scripts.AI.GameStep.FSM.Agents;
-using Assets.Scripts.AI.Pathfinding;
+﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
 
-namespace Assets.Scripts.AI
+namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 {
     public class PlayerStateFreeMovement : PlayerStateBase
     {

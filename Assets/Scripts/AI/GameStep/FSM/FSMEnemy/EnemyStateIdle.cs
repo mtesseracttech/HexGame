@@ -1,6 +1,6 @@
 using Assets.Scripts.AI.GameStep.FSM.Agents;
 
-namespace Assets.Scripts.AI.GameStep.FSMEnemy
+namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
 {
     public class EnemyStateIdle : EnemyStateBase
     {

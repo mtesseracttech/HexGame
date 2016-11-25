@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Assets.Scripts.AI.GameStep.FSMEnemy;
+using Assets.Scripts.AI.GameStep.FSM.FSMEnemy;
+using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
 using Assets.Scripts.AI.Pathfinding;
 using Assets.Scripts.NodeGrid.Occupants.Specifics;
 using UnityEngine;

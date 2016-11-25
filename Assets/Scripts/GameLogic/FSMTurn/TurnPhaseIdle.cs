@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.AI;
-using Assets.Scripts.AI.GameStep.FSMEnemy;
+using Assets.Scripts.AI.GameStep.FSM.FSMEnemy;
+using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn

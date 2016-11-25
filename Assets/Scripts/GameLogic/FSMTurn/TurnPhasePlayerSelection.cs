@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
 using Assets.Scripts.AI.Pathfinding;
 using UnityEngine;
 
@@ -50,7 +51,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                         SelectionHexRenderer hex = hit.collider.gameObject.GetComponent<SelectionHexRenderer>();
                         if (hex != null)
                         {
-                            _debugCurrentNode = Player.CurrentNode;
+                            //_debugCurrentNode = Player.CurrentNode;
                             _pathfinder = new Pathfinder();
                             _pathfinder.Search(Player.CurrentNode, hex.GetUnderlyingNode());
 
@@ -80,8 +81,8 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                 }
                                 else
                                 {
-                                    Debug.Log(_path.Count);
-                                    DebugPath(_path);
+                                    //Debug.Log(_path.Count);
+                                    //DebugPath(_path);
                                     Debug.Log("That tile is too far away to walk to/attack!");
                                 }
                             }
@@ -91,6 +92,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
             }
             //fucking consumables
 
+            /*
             if (_debugPath != null)
             {
                 foreach (var node in _debugPath)
@@ -106,6 +108,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
             {
                 Debug.DrawLine(_debugCurrentNode.Position, _debugCurrentNode.Position + Vector3.up*20, Color.magenta);
             }
+            */
         }
 
         private void DebugPath(List<HexNode> path)
