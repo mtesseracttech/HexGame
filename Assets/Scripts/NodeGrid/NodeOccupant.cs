@@ -3,13 +3,13 @@ using System.Collections;
 
 public abstract class NodeOccupant : MonoBehaviour {
 
-	public GameObject hexNodes;
-	protected HexNodesManager _hexNodeManager;
+    public int NodeIndex;
+    public GameObject HexNodes;
+	protected HexNodesManager HexNodeManager;
 
-	public int nodeIndex;
-
-	public virtual void Start () {
-		_hexNodeManager = hexNodes.GetComponent <HexNodesManager> ();
+	public virtual void Start ()
+	{
+		HexNodeManager = HexNodes.GetComponent <HexNodesManager> ();
 	}
 
 	public abstract void SetOccupant ();

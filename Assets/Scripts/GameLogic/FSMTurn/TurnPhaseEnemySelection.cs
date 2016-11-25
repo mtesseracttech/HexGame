@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.AI.Pathfinding;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn

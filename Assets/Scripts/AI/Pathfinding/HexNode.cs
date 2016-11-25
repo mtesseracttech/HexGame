@@ -4,49 +4,52 @@ using System.Linq;
 using Assets.Scripts.Saving;
 using UnityEngine;
 
-namespace Assets.Scripts.AI
+namespace Assets.Scripts.AI.Pathfinding
 {
     public class HexNode : IComparable<HexNode>
     {
-        private Color _color;
+        //A* Related
+        public  float          CostCurrent      = 0; //keep track of cost up to now
+        public  float          CostEstimate     = 0; //keep track of cost estimate to goal
+        public  float          CostCombined     = 0; //The above two added together
+        private HexNode        _parent;
+        private HexNode[]      _neighbors;
+
+        //Ineteraction Related
+        private HexNodeObject  _gameObject;
+        private NodeOccupant   _occupant;
+
+        //Original mesh related information
+        private Color          _color;
         private HexCoordinates _coordinates;
-        private int _elevation;
-        private bool _hasRiver;
-        private bool _hasRoads;
-        private bool _isUnderWater;
-        private bool _isWalled;
-        private Vector3 _position;
-        private HexNode[] _neighbors;
-        private int _index;
-        private HexNode _parent;
-		private int _expansion;
-		private bool _hasBuilding;
-		private bool _hasEnemy;
+        private Vector3        _position;
+        private int            _elevation;
+        private bool           _hasRiver;
+        private bool           _hasRoads;
+        private bool           _isUnderWater;
+        private bool           _isWalled;
+        private int            _index;
+		private int            _expansion;
+		private bool           _hasBuilding;
+		private bool           _hasEnemy;
 
-		private NodeOccupant _occupant;
-
-        private HexNodeObject gameObject;
-
-        public float CostCurrent = 0; //keep track of cost up to now
-        public float CostEstimate = 0; //keep track of cost estimate to goal
-        public float CostCombined = 0; //The above two added together
-
+        //Constructor from the JSON info
         public HexNode(HexCellInfoContainer info)
         {
-            _color = info.Color;
-            _coordinates = new HexCoordinates((int) info.Coordinates.x, (int) info.Coordinates.z);
-            _elevation = info.Elevation;
-            _hasRiver = info.HasRiver;
-            _hasRoads = info.HasRoads;
+            _color        = info.Color;
+            _coordinates  = new HexCoordinates((int) info.Coordinates.x, (int) info.Coordinates.z);
+            _elevation    = info.Elevation;
+            _hasRiver     = info.HasRiver;
+            _hasRoads     = info.HasRoads;
             _isUnderWater = info.IsUnderWater;
-            _isWalled = info.IsWalled;
-            _position = info.Position;
-            _index = info.Index;
+            _isWalled     = info.IsWalled;
+            _position     = info.Position;
+            _index        = info.Index;
         }
 
         public HexNode[] Neighbors
         {
-            get { return _neighbors; }
+            get { return  _neighbors; }
             set { _neighbors = value; }
         }
 
@@ -59,7 +62,7 @@ namespace Assets.Scripts.AI
 
         public HexNode Parent
         {
-            get { return _parent; }
+            get { return  _parent; }
             set { _parent = value; }
         }
 
@@ -105,32 +108,27 @@ namespace Assets.Scripts.AI
 
         public int CompareTo(HexNode other)
         {
-            return (CostCurrent + CostEstimate).CompareTo(other.CostCurrent + other.CostEstimate);
+            return (CostCombined.CompareTo(other.CostCombined));
         }
 
 		public int Expansion
 		{
-			get { return _expansion; }
+			get { return  _expansion; }
 			set { _expansion = value; }
 		}
 
 		public bool HasBuilding
 		{
-			get { return _hasBuilding; }
+			get { return  _hasBuilding; }
 			set { _hasBuilding = value; }
 		}
 
 		public bool HasEnemy
 		{
-			get { return _hasEnemy; }
+			get { return  _hasEnemy; }
 			set { _hasEnemy = value; }
 		}
 
-		public NodeOccupant Occupant 
-		{
-			get { return _occupant; }
-			set { _occupant = value; }
-		}
 
         public override string ToString()
         {
@@ -156,9 +154,24 @@ namespace Assets.Scripts.AI
             return returnString;
         }
 
+        public NodeOccupant Occupant
+        {
+            get { return  _occupant; }
+            set
+            {
+                if (_occupant == null) _occupant = value;
+                else{ Debug.Log("You tried to move to an occupied node!, Use HasOccupant to prevent this!"); }
+            }
+        }
+
+        public bool HasOccupant
+        {
+            get { return _occupant != null; }
+        }
+
         public bool IsOccupiedByAnything()
         {
-            return _hasBuilding || _hasEnemy || _hasRiver || _isUnderWater;
+            return _hasBuilding || _hasRiver || _isUnderWater || HasOccupant;
         }
     }
 }

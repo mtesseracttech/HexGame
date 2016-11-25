@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.AI.Pathfinding;
 using UnityEditor;
 using UnityEngine;
 
