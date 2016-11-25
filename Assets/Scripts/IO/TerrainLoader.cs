@@ -32,7 +32,7 @@ public class TerrainLoader : MonoBehaviour
     private void LoadTerrain()
     {
         var prefabs = Resources.LoadAll(LoadRootFolderName + "/prefabs");
-        Debug.Log(prefabs.Length);
+        //Debug.Log(prefabs.Length);
 
         GameObject Base = new GameObject();
         Base.name = "MapBase";

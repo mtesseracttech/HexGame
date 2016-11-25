@@ -28,7 +28,6 @@ namespace Assets.Scripts.AI
             else
             {
                 Agent.CurrentNode = _targetNode;
-                //Agent.Position = _targetNode.Position;
                 Agent.SetState(typeof(PlayerStateIdle));
             }
         }

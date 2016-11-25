@@ -31,7 +31,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
                 }
                 else
                 {
-                    Debug.Log("Successfully linked the HexNodeManager to the PlayerAgent!");
+                    startDebug+= "Successfully linked the HexNodeManager to the PlayerAgent!\n";
                     bool spawnSuccess = SetSpawn(_hexNodesManager.GetHexNode(StartNodeIndex));
                     if (spawnSuccess)
                     {
@@ -70,6 +70,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         void Update()
         {
             _currentState.Update();
+            Debug.DrawLine(_currentNode.Position, _currentNode.Position + (Vector3.up*10), Color.red);
         }
 
         public void SetState(Type state)

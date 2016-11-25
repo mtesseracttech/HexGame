@@ -10,13 +10,16 @@ namespace Assets.Scripts.GameLogic.FSMTurn
     {
         private Pathfinder _pathfinder;
         private List<HexNode> _path;
-        private BreadthFirst _breathFirstfinder;
+        //private BreadthFirst _breathFirstfinder;
+        private List<HexNode> _debugPath;
+        private HexNode _debugCurrentNode;
+
 
         public TurnPhasePlayerSelection(TurnManager manager, PlayerAgent player) : base(manager, player)
         {
             Player = player;
             _pathfinder = new Pathfinder();
-            _breathFirstfinder = new BreadthFirst();
+            //_breathFirstfinder = new BreadthFirst();
         }
 
         public override void Update()
@@ -49,8 +52,10 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                         SelectionHexRenderer hex = hit.collider.gameObject.GetComponent<SelectionHexRenderer>();
                         if (hex != null)
                         {
+                            _debugCurrentNode = Player.CurrentNode;
                             _pathfinder = new Pathfinder();
                             _pathfinder.Search(Player.CurrentNode, hex.GetUnderlyingNode());
+
                             _path = _pathfinder.Path;
                             if (_path != null)
                             {
@@ -77,6 +82,8 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                 }
                                 else
                                 {
+                                    Debug.Log(_path.Count);
+                                    DebugPath(_path);
                                     Debug.Log("That tile is too far away to walk to/attack!");
                                 }
                             }
@@ -85,7 +92,35 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 }
             }
             //fucking consumables
+
+            if (_debugPath != null)
+            {
+                foreach (var node in _debugPath)
+                {
+                    if (node.Parent != null)
+                    {
+                        Debug.DrawLine(node.Position, node.Parent.Position, Color.cyan);
+                    }
+                }
+            }
+
+            if (_debugCurrentNode != null)
+            {
+                Debug.DrawLine(_debugCurrentNode.Position, _debugCurrentNode.Position + Vector3.up*20, Color.magenta);
+            }
         }
+
+        private void DebugPath(List<HexNode> path)
+        {
+            string pathIndexes = "Debug Path Indexes: \n";
+            _debugPath = path;
+            foreach (var node in path)
+            {
+                pathIndexes += node.Index + " ";
+            }
+            Debug.Log(pathIndexes);
+        }
+
 
         public override void Start()
         {
@@ -97,7 +132,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void End()
         {
-            _breathFirstfinder.ClearHighlights();
+            //_breathFirstfinder.ClearHighlights();
 
             //Here is where the highlights should be disabled!
 

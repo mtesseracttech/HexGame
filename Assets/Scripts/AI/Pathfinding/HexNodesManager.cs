@@ -25,16 +25,6 @@ public class HexNodesManager : MonoBehaviour
 	    }
 	}
 
-	public void SetBuildingTiles () {
-		HexNode i = GetHexNode (306);
-		i.HasBuilding = true;
-	}
-    //set enemy occupied tiles
-	public void SetEnemyTiles () {
-		HexNode i = GetHexNode (281);
-		i.HasEnemy = true;
-	}
-
     public void SetNodesFromInfoContainer(HexCellInfoContainer[] infoContainers, bool cullBadConnections = false)
     {
         Debug.Log(infoContainers);

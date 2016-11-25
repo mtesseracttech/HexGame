@@ -22,10 +22,10 @@ public class NodeHighlighting : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown (KeyCode.Z)) {
-			_nodeManager.SetBuildingTiles ();
-			_nodeManager.SetEnemyTiles ();
-		}
+		//if (Input.GetKeyDown (KeyCode.Z)) {
+			//_nodeManager.SetBuildingTiles ();
+			//_nodeManager.SetEnemyTiles ();
+		//}
 
 		if(Input.GetKeyDown(KeyCode.L))
 		{

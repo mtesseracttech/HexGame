@@ -21,8 +21,8 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void Start()
         {
-            Enemy = Manager.RefreshCurrentEnemy();
-
+            Enemy = Manager.GetCurrentEnemy();
+            //Enemy = Manager.RefreshCurrentEnemy();
             Enemy.WalkPath = null;
             Enemy.AttackTarget = null;
 
