@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Assets.Scripts.AI;
+using Assets.Scripts.AI.GameStep.FSM.Agents;
+
 
 public class NodeHighlighting : MonoBehaviour
 {
-
-    public int CurrentNodeIndex = 300;
+    public int CurrentNodeIndex;
     private HexNode _currentNode;
 	public GameObject NodeManager;
 	private HexNodesManager _nodeManager;
 	private BreadthFirst _pathfinder;
+    public PlayerAgent Player;
 
-	// Use this for initialization
 	void Start ()
 	{
 		_nodeManager = NodeManager.GetComponent<HexNodesManager>();
@@ -21,20 +22,18 @@ public class NodeHighlighting : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown (KeyCode.Z)) {
-			_nodeManager.SetBuildingTiles ();
-			_nodeManager.SetEnemyTiles ();
-		}
 
 		if(Input.GetKeyDown(KeyCode.L))
 		{
 			//_pathfinder.ClearHighlights ();
-			StartCoroutine (_pathfinder.Search (_nodeManager.GetHexNode (CurrentNodeIndex)));
+			//StartCoroutine (_pathfinder.Search (_nodeManager.GetHexNode (CurrentNodeIndex)));
             //_nodeManager.GetHexNode (CurrentNodeIndex);
+            OnGridShow();
         }
 
 		if (Input.GetKeyDown (KeyCode.H)) {
-			_pathfinder.ClearHighlights ();
+		//	_pathfinder.ClearHighlights ();
+        ClearGrid();
 		}
 
 		if (Input.GetKeyDown (KeyCode.A)) {
@@ -43,7 +42,22 @@ public class NodeHighlighting : MonoBehaviour
 		}
 	}
 
-	void SetCurrentPosition (int position) {
+	public void SetCurrentPosition (int position) {
 	    CurrentNodeIndex = position;
 	}
+
+    public void UpdateCurrentPosition()
+    {
+        CurrentNodeIndex = Player.CurrentNode.Index;
+    }
+
+    public void OnGridShow()
+    {
+        StartCoroutine(_pathfinder.Search(_nodeManager.GetHexNode(CurrentNodeIndex)));
+    }
+
+    public void ClearGrid()
+    {
+        _pathfinder.ClearHighlights();
+    }
 }

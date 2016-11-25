@@ -15,6 +15,8 @@ namespace Assets.Scripts.Inventory.Stats
         private Text _healthText;
         [SerializeField]
         private Text _coins;
+        [SerializeField]
+        private Text _damageDone;
 
         public int AttackCoinsPlayer;
         public int DefenceCoinsPlayer;
@@ -35,6 +37,8 @@ namespace Assets.Scripts.Inventory.Stats
         private Text _healthTextEnemy;
         [SerializeField]
         private Text _coinsEnemy;
+        [SerializeField]
+        private Text _damageDoneEnemy;
 
         public int AttackCoinsEnemy;
         public int DefenceCoinsEnemy;
@@ -141,11 +145,13 @@ namespace Assets.Scripts.Inventory.Stats
             //                          PLAYER                          //
             _healthText.text = "Health: " + PLayerStats.CurrentHealth;
             _coins.text = "Coins: " + PLayerStats.CoinHave;
+            _damageDone.text = "DamageDone: " + PLayerStats.DamageIsDone;
 
             //-----------------------------------------------------------//
             //                         ENEMY                            //
             _healthTextEnemy.text = "Health: " + ENemyStats.CurrentHealth;
             _coinsEnemy.text = "Coins: " + ENemyStats.CoinHave;
+            _damageDoneEnemy.text = "DamageDone: " + ENemyStats.DamageIsDone;
         }
 
         void ResetValues()

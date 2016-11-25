@@ -16,6 +16,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private List<HexNode>                     _path;
         private HexNodesManager                   _hexNodesManager;
         private HexNode                           _attackTarget;
+        private List<HexNode>                     _walkPath;
+        public NodeHighlighting                    Highlight;
 
         void Start()
         {
@@ -29,7 +31,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
                 }
                 else
                 {
-                    Debug.Log("Successfully linked the HexNodeManager to the PlayerAgent!");
+                    startDebug+= "Successfully linked the HexNodeManager to the PlayerAgent!\n";
                     bool spawnSuccess = SetSpawn(_hexNodesManager.GetHexNode(StartNodeIndex));
                     if (spawnSuccess)
                     {
@@ -65,9 +67,28 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             Debug.Log(startDebug);
         }
 
+        public void ShowHighLight(bool show)
+        {
+            if (show)
+            {
+                //show it
+                //StartCoroutine (_pathfinder.Search (_nodeManager.GetHexNode (CurrentNodeIndex)));
+                Highlight.OnGridShow();
+
+            }
+            else
+            {
+                //hide highlights
+                //_pathfinder.ClearHighlights ();
+                Highlight.ClearGrid();
+
+            }
+        }
+
         void Update()
         {
             _currentState.Update();
+            Debug.DrawLine(_currentNode.Position, _currentNode.Position + (Vector3.up*10), Color.red);
         }
 
         public void SetState(Type state)
@@ -118,19 +139,21 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { transform.rotation = value; }
         }
 
+        public bool IsIdling()
+        {
+            return _currentState.GetType() == typeof(PlayerStateIdle);
+        }
+
         public HexNode AttackTarget
         {
             get { return  _attackTarget; }
             set { _attackTarget = value; }
         }
 
-        public bool IsIdling()
+        public List<HexNode> WalkPath
         {
-            if (_currentState.GetType() == typeof(PlayerStateIdle))
-            {
-                return true;
-            }
-            return false;
+            get { return  _walkPath; }
+            set { _walkPath = value; }
         }
 
         public bool SetSpawn(HexNode spawnNode)

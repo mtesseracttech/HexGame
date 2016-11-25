@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSMEnemy;
+using Assets.Scripts.GameLogic.FSMTurn;
 using UnityEngine;
 
 namespace Assets.Scripts.AI.GameStep.FSM.Agents
 {
     public class EnemyAgent : MonoBehaviour
     {
+        public  GameObject                        HexNodeManager;
+        public  int                               StartNodeIndex;
         private Dictionary<Type, EnemyStateBase> _states;
         private EnemyStateBase                   _currentState;
         private HexNode                          _targetNode;
@@ -15,10 +18,40 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private List<HexNode>                    _path;
         private HexNodesManager                  _hexNodesManager;
         private HexNode                          _attackTarget;
+        private List<HexNode>                    _walkPath;
         private bool                             _alive            = true;
 
         void Start()
         {
+            string startDebug = "EnemyAgent Start Debug Info:\n";
+            if (HexNodeManager != null)
+            {
+                _hexNodesManager = HexNodeManager.GetComponent<HexNodesManager>();
+                if (_hexNodesManager == null)
+                {
+                    startDebug += "There was no HexNodesManager script bound to the given HexNodeManager instance!\n";
+                }
+                else
+                {
+                    startDebug += "Successfully linked the HexNodeManager to the EnemyAgent!\n";
+                    bool spawnSuccess = SetSpawn(_hexNodesManager.GetHexNode(StartNodeIndex));
+                    if (spawnSuccess)
+                    {
+                        startDebug += "Successfully managed to spawn the enemy on Node "
+                                      + _currentNode.Index + "at position: " + _currentNode.Position + "\n";
+                    }
+                    else
+                    {
+                        startDebug += "Failed to spawn the enemy on Node " + _currentNode.Index + "at position: " +
+                                      _currentNode.Position+ "\n";
+                    }
+                }
+            }
+            else
+            {
+                startDebug += "No HexNodeManager instance was supplied to the EnemyAgent!\n";
+            }
+
             _states = new Dictionary<Type, EnemyStateBase>();
 
             _states.Add(typeof(EnemyStateStepMovement), new EnemyStateStepMovement(this));
@@ -26,6 +59,9 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             _states.Add(typeof(EnemyStateIdle),         new EnemyStateIdle        (this));
 
             _currentState = _states[typeof(EnemyStateIdle)];
+            _currentState.BeginState();
+
+            Debug.Log(startDebug);
         }
 
         void Update()
@@ -75,6 +111,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set
             {
                 _currentNode = value;
+                _currentNode.HasEnemy = true;
                 Position = value.Position;
             }
         }
@@ -97,15 +134,21 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { transform.rotation = value; }
         }
 
+        public bool IsIdling()
+        {
+            return _currentState.GetType() == typeof(PlayerStateIdle);
+        }
+
         public HexNode AttackTarget
         {
             get { return  _attackTarget; }
             set { _attackTarget = value; }
         }
 
-        public bool IsIdling()
+        public List<HexNode> WalkPath
         {
-            return _currentState.GetType() == typeof(PlayerStateIdle);
+            get { return  _walkPath; }
+            set { _walkPath = value; }
         }
 
     }
