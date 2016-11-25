@@ -2,7 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3232bdbf-4c2a-4541-9e36-26a90aa8f71f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Primitives/MultiNodeOccupant.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Primitives/NodeOccupant.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Primitives/SingleNodeOccupant.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/BuildingOccupant.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/EnemyOccupant.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/NPCOccupant.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/PlayerOccupant.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/PropOccupant.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/PlayerNodeHighlight.cs" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/NodeHighLighter.cs.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/MobileNodeOccupant.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/MobileNodeOccupant.cs.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/NodeOccupant.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/NodeOccupant.cs.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiNodeOccupant.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiNodeOccupant.cs.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticSingleNodeOccupant.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticSingleNodeOccupant.cs.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/PlayerBehavior.meta" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/NodeHighLighter.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighLighter.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scenes/SceneMarijnGame.unity" afterPath="$PROJECT_DIR$/../../Assets/Scenes/SceneMarijnGame.unity" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateFreeMovement.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateFreeMovement.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodesManager.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodesManager.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighting.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighting.cs" />
     </list>
     <ignored path="HexGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,152 +52,70 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="NodeOccupant.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/NodeOccupant.cs">
+      <file leaf-file-name="PlayerAgent.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+            <state relative-caret-position="266">
+              <caret line="60" column="30" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="30" />
               <folding>
-                <marker date="1480084306000" expanded="true" signature="6:44" ph="..." />
-                <marker date="1480084306000" expanded="true" signature="97:341" ph="{...}" />
-                <marker date="1480084306000" expanded="true" signature="231:300" ph="{...}" />
+                <marker date="1480101950000" expanded="true" signature="6:186" ph="..." />
+                <marker date="1480101950000" expanded="true" signature="235:3793" ph="{...}" />
+                <marker date="1480101950000" expanded="true" signature="283:3791" ph="{...}" />
+                <marker date="1480101950000" expanded="true" signature="732:1584" ph="{...}" />
+                <marker date="1480101950000" expanded="true" signature="1659:1816" ph="{...}" />
+                <marker date="1480101950000" expanded="true" signature="1910:2203" ph="{...}" />
+                <marker date="1480101950000" expanded="true" signature="2235:2326" ph="{...}" />
+                <marker date="1480101950000" expanded="true" signature="2412:2498" ph="{...}" />
+                <marker date="1480101950000" expanded="true" signature="2531:2599" ph="{...}" />
+                <marker date="1480101950000" expanded="true" signature="2645:2730" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PathFinder.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/PathFinder.cs">
+      <file leaf-file-name="PlayerStateFreeMovement.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateFreeMovement.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
               <folding>
-                <marker date="1480087376000" expanded="true" signature="6:52" ph="..." />
-                <marker date="1480087376000" expanded="true" signature="93:4393" ph="{...}" />
-                <marker date="1480087376000" expanded="true" signature="123:4391" ph="{...}" />
-                <marker date="1480087376000" expanded="true" signature="467:628" ph="{...}" />
-                <marker date="1480087376000" expanded="true" signature="658:757" ph="{...}" />
-                <marker date="1480087376000" expanded="true" signature="785:2615" ph="{...}" />
-                <marker date="1480087376000" expanded="true" signature="1028:1162" ph="/* we are not done, start and end are set and there is at least 1 item on the open list... ... */" />
-                <marker date="1480087376000" expanded="true" signature="2664:2806" ph="{...}" />
-                <marker date="1480087376000" expanded="true" signature="2851:2985" ph="{...}" />
-                <marker date="1480087376000" expanded="true" signature="3263:3575" ph="{...}" />
-                <marker date="1480087376000" expanded="true" signature="3615:4218" ph="{...}" />
-                <marker date="1480087376000" expanded="true" signature="4264:4385" ph="{...}" />
+                <marker date="1480102443000" expanded="true" signature="6:115" ph="..." />
+                <marker date="1480102443000" expanded="true" signature="144:478" ph="{...}" />
+                <marker date="1480102443000" expanded="true" signature="205:476" ph="{...}" />
+                <marker date="1480102443000" expanded="true" signature="328:348" ph="{...}" />
+                <marker date="1480102443000" expanded="true" signature="387:408" ph="{...}" />
+                <marker date="1480102443000" expanded="true" signature="449:470" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestAgent.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/TestAgent.cs">
+      <file leaf-file-name="NodeHighlighting.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighting.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+            <state relative-caret-position="435">
+              <caret line="45" column="41" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
               <folding>
-                <marker date="1480087369000" expanded="true" signature="6:52" ph="..." />
-                <marker date="1480087369000" expanded="true" signature="93:3313" ph="{...}" />
-                <marker date="1480087369000" expanded="true" signature="138:3311" ph="{...}" />
-                <marker date="1480087369000" expanded="true" signature="496:624" ph="{...}" />
-                <marker date="1480087369000" expanded="true" signature="691:2898" ph="{...}" />
-                <marker date="1480087369000" expanded="true" signature="1282:1343" ph="/* Debug.Log(startNode); ... */" />
-                <marker date="1480087369000" expanded="true" signature="2932:3305" ph="{...}" />
-                <marker date="1480087369000" expanded="true" signature="3027:3052" ph="/* try ... */" />
-                <marker date="1480087369000" expanded="true" signature="3141:3280" ph="/* } ... */" />
+                <marker date="1480098544000" expanded="true" signature="0:1863" ph="/* using Assets.Scripts.AI.GameStep.FSM.Agents; ... */" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HexNode.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-              <folding>
-                <marker date="1480087772000" expanded="true" signature="6:114" ph="..." />
-                <marker date="1480087772000" expanded="true" signature="155:4548" ph="{...}" />
-                <marker date="1480087772000" expanded="true" signature="205:4546" ph="{...}" />
-                <marker date="1480087772000" expanded="true" signature="1253:1716" ph="{...}" />
-                <marker date="1480087772000" expanded="true" signature="1906:2071" ph="{...}" />
-                <marker date="1480087772000" expanded="true" signature="2966:3051" ph="{...}" />
-                <marker date="1480087772000" expanded="true" signature="3219:4005" ph="{...}" />
-                <marker date="1480087772000" expanded="true" signature="4458:4540" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HexNodeObject.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1480087369000" expanded="true" signature="59:122" ph="{...}" />
-                <marker date="1480087369000" expanded="true" signature="108:120" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NodeHighLighter.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/NodeHighLighter.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-              <folding>
-                <marker date="1480087440000" expanded="true" signature="6:78" ph="..." />
-                <marker date="1480087440000" expanded="true" signature="119:3928" ph="{...}" />
-                <marker date="1480087440000" expanded="true" signature="171:3926" ph="{...}" />
-                <marker date="1480087440000" expanded="true" signature="640:3712" ph="{...}" />
-                <marker date="1480087440000" expanded="true" signature="3753:3920" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MobileNodeOccupant.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/MobileNodeOccupant.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-              <folding>
-                <marker date="1480084306000" expanded="true" signature="6:44" ph="..." />
-                <marker date="1480084306000" expanded="true" signature="93:493" ph="{...}" />
-                <marker date="1480084306000" expanded="true" signature="127:212" ph="{...}" />
-                <marker date="1480084306000" expanded="true" signature="251:312" ph="{...}" />
-                <marker date="1480084306000" expanded="true" signature="370:491" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StaticMultiNodeOccupant.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiNodeOccupant.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1480084306000" expanded="true" signature="6:44" ph="..." />
-                <marker date="1480084306000" expanded="true" signature="98:408" ph="{...}" />
-                <marker date="1480084306000" expanded="true" signature="160:247" ph="{...}" />
-                <marker date="1480084306000" expanded="true" signature="286:406" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StaticSingleNodeOccupant.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticSingleNodeOccupant.cs">
+      <file leaf-file-name="EnemyAgent.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
               <folding>
-                <marker date="1480084306000" expanded="true" signature="6:44" ph="..." />
-                <marker date="1480084306000" expanded="true" signature="93:316" ph="{...}" />
-                <marker date="1480084306000" expanded="true" signature="127:214" ph="{...}" />
-                <marker date="1480084306000" expanded="true" signature="253:314" ph="{...}" />
+                <marker date="1480102189000" expanded="true" signature="6:197" ph="..." />
+                <marker date="1480102189000" expanded="true" signature="246:3378" ph="{...}" />
+                <marker date="1480102189000" expanded="true" signature="292:3376" ph="{...}" />
+                <marker date="1480102189000" expanded="true" signature="754:1439" ph="{...}" />
+                <marker date="1480102189000" expanded="true" signature="1514:1674" ph="{...}" />
+                <marker date="1480102189000" expanded="true" signature="1768:2060" ph="{...}" />
+                <marker date="1480102189000" expanded="true" signature="2092:2183" ph="{...}" />
+                <marker date="1480102189000" expanded="true" signature="3322:3370" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -182,18 +129,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSMPlayer/PlayerAgent.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSMPlayer/PlayerStateFreeMovement.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/AgentStateBase.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/AgentStateBase.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/AgentStateBase.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/AbstractAgent.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/Player.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyBase.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerBase.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateBase.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/PlayerBase.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateFreeMovement.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/Rendering/SelectionHexRenderer.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseIdle.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Editor/TerrainSaverEditor.cs" />
@@ -202,26 +141,45 @@
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerAction.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateAttack.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/IO/TerrainLoader.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodesManager.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateStepMovement.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighting.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/BuildingOccupant.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/EnemyOccupant.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/MultiBuildingOccupant.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiOccupant.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiNodeOccupant.cs" />
-        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/NodeOccupant.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/TestAgent.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/PathFinder.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/BreadthFirst.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/MobileNodeOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/DynamicNodeOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiNodeOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticSingleNodeOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/DynamicSingleNodeOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/NodeOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/SingleNodeOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/MultiNodeOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/EnemyOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/NPCOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/PlayerOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/PropOccupant.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/BuildingOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodesManager.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Primitives/NodeOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Primitives/SingleNodeOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Primitives/MultiNodeOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/PlayerNodeHighlight.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighting.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/NodeHighLighter.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighLighter.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateFreeMovement.cs" />
       </list>
     </option>
   </component>
@@ -328,7 +286,89 @@
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="NodeGrid" />
+              <option name="myItemId" value="Rendering" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HexGame (2 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assembly-CSharp" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assets" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scripts" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameLogic" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HexGame (2 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assembly-CSharp" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assets" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scripts" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameLogic" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FSMTurn" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HexGame (2 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assembly-CSharp" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assets" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scripts" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AI" />
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
           </PATH>
@@ -358,33 +398,11 @@
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Pathfinding" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HexGame (2 projects)" />
+              <option name="myItemId" value="GameStep" />
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Assembly-CSharp" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Scripts" />
-              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AI" />
+              <option name="myItemId" value="FSM" />
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
           </PATH>
@@ -412,7 +430,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FullScreen" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="nodeocc&#9;FILE&#9;file:///Users/mtesseract/Dev/HexGame/Assets/Scripts/NodeGrid/NodeOccupant.cs&#10;nodegr&#9;FILE&#9;file:///Users/mtesseract/Dev/HexGame/Assets/Scripts/NodeGrid.meta" />
+    <property name="SearchEverywhereHistoryKey" value="breadfirst&#9;null&#9;null&#10;nodeocc&#9;FILE&#9;file:///Users/mtesseract/Dev/HexGame/Assets/Scripts/NodeGrid/NodeOccupant.cs&#10;nodegr&#9;FILE&#9;file:///Users/mtesseract/Dev/HexGame/Assets/Scripts/NodeGrid.meta" />
   </component>
   <component name="RunManager" selected=".NET Project.Default">
     <configuration default="true" type="DotNetProject" factoryName=".NET Project">
@@ -463,12 +481,12 @@
       <workItem from="1479977752277" duration="16595000" />
       <workItem from="1480065934545" duration="6362000" />
       <workItem from="1480078852157" duration="1688000" />
-      <workItem from="1480083585461" duration="3515000" />
+      <workItem from="1480083585461" duration="14761000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57428000" />
+    <option name="totallyTimeSpent" value="68674000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -516,69 +534,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseBase.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyBase.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseIdle.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerBase.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerAction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/AgentStateBase.cs" />
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/Player.cs" />
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/AbstractAgent.cs" />
@@ -608,13 +563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/Rendering/SelectionHexRenderer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="160" column="21" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -660,27 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="72" column="100" selection-start-line="72" selection-start-column="100" selection-end-line="72" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="113" column="45" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodesManager.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/IO/TerrainLoader.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -695,13 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerAction.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -713,13 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateFreeMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -741,13 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighting.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -788,55 +694,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticSingleNodeOccupant.cs">
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/DynamicNodeOccupant.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-          <folding>
-            <marker date="1480084306000" expanded="true" signature="6:44" ph="..." />
-            <marker date="1480084306000" expanded="true" signature="93:316" ph="{...}" />
-            <marker date="1480084306000" expanded="true" signature="127:214" ph="{...}" />
-            <marker date="1480084306000" expanded="true" signature="253:314" ph="{...}" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiNodeOccupant.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1480084306000" expanded="true" signature="6:44" ph="..." />
-            <marker date="1480084306000" expanded="true" signature="98:408" ph="{...}" />
-            <marker date="1480084306000" expanded="true" signature="160:247" ph="{...}" />
-            <marker date="1480084306000" expanded="true" signature="286:406" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/MobileNodeOccupant.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <marker date="1480084306000" expanded="true" signature="6:44" ph="..." />
-            <marker date="1480084306000" expanded="true" signature="93:493" ph="{...}" />
-            <marker date="1480084306000" expanded="true" signature="127:212" ph="{...}" />
-            <marker date="1480084306000" expanded="true" signature="251:312" ph="{...}" />
-            <marker date="1480084306000" expanded="true" signature="370:491" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/NodeOccupant.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding>
-            <marker date="1480084306000" expanded="true" signature="6:44" ph="..." />
-            <marker date="1480084306000" expanded="true" signature="97:341" ph="{...}" />
-            <marker date="1480084306000" expanded="true" signature="231:300" ph="{...}" />
-          </folding>
+        <state relative-caret-position="345">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -858,10 +728,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/NPCOccupant.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+          <folding>
+            <marker date="1480093320000" expanded="true" signature="106:173" ph="{...}" />
+            <marker date="1480093320000" expanded="true" signature="158:171" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/PlayerOccupant.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+          <folding>
+            <marker date="1480093320000" expanded="true" signature="106:176" ph="{...}" />
+            <marker date="1480093320000" expanded="true" signature="161:174" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/PropOccupant.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding>
+            <marker date="1480093320000" expanded="true" signature="106:174" ph="{...}" />
+            <marker date="1480093320000" expanded="true" signature="159:172" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2745">
+          <caret line="184" column="3" selection-start-line="184" selection-start-column="3" selection-end-line="184" selection-end-column="3" />
+          <folding>
+            <marker date="1480093330000" expanded="true" signature="6:248" ph="..." />
+            <marker date="1480093330000" expanded="true" signature="289:5083" ph="{...}" />
+            <marker date="1480093330000" expanded="true" signature="339:5081" ph="{...}" />
+            <marker date="1480093330000" expanded="true" signature="1343:1806" ph="{...}" />
+            <marker date="1480093330000" expanded="true" signature="1996:2161" ph="{...}" />
+            <marker date="1480093330000" expanded="true" signature="3056:3141" ph="{...}" />
+            <marker date="1480093330000" expanded="true" signature="4115:4197" ph="{...}" />
+            <marker date="1480093330000" expanded="true" signature="4289:5075" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/BuildingOccupant.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <marker date="1480093312000" expanded="true" signature="106:185" ph="{...}" />
+            <marker date="1480093312000" expanded="true" signature="162:183" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/EnemyOccupant.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1480093320000" expanded="true" signature="106:175" ph="{...}" />
+            <marker date="1480093320000" expanded="true" signature="160:173" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/PathFinder.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <marker date="1480087376000" expanded="true" signature="6:52" ph="..." />
             <marker date="1480087376000" expanded="true" signature="93:4393" ph="{...}" />
@@ -879,44 +837,202 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/NodeHighLighter.cs">
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Primitives/NodeOccupant.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+        <state relative-caret-position="135">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
           <folding>
-            <marker date="1480087440000" expanded="true" signature="6:78" ph="..." />
-            <marker date="1480087440000" expanded="true" signature="119:3928" ph="{...}" />
-            <marker date="1480087440000" expanded="true" signature="171:3926" ph="{...}" />
-            <marker date="1480087440000" expanded="true" signature="640:3712" ph="{...}" />
-            <marker date="1480087440000" expanded="true" signature="3753:3920" ph="{...}" />
+            <marker date="1480094531000" expanded="true" signature="74:357" ph="{...}" />
+            <marker date="1480094531000" expanded="true" signature="131:355" ph="{...}" />
+            <marker date="1480094531000" expanded="true" signature="259:349" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs">
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Primitives/SingleNodeOccupant.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding>
+            <marker date="1480094549000" expanded="true" signature="92:1065" ph="{...}" />
+            <marker date="1480094549000" expanded="true" signature="154:1063" ph="{...}" />
+            <marker date="1480094549000" expanded="true" signature="273:324" ph="{...}" />
+            <marker date="1480094549000" expanded="true" signature="364:448" ph="{...}" />
+            <marker date="1480094549000" expanded="true" signature="504:962" ph="{...}" />
+            <marker date="1480094549000" expanded="true" signature="1003:1057" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Primitives/MultiNodeOccupant.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+          <folding>
+            <marker date="1480094548000" expanded="true" signature="92:1084" ph="{...}" />
+            <marker date="1480094548000" expanded="true" signature="153:1082" ph="{...}" />
+            <marker date="1480094548000" expanded="true" signature="278:396" ph="{...}" />
+            <marker date="1480094548000" expanded="true" signature="437:734" ph="{...}" />
+            <marker date="1480094548000" expanded="true" signature="794:1076" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodesManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding>
+            <marker date="1480094126000" expanded="true" signature="6:143" ph="..." />
+            <marker date="1480094126000" expanded="true" signature="189:2750" ph="{...}" />
+            <marker date="1480094126000" expanded="true" signature="311:591" ph="{...}" />
+            <marker date="1480094126000" expanded="true" signature="626:938" ph="{...}" />
+            <marker date="1480094126000" expanded="true" signature="1053:1804" ph="{...}" />
+            <marker date="1480094126000" expanded="true" signature="1862:2346" ph="{...}" />
+            <marker date="1480094126000" expanded="true" signature="2413:2611" ph="{...}" />
+            <marker date="1480094126000" expanded="true" signature="2649:2748" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/Rendering/SelectionHexRenderer.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1480087369000" expanded="true" signature="59:122" ph="{...}" />
-            <marker date="1480087369000" expanded="true" signature="108:120" ph="{...}" />
+            <marker date="1480087264000" expanded="true" signature="6:173" ph="..." />
+            <marker date="1480087264000" expanded="true" signature="224:5034" ph="{...}" />
+            <marker date="1480087264000" expanded="true" signature="320:507" ph="{...}" />
+            <marker date="1480087264000" expanded="true" signature="539:4850" ph="{...}" />
+            <marker date="1480087264000" expanded="true" signature="739:834" ph="/* float outerRadius = HexMetrics.outerRadius; ... */" />
+            <marker date="1480087264000" expanded="true" signature="871:1550" ph="{...}" />
+            <marker date="1480087264000" expanded="true" signature="873:1230" ph="/* new Vector3(0f, -outerRadius, 0f), ... */" />
+            <marker date="1480087264000" expanded="true" signature="2276:2907" ph="/* Vector2[] uvLocations = ... */" />
+            <marker date="1480087264000" expanded="true" signature="2956:3574" ph="/* for (int i = 0; i &lt; corners.Length - 1; i++) ... */" />
+            <marker date="1480087264000" expanded="true" signature="4906:4913" ph="{...}" />
+            <marker date="1480087264000" expanded="true" signature="4945:4958" ph="{...}" />
+            <marker date="1480087264000" expanded="true" signature="4998:5032" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNode.cs">
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighter.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding>
-            <marker date="1480087772000" expanded="true" signature="6:114" ph="..." />
-            <marker date="1480087772000" expanded="true" signature="155:4548" ph="{...}" />
-            <marker date="1480087772000" expanded="true" signature="205:4546" ph="{...}" />
-            <marker date="1480087772000" expanded="true" signature="1253:1716" ph="{...}" />
-            <marker date="1480087772000" expanded="true" signature="1906:2071" ph="{...}" />
-            <marker date="1480087772000" expanded="true" signature="2966:3051" ph="{...}" />
-            <marker date="1480087772000" expanded="true" signature="3219:4005" ph="{...}" />
-            <marker date="1480087772000" expanded="true" signature="4458:4540" ph="{...}" />
+            <marker date="1480098927000" expanded="true" signature="6:115" ph="..." />
+            <marker date="1480098927000" expanded="true" signature="151:4148" ph="{...}" />
+            <marker date="1480098927000" expanded="true" signature="202:4146" ph="{...}" />
+            <marker date="1480098927000" expanded="true" signature="816:3932" ph="{...}" />
+            <marker date="1480098927000" expanded="true" signature="3973:4140" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/PlayerNodeHighlight.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+          <folding>
+            <marker date="1480098544000" expanded="true" signature="6:132" ph="..." />
+            <marker date="1480098544000" expanded="true" signature="167:774" ph="{...}" />
+            <marker date="1480098544000" expanded="true" signature="222:772" ph="{...}" />
+            <marker date="1480098544000" expanded="true" signature="400:537" ph="{...}" />
+            <marker date="1480098544000" expanded="true" signature="571:665" ph="{...}" />
+            <marker date="1480098544000" expanded="true" signature="698:766" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="131" column="9" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
+          <folding>
+            <marker date="1480099493000" expanded="true" signature="6:173" ph="..." />
+            <marker date="1480099493000" expanded="true" signature="217:5185" ph="{...}" />
+            <marker date="1480099493000" expanded="true" signature="283:5183" ph="{...}" />
+            <marker date="1480099493000" expanded="true" signature="557:650" ph="{...}" />
+            <marker date="1480099493000" expanded="true" signature="689:4533" ph="{...}" />
+            <marker date="1480099493000" expanded="true" signature="4585:4847" ph="{...}" />
+            <marker date="1480099493000" expanded="true" signature="4886:5080" ph="{...}" />
+            <marker date="1480099493000" expanded="true" signature="5116:5177" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/BreadthFirst.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-630">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <marker date="1480087808000" expanded="true" signature="6:78" ph="..." />
+            <marker date="1480087808000" expanded="true" signature="119:3929" ph="{...}" />
+            <marker date="1480087808000" expanded="true" signature="168:3927" ph="{...}" />
+            <marker date="1480087808000" expanded="true" signature="637:3713" ph="{...}" />
+            <marker date="1480087808000" expanded="true" signature="3754:3921" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+          <folding>
+            <marker date="1480102189000" expanded="true" signature="6:197" ph="..." />
+            <marker date="1480102189000" expanded="true" signature="246:3378" ph="{...}" />
+            <marker date="1480102189000" expanded="true" signature="292:3376" ph="{...}" />
+            <marker date="1480102189000" expanded="true" signature="754:1439" ph="{...}" />
+            <marker date="1480102189000" expanded="true" signature="1514:1674" ph="{...}" />
+            <marker date="1480102189000" expanded="true" signature="1768:2060" ph="{...}" />
+            <marker date="1480102189000" expanded="true" signature="2092:2183" ph="{...}" />
+            <marker date="1480102189000" expanded="true" signature="3322:3370" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateFreeMovement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding>
+            <marker date="1480102443000" expanded="true" signature="6:115" ph="..." />
+            <marker date="1480102443000" expanded="true" signature="144:478" ph="{...}" />
+            <marker date="1480102443000" expanded="true" signature="205:476" ph="{...}" />
+            <marker date="1480102443000" expanded="true" signature="328:348" ph="{...}" />
+            <marker date="1480102443000" expanded="true" signature="387:408" ph="{...}" />
+            <marker date="1480102443000" expanded="true" signature="449:470" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighting.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="45" column="41" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
+          <folding>
+            <marker date="1480098544000" expanded="true" signature="0:1863" ph="/* using Assets.Scripts.AI.GameStep.FSM.Agents; ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="60" column="30" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="30" />
+          <folding>
+            <marker date="1480101950000" expanded="true" signature="6:186" ph="..." />
+            <marker date="1480101950000" expanded="true" signature="235:3793" ph="{...}" />
+            <marker date="1480101950000" expanded="true" signature="283:3791" ph="{...}" />
+            <marker date="1480101950000" expanded="true" signature="732:1584" ph="{...}" />
+            <marker date="1480101950000" expanded="true" signature="1659:1816" ph="{...}" />
+            <marker date="1480101950000" expanded="true" signature="1910:2203" ph="{...}" />
+            <marker date="1480101950000" expanded="true" signature="2235:2326" ph="{...}" />
+            <marker date="1480101950000" expanded="true" signature="2412:2498" ph="{...}" />
+            <marker date="1480101950000" expanded="true" signature="2531:2599" ph="{...}" />
+            <marker date="1480101950000" expanded="true" signature="2645:2730" ph="{...}" />
           </folding>
         </state>
       </provider>

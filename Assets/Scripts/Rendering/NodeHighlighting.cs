@@ -1,64 +1,65 @@
-﻿using UnityEngine;
-using System.Collections;
-using Assets.Scripts.AI;
-using Assets.Scripts.AI.GameStep.FSM.Agents;
+﻿/*using Assets.Scripts.AI.GameStep.FSM.Agents;
 using Assets.Scripts.AI.Pathfinding;
+using UnityEngine;
 
-
-public class NodeHighlighting : MonoBehaviour
+namespace Assets.Scripts.Rendering
 {
-    private int _currentNodeIndex;
-    private HexNode _currentNode;
-	public GameObject NodeManager;
-	private HexNodesManager _nodeManager;
-	private NodeHighLighter _pathfinder;
-    public PlayerAgent Player;
+    public class NodeHighlighting : MonoBehaviour
+    {
+        private int             _currentNodeIndex;
+        private HexNode         _currentNode;
+        public GameObject       NodeManager;
+        private HexNodesManager _nodeManager;
+        private NodeHighlighter _pathfinder;
+        public PlayerAgent      Player;
 
-	void Start ()
-	{
-		_nodeManager = NodeManager.GetComponent<HexNodesManager>();
-		_pathfinder = GetComponent <NodeHighLighter> ();
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-        UpdateCurrentPosition();
-		if(Input.GetKeyDown(KeyCode.L))
-		{
-			//_pathfinder.ClearHighlights ();
-			//StartCoroutine (_pathfinder.Search (_nodeManager.GetHexNode (CurrentNodeIndex)));
-            //_nodeManager.GetHexNode (CurrentNodeIndex);
-            OnGridShow();
+        void Start ()
+        {
+            _nodeManager = NodeManager.GetComponent<HexNodesManager>();
+            _pathfinder = GetComponent <NodeHighlighter> ();
         }
 
-		if (Input.GetKeyDown (KeyCode.H)) {
-		//	_pathfinder.ClearHighlights ();
-        ClearGrid();
-		}
+        // Update is called once per frame
+        void Update ()
+        {
+            UpdateCurrentPosition();
+            if(Input.GetKeyDown(KeyCode.L))
+            {
+                //_pathfinder.ClearHighlights ();
+                //StartCoroutine (_pathfinder.Search (_nodeManager.GetHexNode (CurrentNodeIndex)));
+                //_nodeManager.GetHexNode (CurrentNodeIndex);
+                OnGridShow();
+            }
 
-		if (Input.GetKeyDown (KeyCode.A)) {
-		    _currentNodeIndex += 1;
-			Debug.Log (_currentNodeIndex);
-		}
-	}
+            if (Input.GetKeyDown (KeyCode.H)) {
+                //	_pathfinder.ClearHighlights ();
+                ClearGrid();
+            }
 
-	public void SetCurrentPosition (int position) {
-	    _currentNodeIndex = position;
-	}
+            if (Input.GetKeyDown (KeyCode.A)) {
+                _currentNodeIndex += 1;
+                Debug.Log (_currentNodeIndex);
+            }
+        }
 
-    public void UpdateCurrentPosition()
-    {
-        _currentNodeIndex = Player.CurrentNode.Index;
-    }
+        public void SetCurrentPosition (int position) {
+            _currentNodeIndex = position;
+        }
 
-    public void OnGridShow()
-    {
-        StartCoroutine(_pathfinder.Search(_nodeManager.GetHexNode(_currentNodeIndex)));
-    }
+        public void UpdateCurrentPosition()
+        {
+            //_currentNodeIndex = Player.CurrentNode.Index;
+        }
 
-    public void ClearGrid()
-    {
-        _pathfinder.ClearHighlights();
+        public void OnGridShow()
+        {
+            StartCoroutine(_pathfinder.Search(_nodeManager.GetHexNode(_currentNodeIndex)));
+        }
+
+        public void ClearGrid()
+        {
+            _pathfinder.ClearHighlights();
+        }
     }
 }
+*/

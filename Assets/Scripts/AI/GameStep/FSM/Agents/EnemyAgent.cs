@@ -2,74 +2,45 @@
 using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSMEnemy;
 using Assets.Scripts.AI.Pathfinding;
-using Assets.Scripts.GameLogic.FSMTurn;
+using Assets.Scripts.NodeGrid.Occupants.Specifics;
 using UnityEngine;
 
 namespace Assets.Scripts.AI.GameStep.FSM.Agents
 {
-    public class EnemyAgent : MonoBehaviour
+    public class EnemyAgent : EnemyOccupant
     {
-        public  GameObject                        HexNodeManager;
-        public  int                               StartNodeIndex;
-        private Dictionary<Type, EnemyStateBase> _states;
-        private EnemyStateBase                   _currentState;
-        private HexNode                          _targetNode;
-        private HexNode                          _currentNode;
-        private Pathfinder                       _pathfinder;
-        private List<HexNode>                    _path;
-        private HexNodesManager                  _hexNodesManager;
-        private HexNode                          _attackTarget;
-        private List<HexNode>                    _walkPath;
-        private bool                             _alive            = true;
+        private Dictionary<Type, EnemyStateBase>      _states;
+        private EnemyStateBase                        _currentState;
+        private HexNode                               _targetNode;
+        private HexNode                               _attackTarget;
+        private List<HexNode>                         _walkPath;
+        private bool                                  _alive                 = true;
 
-        void Start()
+        public override void Start()
         {
-            string startDebug = "EnemyAgent Start Debug Info:\n";
-            if (HexNodeManager != null)
-            {
-                _hexNodesManager = HexNodeManager.GetComponent<HexNodesManager>();
-                if (_hexNodesManager == null)
-                {
-                    startDebug += "There was no HexNodesManager script bound to the given HexNodeManager instance!\n";
-                }
-                else
-                {
-                    startDebug += "Successfully linked the HexNodeManager to the EnemyAgent!\n";
-                    bool spawnSuccess = SetSpawn(_hexNodesManager.GetHexNode(StartNodeIndex));
-                    if (spawnSuccess)
-                    {
-                        startDebug += "Successfully managed to spawn the enemy on Node "
-                                      + _currentNode.Index + "at position: " + _currentNode.Position + "\n";
-                    }
-                    else
-                    {
-                        startDebug += "Failed to spawn the enemy on Node " + _currentNode.Index + "at position: " +
-                                      _currentNode.Position+ "\n";
-                    }
-                }
-            }
-            else
-            {
-                startDebug += "No HexNodeManager instance was supplied to the EnemyAgent!\n";
-            }
+            //Basics///////////////////////////////
+            base.Start();
+            Position = CurrentNode.Position;
 
+            //Setting up the Cache/////////////////
             _states = new Dictionary<Type, EnemyStateBase>();
-
             _states.Add(typeof(EnemyStateStepMovement), new EnemyStateStepMovement(this));
             _states.Add(typeof(EnemyStateAttacking),    new EnemyStateAttacking   (this));
             _states.Add(typeof(EnemyStateIdle),         new EnemyStateIdle        (this));
 
+            //Starting First State Manually////////
             _currentState = _states[typeof(EnemyStateIdle)];
             _currentState.BeginState();
-
-            Debug.Log(startDebug);
         }
 
+        //Update///////////////////////////////////
         void Update()
         {
             _currentState.Update();
+            Debug.DrawLine(CurrentNode.Position, CurrentNode.Position + (Vector3.up*10), Color.yellow);
         }
 
+        //State Related Methods////////////////////
         public void SetState(Type state)
         {
             if (_currentState.GetType() == state) return;
@@ -79,41 +50,19 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             _currentState.BeginState();
         }
 
-        public bool IsDead()
+        public bool IsIdling()
         {
-            return !_alive;
+            return _currentState.GetType() == typeof(PlayerStateIdle);
         }
 
-        public void GeneratePath(HexNode end)
-        {
-            _pathfinder.Search(_currentNode, end);
-            _path = _pathfinder.Path;
-        }
-
-        public List<HexNode> GetPath()
-        {
-            return _path;
-        }
-
-        public bool SetSpawn(HexNode spawnNode)
-        {
-            if (!spawnNode.IsOccupiedByAnything())
-            {
-                _currentNode = spawnNode;
-                Position = _currentNode.Position;
-                return true;
-            }
-            return false;
-        }
-
+        //Navigation Related///////////////////////
         public HexNode CurrentNode
         {
-            get { return  _currentNode; }
+            get { return GetCurrentNode(); }
             set
             {
-                _currentNode = value;
-                _currentNode.HasEnemy = true;
-                Position = value.Position;
+                SetCurrentNode  (value);
+                Position = CurrentNode.Position;
             }
         }
 
@@ -121,23 +70,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         {
             get { return  _targetNode; }
             set { _targetNode = value; }
-        }
-
-        public Vector3 Position
-        {
-            get { return  transform.position; }
-            set { transform.position = value; }
-        }
-
-        public Quaternion Rotation
-        {
-            get { return  transform.rotation; }
-            set { transform.rotation = value; }
-        }
-
-        public bool IsIdling()
-        {
-            return _currentState.GetType() == typeof(PlayerStateIdle);
         }
 
         public HexNode AttackTarget
@@ -152,5 +84,23 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { _walkPath = value; }
         }
 
+        //GameObject/Transform Related/////////////
+        public Vector3 Position
+        {
+            get { return  transform.position; }
+            set { transform.position = value; }
+        }
+
+        public Quaternion Rotation
+        {
+            get { return  transform.rotation; }
+            set { transform.rotation = value; }
+        }
+
+        //FSM Related//////////////////////////////
+        public bool IsDead()
+        {
+            return !_alive;
+        }
     }
 }

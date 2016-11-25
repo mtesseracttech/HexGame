@@ -28,15 +28,9 @@ public class HexNodesManager : MonoBehaviour
 
 	public void SetBuildingTiles () {
 		HexNode i = GetHexNode (301);
-		i.HasBuilding = true;
 		Debug.Log (GetHexNode (300).Occupant);
 
 		Debug.Log ("Multi building: " + GetHexNode (10).Occupant + " " + GetHexNode (11).Occupant + " " + GetHexNode (12).Occupant + " " + GetHexNode (13).Occupant + " " + GetHexNode (14).Occupant + " NOTHING " + GetHexNode (15).Occupant);
-	}
-    //set enemy occupied tiles
-	public void SetEnemyTiles () {
-		HexNode i = GetHexNode (281);
-		i.HasEnemy = true;
 	}
 
     public void SetNodesFromInfoContainer(HexCellInfoContainer[] infoContainers, bool cullBadConnections = false)

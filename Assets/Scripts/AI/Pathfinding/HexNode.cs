@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.NodeGrid;
+using Assets.Scripts.NodeGrid.Occupants.Primitives;
+using Assets.Scripts.NodeGrid.Occupants.Specifics;
 using Assets.Scripts.Saving;
 using UnityEngine;
 
@@ -16,7 +19,6 @@ namespace Assets.Scripts.AI.Pathfinding
         private HexNode[]      _neighbors;
 
         //Ineteraction Related
-        private HexNodeObject  _gameObject;
         private NodeOccupant   _occupant;
 
         //Original mesh related information
@@ -116,6 +118,50 @@ namespace Assets.Scripts.AI.Pathfinding
         	set { _expansion = value; }
         }
 
+        //OCCUPANT RELATED/////////////////////
+
+        public NodeOccupant Occupant
+        {
+            get { return  _occupant; }
+            set { _occupant = value; }
+        }
+
+        public bool HasOccupant
+        {
+            get { return _occupant != null; }
+        }
+
+        public bool HasBuilding
+        {
+            get { return Occupant is BuildingOccupant; }
+        }
+
+        public bool HasEnemy
+        {
+            get { return Occupant is EnemyOccupant; }
+        }
+
+        public bool HasNPC
+        {
+            get { return Occupant is NPCOccupant; }
+        }
+
+        public bool HasProp
+        {
+            get { return Occupant is PropOccupant; }
+        }
+
+        public bool HasPlayer
+        {
+            get { return Occupant is PlayerOccupant; }
+        }
+
+        public bool IsOccupiedByAnything()
+        {
+            return _hasRiver || _isUnderWater || HasOccupant;
+        }
+
+        ///////////////////////////////////////
 
         public override string ToString()
         {
@@ -139,26 +185,6 @@ namespace Assets.Scripts.AI.Pathfinding
                 "Neighbors Indexes: " + neighborIndexes
             );
             return returnString;
-        }
-
-        public NodeOccupant Occupant
-        {
-            get { return  _occupant; }
-            set
-            {
-                if (_occupant == null) _occupant = value;
-                else{ Debug.Log("You tried to move to an occupied node!, Use HasOccupant to prevent this!"); }
-            }
-        }
-
-        public bool HasOccupant
-        {
-            get { return _occupant != null; }
-        }
-
-        public bool IsOccupiedByAnything()
-        {
-            return _hasRiver || _isUnderWater || HasOccupant;
         }
     }
 }
