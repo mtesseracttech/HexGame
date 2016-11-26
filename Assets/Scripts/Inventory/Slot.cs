@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Inventory;
 using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour, IDropHandler {

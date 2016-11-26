@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.AI;
-using Assets.Scripts.AI.GameStep.FSMEnemy;
+using Assets.Scripts.AI.GameStep.FSM.FSMEnemy;
+using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
@@ -12,20 +13,8 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void Update()
         {
-            if (!Done)
-            {
-                Debug.Log("Idling...");
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    Done = true;
-                }
-            }
-            else
-            {
-                Debug.Log("Step Starts!");
-                Manager.ChangePhase(typeof(TurnPhasePlayerSelection));
-            }
-
+            Debug.Log("Step Starts!");
+            Manager.ChangePhase(typeof(TurnPhasePlayerSelection));
         }
 
         public override void Start()
@@ -38,7 +27,9 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void End()
         {
+            //Manager.EnemyRadar!!!
 
+            Manager.SetFirstEnemy();//Run after enemyradar, so every enemy gets picked up for this.
         }
     }
 }

@@ -145,11 +145,13 @@ public class TerrainSaver : MonoBehaviour
 
     private void CreateTerrainGameObjects(HexGrid grid)
     {
+        //Creates appropriate folders if they don't exist yet
         bool meshFolderExists = AssetDatabase.IsValidFolder("Assets/Resources/" + SaveRootFolderName + "/meshes");
         if(!meshFolderExists) AssetDatabase.CreateFolder("Assets/Resources/" + SaveRootFolderName, "meshes");
         bool prefabFolderExists = AssetDatabase.IsValidFolder("Assets/Resources/" + SaveRootFolderName + "/prefabs");
         if(!prefabFolderExists) AssetDatabase.CreateFolder("Assets/Resources/" + SaveRootFolderName, "prefabs");
 
+        //Goes through all the relevant parts of the generated meshes and saves them
         int nameIter = 0;
         for (int i = 0; i < grid.transform.childCount; i++)
         {
@@ -169,6 +171,7 @@ public class TerrainSaver : MonoBehaviour
                     Mesh chunkMesh = chunkMeshFilter.mesh;
                     AssetDatabase.CreateAsset(chunkMesh, savePath);
 
+                    //Creates a gameobject and links the created mesh and material to it
                     GameObject go = PrefabUtility.CreatePrefab("Assets/Resources/" + SaveRootFolderName +"/prefabs/go_" + fixedName + nameIter + ".prefab", new GameObject());
                     go.AddComponent<MeshRenderer>();
                     go.AddComponent<MeshFilter>();

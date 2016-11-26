@@ -1,6 +1,6 @@
 [
   {
-    "id": 4,
+    "id": 0,
     "itemName": "Health Kit",
     "description": "Consumable. Used to treat your wounds. Good care is the most important part of making your wounds heal in an instant.",
     "stackable": true,
@@ -12,7 +12,7 @@
     "slug": "health_kit"
   },
   {
-    "id": 5,
+    "id": 1,
     "itemName": "Anti-Radiation",
     "description": "Consumable. Lowers your radiation level. The nuclear fallout can press hard onto ones health, luckily this drug an bring relief.",
     "stackable": true,
@@ -24,7 +24,7 @@
     "slug": "anti_radiation"
   },
   {
-    "id": 6,
+    "id": 2,
     "itemName": "Adrenalin",
     "description": "Consumable. Grants you an additional combat coin for the next fight. Sometimes all you need is a little push forward.",
     "stackable": true,
@@ -37,7 +37,7 @@
     "slug": "adrenalin"
   },
   {
-    "id": 7,
+    "id": 3,
     "itemName": "Painkiller",
     "description": "Consumable. Used to heal the player but raises his radiation level slightly at the same time. Medicine found around Chernobyl might be good but it comes at a cost.",
     "stackable": true,
@@ -49,7 +49,7 @@
     "slug": "painkiller"
   },
   {
-    "id": 8,
+    "id": 4,
     "itemName": "Red Pill",
     "description": "Consumable. Grants you an additional attack coin for the next fight. Drug with mysterious origin.",
     "stackable": true,
@@ -61,7 +61,7 @@
     "slug": "red_pill"
   },
   {
-    "id": 9,
+    "id": 5,
     "itemName": "Blue Pill",
     "description": "Consumable. Grants you an additional defense coin for the next fight. Drug with mysterious origin.",
     "stackable": true,

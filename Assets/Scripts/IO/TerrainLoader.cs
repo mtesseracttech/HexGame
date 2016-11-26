@@ -22,22 +22,6 @@ public class TerrainLoader : MonoBehaviour
         }
     }
 
-    /*
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            if (HexNodesManagerRef != null) LoadLevelData();
-            else
-            {
-                Debug.Log("The Hex Node Manager was not linked! Cannot Load Hex Node Data");
-            }
-        }
-    }
-    */
-
-
     private void LoadLevelData()
     {
         if(LoadTerrainMeshes) LoadTerrain();
@@ -48,7 +32,7 @@ public class TerrainLoader : MonoBehaviour
     private void LoadTerrain()
     {
         var prefabs = Resources.LoadAll(LoadRootFolderName + "/prefabs");
-        Debug.Log(prefabs.Length);
+        //Debug.Log(prefabs.Length);
 
         GameObject Base = new GameObject();
         Base.name = "MapBase";

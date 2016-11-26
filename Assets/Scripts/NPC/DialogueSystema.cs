@@ -38,8 +38,8 @@ namespace Assets.Scripts.NPC
         private int BoxPositionY = 530;
 
         [Header("BOX size")]
-        private int BoxWidth = 700;
-        private int BoxHeight = 300;
+        private int _boxWidth = 700;
+        private int _boxHeight = 300;
 
         [Header("Answer position")]
         public int PositionX;

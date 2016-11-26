@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class WeaponInventory : MonoBehaviour {
+namespace Assets.Scripts.Inventory.Weapon
+{
+    public class WeaponInventory : MonoBehaviour {
 
-	//equiped weapon
-    //which one as in invnetory
-    //info of weapon.
+        //equiped weapon
+        //which one as in invnetory
+        //info of weapon.
 
 
 
+    }
 }

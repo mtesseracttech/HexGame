@@ -1,18 +1,15 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Inventory;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class WeaponSwitch : MonoBehaviour
 {
 
     private int _index = 0;
-    public Sprite[] weapons;
-    public Image weaponImage;
-    private Inventory _inventory;
+    public Sprite[] Weapons;
+    public Image WeaponImage;
+    public Inventory Inventory;
 
-    void Start()
-    {
-        _inventory = GetComponent<Inventory>();
-    }
 
     public void LeftArrowClickChangeWeapon(bool clicked)
     {
@@ -35,13 +32,13 @@ public class WeaponSwitch : MonoBehaviour
         WeaponSwap();
         if (Input.GetKeyDown(KeyCode.A))
         {
-            _inventory.RemoveItemFromInventory(5,1);
+            Inventory.RemoveItemFromInventory(0,1);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            _inventory.AddItem(5);
-            _inventory.AddItem(6);
-            _inventory.AddItem(7);
+            Inventory.AddItem(0);
+            Inventory.AddItem(1);
+            Inventory.AddItem(2);
         }
     }
 
@@ -50,28 +47,31 @@ public class WeaponSwitch : MonoBehaviour
         
         if (_index == 1)
         {
-            Debug.Log("First wepoan");
-            weaponImage.sprite = weapons[0];
+           // Debug.Log("First wepoan");
+            WeaponImage.sprite = Weapons[0];
         }
         //check if we have a gun
         else if (_index == 2)
         {
-            Debug.Log("second weapon");
-            weaponImage.sprite = weapons[1];
-
+            //Debug.Log("second weapon");
+            WeaponImage.sprite = Weapons[1];
         }
         //check if we have a gun
         else if (_index == 3)
         {
-            Debug.Log("third weapon");
-            weaponImage.sprite = weapons[2];
-
+           // Debug.Log("third weapon");
+            WeaponImage.sprite = Weapons[2];
         }
-        else if (_index >= 3)
-            _index = 3;
+        else if (_index == 4)
+        {
+            // Debug.Log("fourth weapon");
+            WeaponImage.sprite = Weapons[3];
+        }
+        else if (_index >= 4)
+            _index = 4;
         else if (_index <= 1)
             _index = 1;
 
-        Debug.Log(_index);
+      //  Debug.Log(_index);
     }
 }

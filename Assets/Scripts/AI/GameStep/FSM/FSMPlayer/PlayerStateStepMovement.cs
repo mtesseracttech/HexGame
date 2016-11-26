@@ -1,16 +1,16 @@
-﻿using System.Collections.Generic;
-using Assets.Scripts.AI.GameStep.FSM.Agents;
-using UnityEditor;
+﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.AI.Pathfinding;
 using UnityEngine;
 
-namespace Assets.Scripts.AI
+namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 {
     public class PlayerStateStepMovement : PlayerStateBase
     {
         private HexNode _currentNode;
         private HexNode _targetNode;
         private Vector3 _path;
-        private float   _speed = 0.5f;
+        private float   _speed         = 0.5f;
+        private float   _slerpSpeed    = 0.05f;
         private Vector3 _speedStep;
 
         public PlayerStateStepMovement(PlayerAgent agent) : base(agent)
@@ -26,7 +26,7 @@ namespace Assets.Scripts.AI
             }
             else
             {
-                Agent.Position = _targetNode.Position;
+                Agent.CurrentNode = _targetNode;
                 Agent.SetState(typeof(PlayerStateIdle));
             }
         }

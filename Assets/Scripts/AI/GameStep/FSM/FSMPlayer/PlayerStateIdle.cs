@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
 
-namespace Assets.Scripts.AI
+namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 {
     public class PlayerStateIdle : PlayerStateBase
     {
