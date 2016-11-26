@@ -105,12 +105,7 @@ namespace Assets.Scripts.GameLogic
                 if (_enemies.Count == 0)
                 {
                     Debug.Log("No enemies available, going back to idle state!");
-                    newPhase = typeof(TurnPhaseIdle); //if no enemies are present, switching back to
-                }
-                else if (_enemies.Count != 0 && _currentEnemy == null)
-                {
-                    _currentEnemyIterator = 0;
-                    _currentEnemy = _enemies[0];
+                    newPhase = typeof(TurnPhaseIdle); //if no enemies are present, switching back to Idle
                 }
             }
             _currentPhase.End();
@@ -132,14 +127,12 @@ namespace Assets.Scripts.GameLogic
 
         public bool HasNextEnemy()
         {
-            if (_currentEnemyIterator >= _enemies.Count - 1)
+            if ((_currentEnemyIterator + 1) >= _enemies.Count)
             {
                 return false;
             }
             return true;
         }
-
-
 
         public void AddEnemy(EnemyAgent enemy)
         {
@@ -190,6 +183,15 @@ namespace Assets.Scripts.GameLogic
                     Destroy(_enemies[i].gameObject);
                     _enemies.RemoveAt(i);
                 }
+            }
+        }
+
+        public void SetFirstEnemy()
+        {
+            if (_enemies.Count > 0)
+            {
+                _currentEnemyIterator = 0;
+                _currentEnemy = _enemies[0];
             }
         }
     }

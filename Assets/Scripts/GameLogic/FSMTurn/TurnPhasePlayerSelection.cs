@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
+using Assets.Scripts.AI.Pathfinding;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {
     public class TurnPhasePlayerSelection : TurnPhasePlayerBase
     {
-        private Pathfinder _pathfinder;
+        //private Pathfinder _pathfinder;
         private List<HexNode> _path;
         private List<HexNode> _debugPath;
         private HexNode _debugCurrentNode;
+        private HexNode _debugHexNode;
 
         public TurnPhasePlayerSelection(TurnManager manager, PlayerAgent player) : base(manager, player)
         {
             Player = player;
-            _pathfinder = new Pathfinder();
+            //Pathfinder _pathfinder = new Pathfinder();
         }
 
         public override void Update()
@@ -50,10 +53,11 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                         if (hex != null)
                         {
                             _debugCurrentNode = Player.CurrentNode;
-                            _pathfinder = new Pathfinder();
-                            _pathfinder.Search(Player.CurrentNode, hex.GetUnderlyingNode());
+                            _debugHexNode = hex.GetUnderlyingNode();
+                            Pathfinder pathfinder = new Pathfinder();
+                            pathfinder.Search(_debugCurrentNode, _debugHexNode);
 
-                            _path = _pathfinder.Path;
+                            _path = pathfinder.Path;
                             if (_path != null)
                             {
                                 if (_path.Count <= 2 && hex.GetUnderlyingNode().HasEnemy)
@@ -75,6 +79,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                     tempPath.Add(_path[0]);
                                     Player.WalkPath = tempPath;
                                     Player.AttackTarget = null;
+                                    pathfinder = null;
                                     Manager.ChangePhase(typeof(TurnPhasePlayerAction));
                                 }
                                 else
@@ -88,6 +93,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                     }
                 }
             }
+
             //fucking consumables
 
             if (_debugPath != null)
@@ -103,8 +109,13 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
             if (_debugCurrentNode != null)
             {
-                Debug.DrawLine(_debugCurrentNode.Position, _debugCurrentNode.Position + Vector3.up*20, Color.magenta);
+                Debug.DrawLine(_debugCurrentNode.Position, _debugCurrentNode.Position + Vector3.up*10 + Vector3.forward, Color.magenta);
             }
+            if (_debugHexNode != null)
+            {
+                Debug.DrawLine(_debugHexNode .Position, _debugHexNode .Position + Vector3.up*10 + Vector3.right, Color.blue);
+            }
+
         }
 
         private void DebugPath(List<HexNode> path)

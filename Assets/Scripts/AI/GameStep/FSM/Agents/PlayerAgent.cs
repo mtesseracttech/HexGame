@@ -1,96 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
+using Assets.Scripts.AI.Pathfinding;
+using Assets.Scripts.NodeGrid.Occupants.Specifics;
+using Assets.Scripts.Rendering;
 using UnityEngine;
 
 namespace Assets.Scripts.AI.GameStep.FSM.Agents
 {
-    public class PlayerAgent : MonoBehaviour
+    public class PlayerAgent : PlayerOccupant
     {
-        public  GameObject                        HexNodeManager;
-        public  int                               StartNodeIndex;
-        private Dictionary<Type, PlayerStateBase> _states;
-        private PlayerStateBase                   _currentState;
-        private HexNode                           _targetNode;
-        private HexNode                           _currentNode;
-        private Pathfinder                        _pathfinder;
-        private List<HexNode>                     _path;
-        private HexNodesManager                   _hexNodesManager;
-        private HexNode                           _attackTarget;
-        private List<HexNode>                     _walkPath;
-        public NodeHighlighting                    Highlight;
+        private Dictionary<Type, PlayerStateBase>     _states;
+        private PlayerStateBase                       _currentState;
+        private HexNode                               _targetNode;
+        private HexNode                               _attackTarget;
+        private List<HexNode>                         _walkPath;
+        private NodeHighlighter                       _nodeHighlighter;
 
-        void Start()
+        public override void Start()
         {
-            string startDebug = "Player Start Debug Info:\n";
-            if (HexNodeManager != null)
-            {
-                _hexNodesManager = HexNodeManager.GetComponent<HexNodesManager>();
-                if (_hexNodesManager == null)
-                {
-                    startDebug += "There was no HexNodesManager script bound to the given HexNodeManager instance!\n";
-                }
-                else
-                {
-                    startDebug+= "Successfully linked the HexNodeManager to the PlayerAgent!\n";
-                    bool spawnSuccess = SetSpawn(_hexNodesManager.GetHexNode(StartNodeIndex));
-                    if (spawnSuccess)
-                    {
-                        startDebug += "Successfully managed to spawn the player on Node "
-                                      + _currentNode.Index + "at position: " + _currentNode.Position + "\n";
-                    }
-                    else
-                    {
-                        startDebug += "Failed to spawn the player on Node " + _currentNode.Index + "at position: " +
-                                  _currentNode.Position+ "\n";
-                    }
-                }
-            }
-            else
-            {
-                startDebug += "No HexNodeManager instance was supplied to the PlayerAgent!\n";
-            }
+            //Basics///////////////////////////////
+            base.Start();
+            Position = CurrentNode.Position;
+            _nodeHighlighter = GetComponent <NodeHighlighter> ();
 
-            _pathfinder = new Pathfinder();
-
-
-            //Setting up the Cache
+            //Setting up the Cache/////////////////
             _states = new Dictionary<Type, PlayerStateBase>();
             _states.Add(typeof(PlayerStateFreeMovement), new PlayerStateFreeMovement(this));
             _states.Add(typeof(PlayerStateStepMovement), new PlayerStateStepMovement(this));
             _states.Add(typeof(PlayerStateAttack),       new PlayerStateAttack      (this));
             _states.Add(typeof(PlayerStateIdle),         new PlayerStateIdle        (this));
 
-            //Starting first state manually
+            //Starting First State Manually////////
             _currentState = _states[typeof(PlayerStateIdle)];
             _currentState.BeginState();
-
-            Debug.Log(startDebug);
         }
 
-        public void ShowHighLight(bool show)
-        {
-            if (show)
-            {
-                //show it
-                //StartCoroutine (_pathfinder.Search (_nodeManager.GetHexNode (CurrentNodeIndex)));
-                Highlight.OnGridShow();
-
-            }
-            else
-            {
-                //hide highlights
-                //_pathfinder.ClearHighlights ();
-                Highlight.ClearGrid();
-
-            }
-        }
-
+        //Update///////////////////////////////////
         void Update()
         {
             _currentState.Update();
-            Debug.DrawLine(_currentNode.Position, _currentNode.Position + (Vector3.up*10), Color.red);
+            Debug.DrawLine(CurrentNode.Position, CurrentNode.Position + (Vector3.up*10) + Vector3.back, Color.red);
         }
 
+        //State Related Methods////////////////////
         public void SetState(Type state)
         {
             if (_currentState.GetType() == state) return;
@@ -100,24 +53,36 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             _currentState.BeginState();
         }
 
-        public void GeneratePath(HexNode end)
+        public bool IsIdling()
         {
-            _pathfinder.Search(_currentNode, end);
-            _path = _pathfinder.Path;
+            return _currentState.GetType() == typeof(PlayerStateIdle);
         }
 
-        public List<HexNode> GetPath()
+        //Highlight Grid Related Methods///////////
+        public void OnGridShow()
         {
-            return _path;
+            StartCoroutine(_nodeHighlighter.Search(CurrentNode));
         }
 
+        public void ClearGrid()
+        {
+            _nodeHighlighter.ClearHighlights();
+        }
+
+        public void ShowHighLight(bool show)
+        {
+            if (show)OnGridShow();
+            else ClearGrid();
+        }
+
+        //Navigation Related///////////////////////
         public HexNode CurrentNode
         {
-            get { return  _currentNode; }
+            get { return GetCurrentNode(); }
             set
             {
-                _currentNode = value;
-                Position = value.Position;
+                SetCurrentNode(value);
+                Position = CurrentNode.Position;
             }
         }
 
@@ -125,23 +90,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         {
             get { return  _targetNode; }
             set { _targetNode = value; }
-        }
-
-        public Vector3 Position
-        {
-            get { return  transform.position; }
-            set { transform.position = value; }
-        }
-
-        public Quaternion Rotation
-        {
-            get { return  transform.rotation; }
-            set { transform.rotation = value; }
-        }
-
-        public bool IsIdling()
-        {
-            return _currentState.GetType() == typeof(PlayerStateIdle);
         }
 
         public HexNode AttackTarget
@@ -156,15 +104,17 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { _walkPath = value; }
         }
 
-        public bool SetSpawn(HexNode spawnNode)
+        //GameObject/Transform Related/////////////
+        public Vector3 Position
         {
-            if (!spawnNode.IsOccupiedByAnything())
-            {
-                _currentNode = spawnNode;
-                Position = _currentNode.Position;
-                return true;
-            }
-            return false;
+            get { return  transform.position; }
+            set { transform.position = value; }
+        }
+
+        public Quaternion Rotation
+        {
+            get { return  transform.rotation; }
+            set { transform.rotation = value; }
         }
     }
 }

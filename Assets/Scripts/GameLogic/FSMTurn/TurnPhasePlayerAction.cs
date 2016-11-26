@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {
@@ -35,6 +36,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 else if (Player.WalkPath == null && Player.AttackTarget == null)
                 {
                     Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
+                    //Manager.ChangePhase(typeof(TurnPhaseIdle));
                 }
             }
         }

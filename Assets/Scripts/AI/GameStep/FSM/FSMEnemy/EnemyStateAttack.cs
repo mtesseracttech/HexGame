@@ -1,31 +1,33 @@
-using Assets.Scripts.AI.GameStep.FSM.Agents;
+﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
 using UnityEngine;
 
-namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
+namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
 {
-    public class PlayerStateAttack : PlayerStateBase
+    public class EnemyStateAttack : EnemyStateBase
     {
-        public PlayerStateAttack(PlayerAgent agent) : base(agent)
+        public EnemyStateAttack(EnemyAgent agent) : base(agent)
         {
             Agent = agent;
         }
 
         public override void Update()
         {
-            Debug.Log("Attacking Enemy!!!");
+            Debug.Log("Attacking Player!!!");
             if (Input.GetKey(KeyCode.Space))
             {
                 Debug.Log("Done attacking");
-                Agent.SetState(typeof(PlayerStateIdle));
+                Agent.SetState(typeof(EnemyStateIdle));
             }
         }
 
         public override void BeginState()
         {
+
         }
 
         public override void EndState()
         {
+
         }
     }
 }
