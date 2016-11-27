@@ -45,14 +45,14 @@ namespace Assets.Scripts.Rendering
                         if (_cameFrom.Contains (next) || next.HasBuilding || next.HasEnemy)
                         {
                             if (next.HasBuilding && !_cameFrom.Contains (next) && current.Expansion < _maxExpansion) {
-                                GameObject terrainHighlight = Instantiate (_terrainHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
+                                GameObject terrainHighlight = (GameObject)Instantiate (_terrainHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
                                 terrainHighlight.SendMessage("Create", next);
                                 _highlights.Add (terrainHighlight);
                                 _cameFrom.Add (next);
                             }
 
                             if (next.HasEnemy && !_cameFrom.Contains (next) && current.Expansion < _maxExpansion) {
-                                GameObject enemyHighlight = Instantiate (_attackHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
+                                GameObject enemyHighlight = (GameObject)Instantiate (_attackHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
                                 enemyHighlight.SendMessage("Create", next);
                                 _highlights.Add (enemyHighlight);
                                 _cameFrom.Add (next);
@@ -78,7 +78,7 @@ namespace Assets.Scripts.Rendering
                                 if (next.Expansion <= _maxExpansion && next.HasBuilding == false)
                                 {
                                     //Add the walkable tile indication here
-                                    GameObject walkHighlight = Instantiate (_walkHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
+                                    GameObject walkHighlight = (GameObject)Instantiate (_walkHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
                                     walkHighlight.SendMessage("Create", next);
 
                                     _highlights.Add (walkHighlight);

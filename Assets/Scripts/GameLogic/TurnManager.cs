@@ -82,6 +82,7 @@ namespace Assets.Scripts.GameLogic
             //Setting up the cache
             _phases = new Dictionary<Type, TurnPhaseBase>();
             _phases.Add(typeof(TurnPhaseIdle),            new TurnPhaseIdle           (this)               );
+            _phases.Add(typeof(TurnPhaseEnemyRotation),   new TurnPhaseEnemyRotation  (this)               );
             _phases.Add(typeof(TurnPhasePlayerSelection), new TurnPhasePlayerSelection(this, _player)      );
             _phases.Add(typeof(TurnPhasePlayerAction),    new TurnPhasePlayerAction   (this, _player)      );
             _phases.Add(typeof(TurnPhaseEnemySelection),  new TurnPhaseEnemySelection (this, _currentEnemy));
