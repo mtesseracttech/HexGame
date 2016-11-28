@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Channels;
 using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
 using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
@@ -10,16 +11,14 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 {
     public class TurnPhasePlayerSelection : TurnPhasePlayerBase
     {
-        //private Pathfinder _pathfinder;
         private List<HexNode> _path;
         private List<HexNode> _debugPath;
-        private HexNode _debugCurrentNode;
-        private HexNode _debugHexNode;
+        private HexNode       _debugCurrentNode;
+        private HexNode       _debugHexNode;
 
         public TurnPhasePlayerSelection(TurnManager manager, PlayerAgent player) : base(manager, player)
         {
             Player = player;
-            //Pathfinder _pathfinder = new Pathfinder();
         }
 
         public override void Update()
@@ -60,6 +59,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                             _path = pathfinder.Path;
                             if (_path != null)
                             {
+                                /*
                                 if (_path.Count <= 2 && hex.GetUnderlyingNode().HasEnemy)
                                 {
                                     Debug.Log("Has enemy, moving to closest tile");
@@ -68,7 +68,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                         List<HexNode> tempPath = new List<HexNode> {_path[0]};
                                         Player.WalkPath = tempPath;
                                     }
-                                    Player.AttackTarget = hex.GetUnderlyingNode();
+                                    Player.InteractionTarget = hex.GetUnderlyingNode();
                                     Manager.ChangePhase(typeof(TurnPhasePlayerAction));
 
                                 }
@@ -78,7 +78,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                     List<HexNode> tempPath = new List<HexNode>();
                                     tempPath.Add(_path[0]);
                                     Player.WalkPath = tempPath;
-                                    Player.AttackTarget = null;
+                                    Player.InteractionTarget = null;
                                     pathfinder = null;
                                     Manager.ChangePhase(typeof(TurnPhasePlayerAction));
                                 }
@@ -87,12 +87,46 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                     Debug.Log(_path.Count);
                                     DebugPath(_path);
                                     Debug.Log("That tile is too far away to walk to/attack!");
+                                }*/
+                                HexNode hexNode = hex.GetUnderlyingNode();
+
+                                if (_path.Count <= 2 && hexNode.HasOccupant && !hexNode.HasPlayer)
+                                {
+                                    if (hexNode.HasBuilding)
+                                    {
+
+                                    }
+                                    else if (hexNode.HasEnemy)
+                                    {
+
+                                    }
+                                    else if (hexNode.HasNPC)
+                                    {
+
+                                    }
+                                    else if (hexNode.HasProp)
+                                    {
+
+                                    }
+                                }
+                                else if (_path.Count == 1)
+                                {
+
                                 }
                             }
                         }
                     }
                 }
             }
+
+
+
+
+
+
+
+
+
 
             //fucking consumables
 
@@ -132,7 +166,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void Start()
         {
-            Player.AttackTarget = null;
+            Player.InteractionTarget = null;
             Player.WalkPath     = null;
             Player.SetState(typeof(PlayerStateIdle));
             Player.ShowHighLight(true);

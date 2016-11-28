@@ -51,14 +51,14 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                         //Enemy.SetState(typeof(EnemyStateStepMovement));
                     }
                     //Then Attacking is executed till idling again if the data is present
-                    else if (Enemy.AttackTarget != null)
+                    else if (Enemy.InteractionTarget != null)
                     {
-                        //Enemy.AttackTarget  = Enemy.AttackTarget;
-                        Enemy.AttackTarget = null;
+                        //Enemy.InteractionTarget  = Enemy.InteractionTarget;
+                        Enemy.InteractionTarget = null;
                         //Enemy.SetState(typeof(EnemyStateAttack));
                     }
                     //If both datas are set to null and the player is idling again, the next state is loaded
-                    else if (Enemy.WalkPath == null && Enemy.AttackTarget == null)
+                    else if (Enemy.WalkPath == null && Enemy.InteractionTarget == null)
                     {
                         if (Manager.HasNextEnemy())
                         {

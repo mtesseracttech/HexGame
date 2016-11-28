@@ -13,7 +13,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private Dictionary<Type, PlayerStateBase>     _states;
         private PlayerStateBase                       _currentState;
         private HexNode                               _targetNode;
-        private HexNode                               _attackTarget;
+        private HexNode                               _interactionTarget;
         private List<HexNode>                         _walkPath;
         private NodeHighlighter                       _nodeHighlighter;
 
@@ -92,10 +92,10 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { _targetNode = value; }
         }
 
-        public HexNode AttackTarget
+        public HexNode InteractionTarget
         {
-            get { return  _attackTarget; }
-            set { _attackTarget = value; }
+            get { return  _interactionTarget; }
+            set { _interactionTarget = value; }
         }
 
         public List<HexNode> WalkPath
