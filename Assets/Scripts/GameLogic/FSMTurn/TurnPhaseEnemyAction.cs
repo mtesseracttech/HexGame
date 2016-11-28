@@ -12,6 +12,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void Update()
         {
+            /*
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Enemy = Manager.GetCurrentEnemy();
@@ -34,47 +35,35 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                     //Manager.ChangePhase(typeof(TurnPhaseIdle));
                 }
 
+            }
+            */
 
-                /*
-                if (Enemy.IsIdling())
+            if (Enemy.IsIdling())
+            {
+                
+                //First Walking is done till the player is idling again if data is present
+                if (Enemy.WalkPath != null)
                 {
-
-                    //First Walking is done till the player is idling again if data is present
-                    if (Enemy.WalkPath != null)
-                    {
-                        //if (Enemy.WalkPath.Count > 0)
-                        //{
-                        //    Enemy.TargetNode = Enemy.WalkPath[0]; //Just a single step is allowed!
-                        //}
-                        //else Enemy.TargetNode = Enemy.CurrentNode;
-                        Enemy.WalkPath  = null;
-                        //Enemy.SetState(typeof(EnemyStateStepMovement));
-                    }
-                    //Then Attacking is executed till idling again if the data is present
-                    else if (Enemy.InteractionTarget != null)
-                    {
-                        //Enemy.InteractionTarget  = Enemy.InteractionTarget;
-                        Enemy.InteractionTarget = null;
-                        //Enemy.SetState(typeof(EnemyStateAttack));
-                    }
-                    //If both datas are set to null and the player is idling again, the next state is loaded
-                    else if (Enemy.WalkPath == null && Enemy.InteractionTarget == null)
-                    {
-                        if (Manager.HasNextEnemy())
-                        {
-                            Manager.SetNextEnemy();
-                            Debug.Log("Ending Current Enemy Phase, Changed to next one!");
-                            Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
-                        }
-                        else
-                        {
-                            Debug.Log("No more enemies to do. End of the step!");
-                            Manager.ChangePhase(typeof(TurnPhaseIdle));
-                        }
-                    }
-
+                    //if (Enemy.WalkPath.Count > 0)
+                    //{
+                    //    Enemy.TargetNode = Enemy.WalkPath[0]; //Just a single step is allowed!
+                    //}
+                    //else Enemy.TargetNode = Enemy.CurrentNode;
+                    Enemy.WalkPath  = null;
+                    //Enemy.SetState(typeof(EnemyStateStepMovement));
                 }
-                */
+                //Then Attacking is executed till idling again if the data is present
+                else if (Enemy.AttackTarget != null)
+                {
+                    //Enemy.AttackTarget  = Enemy.AttackTarget;
+                    Enemy.AttackTarget = null;
+                    //Enemy.SetState(typeof(EnemyStateAttack));
+                }
+                //If both datas are set to null and the player is idling again, the next state is loaded
+                else if (Enemy.WalkPath == null && Enemy.AttackTarget == null)
+                {
+                    Manager.ChangePhase(typeof(TurnPhaseEnemyRotation));
+                }
             }
         }
 

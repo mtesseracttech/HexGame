@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3232bdbf-4c2a-4541-9e36-26a90aa8f71f" name="Default" comment="">
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateInteractNPC.cs" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateInvestigateProp.cs" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateSearchBuilding.cs" />
@@ -12,6 +13,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerAction.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerAction.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs" afterPath="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
     </list>
     <ignored path="HexGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,6 +37,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="TurnPhasePlayerSelection.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs">
           <provider selected="true" editor-type-id="text-editor">
@@ -48,6 +54,75 @@
                 <marker date="1480327209000" expanded="true" signature="6257:6456" ph="{...}" />
                 <marker date="1480327209000" expanded="true" signature="6492:6553" ph="{...}" />
               </folding>
+=======
+      <file leaf-file-name="TurnPhaseEnemySelection.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2160">
+              <caret line="135" column="14" selection-start-line="135" selection-start-column="14" selection-end-line="135" selection-end-column="14" />
+              <folding>
+                <marker date="1480181017671" expanded="true" signature="6:134" ph="..." />
+                <marker date="1480181017671" expanded="true" signature="178:2438" ph="{...}" />
+                <marker date="1480181017671" expanded="true" signature="242:2436" ph="{...}" />
+                <marker date="1480181017671" expanded="true" signature="387:455" ph="{...}" />
+                <marker date="1480181017671" expanded="true" signature="494:2244" ph="{...}" />
+                <marker date="1480181017671" expanded="true" signature="2282:2349" ph="{...}" />
+                <marker date="1480181017671" expanded="true" signature="2385:2430" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NodeHighlighter.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighter.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
+              <folding>
+                <marker date="1480181017772" expanded="true" signature="6:115" ph="..." />
+                <marker date="1480181017772" expanded="true" signature="151:4184" ph="{...}" />
+                <marker date="1480181017772" expanded="true" signature="202:4182" ph="{...}" />
+                <marker date="1480181017772" expanded="true" signature="816:3968" ph="{...}" />
+                <marker date="1480181017772" expanded="true" signature="4009:4176" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TurnPhaseEnemyAction.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="864">
+              <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+              <folding>
+                <marker date="1480181017871" expanded="true" signature="6:110" ph="..." />
+                <marker date="1480181017871" expanded="true" signature="215:3252" ph="{...}" />
+                <marker date="1480181017871" expanded="true" signature="319:339" ph="{...}" />
+                <marker date="1480181017871" expanded="true" signature="378:3059" ph="{...}" />
+                <marker date="1480181017871" expanded="true" signature="3097:3190" ph="{...}" />
+                <marker date="1480181017871" expanded="true" signature="3226:3246" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TurnManager.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3152">
+              <caret line="197" column="1" selection-start-line="197" selection-start-column="1" selection-end-line="197" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnemyAgent.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1616">
+              <caret line="101" column="26" selection-start-line="101" selection-start-column="26" selection-end-line="101" selection-end-column="26" />
+              <folding />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
             </state>
           </provider>
         </entry>
@@ -60,6 +135,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/EnemyOccupant.cs" />
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/MultiBuildingOccupant.cs" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
         <option value="$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiOccupant.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/TestAgent.cs" />
@@ -104,6 +184,7 @@
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseIdle.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs" />
@@ -111,12 +192,17 @@
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateInvestigateProp.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateInteractNPC.cs" />
         <option value="$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs" />
+=======
+        <option value="$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighter.cs" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="x" value="-8" />
+    <option name="y" value="32" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -155,6 +241,7 @@
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
           </PATH>
+<<<<<<< HEAD
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" />
@@ -401,6 +488,8 @@
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
           </PATH>
+=======
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
         </subPane>
         <option name="show-file-system" value="false" />
         <option name="show-all-items" value="false" />
@@ -462,13 +551,23 @@
       <workItem from="1479977752277" duration="16595000" />
       <workItem from="1480065934545" duration="6362000" />
       <workItem from="1480078852157" duration="1688000" />
+<<<<<<< HEAD
       <workItem from="1480083585461" duration="24865000" />
       <workItem from="1480320422765" duration="2962000" />
+=======
+      <workItem from="1480083585461" duration="24772000" />
+      <workItem from="1480172712355" duration="875000" />
+      <workItem from="1480181010790" duration="12000" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="81740000" />
+=======
+    <option name="totallyTimeSpent" value="79572000" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -480,11 +579,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="32" width="2576" height="1416" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Change Signature" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Errors in solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -516,6 +615,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../../Assets/Editor/TerrainSaver.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -523,6 +623,12 @@
         </state>
       </provider>
     </entry>
+=======
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/AbstractAgent.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/PlayerBase.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/MarkNodesWithBuildings.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Editor/TerrainSaver.cs" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/HexMapEditor.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-75">
@@ -551,6 +657,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid.meta">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -619,10 +726,27 @@
         </state>
       </provider>
     </entry>
+=======
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid.meta" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/PlayerOccupant.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/DynamicNodeOccupant.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/StaticMultiNodeOccupant.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/TestAgent.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/NPCOccupant.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/PlayerOccupant.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/PropOccupant.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/HexNodeObject.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/HexNode.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/BuildingOccupant.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Specifics/EnemyOccupant.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Primitives/NodeOccupant.cs" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/Rendering/SelectionHexRenderer.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -638,9 +762,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-554">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+=======
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/PlayerNodeHighlight.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighting.cs" />
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMPlayer/PlayerStateBase.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -680,6 +808,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -687,13 +816,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+=======
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Primitives/MultiNodeOccupant.cs" />
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/ActionItems/TriggerForQuest.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -715,13 +848,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-60">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/HexNodesManager.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/NodeGrid/Occupants/Primitives/SingleNodeOccupant.cs" />
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/BreadthFirst.cs" />
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/Pathfinding/PathFinder.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="146" column="44" selection-start-line="146" selection-start-column="44" selection-end-line="146" selection-end-column="44" />
+<<<<<<< HEAD
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/PlayerAgent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="37" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
         </state>
       </provider>
     </entry>
@@ -736,6 +884,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMEnemy/EnemyStateStepMovement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
         </state>
       </provider>
     </entry>
@@ -757,6 +915,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="99" selection-start-line="31" selection-start-column="99" selection-end-line="31" selection-end-column="99" />
+<<<<<<< HEAD
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhasePlayerSelection.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-319">
+          <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
         </state>
       </provider>
     </entry>
@@ -767,6 +935,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -781,14 +950,30 @@
             <marker date="1480321657000" expanded="true" signature="3276:3369" ph="{...}" />
             <marker date="1480321657000" expanded="true" signature="3405:3425" ph="{...}" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3152">
+          <caret line="197" column="1" selection-start-line="197" selection-start-column="1" selection-end-line="197" selection-end-column="1" />
+          <folding />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/TurnManager.cs">
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/Agents/EnemyAgent.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="107" column="105" selection-start-line="107" selection-start-column="105" selection-end-line="107" selection-end-column="105" />
+        <state relative-caret-position="1616">
+          <caret line="101" column="26" selection-start-line="101" selection-start-column="26" selection-end-line="101" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemyAction.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
           <folding>
+<<<<<<< HEAD
             <marker date="1480112661000" expanded="true" signature="6:151" ph="..." />
             <marker date="1480112661000" expanded="true" signature="187:6550" ph="{...}" />
             <marker date="1480112661000" expanded="true" signature="234:6548" ph="{...}" />
@@ -807,11 +992,20 @@
             <marker date="1480112661000" expanded="true" signature="5941:6013" ph="{...}" />
             <marker date="1480112661000" expanded="true" signature="6054:6333" ph="{...}" />
             <marker date="1480112661000" expanded="true" signature="6370:6542" ph="{...}" />
+=======
+            <marker date="1480181017871" expanded="true" signature="6:110" ph="..." />
+            <marker date="1480181017871" expanded="true" signature="215:3252" ph="{...}" />
+            <marker date="1480181017871" expanded="true" signature="319:339" ph="{...}" />
+            <marker date="1480181017871" expanded="true" signature="378:3059" ph="{...}" />
+            <marker date="1480181017871" expanded="true" signature="3097:3190" ph="{...}" />
+            <marker date="1480181017871" expanded="true" signature="3226:3246" ph="{...}" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/GameLogic/FSMTurn/TurnPhaseEnemySelection.cs">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="40" column="70" selection-start-line="40" selection-start-column="70" selection-end-line="40" selection-end-column="70" />
@@ -882,10 +1076,24 @@
             <marker date="1480321725000" expanded="true" signature="2110:2200" ph="{...}" />
             <marker date="1480321725000" expanded="true" signature="3501:3549" ph="{...}" />
             <marker date="1480321725000" expanded="true" signature="3588:3649" ph="{...}" />
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2160">
+          <caret line="135" column="14" selection-start-line="135" selection-start-column="14" selection-end-line="135" selection-end-column="14" />
+          <folding>
+            <marker date="1480181017671" expanded="true" signature="6:134" ph="..." />
+            <marker date="1480181017671" expanded="true" signature="178:2438" ph="{...}" />
+            <marker date="1480181017671" expanded="true" signature="242:2436" ph="{...}" />
+            <marker date="1480181017671" expanded="true" signature="387:455" ph="{...}" />
+            <marker date="1480181017671" expanded="true" signature="494:2244" ph="{...}" />
+            <marker date="1480181017671" expanded="true" signature="2282:2349" ph="{...}" />
+            <marker date="1480181017671" expanded="true" signature="2385:2430" ph="{...}" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/AI/GameStep/FSM/FSMEnemy/EnemyStateStepMovement.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -936,6 +1144,18 @@
             <marker date="1480327209000" expanded="true" signature="5956:6218" ph="{...}" />
             <marker date="1480327209000" expanded="true" signature="6257:6456" ph="{...}" />
             <marker date="1480327209000" expanded="true" signature="6492:6553" ph="{...}" />
+=======
+    <entry file="file://$PROJECT_DIR$/../../Assets/Scripts/Rendering/NodeHighlighter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
+          <folding>
+            <marker date="1480181017772" expanded="true" signature="6:115" ph="..." />
+            <marker date="1480181017772" expanded="true" signature="151:4184" ph="{...}" />
+            <marker date="1480181017772" expanded="true" signature="202:4182" ph="{...}" />
+            <marker date="1480181017772" expanded="true" signature="816:3968" ph="{...}" />
+            <marker date="1480181017772" expanded="true" signature="4009:4176" ph="{...}" />
+>>>>>>> 0954c240ba8a3631d38eca7b076d8ae5d6120edb
           </folding>
         </state>
       </provider>
