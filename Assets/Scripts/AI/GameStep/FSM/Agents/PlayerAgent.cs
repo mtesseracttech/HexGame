@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
 using Assets.Scripts.AI.Pathfinding;
+using Assets.Scripts.Inventory.Stats;
 using Assets.Scripts.NodeGrid.Occupants.Specifics;
 using Assets.Scripts.Rendering;
 using UnityEngine;
@@ -16,6 +17,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private HexNode                               _attackTarget;
         private List<HexNode>                         _walkPath;
         private NodeHighlighter                       _nodeHighlighter;
+        public GameObject CombatUI;
+        public CoinFlip flipCoin;
 
         public override void Start()
         {
@@ -116,5 +119,37 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             get { return  transform.rotation; }
             set { transform.rotation = value; }
         }
+
+        //attacking phase related
+        public void AttackingEnemy(bool attack)
+        {
+            if (attack)
+            {
+                //show button attack
+                //if pressed attack
+                //flip coin
+                //then show result of coins flipping
+                //then display stats above player and enemy what attack and defense they have
+                //show how much damage done like 0 and 2.
+                //attack becomes false
+               CombatUI.SetActive(true);
+                //check if button pressed if so then go to idle state
+            }
+            else
+            {
+                CombatUI.SetActive(false);
+            }
+        }
+
+        public bool CoinFlipCheck()
+        {
+            return flipCoin.buttonPressed;
+        }
+
+        public bool PickUpItem()
+        {
+            return true;
+        }
+       
     }
 }

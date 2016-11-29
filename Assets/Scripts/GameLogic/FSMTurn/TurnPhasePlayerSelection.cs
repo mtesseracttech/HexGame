@@ -74,6 +74,11 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                                 }
                                 else if (_path.Count == 1)
                                 {
+                                    if (hex.GetUnderlyingNode().HasProp)
+                                    {
+                                        //add it to the inventory
+                                        //check in the playeragent what item it is and add specific in inventory
+                                    }
                                     Debug.Log("Moving to close tile");
                                     List<HexNode> tempPath = new List<HexNode>();
                                     tempPath.Add(_path[0]);

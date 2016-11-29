@@ -47,7 +47,7 @@ namespace Assets.Scripts.Inventory.Stats.Player
                 Debug.Log("damage done to player");
                 DamageIsDone = Mathf.Abs(defense - attack);
                 CurrentHealth -= DamageIsDone;
-                healthBar.fillAmount -=  0.1f;
+                healthBar.fillAmount -= healthBar.fillAmount / CurrentHealth;
             }
         
         }

@@ -13,7 +13,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
         public override void Update()
         {
             Debug.Log("Attacking Enemy!!!");
-            if (Input.GetKey(KeyCode.Space))
+            
+            if (Input.GetKey(KeyCode.Space) || Agent.CoinFlipCheck())
             {
                 Debug.Log("Done attacking");
                 Agent.SetState(typeof(PlayerStateIdle));
@@ -22,10 +23,13 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void BeginState()
         {
+            Agent.AttackingEnemy(true);
+           
         }
 
         public override void EndState()
         {
+            Agent.AttackingEnemy(false);
         }
     }
 }

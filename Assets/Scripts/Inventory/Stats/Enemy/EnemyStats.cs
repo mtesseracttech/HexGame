@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Inventory.Stats.Enemy
 {
@@ -9,6 +10,7 @@ namespace Assets.Scripts.Inventory.Stats.Enemy
         public int DefenseStats;
         public int CoinHave;
         public int DamageIsDone;
+        public Image healthBar;
 
         void Update ()
         {
@@ -19,10 +21,12 @@ namespace Assets.Scripts.Inventory.Stats.Enemy
         {
             if (attack > defense)
             {
-                Debug.Log("damage done to enemy");
+              //  Debug.Log("damage done to enemy");
                 DamageIsDone = Mathf.Abs(defense - attack);
                 CurrentHealth -= DamageIsDone;
-                Debug.Log("defense " + defense + "-"+"attack"+attack);
+              //  Debug.Log("defense " + defense + "-"+"attack"+attack);
+                healthBar.fillAmount -= healthBar.fillAmount/ CurrentHealth;
+                Debug.Log(healthBar.fillAmount);
             }
         }
 

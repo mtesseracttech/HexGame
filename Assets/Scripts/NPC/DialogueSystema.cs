@@ -50,6 +50,7 @@ namespace Assets.Scripts.NPC
             DialogXmlReader = DialogXmLreader.Load(Ta);
             PlayerPrefs.DeleteAll();
             //ShowDialogue = false;
+            DialogueHud.SetActive(false);
         }
 
         private void Update()
@@ -82,6 +83,11 @@ namespace Assets.Scripts.NPC
                 NpCtext.text = DialogXmlReader.Nodes[CurrentNode].NpcText;
                 NpcImage.sprite = NpcAvatar;
                 Npcname.text = NameNpc;
+                DialogueHud.SetActive(true);
+            }
+            else
+            {
+                DialogueHud.SetActive(false);
             }
         }
 
