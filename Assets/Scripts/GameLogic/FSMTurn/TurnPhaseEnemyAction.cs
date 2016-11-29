@@ -35,7 +35,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 }
 
 
-                /*
+                
                 if (Enemy.IsIdling())
                 {
 
@@ -64,7 +64,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                         {
                             Manager.SetNextEnemy();
                             Debug.Log("Ending Current Enemy Phase, Changed to next one!");
-                            Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
+                            //Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
                         }
                         else
                         {
@@ -74,7 +74,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                     }
 
                 }
-                */
+                
             }
         }
 
