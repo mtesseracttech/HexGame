@@ -17,7 +17,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         public override void Update()
         {
             Enemy.WalkPath     = null;
-            Enemy.AttackTarget = null;
+            Enemy.InteractionTarget = null;
 
             HexNode playerLocation = _player.GetCurrentNode();
             HexNode enemyLocation  =  Enemy .GetCurrentNode();
@@ -37,7 +37,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                         List<HexNode> tempPath = new List<HexNode> {path[0]};
                         Enemy.WalkPath = tempPath;
                     }
-                    Enemy.AttackTarget = playerLocation;
+                    Enemy.InteractionTarget = playerLocation;
                     Manager.ChangePhase(typeof(TurnPhaseEnemyAction));
 
                 }
@@ -47,7 +47,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                     List<HexNode> tempPath = new List<HexNode>();
                     tempPath.Add(path[0]);
                     Enemy.WalkPath = tempPath;
-                    Enemy.AttackTarget = null;
+                    Enemy.InteractionTarget = null;
                     Manager.ChangePhase(typeof(TurnPhaseEnemyAction));
                 }
                 else
@@ -95,7 +95,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 /*
             Enemy = Manager.GetCurrentEnemy();
             Enemy.WalkPath = null;
-            Enemy.AttackTarget = null;
+            Enemy.InteractionTarget = null;
 
             HexNode playerNode = _player.CurrentNode;
             HexNode ownNode    = Enemy.CurrentNode;
@@ -116,7 +116,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                         Enemy.WalkPath = tempPath;
                     }
                     //Direct Attack!
-                    Enemy.AttackTarget = _player.CurrentNode;
+                    Enemy.InteractionTarget = _player.CurrentNode;
                 }
                 else
                 {

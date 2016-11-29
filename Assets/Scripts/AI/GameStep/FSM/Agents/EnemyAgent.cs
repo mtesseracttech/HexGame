@@ -12,7 +12,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private Dictionary<Type, EnemyStateBase>      _states;
         private EnemyStateBase                        _currentState;
         private HexNode                               _targetNode;
-        private HexNode                               _attackTarget;
+        private HexNode                               _interactionTarget;
         private List<HexNode>                         _walkPath;
         private bool                                  _alive                 = true;
 
@@ -66,16 +66,17 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             }
         }
 
+
         public HexNode TargetNode
         {
             get { return  _targetNode; }
             set { _targetNode = value; }
         }
 
-        public HexNode AttackTarget
+        public HexNode InteractionTarget
         {
-            get { return  _attackTarget; }
-            set { _attackTarget = value; }
+            get { return  _interactionTarget; }
+            set { _interactionTarget = value; }
         }
 
         public List<HexNode> WalkPath
@@ -103,10 +104,15 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { gameObject.name = value; }
         }
 
-        //FSM Related//////////////////////////////
+        //Interaction Related//////////////////////////////
         public bool IsDead()
         {
             return !_alive;
+        }
+
+        public void RemoveFromBoard()
+        {
+            CurrentNode.Occupant = null;
         }
     }
 }
