@@ -5,13 +5,13 @@ namespace Assets.Scripts.AI.Pathfinding
 {
     public class Pathfinder
     {
-        private List<HexNode> _todoList;
-        private List<HexNode> _doneList;
-        private HexNode       _currentNode;
-        private HexNode       _endNode;
-        private HexNode       _startNode;
-        private List<HexNode> _path;
-        private bool          _done;
+        private List<HexNode>     _todoList;
+        private List<HexNode>     _doneList;
+        private List<HexNode>     _path;
+        private HexNode           _startNode;
+        private HexNode           _endNode;
+        private HexNode           _currentNode;
+        private bool              _done;
 
         public void Search(HexNode start, HexNode end)
         {
@@ -153,6 +153,42 @@ namespace Assets.Scripts.AI.Pathfinding
             if (node.Parent != null)
             {
                 node.Parent = null;
+            }
+        }
+
+        public override string ToString()
+        {
+            return
+            (
+                "Pathfinder Status:" +                    "\n" +
+                "TodoList Length: "  + _todoList.Count  + "\n" +
+                "DoneList Length: "  + _doneList.Count  + "\n" +
+                "Start Node Index: " + _startNode.Index + "\n" +
+                "End Node Index: "   + _endNode.Index   + "\n" +
+                "Path Length: "      + _path.Count      + "\n" +
+                "Done?: "            + _done
+            );
+        }
+
+        public void HighLightDoneList()
+        {
+            if (_doneList != null)
+            {
+                foreach (var doneNode in _doneList)
+                {
+                    Debug.DrawLine(doneNode.Position, doneNode.Position + Vector3.up*5 + Vector3.forward, Color.red);
+                }
+            }
+        }
+
+        public void HighLightTodoList()
+        {
+            if (_todoList != null)
+            {
+                foreach (var todoNode in _todoList)
+                {
+                    Debug.DrawLine(todoNode.Position, todoNode.Position + Vector3.up*5 + Vector3.back, Color.blue);
+                }
             }
         }
     }

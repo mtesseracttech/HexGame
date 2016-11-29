@@ -2,9 +2,9 @@
 
 namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 {
-    public class PlayerStateIdle : PlayerStateBase
+    public class PlayerStateInteractionProp : PlayerStateBase
     {
-        public PlayerStateIdle(PlayerAgent agent) : base(agent){}
+        public PlayerStateInteractionProp(PlayerAgent agent) : base(agent){}
 
         public override void Update()
         {

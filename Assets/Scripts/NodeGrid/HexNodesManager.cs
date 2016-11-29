@@ -9,10 +9,16 @@ public class HexNodesManager : MonoBehaviour
     public bool DebugMode = false;
     public bool ShowAllOccupiedNodes = true;
 
+    private Pathfinder _pathfinder;
+
     private HexNode[] _nodes;
 
+    private void Start()
+    {
+        _pathfinder = new Pathfinder();
+    }
 
-	// Update is called once per frame
+    // Update is called once per frame
 	void Update ()
 	{
 	    if (DebugMode && _nodes != null)
@@ -46,6 +52,11 @@ public class HexNodesManager : MonoBehaviour
 		Debug.Log ("Multi building: " + GetHexNode (10).Occupant + " " + GetHexNode (11).Occupant + " " + GetHexNode (12).Occupant + " " + GetHexNode (13).Occupant + " " + GetHexNode (14).Occupant + " NOTHING " + GetHexNode (15).Occupant);
 	}
 
+    public Pathfinder Pathfinder
+    {
+        get { return _pathfinder; }
+    }
+
     public void SetNodesFromInfoContainer(HexCellInfoContainer[] infoContainers, bool cullBadConnections = false)
     {
         Debug.Log(infoContainers);
@@ -68,8 +79,6 @@ public class HexNodesManager : MonoBehaviour
             }
             nodes[i].Neighbors = nodeNeighbors.ToArray();
         }
-
-
 
         if (cullBadConnections)
         {

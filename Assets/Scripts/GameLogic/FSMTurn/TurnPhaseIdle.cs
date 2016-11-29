@@ -7,29 +7,33 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 {
     public class TurnPhaseIdle : TurnPhaseBase
     {
-        public TurnPhaseIdle(TurnManager manager) : base(manager)
-        {
-        }
+        private bool _exitingIdle;
+
+        public TurnPhaseIdle(TurnManager manager) : base(manager) {}
 
         public override void Update()
         {
-            Debug.Log("Step Starts!");
-            Manager.ChangePhase(typeof(TurnPhasePlayerSelection));
+            Debug.Log("Idling!");
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _exitingIdle = true;
+            }
+
+            if (_exitingIdle)
+            {
+                Manager.ChangePhase(typeof(TurnPhasePlayerSelection));
+            }
         }
 
         public override void Start()
         {
-            Done = false;
-            Manager.RemoveDeadEnemies();
-            Manager.SetPlayerStates(typeof(PlayerStateIdle));
-            Manager.SetEnemyStates (typeof(EnemyStateIdle) );
+            _exitingIdle = false;
         }
 
         public override void End()
         {
-            //Manager.EnemyRadar!!!
 
-            Manager.SetFirstEnemy();//Run after enemyradar, so every enemy gets picked up for this.
         }
     }
 }

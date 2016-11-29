@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Remoting.Channels;
-using Assets.Scripts.AI;
+﻿using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
 using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
 using Assets.Scripts.AI.Pathfinding;
@@ -11,170 +8,136 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 {
     public class TurnPhasePlayerSelection : TurnPhasePlayerBase
     {
-        private List<HexNode> _path;
-        private List<HexNode> _debugPath;
-        private HexNode       _debugCurrentNode;
-        private HexNode       _debugHexNode;
+        private bool _finishedSelection;
 
-        public TurnPhasePlayerSelection(TurnManager manager, PlayerAgent player) : base(manager, player)
-        {
-            Player = player;
-        }
+        public TurnPhasePlayerSelection(TurnManager manager, PlayerAgent player) : base(manager, player) {}
 
         public override void Update()
         {
+            Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
+            MouseOver(mouseRay);
+
+            MouseClick(mouseRay);
+
+            if (_finishedSelection)
             {
-                if (hit.collider.CompareTag("selectiontile"))
+                Manager.ChangePhase(typeof(TurnPhasePlayerAction));
+            }
+        }
+
+        private void MouseOver(Ray mouseRay)
+        {
+            RaycastHit mouseOverHit;
+
+            if (Physics.Raycast(mouseRay, out mouseOverHit))
+            {
+                if (mouseOverHit.collider.CompareTag("selectionhex"))
                 {
-                    SelectionHexRenderer hex = hit.collider.gameObject.GetComponent<SelectionHexRenderer>();
+                    var hex = mouseOverHit.transform.GetComponent<SelectionHexRenderer>();
+
                     if (hex != null)
                     {
-                        Debug.Log("Hovering over selection tile! Connected node: Index: " +
-                                  hex.GetUnderlyingNode().Index + " at " +
-                                  hex.GetUnderlyingNode().Position);
+                        //HexNode hexNode = hex.GetUnderlyingNode();
                     }
                 }
             }
+        }
 
+        private void MouseClick(Ray mouseRay)
+        {
             if (Input.GetMouseButtonDown(0))
             {
-                RaycastHit clickHit;
-                Ray clickRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(clickRay, out clickHit))
+                RaycastHit mouseClickHit;
+
+                if (Physics.Raycast(mouseRay, out mouseClickHit))
                 {
-                    if (hit.collider.CompareTag("selectiontile"))
+                    if (mouseClickHit.collider.CompareTag("selectionhex"))
                     {
-                        SelectionHexRenderer hex = hit.collider.gameObject.GetComponent<SelectionHexRenderer>();
+                        var hex = mouseClickHit.transform.GetComponent<SelectionHexRenderer>();
+
                         if (hex != null)
                         {
-                            _debugCurrentNode = Player.CurrentNode;
-                            _debugHexNode = hex.GetUnderlyingNode();
-                            Pathfinder pathfinder = new Pathfinder();
-                            pathfinder.Search(_debugCurrentNode, _debugHexNode);
+                            HexNode hexNode = hex.GetUnderlyingNode();
 
-                            _path = pathfinder.Path;
-                            if (_path != null)
-                            {
-                                /*
-                                if (_path.Count <= 2 && hex.GetUnderlyingNode().HasEnemy)
-                                {
-                                    Debug.Log("Has enemy, moving to closest tile");
-                                    if (_path.Count == 2)
-                                    {
-                                        List<HexNode> tempPath = new List<HexNode> {_path[0]};
-                                        Player.WalkPath = tempPath;
-                                    }
-                                    Player.InteractionTarget = hex.GetUnderlyingNode();
-                                    Manager.ChangePhase(typeof(TurnPhasePlayerAction));
+                            Manager.Pathfinder.Search(Player.CurrentNode, hexNode);
 
-                                }
-                                else if (_path.Count == 1)
-                                {
-                                    Debug.Log("Moving to close tile");
-                                    List<HexNode> tempPath = new List<HexNode>();
-                                    tempPath.Add(_path[0]);
-                                    Player.WalkPath = tempPath;
-                                    Player.InteractionTarget = null;
-                                    pathfinder = null;
-                                    Manager.ChangePhase(typeof(TurnPhasePlayerAction));
-                                }
-                                else
-                                {
-                                    Debug.Log(_path.Count);
-                                    DebugPath(_path);
-                                    Debug.Log("That tile is too far away to walk to/attack!");
-                                }*/
-                                HexNode hexNode = hex.GetUnderlyingNode();
+                            List<HexNode> path = Manager.Pathfinder.Path;
 
-                                if (_path.Count <= 2 && hexNode.HasOccupant && !hexNode.HasPlayer)
-                                {
-                                    if (hexNode.HasBuilding)
-                                    {
-
-                                    }
-                                    else if (hexNode.HasEnemy)
-                                    {
-
-                                    }
-                                    else if (hexNode.HasNPC)
-                                    {
-
-                                    }
-                                    else if (hexNode.HasProp)
-                                    {
-
-                                    }
-                                }
-                                else if (_path.Count == 1)
-                                {
-
-                                }
-                            }
+                            if (path != null) SelectInteraction(path, hexNode);
                         }
                     }
                 }
             }
+        }
 
-
-
-
-
-
-
-
-
-
-            //fucking consumables
-
-            if (_debugPath != null)
+        private void SelectInteraction(List<HexNode> path, HexNode target)
+        {
+            if (path.Count > 2)
             {
-                foreach (var node in _debugPath)
+                Debug.Log("The path that was found is too long for interactions");
+            }
+            else if (path.Count == 2)
+            {
+                Debug.Log("Player will have to walk and then do interaction");
+                if(target.HasOccupant)
                 {
-                    if (node.Parent != null)
-                    {
-                        Debug.DrawLine(node.Position, node.Parent.Position, Color.cyan);
-                    }
+                    SetInteractionState(target);
+                    Player.WalkPath = new List<HexNode> {path[0]};
+                    _finishedSelection = true;
                 }
             }
-
-            if (_debugCurrentNode != null)
+            else if (path.Count == 1)
             {
-                Debug.DrawLine(_debugCurrentNode.Position, _debugCurrentNode.Position + Vector3.up*10 + Vector3.forward, Color.magenta);
+                Debug.Log("Player will interact directly");
+                if (target.HasOccupant) SetInteractionState(target);
+                else Player.WalkPath = new List<HexNode> {path[0]};
+                _finishedSelection = true;
             }
-            if (_debugHexNode != null)
+            else
             {
-                Debug.DrawLine(_debugHexNode .Position, _debugHexNode .Position + Vector3.up*10 + Vector3.right, Color.blue);
+                Debug.Log("The selected tile was the player itself, you idiot");
             }
-
         }
 
-        private void DebugPath(List<HexNode> path)
+        private void SetInteractionState(HexNode target)
         {
-            string pathIndexes = "Debug Path Indexes: \n";
-            _debugPath = path;
-            foreach (var node in path)
-            {
-                pathIndexes += node.Index + " ";
-            }
-            Debug.Log(pathIndexes);
-        }
+            Player.InteractionTarget = target;
 
+            if (target.HasEnemy)
+            {
+                Player.UpcomingInteractionState = typeof(PlayerStateInteractionEnemy);
+            }
+            else if (target.HasNPC)
+            {
+                Player.UpcomingInteractionState = typeof(PlayerStateInteractionNPC);
+            }
+            else if (target.HasBuilding)
+            {
+                Player.UpcomingInteractionState = typeof(PlayerStateInteractionBuilding);
+            }
+            else if (target.HasProp)
+            {
+                Player.UpcomingInteractionState = typeof(PlayerStateInteractionProp);
+            }
+            else
+            {
+                Player.InteractionTarget = null;
+                Debug.Log("Player got desynced somehow!");
+            }
+        }
 
         public override void Start()
         {
+            _finishedSelection       = false;
             Player.InteractionTarget = null;
-            Player.WalkPath     = null;
-            Player.SetState(typeof(PlayerStateIdle));
-            Player.ShowHighLight(true);
+            Player.WalkPath          = null;
+            Player.ShowHighLight (true);
         }
 
         public override void End()
         {
-            Player.ShowHighLight(false);
+            Player.ShowHighLight (false);
         }
     }
 }

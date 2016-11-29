@@ -17,6 +17,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private List<HexNode>                         _walkPath;
         private NodeHighlighter                       _nodeHighlighter;
 
+        private Type                                  _upcomingInteractionState;
+
         public override void Start()
         {
             //Basics///////////////////////////////
@@ -26,10 +28,12 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
 
             //Setting up the Cache/////////////////
             _states = new Dictionary<Type, PlayerStateBase>();
-            _states.Add(typeof(PlayerStateFreeMovement), new PlayerStateFreeMovement(this));
-            _states.Add(typeof(PlayerStateStepMovement), new PlayerStateStepMovement(this));
-            _states.Add(typeof(PlayerStateAttack),       new PlayerStateAttack      (this));
-            _states.Add(typeof(PlayerStateIdle),         new PlayerStateIdle        (this));
+            _states.Add(typeof(PlayerStateIdle),                new PlayerStateIdle                (this));
+            _states.Add(typeof(PlayerStateWalking),             new PlayerStateWalking             (this));
+            _states.Add(typeof(PlayerStateInteractionEnemy),    new PlayerStateInteractionEnemy    (this));
+            _states.Add(typeof(PlayerStateInteractionBuilding), new PlayerStateInteractionBuilding (this));
+            _states.Add(typeof(PlayerStateInteractionNPC),      new PlayerStateInteractionNPC      (this));
+            _states.Add(typeof(PlayerStateInteractionProp),     new PlayerStateInteractionProp     (this));
 
             //Starting First State Manually////////
             _currentState = _states[typeof(PlayerStateIdle)];
@@ -58,6 +62,18 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             return _currentState.GetType() == typeof(PlayerStateIdle);
         }
 
+        public Type UpcomingInteractionState
+        {
+            get { return _upcomingInteractionState; }
+            set
+            {
+                if (_states.ContainsKey(value))
+                {
+                    _upcomingInteractionState = value;
+                }
+            }
+        }
+
         //Highlight Grid Related Methods///////////
         public void OnGridShow()
         {
@@ -71,7 +87,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
 
         public void ShowHighLight(bool show)
         {
-            if (show)OnGridShow();
+            if (show) OnGridShow();
             else ClearGrid();
         }
 
@@ -85,12 +101,14 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
                 Position = CurrentNode.Position;
             }
         }
-
+        
+        /*
         public HexNode TargetNode
         {
             get { return  _targetNode; }
             set { _targetNode = value; }
         }
+        */
 
         public HexNode InteractionTarget
         {

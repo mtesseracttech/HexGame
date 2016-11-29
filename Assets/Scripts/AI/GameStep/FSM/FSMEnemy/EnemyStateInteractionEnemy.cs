@@ -1,10 +1,13 @@
 ﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
 
-namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
+namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
 {
-    public class PlayerStateIdle : PlayerStateBase
+    public class EnemyStateInteractionEnemy : EnemyStateBase
     {
-        public PlayerStateIdle(PlayerAgent agent) : base(agent){}
+        public EnemyStateInteractionEnemy(EnemyAgent agent) : base(agent)
+        {
+
+        }
 
         public override void Update()
         {

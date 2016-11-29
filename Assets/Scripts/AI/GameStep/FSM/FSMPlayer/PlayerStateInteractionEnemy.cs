@@ -1,12 +1,11 @@
-﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.AI.GameStep.FSM.Agents;
+using UnityEngine;
 
 namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 {
-    public class PlayerStateSearchBuilding : PlayerStateBase
+    public class PlayerStateInteractionEnemy : PlayerStateBase
     {
-        public PlayerStateSearchBuilding(PlayerAgent agent) : base(agent)
-        {
-        }
+        public PlayerStateInteractionEnemy(PlayerAgent agent) : base(agent){}
 
         public override void Update()
         {

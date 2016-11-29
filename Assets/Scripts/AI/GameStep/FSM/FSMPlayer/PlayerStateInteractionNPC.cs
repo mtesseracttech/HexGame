@@ -2,15 +2,16 @@
 
 namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 {
-    public class PlayerStateFreeMovement : PlayerStateBase
+    public class PlayerStateInteractionNPC : PlayerStateBase
     {
-        public PlayerStateFreeMovement(PlayerAgent agent) : base(agent){}
-
-        public override void BeginState()
-        {
-        }
+        public PlayerStateInteractionNPC(PlayerAgent agent) : base(agent){}
 
         public override void Update()
+        {
+
+        }
+
+        public override void BeginState()
         {
 
         }

@@ -2,11 +2,9 @@
 
 namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 {
-    public class PlayerStateInteractNPC : PlayerStateBase
+    public class PlayerStateInteractionBuilding : PlayerStateBase
     {
-        public PlayerStateInteractNPC(PlayerAgent agent) : base(agent)
-        {
-        }
+        public PlayerStateInteractionBuilding(PlayerAgent agent) : base(agent){}
 
         public override void Update()
         {
