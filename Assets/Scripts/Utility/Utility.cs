@@ -12,7 +12,7 @@ namespace Assets.Scripts.Utility
             {
                 output += i + ". " + list[i] + "\n";
             }
-            //Debug.Log(output);
+            Debug.Log(output);
         }
 
         public static void DebugArray<T>(T[] list)
@@ -22,7 +22,7 @@ namespace Assets.Scripts.Utility
             {
                 output += i + ". " + list[i] + "\n";
             }
-            //Debug.Log(output);
+            Debug.Log(output);
         }
     }
 }

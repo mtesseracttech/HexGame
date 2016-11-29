@@ -26,14 +26,14 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                     Player.SetState(typeof(PlayerStateStepMovement));
                 }
                 //Then Attacking is executed till idling again if the data is present
-                else if (Player.AttackTarget != null)
+                else if (Player.InteractionTarget != null)
                 {
-                    Player.AttackTarget  = Player.AttackTarget;
-                    Player.AttackTarget = null;
+                    Player.InteractionTarget  = Player.InteractionTarget;
+                    Player.InteractionTarget = null;
                     Player.SetState(typeof(PlayerStateAttack));
                 }
                 //If both datas are set to null and the player is idling again, the next state is loaded
-                else if (Player.WalkPath == null && Player.AttackTarget == null)
+                else if (Player.WalkPath == null && Player.InteractionTarget == null)
                 {
                     Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
                     //Manager.ChangePhase(typeof(TurnPhaseIdle));
@@ -48,7 +48,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void End()
         {
-            Player.AttackTarget = null;
+            Player.InteractionTarget = null;
             Player.TargetNode   = null;
             Player.SetState(typeof(PlayerStateIdle));
         }
