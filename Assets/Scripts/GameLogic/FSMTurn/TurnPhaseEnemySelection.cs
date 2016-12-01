@@ -34,7 +34,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 HexNode playerNode = _player.GetCurrentNode();
                 HexNode enemyNode  = Enemy.GetCurrentNode();
 
-                Manager.Pathfinder.Search(playerNode, enemyNode);
+                Manager.Pathfinder.Search(enemyNode, playerNode);
                 List<HexNode> path = Manager.Pathfinder.Path;
 
                 if (path != null)

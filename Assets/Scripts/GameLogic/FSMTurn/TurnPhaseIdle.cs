@@ -1,7 +1,4 @@
-﻿using Assets.Scripts.AI;
-using Assets.Scripts.AI.GameStep.FSM.FSMEnemy;
-using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {
@@ -33,7 +30,8 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void End()
         {
-
+            Debug.ClearDeveloperConsole();
+            Manager.SetFirstEnemy();
         }
     }
 }
