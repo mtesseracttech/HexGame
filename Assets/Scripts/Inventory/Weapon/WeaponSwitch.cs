@@ -33,12 +33,20 @@ public class WeaponSwitch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             Inventory.RemoveItemFromInventory(0,1);
+            Inventory.RemoveItemFromInventory(1, 1);
+            Inventory.RemoveItemFromInventory(2, 1);
+            Inventory.RemoveItemFromInventory(3, 1);
+            Inventory.RemoveItemFromInventory(4, 1);
+            Inventory.RemoveItemFromInventory(5, 1);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             Inventory.AddItem(0);
             Inventory.AddItem(1);
             Inventory.AddItem(2);
+            Inventory.AddItem(3);
+            Inventory.AddItem(4);
+            Inventory.AddItem(5);
         }
     }
 

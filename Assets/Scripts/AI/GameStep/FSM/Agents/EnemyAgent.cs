@@ -25,9 +25,10 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
 
             //Setting up the Cache/////////////////
             _states = new Dictionary<Type, EnemyStateBase>();
-            _states.Add(typeof(EnemyStateWalking),          new EnemyStateWalking          (this));
+
+            _states.Add(typeof(EnemyStateWalking),           new EnemyStateWalking           (this));
             _states.Add(typeof(EnemyStateInteractionPlayer), new EnemyStateInteractionPlayer (this));
-            _states.Add(typeof(EnemyStateIdle),             new EnemyStateIdle             (this));
+            _states.Add(typeof(EnemyStateIdle),              new EnemyStateIdle              (this));
 
             //Starting First State Manually////////
             _currentState = _states[typeof(EnemyStateIdle)];

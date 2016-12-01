@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,22 +26,6 @@ namespace Assets.Scripts.NPC
         public Sprite NpcAvatar;
         public string NameNpc;
         
-        [Header("NPC name position")]
-        private int NpcNameX = 20;
-        private int NpcNameY = 785;
-
-        [Header("NPC text position")]
-        private int NpcTextX = 150;
-        private int NpcTextY = 560;
-
-        [Header("NPC box position")]
-        private int BoxPositionX = -5;
-        private int BoxPositionY = 530;
-
-        [Header("BOX size")]
-        private int _boxWidth = 700;
-        private int _boxHeight = 300;
-
         [Header("Answer position")]
         public int PositionX;
         public int PositionY;
@@ -50,6 +35,7 @@ namespace Assets.Scripts.NPC
             DialogXmlReader = DialogXmLreader.Load(Ta);
             PlayerPrefs.DeleteAll();
             //ShowDialogue = false;
+            DialogueHud.SetActive(false);
         }
 
         private void Update()
@@ -70,8 +56,6 @@ namespace Assets.Scripts.NPC
                 {
                     Answers.Add(DialogXmlReader.Nodes[CurrentNode].answers[i]);
                 }
-                
-            
             }
         }
 
@@ -79,9 +63,16 @@ namespace Assets.Scripts.NPC
         {
             if (ShowDialogue)
             {
-                NpCtext.text = DialogXmlReader.Nodes[CurrentNode].NpcText;
+               // NpCtext.text = DialogXmlReader.Nodes[CurrentNode].NpcText;
+               StartCoroutine(TextType());
+
                 NpcImage.sprite = NpcAvatar;
                 Npcname.text = NameNpc;
+                DialogueHud.SetActive(true);
+            }
+            else
+            {
+                DialogueHud.SetActive(false);
             }
         }
 
@@ -97,7 +88,7 @@ namespace Assets.Scripts.NPC
 
                 for (int i = 0; i < Answers.Count; i++)
                 {
-                    if (GUI.Button(new Rect(PositionX , Screen.height - PositionY + 25 * i, 500, 25), Answers[i].Text, Skin.label))
+                    if (GUI.Button(new Rect(PositionX , Screen.height - PositionY + 40 * i, 400, 30), Answers[i].Text, Skin.label))
                     {
                         if (Answers[i].QuestValue > 0)
                         {
@@ -119,6 +110,17 @@ namespace Assets.Scripts.NPC
                     }
                 }
             }
+        }
+
+        IEnumerator TextType()
+        {
+            foreach (char letter in DialogXmlReader.Nodes[CurrentNode].NpcText)
+            {
+                NpCtext.text += letter;
+                yield return new WaitForSeconds(0.9f);
+
+            }
+            
         }
     }
 }

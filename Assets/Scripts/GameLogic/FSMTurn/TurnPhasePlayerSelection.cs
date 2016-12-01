@@ -40,7 +40,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                         if (hex != null)
                         {
                             HexNode hexNode = hex.GetUnderlyingNode();
-
+                            
                             Manager.Pathfinder.Search(Player.CurrentNode, hexNode);
                             Debug.Log(Manager.Pathfinder);
                             List<HexNode> path = Manager.Pathfinder.Path;
