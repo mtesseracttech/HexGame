@@ -10,12 +10,28 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void Update()
         {
-
+            if (Enemy.IsIdling())
+            {
+                if (Enemy.WalkPath != null)
+                {
+                    Enemy.SetState(typeof(EnemyStateWalking));
+                }
+                else if (Enemy.UpcomingInteractionState != null)
+                {
+                    Enemy.SetState(typeof(EnemyStateInteractionPlayer));
+                }
+                else if (Enemy.WalkPath == null && Enemy.UpcomingInteractionState == null)
+                {
+                    Debug.Log("Done with" + Enemy.AgentName +", switching to next phase!");
+                    Manager.ChangePhase(typeof(TurnPhaseEnemyChange));
+                }
+            }
         }
 
         public override void Start()
         {
-
+            Enemy = Manager.GetCurrentEnemy();
+            Enemy.SetState(typeof(EnemyStateIdle));
         }
 
         public override void End()

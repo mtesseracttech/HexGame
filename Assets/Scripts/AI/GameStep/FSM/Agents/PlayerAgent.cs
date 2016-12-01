@@ -64,23 +64,17 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
 
         public Type UpcomingInteractionState
         {
-            get { return _upcomingInteractionState; }
-            set
-            {
-                if (_states.ContainsKey(value))
-                {
-                    _upcomingInteractionState = value;
-                }
-            }
+            get { return  _upcomingInteractionState; }
+            set { _upcomingInteractionState = value; }
         }
 
         //Highlight Grid Related Methods///////////
-        public void OnGridShow()
+        private void OnGridShow()
         {
             StartCoroutine(_nodeHighlighter.Search(CurrentNode));
         }
 
-        public void ClearGrid()
+        private void ClearGrid()
         {
             _nodeHighlighter.ClearHighlights();
         }
@@ -88,7 +82,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         public void ShowHighLight(bool show)
         {
             if (show) OnGridShow();
-            else ClearGrid();
+            else      ClearGrid();
         }
 
         //Navigation Related///////////////////////
@@ -101,14 +95,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
                 Position = CurrentNode.Position;
             }
         }
-        
-        /*
-        public HexNode TargetNode
-        {
-            get { return  _targetNode; }
-            set { _targetNode = value; }
-        }
-        */
 
         public HexNode InteractionTarget
         {

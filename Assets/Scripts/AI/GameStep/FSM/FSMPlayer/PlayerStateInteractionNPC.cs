@@ -4,7 +4,9 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 {
     public class PlayerStateInteractionNPC : PlayerStateBase
     {
-        public PlayerStateInteractionNPC(PlayerAgent agent) : base(agent){}
+        public PlayerStateInteractionNPC(PlayerAgent agent) : base(agent)
+        {
+        }
 
         public override void Update()
         {
@@ -18,7 +20,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void EndState()
         {
-
+            Agent.InteractionTarget        = null;
+            Agent.UpcomingInteractionState = null;
         }
     }
 }

@@ -179,9 +179,10 @@ namespace Assets.Scripts.AI.Pathfinding
             if (_parent != null) parent = Parent.Index.ToString();
 
             string returnString = (
-                "Node Info:\n" +
-                "Hex Coordinates: " + _coordinates + "\n" +
-                "Parent Index: " + parent + "\n" +
+                "Node Info:\n"                              +
+                "Position: "          + Position     + "\n" +
+                "Hex Coordinates: "   + _coordinates + "\n" +
+                "Parent Index: "      + parent       + "\n" +
                 "Neighbors Indexes: " + neighborIndexes
             );
             return returnString;

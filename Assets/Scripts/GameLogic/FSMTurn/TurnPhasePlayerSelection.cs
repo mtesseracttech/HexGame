@@ -16,8 +16,6 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         {
             Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            MouseOver(mouseRay);
-
             MouseClick(mouseRay);
 
             if (_finishedSelection)
@@ -26,28 +24,11 @@ namespace Assets.Scripts.GameLogic.FSMTurn
             }
         }
 
-        private void MouseOver(Ray mouseRay)
-        {
-            RaycastHit mouseOverHit;
-
-            if (Physics.Raycast(mouseRay, out mouseOverHit))
-            {
-                if (mouseOverHit.collider.CompareTag("selectionhex"))
-                {
-                    var hex = mouseOverHit.transform.GetComponent<SelectionHexRenderer>();
-
-                    if (hex != null)
-                    {
-                        //HexNode hexNode = hex.GetUnderlyingNode();
-                    }
-                }
-            }
-        }
-
         private void MouseClick(Ray mouseRay)
         {
             if (Input.GetMouseButtonDown(0))
             {
+                Debug.Log(Player.CurrentNode.Index);
                 RaycastHit mouseClickHit;
 
                 if (Physics.Raycast(mouseRay, out mouseClickHit))
@@ -61,7 +42,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                             HexNode hexNode = hex.GetUnderlyingNode();
 
                             Manager.Pathfinder.Search(Player.CurrentNode, hexNode);
-
+                            Debug.Log(Manager.Pathfinder);
                             List<HexNode> path = Manager.Pathfinder.Path;
 
                             if (path != null) SelectInteraction(path, hexNode);
@@ -73,18 +54,24 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         private void SelectInteraction(List<HexNode> path, HexNode target)
         {
+            Debug.Log("Path Length is: " + path.Count);
             if (path.Count > 2)
             {
                 Debug.Log("The path that was found is too long for interactions");
             }
             else if (path.Count == 2)
             {
-                Debug.Log("Player will have to walk and then do interaction");
-                if(target.HasOccupant)
+
+                if (target.HasOccupant)
                 {
+                    Debug.Log("Player will have to walk and then do interaction");
                     SetInteractionState(target);
                     Player.WalkPath = new List<HexNode> {path[0]};
                     _finishedSelection = true;
+                }
+                else
+                {
+                    Debug.Log("This is too far for an occupant-less node!");
                 }
             }
             else if (path.Count == 1)
@@ -92,6 +79,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 Debug.Log("Player will interact directly");
                 if (target.HasOccupant) SetInteractionState(target);
                 else Player.WalkPath = new List<HexNode> {path[0]};
+
                 _finishedSelection = true;
             }
             else
@@ -125,13 +113,16 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 Player.InteractionTarget = null;
                 Debug.Log("Player got desynced somehow!");
             }
+
+            Debug.Log("Selected next phase: " + Player.UpcomingInteractionState);
         }
 
         public override void Start()
         {
-            _finishedSelection       = false;
-            Player.InteractionTarget = null;
-            Player.WalkPath          = null;
+            _finishedSelection              = false;
+            Player.InteractionTarget        = null;
+            Player.UpcomingInteractionState = null;
+            Player.WalkPath                 = null;
             Player.ShowHighLight (true);
         }
 

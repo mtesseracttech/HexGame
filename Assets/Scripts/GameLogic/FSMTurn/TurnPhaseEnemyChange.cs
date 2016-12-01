@@ -12,6 +12,15 @@
                 
         public override void Start()
         {
+            if (Manager.HasNextEnemy())
+            {
+                Manager.SetNextEnemy();
+                Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
+            }
+            else
+            {
+                Manager.ChangePhase(typeof(TurnPhaseIdle));
+            }
         }
 
         public override void End()

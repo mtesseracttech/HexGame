@@ -57,11 +57,12 @@ namespace Assets.Scripts.AI.Pathfinding
             else
             {
                 //get all children and process them
-                for (var i = 0; i < _currentNode.Neighbors.Length; i++)
+                foreach (HexNode neighbor in _currentNode.Neighbors)
                 {
-                    HexNode neighbor = _currentNode.Neighbors[i];
+                    if (neighbor != _endNode && neighbor.HasOccupant) continue;
 
-                    if (_doneList.IndexOf(neighbor) == -1 && _todoList.IndexOf(neighbor) == -1)
+                    //if (_doneList.IndexOf(neighbor) == -1 && _todoList.IndexOf(neighbor) == -1)
+                    if(!_doneList.Contains(neighbor) && !_todoList.Contains(neighbor))
                     {
                         if (neighbor.CostCurrent < _currentNode.CostCurrent)
                         {
@@ -87,14 +88,14 @@ namespace Assets.Scripts.AI.Pathfinding
 
         public void SetStartNode(HexNode start)
         {
-            if (_startNode != null) resetNode(_startNode);
+            if (_startNode != null) ResetNode(_startNode);
             _startNode = start;
             ResetPathFinder();
         }
 
         public void SetEndNode(HexNode end)
         {
-            if (_endNode != null) resetNode(_endNode);
+            if (_endNode != null) ResetNode(_endNode);
             _endNode = end;
             ResetPathFinder();
         }
@@ -129,27 +130,31 @@ namespace Assets.Scripts.AI.Pathfinding
 
         private void ResetPathFinder()
         {
-            if (_todoList != null) _todoList.ForEach(resetNode);
-            if (_doneList != null) _doneList.ForEach(resetNode);
+            if (_todoList != null) _todoList.ForEach(ResetNode);
+            if (_doneList != null) _doneList.ForEach(ResetNode);
 
-            _todoList = new List<HexNode>();
-            _doneList = new List<HexNode>();
-            _done = false;
-            _path = null;
+            _todoList    = new List<HexNode>();
+            _doneList    = new List<HexNode>();
+            _done        = false;
+            _path        = null;
             _currentNode = null;
 
             //setup for next path
             if (_startNode != null)
             {
                 _todoList.Add(_startNode);
-                _startNode.CostCurrent = 0;
+                _startNode.CostCurrent  = 0;
                 _startNode.CostEstimate = 0;
                 _startNode.CostCombined = 0;
             }
         }
 
-        private void resetNode(HexNode node)
+        private void ResetNode(HexNode node)
         {
+            node.CostCurrent  = 0;
+            node.CostEstimate = 0;
+            node.CostCombined = 0;
+
             if (node.Parent != null)
             {
                 node.Parent = null;

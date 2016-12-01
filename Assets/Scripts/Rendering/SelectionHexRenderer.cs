@@ -127,9 +127,6 @@ public class SelectionHexRenderer : MonoBehaviour
 		uvs.Add (new Vector2 (0, 0.8f));
 		uvs.Add (new Vector2 (0.5f, 1));
 		uvs.Add (new Vector2 (0.5f, 0.5f));
-
-        Utility.DebugList(vertices);
-        Utility.DebugList(uvs);
         
         /////////////////////////////////////////////
 
