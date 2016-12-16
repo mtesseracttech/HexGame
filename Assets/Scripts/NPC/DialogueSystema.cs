@@ -63,8 +63,8 @@ namespace Assets.Scripts.NPC
         {
             if (ShowDialogue)
             {
-               // NpCtext.text = DialogXmlReader.Nodes[CurrentNode].NpcText;
-               StartCoroutine(TextType());
+                NpCtext.text = DialogXmlReader.Nodes[CurrentNode].NpcText;
+             //  StartCoroutine(TextType());
 
                 NpcImage.sprite = NpcAvatar;
                 Npcname.text = NameNpc;
