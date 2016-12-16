@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.Utility;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraScroller : MonoBehaviour
 {
@@ -52,6 +53,10 @@ public class CameraScroller : MonoBehaviour
                 _current = _positions[_currentPosIndex];
                 _target = _positions[_currentPosIndex + 1];
                 _timeSinceStart = 0.0f;
+            }
+            else
+            {
+                SceneManager.LoadScene(1);
             }
         }
         if (Input.GetKeyDown(KeyCode.Space))
