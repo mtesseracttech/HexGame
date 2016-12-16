@@ -21,14 +21,14 @@ namespace Assets.Scripts.Rendering
         private HashSet <HexNode>         _cameFrom;
         private List <GameObject>         _highlights               = new List<GameObject> ();
 
-        public IEnumerator Search (HexNode root) {
+        public IEnumerator Search (HexNode root)
+        {
             ClearHighlights ();
             root.Expansion = 0;
 
             if (root.HasBuilding) {}
             else
             {
-
                 _frontier = new Queue<HexNode> ();
                 _cameFrom = new HashSet<HexNode> ();
 
@@ -41,21 +41,20 @@ namespace Assets.Scripts.Rendering
 
                     foreach (var next in current.Neighbors)
                     {
-
                         if (_cameFrom.Contains (next) || next.HasBuilding || next.HasEnemy)
                         {
                             if (next.HasBuilding && !_cameFrom.Contains (next) && current.Expansion < _maxExpansion) {
-                                GameObject terrainHighlight = (GameObject)Instantiate (_terrainHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
+                                GameObject terrainHighlight = Instantiate (_terrainHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
                                 terrainHighlight.SendMessage("Create", next);
                                 _highlights.Add (terrainHighlight);
-                                _cameFrom.Add (next);
+                                _cameFrom.Add   (next);
                             }
 
                             if (next.HasEnemy && !_cameFrom.Contains (next) && current.Expansion < _maxExpansion) {
-                                GameObject enemyHighlight = (GameObject)Instantiate (_attackHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
+                                GameObject enemyHighlight = Instantiate (_attackHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
                                 enemyHighlight.SendMessage("Create", next);
                                 _highlights.Add (enemyHighlight);
-                                _cameFrom.Add (next);
+                                _cameFrom.Add   (next);
                             }
                         }
                         else
@@ -93,10 +92,9 @@ namespace Assets.Scripts.Rendering
             yield return null;
         }
 
-        public void ClearHighlights () {
-            foreach (var highlight in _highlights) {
-                Destroy (highlight);
-            }
+        public void ClearHighlights ()
+        {
+            foreach (var highlight in _highlights) Destroy(highlight);
             _highlights = new List <GameObject> ();
         }
     }
