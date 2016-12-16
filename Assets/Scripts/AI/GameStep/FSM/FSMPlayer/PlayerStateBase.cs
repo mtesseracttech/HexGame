@@ -8,7 +8,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         protected PlayerStateBase(PlayerAgent agent)
         {
-
+            Agent = agent;
         }
 
         public abstract void Update();

@@ -4,9 +4,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 {
     public class PlayerStateIdle : PlayerStateBase
     {
-        public PlayerStateIdle(PlayerAgent agent) : base(agent)
-        {
-        }
+        public PlayerStateIdle(PlayerAgent agent) : base(agent){}
 
         public override void Update()
         {

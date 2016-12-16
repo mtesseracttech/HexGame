@@ -6,63 +6,24 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 {
     public class TurnPhaseEnemyAction : TurnPhaseEnemyBase
     {
-        public TurnPhaseEnemyAction(TurnManager manager, EnemyAgent enemy) : base(manager, enemy)
-        {
-        }
+        public TurnPhaseEnemyAction(TurnManager manager, EnemyAgent enemy) : base(manager, enemy){}
 
         public override void Update()
         {
-            /*
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Enemy = Manager.GetCurrentEnemy();
-                if (Manager.HasNextEnemy())
-                {
-                    Debug.Log("The current enemy is: " + Enemy.Name);
-                    Manager.SetNextEnemy();
-                    {
-                        Enemy = Manager.GetCurrentEnemy();
-                        Debug.Log("Refreshed to enemy" + Enemy.Name);
-                        //Manager.ChangePhase(typeof(TurnPhaseEnemySelection));
-                    }
-                }
-                else
-                {
-                    Debug.Log("The current enemy is: " + Enemy.Name);
-                    Manager.SetFirstEnemy();
-                    Enemy = Manager.GetCurrentEnemy();
-                    Debug.Log("Reset to enemy" + Enemy.Name);
-                    //Manager.ChangePhase(typeof(TurnPhaseIdle));
-                }
-
-            }
-            */
-
             if (Enemy.IsIdling())
             {
-                
-                //First Walking is done till the player is idling again if data is present
                 if (Enemy.WalkPath != null)
                 {
-                    //if (Enemy.WalkPath.Count > 0)
-                    //{
-                    //    Enemy.TargetNode = Enemy.WalkPath[0]; //Just a single step is allowed!
-                    //}
-                    //else Enemy.TargetNode = Enemy.CurrentNode;
-                    Enemy.WalkPath  = null;
-                    //Enemy.SetState(typeof(EnemyStateStepMovement));
+                    Enemy.SetState(typeof(EnemyStateWalking));
                 }
-                //Then Attacking is executed till idling again if the data is present
-                else if (Enemy.AttackTarget != null)
+                else if (Enemy.UpcomingInteractionState != null)
                 {
-                    //Enemy.AttackTarget  = Enemy.AttackTarget;
-                    Enemy.AttackTarget = null;
-                    //Enemy.SetState(typeof(EnemyStateAttack));
+                    Enemy.SetState(typeof(EnemyStateInteractionPlayer));
                 }
-                //If both datas are set to null and the player is idling again, the next state is loaded
-                else if (Enemy.WalkPath == null && Enemy.AttackTarget == null)
+                else if (Enemy.WalkPath == null && Enemy.UpcomingInteractionState == null)
                 {
-                    Manager.ChangePhase(typeof(TurnPhaseEnemyRotation));
+                    Debug.Log("Done with" + Enemy.AgentName +", switching to next phase!");
+                    Manager.ChangePhase(typeof(TurnPhaseEnemyChange));
                 }
             }
         }
@@ -70,11 +31,12 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         public override void Start()
         {
             Enemy = Manager.GetCurrentEnemy();
-            Done = false;
+            Enemy.SetState(typeof(EnemyStateIdle));
         }
 
         public override void End()
         {
+
         }
     }
 }

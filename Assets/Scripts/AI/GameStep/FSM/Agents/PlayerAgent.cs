@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
 using Assets.Scripts.AI.Pathfinding;
+using Assets.Scripts.Inventory.Stats;
 using Assets.Scripts.NodeGrid.Occupants.Specifics;
 using Assets.Scripts.Rendering;
 using UnityEngine;
@@ -16,6 +17,10 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private HexNode                               _interactionTarget;
         private List<HexNode>                         _walkPath;
         private NodeHighlighter                       _nodeHighlighter;
+        public GameObject CombatUI;
+        public CoinFlip flipCoin;
+
+        private Type                                  _upcomingInteractionState;
 
         public override void Start()
         {
@@ -26,10 +31,12 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
 
             //Setting up the Cache/////////////////
             _states = new Dictionary<Type, PlayerStateBase>();
-            _states.Add(typeof(PlayerStateFreeMovement), new PlayerStateFreeMovement(this));
-            _states.Add(typeof(PlayerStateStepMovement), new PlayerStateStepMovement(this));
-            _states.Add(typeof(PlayerStateAttack),       new PlayerStateAttack      (this));
-            _states.Add(typeof(PlayerStateIdle),         new PlayerStateIdle        (this));
+            _states.Add(typeof(PlayerStateIdle),                new PlayerStateIdle                (this));
+            _states.Add(typeof(PlayerStateWalking),             new PlayerStateWalking             (this));
+            _states.Add(typeof(PlayerStateInteractionEnemy),    new PlayerStateInteractionEnemy    (this));
+            _states.Add(typeof(PlayerStateInteractionBuilding), new PlayerStateInteractionBuilding (this));
+            _states.Add(typeof(PlayerStateInteractionNPC),      new PlayerStateInteractionNPC      (this));
+            _states.Add(typeof(PlayerStateInteractionProp),     new PlayerStateInteractionProp     (this));
 
             //Starting First State Manually////////
             _currentState = _states[typeof(PlayerStateIdle)];
@@ -58,21 +65,27 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             return _currentState.GetType() == typeof(PlayerStateIdle);
         }
 
+        public Type UpcomingInteractionState
+        {
+            get { return  _upcomingInteractionState; }
+            set { _upcomingInteractionState = value; }
+        }
+
         //Highlight Grid Related Methods///////////
-        public void OnGridShow()
+        private void OnGridShow()
         {
             StartCoroutine(_nodeHighlighter.Search(CurrentNode));
         }
 
-        public void ClearGrid()
+        private void ClearGrid()
         {
             _nodeHighlighter.ClearHighlights();
         }
 
         public void ShowHighLight(bool show)
         {
-            if (show)OnGridShow();
-            else ClearGrid();
+            if (show) OnGridShow();
+            else      ClearGrid();
         }
 
         //Navigation Related///////////////////////
@@ -84,12 +97,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
                 SetCurrentNode(value);
                 Position = CurrentNode.Position;
             }
-        }
-
-        public HexNode TargetNode
-        {
-            get { return  _targetNode; }
-            set { _targetNode = value; }
         }
 
         public HexNode InteractionTarget
@@ -116,5 +123,37 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             get { return  transform.rotation; }
             set { transform.rotation = value; }
         }
+
+        //attacking phase related
+        public void AttackingEnemy(bool attack)
+        {
+            if (attack)
+            {
+                //show button attack
+                //if pressed attack
+                //flip coin
+                //then show result of coins flipping
+                //then display stats above player and enemy what attack and defense they have
+                //show how much damage done like 0 and 2.
+                //attack becomes false
+               CombatUI.SetActive(true);
+                //check if button pressed if so then go to idle state
+            }
+            else
+            {
+                CombatUI.SetActive(false);
+            }
+        }
+
+        public bool CoinFlipCheck()
+        {
+            return flipCoin.buttonPressed;
+        }
+
+        public bool PickUpItem()
+        {
+            return true;
+        }
+       
     }
 }

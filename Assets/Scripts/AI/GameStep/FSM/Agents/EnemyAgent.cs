@@ -14,7 +14,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private HexNode                               _targetNode;
         private HexNode                               _interactionTarget;
         private List<HexNode>                         _walkPath;
-        private bool                                  _alive                 = true;
+        private bool                                  _alive                     = true;
+        private Type                                  _upcomingInteractionState;
 
         public override void Start()
         {
@@ -24,9 +25,10 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
 
             //Setting up the Cache/////////////////
             _states = new Dictionary<Type, EnemyStateBase>();
-            _states.Add(typeof(EnemyStateStepMovement), new EnemyStateStepMovement(this));
-            _states.Add(typeof(EnemyStateAttack),    new EnemyStateAttack   (this));
-            _states.Add(typeof(EnemyStateIdle),         new EnemyStateIdle        (this));
+
+            _states.Add(typeof(EnemyStateWalking),           new EnemyStateWalking           (this));
+            _states.Add(typeof(EnemyStateInteractionPlayer), new EnemyStateInteractionPlayer (this));
+            _states.Add(typeof(EnemyStateIdle),              new EnemyStateIdle              (this));
 
             //Starting First State Manually////////
             _currentState = _states[typeof(EnemyStateIdle)];
@@ -55,6 +57,13 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             return _currentState.GetType() == typeof(EnemyStateIdle);
         }
 
+        public Type UpcomingInteractionState
+        {
+            get { return  _upcomingInteractionState; }
+            set { _upcomingInteractionState = value; }
+        }
+
+
         //Navigation Related///////////////////////
         public HexNode CurrentNode
         {
@@ -64,13 +73,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
                 SetCurrentNode  (value);
                 Position = CurrentNode.Position;
             }
-        }
-
-
-        public HexNode TargetNode
-        {
-            get { return  _targetNode; }
-            set { _targetNode = value; }
         }
 
         public HexNode InteractionTarget
@@ -98,7 +100,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { transform.rotation = value; }
         }
 
-        public string Name
+        public string AgentName
         {
             get { return  gameObject.name; }
             set { gameObject.name = value; }

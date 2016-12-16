@@ -4,8 +4,8 @@ namespace Assets.Scripts.NodeGrid.Occupants.Primitives
 {
     public abstract class SingleNodeOccupant : NodeOccupant
     {
-        public int StartNodeIndex;
-        protected HexNode prCurrentNode;
+        public    int     StartNodeIndex;
+        protected HexNode PrCurrentNode;
 
         public virtual void Start()
         {
@@ -19,14 +19,14 @@ namespace Assets.Scripts.NodeGrid.Occupants.Primitives
 
         public void SetCurrentNode(HexNode targetNode)
         {
-            if (prCurrentNode != null) prCurrentNode.Occupant = null;
-            prCurrentNode = targetNode;
-            prCurrentNode.Occupant = this;
+            if (PrCurrentNode != null) PrCurrentNode.Occupant = null;
+            PrCurrentNode = targetNode;
+            PrCurrentNode.Occupant = this;
         }
 
         public HexNode GetCurrentNode()
         {
-            return prCurrentNode;
+            return PrCurrentNode;
         }
     }
 }

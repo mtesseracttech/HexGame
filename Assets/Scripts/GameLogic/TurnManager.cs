@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.AI.Pathfinding;
 using Assets.Scripts.GameLogic.FSMTurn;
 using UnityEngine;
 
@@ -28,6 +29,7 @@ namespace Assets.Scripts.GameLogic
                 if (_hexNodesManager == null)
                 {
                     turnManagerDebug += "There was no HexNodesManager script bound to the given HexNodeManager instance!\n";
+
                 }
                 else
                 {
@@ -82,7 +84,7 @@ namespace Assets.Scripts.GameLogic
             //Setting up the cache
             _phases = new Dictionary<Type, TurnPhaseBase>();
             _phases.Add(typeof(TurnPhaseIdle),            new TurnPhaseIdle           (this)               );
-            _phases.Add(typeof(TurnPhaseEnemyRotation),   new TurnPhaseEnemyRotation  (this)               );
+            _phases.Add(typeof(TurnPhaseEnemyChange),   new TurnPhaseEnemyChange  (this)               );
             _phases.Add(typeof(TurnPhasePlayerSelection), new TurnPhasePlayerSelection(this, _player)      );
             _phases.Add(typeof(TurnPhasePlayerAction),    new TurnPhasePlayerAction   (this, _player)      );
             _phases.Add(typeof(TurnPhaseEnemySelection),  new TurnPhaseEnemySelection (this, _currentEnemy));
@@ -194,6 +196,11 @@ namespace Assets.Scripts.GameLogic
                 _currentEnemyIterator = 0;
                 _currentEnemy = _enemies[0];
             }
+        }
+
+        public Pathfinder Pathfinder
+        {
+            get { return _hexNodesManager.Pathfinder; }
         }
     }
 }

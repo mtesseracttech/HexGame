@@ -9,10 +9,6 @@ public class CameraScript : MonoBehaviour {
     [Range(0, 1)]
     public float smoothness = 0.95f;
 
-	void Start ()
-    {
-	
-	}
 	
 	// Update is called once per frame
 	void Update () {

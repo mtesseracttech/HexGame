@@ -1,10 +1,13 @@
-﻿using Assets.Scripts.Inventory.Stats.Enemy;
+﻿using System.Collections;
+using Assets.Scripts.Inventory.Stats.Enemy;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Inventory.Stats
 {
     public class CoinFlip : MonoBehaviour {
+
+        public GameObject attackButton;
 
         [Header("HUD of player")]
         [SerializeField]
@@ -26,7 +29,7 @@ namespace Assets.Scripts.Inventory.Stats
         private int _defCoinAmountPlayer;    //defined coin amount
 
         public Player.PlayerStats PLayerStats;
-
+        public bool buttonPressed;
 
         [Header("HUD of enemy")]
         [SerializeField]
@@ -52,6 +55,7 @@ namespace Assets.Scripts.Inventory.Stats
 
         private void Start()
         {
+            /**/
             RefreshStats();
 
             _attackText.text = "Attack: " + PLayerStats.AttackStats;
@@ -69,6 +73,7 @@ namespace Assets.Scripts.Inventory.Stats
             _defAttackAmountEnemy = ENemyStats.AttackStats;
             _defDefenseAmountEnemy = ENemyStats.DefenseStats;
             _defCoinAmountEnemy = ENemyStats.CoinHave;
+            /**/
         }
 
 
@@ -77,8 +82,8 @@ namespace Assets.Scripts.Inventory.Stats
             ResetValues();
 
            // CheckItemsForValues();
-            RefreshStats();
-
+            
+            attackButton.SetActive(false);
             //--------------------------------------------------------------------//
             //              Player FLIP                                           //
             for (int i = 0; i < PLayerStats.CoinHave; i++)
@@ -97,6 +102,7 @@ namespace Assets.Scripts.Inventory.Stats
                         break;
                 }
             }
+
             _attackText.text = "Attack: " + PLayerStats.AttackStats + "+" + AttackCoinsPlayer; // + " +" + _bonusAttackCoins;
             _defenceText.text = "Defence: " + PLayerStats.DefenseStats + "+" + DefenceCoinsPlayer; // + " +" + _bonusDefenceCoins;
 
@@ -131,16 +137,33 @@ namespace Assets.Scripts.Inventory.Stats
             ENemyStats.AttackStats += AttackCoinsEnemy;
             ENemyStats.DefenseStats += DefenceCoinsEnemy;
 
-            //do damage to player
+            RefreshStats();
+            //do damge
+
+
+            StartCoroutine(DoDamage());
+            RefreshStats();
+            
+
+        }
+
+        IEnumerator DoDamage()
+        { 
+             //do damage to player
             PLayerStats.DoDamageCombat(ENemyStats.AttackStats, PLayerStats.DefenseStats);
 
             //do damage to enemy
-            ENemyStats.DoDamageCombat(PLayerStats.AttackStats,ENemyStats.DefenseStats);
+            ENemyStats.DoDamageCombat(PLayerStats.AttackStats, ENemyStats.DefenseStats);
             RefreshStats();
+
+            yield return new WaitForSeconds(2f);
+            buttonPressed = true;
+
         }
 
         void RefreshStats()
         {
+            buttonPressed = false;
             //-----------------------------------------------------------//
             //                          PLAYER                          //
             _healthText.text = "Health: " + PLayerStats.CurrentHealth;

@@ -8,7 +8,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
 
         protected EnemyStateBase(EnemyAgent agent)
         {
-
+            Agent = agent;
         }
 
         public abstract void Update();

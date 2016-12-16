@@ -18,7 +18,7 @@ namespace Assets.Scripts.AI.Pathfinding
         void Start ()
         {
             _manager = Manager.GetComponent<HexNodesManager>();
-            _pathfinder = new Pathfinder();
+            _pathfinder = _manager.Pathfinder;
         }
 
         // Update is called once per frame
@@ -83,23 +83,13 @@ namespace Assets.Scripts.AI.Pathfinding
             {
                 DebugPath();
             }
-
-
         }
 
         private void DebugPath()
         {
             for (int i = 0; i < _path.Count -1 ; i++)
             {
-                //try
-                //{
                 Debug.DrawLine(_path[i].Position, _path[i+1].Position);
-                //}
-                //catch (Exception)
-                //{
-                //    Debug.Log("Shit goes wrong at " + i);
-                //}
-
             }
         }
     }
