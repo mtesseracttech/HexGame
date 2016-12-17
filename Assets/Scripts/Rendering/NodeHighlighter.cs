@@ -41,7 +41,7 @@ namespace Assets.Scripts.Rendering
 
                     foreach (var next in current.Neighbors)
                     {
-                        if (_cameFrom.Contains (next) || next.HasBuilding || next.HasEnemy)
+                        if (_cameFrom.Contains (next) || next.HasBuilding || next.HasEnemy || next.HasProp || next.HasNPC)
                         {
                             if (next.HasBuilding && !_cameFrom.Contains (next) && current.Expansion < _maxExpansion) {
                                 GameObject terrainHighlight = Instantiate (_terrainHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
@@ -55,6 +55,15 @@ namespace Assets.Scripts.Rendering
                                 enemyHighlight.SendMessage("Create", next);
                                 _highlights.Add (enemyHighlight);
                                 _cameFrom.Add   (next);
+                            }
+
+
+                            if (next.HasProp && !_cameFrom.Contains(next) && current.Expansion < _maxExpansion)
+                            {
+                                GameObject propHighlight = Instantiate(_terrainHighlightPrefab, next.Position, Quaternion.AngleAxis(-90, new Vector3(1, 0, 0)));
+                                propHighlight.SendMessage("Create", next);
+                                _highlights.Add(propHighlight);
+                                _cameFrom.Add(next);
                             }
                         }
                         else

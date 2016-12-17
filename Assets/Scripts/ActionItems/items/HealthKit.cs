@@ -1,24 +1,21 @@
 ﻿using Assets.Scripts.AI.Pathfinding;
-using Assets.Scripts.NodeGrid.Occupants.Specifics;
 using UnityEngine;
 
-public class HealthKit : PropOccupant
+public class HealthKit : Items
 {
 
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            Debug.Log("pickedHealthKit");
-        }
-    }
+    private HexNode _targetNode;
     
 
     public override void Start()
     {
         base.Start();
         Position = CurrentNode.Position;
+    }
+
+    public override void Interact()
+    {
+        Debug.Log("interacting with healthKIt");
     }
 
 
@@ -42,11 +39,5 @@ public class HealthKit : PropOccupant
     {
         get { return transform.rotation; }
         set { transform.rotation = value; }
-    }
-
-    public string Name
-    {
-        get { return gameObject.name; }
-        set { gameObject.name = value; }
     }
 }

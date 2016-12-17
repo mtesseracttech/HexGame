@@ -2,8 +2,8 @@
 
 namespace Assets.Scripts.NodeGrid.Occupants.Specifics
 {
-    public class PropOccupant : SingleNodeOccupant
+    public abstract class PropOccupant : SingleNodeOccupant
     {
-
+       public abstract void Interact();
     }
 }
