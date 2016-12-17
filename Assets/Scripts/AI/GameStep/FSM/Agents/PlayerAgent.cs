@@ -11,15 +11,18 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
 {
     public class PlayerAgent : PlayerOccupant
     {
+        //Public Variables/////////////////////////
+        public  int                                   HighlighterRadius           = 3;
+        public  GameObject                            CombatUi;
+        public  CoinFlip                              FlipCoin;
+
+        //Private Variables////////////////////////
         private Dictionary<Type, PlayerStateBase>     _states;
         private PlayerStateBase                       _currentState;
         private HexNode                               _targetNode;
         private HexNode                               _interactionTarget;
         private List<HexNode>                         _walkPath;
-        private NodeHighlighter                       _nodeHighlighter;
-        public GameObject CombatUI;
-        public CoinFlip flipCoin;
-
+        private ProperHighlighter                     _properHighlighter;
         private Type                                  _upcomingInteractionState;
 
         public override void Start()
@@ -27,7 +30,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             //Basics///////////////////////////////
             base.Start();
             Position = CurrentNode.Position;
-            _nodeHighlighter = GetComponent <NodeHighlighter> ();
+            _properHighlighter = GetComponent <ProperHighlighter>();
 
             //Setting up the Cache/////////////////
             _states = new Dictionary<Type, PlayerStateBase>();
@@ -47,7 +50,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         void Update()
         {
             _currentState.Update();
-            Debug.DrawLine(CurrentNode.Position, CurrentNode.Position + (Vector3.up*10) + Vector3.back, Color.red);
         }
 
         //State Related Methods////////////////////
@@ -71,21 +73,10 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { _upcomingInteractionState = value; }
         }
 
-        //Highlight Grid Related Methods///////////
-        private void OnGridShow()
-        {
-            StartCoroutine(_nodeHighlighter.Search(CurrentNode));
-        }
-
-        private void ClearGrid()
-        {
-            _nodeHighlighter.ClearHighlights();
-        }
-
         public void ShowHighLight(bool show)
         {
-            if (show) OnGridShow();
-            else      ClearGrid();
+            if (show) _properHighlighter.ShowHighlight(CurrentNode, 3);
+            else _properHighlighter.DestroyHighlights();
         }
 
         //Navigation Related///////////////////////
@@ -124,7 +115,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { transform.rotation = value; }
         }
 
-        //attacking phase related
+        //attacking phase related//////////////////
         public void AttackingEnemy(bool attack)
         {
             if (attack)
@@ -136,18 +127,18 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
                 //then display stats above player and enemy what attack and defense they have
                 //show how much damage done like 0 and 2.
                 //attack becomes false
-               CombatUI.SetActive(true);
+               CombatUi.SetActive(true);
                 //check if button pressed if so then go to idle state
             }
             else
             {
-                CombatUI.SetActive(false);
+                CombatUi.SetActive(false);
             }
         }
 
         public bool CoinFlipCheck()
         {
-            return flipCoin.buttonPressed;
+            return FlipCoin.buttonPressed;
         }
 
         public bool PickUpItem()

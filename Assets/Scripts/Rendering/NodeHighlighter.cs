@@ -88,7 +88,6 @@ namespace Assets.Scripts.Rendering
                                     //Add the walkable tile indication here
                                     GameObject walkHighlight = (GameObject)Instantiate (_walkHighlightPrefab, next.Position, Quaternion.AngleAxis (-90, new Vector3 (1, 0, 0)));
                                     walkHighlight.SendMessage("Create", next);
-
                                     _highlights.Add (walkHighlight);
                                 }
                             }
