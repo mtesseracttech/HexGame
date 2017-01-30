@@ -2,7 +2,7 @@
 using Assets.Scripts.Inventory;
 using UnityEngine;
 
-public class HealthKit : Items
+public class AntiRadiation : Items
 {
 
     private HexNode _targetNode;
@@ -16,7 +16,7 @@ public class HealthKit : Items
 
     public override void Interact()
     {
-        Inventory.AddItem(0);
+        Inventory.AddItem(1);
         Destroy(gameObject);
     }
 

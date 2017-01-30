@@ -33,7 +33,6 @@ namespace Assets.Scripts.Inventory
                 slots[i].GetComponent<Slot>().id = i;
                 slots[i].transform.SetParent(_slotPanel.transform, false);
             }
-            AddItem(0);
         }
 
         public void AddItem(int id)
