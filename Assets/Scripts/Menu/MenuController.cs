@@ -20,7 +20,6 @@ public class MenuController : MonoBehaviour {
 	void Awake () {
 		creditsPanel.SetActive (false);
 		keybindPanel.SetActive (false);
-
 		optionsButtonPanel.SetActive (false);
 		menuButtonPanel.SetActive (true);
 	}
