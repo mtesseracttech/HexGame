@@ -7,7 +7,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
     public class PlayerStateWalking : PlayerStateBase
     {
         private float       _movementSpeed           = 0.5f;
-        private float       _rotationTime            = 0.5f;
+        private float       _rotationTime            = 1.0f;
         private float       _rotationAccumulator     = 0.0f;
         private HexNode     _targetNode;
         private Quaternion  _targetRotation;
