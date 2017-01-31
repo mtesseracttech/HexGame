@@ -71,7 +71,7 @@ namespace Assets.Scripts.Inventory
                     }
                 }
             }
-            Debug.Log(items.Count);
+           // Debug.Log(items.Count);
         }
 
         public bool CheckIfItemIsInInventory(Item item)
@@ -107,7 +107,7 @@ namespace Assets.Scripts.Inventory
                     break;
                 }
             }
-            Debug.Log(items.Count);
+          //  Debug.Log(items.Count);
         }
     }
 }

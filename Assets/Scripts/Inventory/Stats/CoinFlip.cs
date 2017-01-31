@@ -21,16 +21,16 @@ namespace Assets.Scripts.Inventory.Stats
         [SerializeField]
         private Text _damageDone;
 
-        public int AttackCoinsPlayer;
-        public int DefenceCoinsPlayer;
+        private int _attackCoinsPlayer;
+        private int _defenceCoinsPlayer;
 
         private int _defAttackAmountPlayer;  //defined attack stats
         private int _defDefenseAmountPlayer; //defined defense stats
         private int _defCoinAmountPlayer;    //defined coin amount
 
         public Player.PlayerStats PLayerStats;
-        public bool buttonPressed;
-
+        private bool _buttonPressed;
+        [Space]
         [Header("HUD of enemy")]
         [SerializeField]
         private Text _attackTextEnemy;
@@ -43,8 +43,8 @@ namespace Assets.Scripts.Inventory.Stats
         [SerializeField]
         private Text _damageDoneEnemy;
 
-        public int AttackCoinsEnemy;
-        public int DefenceCoinsEnemy;
+        private int AttackCoinsEnemy;
+        private int DefenceCoinsEnemy;
 
         private int _defAttackAmountEnemy;
         private int _defDefenseAmountEnemy;
@@ -53,7 +53,7 @@ namespace Assets.Scripts.Inventory.Stats
        
         public EnemyStats ENemyStats;
 
-        private void Start()
+        private void Update()
         {
             /**/
             RefreshStats();
@@ -93,21 +93,21 @@ namespace Assets.Scripts.Inventory.Stats
                 switch (value)
                 {
                     case 0:
-                        AttackCoinsPlayer++;
+                        _attackCoinsPlayer++;
                         break;
                     case 1:
-                        DefenceCoinsPlayer++;
+                        _defenceCoinsPlayer++;
                         break;
                     default:
                         break;
                 }
             }
 
-            _attackText.text = "Attack: " + PLayerStats.AttackStats + "+" + AttackCoinsPlayer; // + " +" + _bonusAttackCoins;
-            _defenceText.text = "Defence: " + PLayerStats.DefenseStats + "+" + DefenceCoinsPlayer; // + " +" + _bonusDefenceCoins;
+            _attackText.text = "Attack: " + PLayerStats.AttackStats + "+" + _attackCoinsPlayer; // + " +" + _bonusAttackCoins;
+            _defenceText.text = "Defence: " + PLayerStats.DefenseStats + "+" + _defenceCoinsPlayer; // + " +" + _bonusDefenceCoins;
 
-            PLayerStats.AttackStats += AttackCoinsPlayer;
-            PLayerStats.DefenseStats += DefenceCoinsPlayer;
+            PLayerStats.AttackStats += _attackCoinsPlayer;
+            PLayerStats.DefenseStats += _defenceCoinsPlayer;
             
             
            // Debug.Log("Player Attack coin: " + AttackCoinsPlayer + "Player Defence coin: " + DefenceCoinsPlayer);
@@ -157,13 +157,13 @@ namespace Assets.Scripts.Inventory.Stats
             RefreshStats();
 
             yield return new WaitForSeconds(2f);
-            buttonPressed = true;
+            _buttonPressed = true;
 
         }
 
         void RefreshStats()
         {
-            buttonPressed = false;
+            _buttonPressed = false;
             //-----------------------------------------------------------//
             //                          PLAYER                          //
             _healthText.text = "Health: " + PLayerStats.CurrentHealth;
@@ -184,8 +184,8 @@ namespace Assets.Scripts.Inventory.Stats
             PLayerStats.CoinHave = _defCoinAmountPlayer;
             PLayerStats.AttackStats = _defAttackAmountPlayer;
             PLayerStats.DefenseStats = _defDefenseAmountPlayer;
-            AttackCoinsPlayer = 0;
-            DefenceCoinsPlayer = 0;
+            _attackCoinsPlayer = 0;
+            _defenceCoinsPlayer = 0;
 
             //-----------------------------------------------------------//
             //                         ENEMY                            //
