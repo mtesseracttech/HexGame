@@ -7,7 +7,10 @@
     "stats": {
       "attack": 0,
       "defence": 0,
-      "bonus coins": 0
+      "bonus coins": 0,
+	  "heal":10,
+	  "heal radiation": 0,
+	  "radiation": 0
     },
     "slug": "health_kit"
   },
@@ -19,7 +22,10 @@
     "stats": {
       "attack": 0,
       "defence": 0,
-      "bonus coins": 0
+      "bonus coins": 0,
+	  "heal":0,
+	  "heal radiation": 5,
+	  "radiation": 0
     },
     "slug": "anti_radiation"
   },
@@ -31,7 +37,10 @@
     "stats": {
       "attack": 0,
       "defence": 0,
-      "bonus coins": 1
+      "bonus coins": 1,
+	  "heal":0,
+	  "heal radiation": 0,
+	  "radiation": 0
 	  
     },
     "slug": "adrenalin"
@@ -44,7 +53,10 @@
     "stats": {
       "attack": 0,
       "defence": 0,
-      "bonus coins": 0
+      "bonus coins": 0,
+	  "heal":10,
+	  "heal radiation": 0,
+	  "radiation":3
     },
     "slug": "painkiller"
   },
@@ -56,7 +68,10 @@
     "stats": {
       "attack": 1,
       "defence": 0,
-      "bonus coins": 0
+      "bonus coins": 0,
+	  "heal":0,
+	  "heal radiation": 0,
+	  "radiation":0
     },
     "slug": "red_pill"
   },
@@ -68,7 +83,10 @@
     "stats": {
       "attack": 0,
       "defence": 1,
-      "bonus coins": 0
+      "bonus coins": 0,
+	  "heal":0,
+	  "heal radiation": 0,
+	  "radiation":0
     },
     "slug": "blue_pill"
   }

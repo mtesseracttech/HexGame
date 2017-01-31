@@ -30,7 +30,7 @@ public class WeaponSwitch : MonoBehaviour
     void FixedUpdate()
     {
         WeaponSwap();
-        /*
+        /**/
         if (Input.GetKeyDown(KeyCode.A))
         {
             Inventory.RemoveItemFromInventory(0,1);
@@ -49,7 +49,7 @@ public class WeaponSwitch : MonoBehaviour
             Inventory.AddItem(4);
             Inventory.AddItem(5);
         }
-        */
+        /**/
     }
 
     private void WeaponSwap()

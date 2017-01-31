@@ -37,7 +37,7 @@ namespace Assets.Scripts.Inventory
 
         public void AddItem(int id)
         {
-            Debug.Log(items.Count);
+            
             Item itemToAdd = _database.FetchItemById(id);
 
             if (itemToAdd.Stackable && CheckIfItemIsInInventory(itemToAdd))
@@ -71,6 +71,7 @@ namespace Assets.Scripts.Inventory
                     }
                 }
             }
+            Debug.Log(items.Count);
         }
 
         public bool CheckIfItemIsInInventory(Item item)
@@ -106,6 +107,7 @@ namespace Assets.Scripts.Inventory
                     break;
                 }
             }
+            Debug.Log(items.Count);
         }
     }
 }

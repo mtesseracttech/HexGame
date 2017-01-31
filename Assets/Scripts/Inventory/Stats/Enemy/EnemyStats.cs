@@ -10,7 +10,7 @@ namespace Assets.Scripts.Inventory.Stats.Enemy
         public int DefenseStats;
         public int CoinHave;
         public int DamageIsDone;
-        public Image healthBar;
+      //  public Image healthBar;
 
         void Update ()
         {
@@ -25,8 +25,8 @@ namespace Assets.Scripts.Inventory.Stats.Enemy
                 DamageIsDone = Mathf.Abs(defense - attack);
                 CurrentHealth -= DamageIsDone;
               //  Debug.Log("defense " + defense + "-"+"attack"+attack);
-                healthBar.fillAmount -= healthBar.fillAmount/ CurrentHealth;
-                Debug.Log(healthBar.fillAmount);
+               // healthBar.fillAmount -= healthBar.fillAmount/ CurrentHealth;
+                //Debug.Log(healthBar.fillAmount);
             }
         }
 

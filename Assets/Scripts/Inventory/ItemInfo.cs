@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Inventory.Stats.Player;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Inventory
@@ -11,11 +12,12 @@ namespace Assets.Scripts.Inventory
 
         private Inventory _inv;
         private Vector2 _offset;
-
+        private PlayerStats _playerStats;
         private ToolTip _tooltip;
 
         void Start () {
             _inv = GameObject.Find ("InventoryController").GetComponent <Inventory> ();
+            _playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
             _tooltip = _inv.GetComponent <ToolTip> ();
         }
 
@@ -31,12 +33,26 @@ namespace Assets.Scripts.Inventory
         public void OnPointerDown (PointerEventData eventData) {
             if (item != null) {
                 _offset = eventData.position - new Vector2 (this.transform.position.x, this.transform.position.y);
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    _inv.RemoveItemFromInventory(item.ID, 1);
+
+                    _playerStats.AttackStats += item.Attack;
+                    _playerStats.CurrentHealth += item.Health;
+                    _playerStats.CoinHave += item.BonusCoins;
+                    _playerStats.DefenseStats += item.Defence;
+                    _playerStats.Radiation += item.Radiation;
+
+                    _tooltip.Deactivate();
+                }
             }
         }
 
         public void OnDrag (PointerEventData eventData) {
             if (item != null) {
                 this.transform.position = eventData.position - _offset;
+               
             }
         }
 
