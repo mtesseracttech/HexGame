@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Inventory.Stats.Player;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Inventory
@@ -16,9 +17,11 @@ namespace Assets.Scripts.Inventory
         }
 
         void Update () {
-            if (_tooltip.activeSelf) {
-                //tooltip.transform.position = Input.mousePosition;
-                _tooltip.transform.position = new Vector2 (850, 180);
+
+            if (_tooltip.activeSelf)
+            {
+                _tooltip.transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y + 100);
+                // _tooltip.transform.position = new Vector2 (850, 180);
             }
         }
 

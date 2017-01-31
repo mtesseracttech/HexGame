@@ -33,12 +33,11 @@ namespace Assets.Scripts.Inventory
                 slots[i].GetComponent<Slot>().id = i;
                 slots[i].transform.SetParent(_slotPanel.transform, false);
             }
-            AddItem(0);
         }
 
         public void AddItem(int id)
         {
-            Debug.Log(items.Count);
+            
             Item itemToAdd = _database.FetchItemById(id);
 
             if (itemToAdd.Stackable && CheckIfItemIsInInventory(itemToAdd))
@@ -72,6 +71,7 @@ namespace Assets.Scripts.Inventory
                     }
                 }
             }
+            Debug.Log(items.Count);
         }
 
         public bool CheckIfItemIsInInventory(Item item)
@@ -107,6 +107,7 @@ namespace Assets.Scripts.Inventory
                     break;
                 }
             }
+            Debug.Log(items.Count);
         }
     }
 }

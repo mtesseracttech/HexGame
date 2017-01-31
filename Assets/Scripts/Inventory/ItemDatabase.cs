@@ -21,7 +21,9 @@ namespace Assets.Scripts.Inventory
                         (int)_itemData[i]["id"], _itemData[i]["itemName"].ToString(),
                         _itemData[i]["description"].ToString(), (bool)_itemData[i]["stackable"],
                         (int)_itemData[i]["stats"]["attack"], (int)_itemData[i]["stats"]["defence"], 
-                        (int)_itemData[i]["stats"]["bonus coins"],_itemData[i]["slug"].ToString())
+                        (int)_itemData[i]["stats"]["bonus coins"], (int)_itemData[i]["stats"]["heal"], (int)_itemData[i]["stats"]["heal radiation"],
+                        (int)_itemData[i]["stats"]["radiation"],
+                        _itemData[i]["slug"].ToString())
                 );
             }
         }
@@ -42,17 +44,23 @@ namespace Assets.Scripts.Inventory
         public string Description 	{ get; set; }
         public bool   Stackable     { get; set; }
         public int    Attack	    { get; set; }
+        public int    Health        { get; set; }
+        public int    HealRadiation { get; set; }
+        public int    Radiation     { get; set; }
         public int    Defence		{ get; set; }
         public int    BonusCoins	{ get; set; }
         public string Slug 			{ get; set; }
         public Sprite Sprite 		{ get; set; }
 
-        public Item (int id, string itemName, string description, bool stackable, int attack, int defence, int bonusCoins, string slug) {
+        public Item (int id, string itemName, string description, bool stackable, int attack ,int defence, int bonusCoins, int health, int healRadiation, int radiation, string slug) {
             this.ID            = id;
             this.ItemName      = itemName;
             this.Description   = description;
             this.Stackable     = stackable;
             this.Attack        = attack;
+            this.Health        = health;
+            this.HealRadiation = healRadiation;
+            this.Radiation     = radiation;
             this.Defence       = defence;
             this.BonusCoins    = bonusCoins;
             this.Slug          = slug;

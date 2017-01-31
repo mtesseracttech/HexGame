@@ -115,36 +115,5 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { transform.rotation = value; }
         }
 
-        //attacking phase related//////////////////
-        public void AttackingEnemy(bool attack)
-        {
-            if (attack)
-            {
-                //show button attack
-                //if pressed attack
-                //flip coin
-                //then show result of coins flipping
-                //then display stats above player and enemy what attack and defense they have
-                //show how much damage done like 0 and 2.
-                //attack becomes false
-               CombatUi.SetActive(true);
-                //check if button pressed if so then go to idle state
-            }
-            else
-            {
-                CombatUi.SetActive(false);
-            }
-        }
-
-        public bool CoinFlipCheck()
-        {
-            return FlipCoin.buttonPressed;
-        }
-
-        public bool PickUpItem()
-        {
-            return true;
-        }
-       
     }
 }
