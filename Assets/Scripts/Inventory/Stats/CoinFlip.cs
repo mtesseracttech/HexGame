@@ -55,6 +55,7 @@ namespace Assets.Scripts.Inventory.Stats
 
        
         public EnemyStats ENemyStats;//get enemie that we attack
+        private bool _attackEnds;
 
         private void Start()
         {
@@ -65,6 +66,12 @@ namespace Assets.Scripts.Inventory.Stats
             {
                 coinSlot[i].sprite = defaultIcon;
             }
+        }
+
+        public bool AttackEnds
+        {
+            set { _attackEnds = value; }
+            get { return _attackEnds;}
         }
 
         private void Update()
@@ -191,8 +198,9 @@ namespace Assets.Scripts.Inventory.Stats
             ENemyStats.DoDamageCombat(PLayerStats.AttackStats, ENemyStats.DefenseStats);
             RefreshStats();
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             _buttonPressed = true;
+            _attackEnds = true;
 
         }
 

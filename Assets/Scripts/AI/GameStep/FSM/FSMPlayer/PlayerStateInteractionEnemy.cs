@@ -28,11 +28,13 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
             float rotationFactor = _rotationAccumulator / _rotationTime;
             Agent.Rotation = Quaternion.Slerp(Agent.Rotation, _targetRotation, rotationFactor);
 
-
+            Agent.CombatUi.SetActive(true);
 
             Debug.Log("Player Attacking " + _enemy.AgentName + "! Press SPACE to continue!");
-            if (Input.GetKeyDown(KeyCode.Space))
+            
+            if (Agent.CoinFlip.AttackEnds)
             {
+               
                 Agent.SetState(typeof(PlayerStateIdle));
             }
 
@@ -48,6 +50,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void EndState()
         {
+            Agent.CombatUi.SetActive(false);
             Agent.InteractionTarget        = null;
             Agent.UpcomingInteractionState = null;
         }

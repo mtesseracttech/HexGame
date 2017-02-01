@@ -9,10 +9,11 @@ namespace Assets.Scripts.NPC
 
         public TextAsset Ta;
         public int CurrentNode;
-        public bool ShowDialogue;
+        public bool _showDialogue;
+        private bool _endChat;
 
         public GUISkin Skin;
-        [Header("Answers")]
+        
         public List<PlayerAnswer> Answers = new List<PlayerAnswer>();
         public DialogXmLreader DialogXmlReader;
 
@@ -59,9 +60,21 @@ namespace Assets.Scripts.NPC
             }
         }
 
+        public bool EndChat
+        {
+            set { _endChat = value; }
+            get { return _endChat;}
+        }
+
+        public bool ShowDialogue
+        {
+            set { _showDialogue = value; }
+            get { return _showDialogue; }
+        }
+
         private void CreateDialogueCanvas()
         {
-            if (ShowDialogue)
+            if (_showDialogue)
             {
                 NpCtext.text = DialogXmlReader.Nodes[CurrentNode].NpcText;
              //  StartCoroutine(TextType());
@@ -69,6 +82,7 @@ namespace Assets.Scripts.NPC
                 NpcImage.sprite = NpcAvatar;
                 Npcname.text = NameNpc;
                 DialogueHud.SetActive(true);
+                _endChat = false;
             }
             else
             {
@@ -79,7 +93,7 @@ namespace Assets.Scripts.NPC
         private void OnGUI()
         {
             GUI.skin = Skin;
-            if (ShowDialogue)//and animation is finished
+            if (_showDialogue )//and animation is finished
             {
                //  GUI.Box(new Rect(BoxPositionX,BoxPositionY, BoxWidth, BoxHeight), "");
                 // GUI.Label(new Rect(NpcTextX, NpcTextY, 500, 90), DialogXmlReader.Nodes[CurrentNode].NpcText);
@@ -96,10 +110,12 @@ namespace Assets.Scripts.NPC
                         }
                         if (Answers[i].End == "true")
                         {
-                            ShowDialogue = false;
+                            _showDialogue = false;
                             DialogueHud.SetActive(false);
+                            _endChat = true;
+                            Debug.Log("we are done with dialogue");
                             //play animation of fading back
-                            
+
                         }
                         if (Answers[i].RewardGold > 0)
                         {

@@ -14,8 +14,10 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
         public override void Update()
         {
             Debug.Log(Agent.AgentName + " is attacking " + _player.name);
-            if (Input.GetKeyDown(KeyCode.Space))
+            Agent.CombatUi.SetActive(true);
+            if (Agent.CoinFlip.AttackEnds)
             {
+                
                 Agent.SetState(typeof(EnemyStateIdle));
             }
         }
@@ -28,6 +30,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
 
         public override void EndState()
         {
+            Agent.CombatUi.SetActive(false);
             Agent.InteractionTarget        = null;
             Agent.UpcomingInteractionState = null;
         }

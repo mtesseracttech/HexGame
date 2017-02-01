@@ -1,18 +1,18 @@
 <dialogue>
 	<node>
-        <npctext>Ty che, blyad? </npctext>
+        <npctext>O Hi mark</npctext>
         <answers>
-            <answer tonode = "1"><text>.........</text></answer>
-			<answer tonode = "9" needquestvalue = "1"><text>Can you remind me what to do for the quest?</text><questname>Quest1</questname></answer>
-			<answer tonode = "8" needquestvalue = "2"><text>I did the quest</text><questname>Quest1</questname></answer>
+            <answer tonode = "1"><text>NADA</text></answer>
+						<answer tonode = "9" needquestvalue = "1"><text>Can you remind me what to do for the quest?</text><questname>Quest1</questname></answer>
+						<answer tonode = "8" needquestvalue = "2"><text>I did the quest</text><questname>Quest1</questname></answer>
         </answers>
     </node>
     <node>
         <npctext>What the gell is wrong with your skin??</npctext>
         <answers>
             <answer tonode = "2"><text>That is why I AM here! Do you know how to get to the reactor?</text></answer>
-			<answer tonode = "10"><text>Who are you?</text></answer>
-			<answer tonode = "11"><text>Are you the one who tries to shoot random people?</text></answer>
+						 <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
+						<answer tonode = "11"><text>Are you the one who tries to shoot random people?</text></answer>
         </answers>
     </node>
     <node>

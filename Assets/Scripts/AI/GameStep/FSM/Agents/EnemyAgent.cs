@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSM.FSMEnemy;
 using Assets.Scripts.AI.Pathfinding;
+using Assets.Scripts.Inventory.Stats;
 using Assets.Scripts.NodeGrid.Occupants.Specifics;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
 {
     public class EnemyAgent : EnemyOccupant
     {
+        public GameObject                              CombatUi;
+        public CoinFlip                                CoinFlip;
         private Dictionary<Type, EnemyStateBase>      _states;
         private EnemyStateBase                        _currentState;
         private HexNode                               _targetNode;
