@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Assets.Scripts.AI.GameStep.FSM.Agents;
+using Assets.Scripts.NodeGrid.Occupants.Specifics;
+using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {
@@ -12,10 +16,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         {
             Debug.Log("Idling!");
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _exitingIdle = true;
-            }
+            _exitingIdle = true;
 
             if (_exitingIdle)
             {
@@ -26,6 +27,36 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         public override void Start()
         {
             _exitingIdle = false;
+            BreadthFirst enemyScan = new BreadthFirst();
+            enemyScan.Search(Manager.GetPlayerAgent().CurrentNode, 6); //Scan for enemies in given range
+            if (enemyScan.Done && enemyScan.Nodes != null)
+            {
+                HashSet<EnemyAgent> currentEnemies = Manager.GetEnemyHashSet();
+
+                foreach (var node in enemyScan.Nodes)
+                {
+                    if (node.HasEnemy)
+                    {
+                        EnemyAgent enemy = (node.Occupant as EnemyAgent);
+                        if (enemy != null)
+                        {
+                            if (!currentEnemies.Contains(enemy))
+                            {
+                                Debug.Log("Enemy " + enemy.AgentName + " has been successfully added!");
+                                Manager.AddEnemy(enemy);
+                            }
+                            else
+                            {
+                                Debug.Log("Enemy " + enemy.AgentName + " already was an enemy!");
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log("Something went wrong while adding the enemy to the gamephase");
+                        }
+                    }
+                }
+            }
         }
 
         public override void End()

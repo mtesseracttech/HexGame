@@ -10,7 +10,7 @@ namespace Assets.Scripts.GameLogic
     public class TurnManager : MonoBehaviour
     {
         public  GameObject                      Player;
-        public  GameObject[]                    Enemies;
+        //public  GameObject[]                    Enemies;
         public  GameObject                      HexNodeManager;
         private PlayerAgent                     _player;
         private List<EnemyAgent>                _enemies;
@@ -58,28 +58,7 @@ namespace Assets.Scripts.GameLogic
                 turnManagerDebug += "No Player instance was supplied to the TurnManager!\n";
             }
 
-            if (Enemies != null && Enemies.Length > 0)
-            {
-                _enemies = new List<EnemyAgent>();
-                foreach (var enemy in Enemies)
-                {
-                    EnemyAgent tempAgent = enemy.GetComponent<EnemyAgent>();
-                    if (tempAgent != null)
-                    {
-                        _enemies.Add(tempAgent);
-                    }
-                    else
-                    {
-                        Debug.Log("An enemy is missing an EnemyAgent component!\n");
-                    }
-                }
-                turnManagerDebug += _enemies.Count + " Enemies were added to the TurnManager\n";
-            }
-            else
-            {
-                _enemies = new List<EnemyAgent>();
-                turnManagerDebug += "No enemies were added to the TurnManager\n";
-            }
+            _enemies = new List<EnemyAgent>();
 
             //Setting up the cache
             _phases = new Dictionary<Type, TurnPhaseBase>();
@@ -140,6 +119,11 @@ namespace Assets.Scripts.GameLogic
         public void AddEnemy(EnemyAgent enemy)
         {
             _enemies.Add(enemy);
+        }
+
+        public HashSet<EnemyAgent> GetEnemyHashSet()
+        {
+            return new HashSet<EnemyAgent>(_enemies);
         }
 
         // Don't call inside of step cycle!

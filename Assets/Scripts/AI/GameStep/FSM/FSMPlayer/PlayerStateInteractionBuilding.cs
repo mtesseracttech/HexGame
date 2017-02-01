@@ -10,12 +10,12 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void Update()
         {
-
+            Agent.SetState(typeof(PlayerStateIdle));
         }
 
         public override void BeginState()
         {
-
+            
         }
 
         public override void EndState()
