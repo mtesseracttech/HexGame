@@ -60,7 +60,7 @@ public class TerrainSaver : MonoBehaviour
         if (SaveTerrainMeshes || SaveCellInfo)
         {
             bool rootFolderExists = AssetDatabase.IsValidFolder("Assets/Resources/" + SaveRootFolderName);
-            if(!rootFolderExists) AssetDatabase.CreateFolder("Assets/Resources", SaveRootFolderName);
+            if(!rootFolderExists)   AssetDatabase.CreateFolder ("Assets/Resources", SaveRootFolderName);
         }
 
 
