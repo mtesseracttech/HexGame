@@ -24,6 +24,8 @@ public class CameraPlayer : MonoBehaviour {
 	}
 
 	void Update () {
+		transform.position = player.transform.position;
+
 		float zoomDelta = Input.GetAxis("Mouse ScrollWheel");
 		if (zoomDelta != 0f) {
 			AdjustZoom(zoomDelta);
