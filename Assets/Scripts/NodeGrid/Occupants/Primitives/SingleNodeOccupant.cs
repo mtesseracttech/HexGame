@@ -1,10 +1,12 @@
 ﻿using Assets.Scripts.AI.Pathfinding;
+using UnityEngine;
 
 namespace Assets.Scripts.NodeGrid.Occupants.Primitives
 {
     public abstract class SingleNodeOccupant : NodeOccupant
     {
         public    int     StartNodeIndex;
+        public    bool    SnapToClosestNode = true;
         protected HexNode PrCurrentNode;
 
         public virtual void Start()
@@ -14,7 +16,15 @@ namespace Assets.Scripts.NodeGrid.Occupants.Primitives
 
         private void FillCurrentNode()
         {
-            SetCurrentNode(Manager.GetHexNode(StartNodeIndex));
+            if (SnapToClosestNode)
+            {
+                SetCurrentNode(Manager.ReturnClosestHexNode(transform.position));
+            }
+            else
+            {
+                SetCurrentNode(Manager.GetHexNode(StartNodeIndex));
+            }
+
         }
 
         public void SetCurrentNode(HexNode targetNode)

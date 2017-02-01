@@ -10,7 +10,7 @@ namespace Assets.Scripts.GameLogic
     public class TurnManager : MonoBehaviour
     {
         public  GameObject                      Player;
-        //public  GameObject[]                    Enemies;
+        public  int                             EnemyScanRadius;
         public  GameObject                      HexNodeManager;
         private PlayerAgent                     _player;
         private List<EnemyAgent>                _enemies;
@@ -62,12 +62,12 @@ namespace Assets.Scripts.GameLogic
 
             //Setting up the cache
             _phases = new Dictionary<Type, TurnPhaseBase>();
-            _phases.Add(typeof(TurnPhaseIdle),            new TurnPhaseIdle           (this)               );
-            _phases.Add(typeof(TurnPhaseEnemyChange),   new TurnPhaseEnemyChange  (this)               );
-            _phases.Add(typeof(TurnPhasePlayerSelection), new TurnPhasePlayerSelection(this, _player)      );
-            _phases.Add(typeof(TurnPhasePlayerAction),    new TurnPhasePlayerAction   (this, _player)      );
-            _phases.Add(typeof(TurnPhaseEnemySelection),  new TurnPhaseEnemySelection (this, _currentEnemy));
-            _phases.Add(typeof(TurnPhaseEnemyAction),     new TurnPhaseEnemyAction    (this, _currentEnemy));
+            _phases.Add(typeof(TurnPhaseIdle),            new TurnPhaseIdle           (this, EnemyScanRadius));
+            _phases.Add(typeof(TurnPhaseEnemyChange),     new TurnPhaseEnemyChange    (this)                 );
+            _phases.Add(typeof(TurnPhasePlayerSelection), new TurnPhasePlayerSelection(this, _player)        );
+            _phases.Add(typeof(TurnPhasePlayerAction),    new TurnPhasePlayerAction   (this, _player)        );
+            _phases.Add(typeof(TurnPhaseEnemySelection),  new TurnPhaseEnemySelection (this, _currentEnemy)  );
+            _phases.Add(typeof(TurnPhaseEnemyAction),     new TurnPhaseEnemyAction    (this, _currentEnemy)  );
 
             turnManagerDebug += "Phase Cache is initialized!";
 

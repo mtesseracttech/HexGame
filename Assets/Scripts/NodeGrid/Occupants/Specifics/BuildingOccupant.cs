@@ -4,6 +4,9 @@ namespace Assets.Scripts.NodeGrid.Occupants.Specifics
 {
     public class BuildingOccupant : MultiNodeOccupant
     {
-        
+        public void Interact()
+        {
+
+        }
     }
 }

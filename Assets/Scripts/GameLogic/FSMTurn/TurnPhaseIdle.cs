@@ -9,8 +9,12 @@ namespace Assets.Scripts.GameLogic.FSMTurn
     public class TurnPhaseIdle : TurnPhaseBase
     {
         private bool _exitingIdle;
+        private int _enemyRadius;
 
-        public TurnPhaseIdle(TurnManager manager) : base(manager) {}
+        public TurnPhaseIdle(TurnManager manager, int enemyRadius) : base(manager)
+        {
+            _enemyRadius = enemyRadius;
+        }
 
         public override void Update()
         {
@@ -57,6 +61,11 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                     }
                 }
             }
+        }
+
+        public void SetEnemyRadarRadius(int radius)
+        {
+            _enemyRadius = radius;
         }
 
         public override void End()

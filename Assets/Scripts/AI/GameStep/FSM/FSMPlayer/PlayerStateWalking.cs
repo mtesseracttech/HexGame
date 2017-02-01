@@ -31,7 +31,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
             float rotationFactor = _rotationAccumulator / _rotationTime;
 
-            Debug.Log("rotationAccumulator: " + _rotationAccumulator + " rotationFactor: " + rotationFactor);
+            //Debug.Log("rotationAccumulator: " + _rotationAccumulator + " rotationFactor: " + rotationFactor);
 
             if (Vector3.Distance(Agent.Position, _targetNode.Position) > _movementSpeed)
             {
