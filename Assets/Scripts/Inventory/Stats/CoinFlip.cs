@@ -10,6 +10,7 @@ namespace Assets.Scripts.Inventory.Stats
         public GameObject attackButton;
         public Sprite attack;
         public Sprite defense;
+        public Sprite defaultIcon;
         public Image[] coinSlot;
         [Header("HUD of player")]
         [SerializeField]
@@ -62,7 +63,7 @@ namespace Assets.Scripts.Inventory.Stats
             //when flipped update the slot image with attack or defense
             for (int i = 0; i < coinSlot.Length; i++)
             {
-                coinSlot[i].sprite = defense;
+                coinSlot[i].sprite = defaultIcon;
             }
         }
 

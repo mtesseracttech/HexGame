@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
 
@@ -27,6 +28,11 @@ public class MenuController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void ChangeScene(int scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
 
 	//Main panel
 	public void OptionsMenu () {
