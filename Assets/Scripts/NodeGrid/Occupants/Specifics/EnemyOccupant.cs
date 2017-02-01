@@ -2,8 +2,5 @@
 
 namespace Assets.Scripts.NodeGrid.Occupants.Specifics
 {
-    public class EnemyOccupant : SingleNodeOccupant
-    {
-
-    }
+    public class EnemyOccupant : SingleNodeOccupant{}
 }

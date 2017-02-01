@@ -117,4 +117,23 @@ public class HexNodesManager : MonoBehaviour
         if(_nodes != null && i < _nodes.Length) return _nodes[i];
         return null;
     }
+
+    public HexNode ReturnClosestHexNode(Vector3 position)
+    {
+        float shortestDistance = float.MaxValue;
+        HexNode closestNode = null;
+        foreach (var node in _nodes)
+        {
+            if (Vector3.Distance(node.Position, position) < shortestDistance)
+            {
+                shortestDistance = Vector3.Distance(node.Position, position);
+                closestNode = node;
+            }
+        }
+        if (closestNode != null)
+        {
+            Debug.Log("Returned node " + closestNode.Index);
+        }
+        return closestNode;
+    }
 }
