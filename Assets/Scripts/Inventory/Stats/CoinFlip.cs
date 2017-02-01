@@ -173,8 +173,8 @@ namespace Assets.Scripts.Inventory.Stats
                         break;
                 }
             }
-            _attackTextEnemy.text = "Attack: " + ENemyStats.AttackStats + "+" + AttackCoinsEnemy; // + " +" + _bonusAttackCoins;
-            _defenceTextEnemy.text = "Defence: " + ENemyStats.DefenseStats + "+" + DefenceCoinsEnemy; // + " +" + _bonusDefenceCoins;
+            _attackTextEnemy.text =AttackCoinsEnemy + "+" + ENemyStats.AttackStats + " : Attack"; // + " +" + _bonusAttackCoins;
+            _defenceTextEnemy.text = DefenceCoinsEnemy + "+" + ENemyStats.DefenseStats + " : Defence" ; // + " +" + _bonusDefenceCoins;
 
             ENemyStats.AttackStats += AttackCoinsEnemy;
             ENemyStats.DefenseStats += DefenceCoinsEnemy;
