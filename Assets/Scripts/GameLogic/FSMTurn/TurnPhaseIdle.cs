@@ -12,10 +12,10 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         {
             Debug.Log("Idling!");
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
+          //  if (Input.GetKeyDown(KeyCode.Space))
+        //    {
                 _exitingIdle = true;
-            }
+       //     }
 
             if (_exitingIdle)
             {

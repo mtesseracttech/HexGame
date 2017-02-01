@@ -8,7 +8,9 @@ namespace Assets.Scripts.Inventory.Stats
     public class CoinFlip : MonoBehaviour {
 
         public GameObject attackButton;
-
+        public Sprite attack;
+        public Sprite defense;
+        public Image[] coinSlot;
         [Header("HUD of player")]
         [SerializeField]
         private Text _attackText;
@@ -51,7 +53,18 @@ namespace Assets.Scripts.Inventory.Stats
         private int _defCoinAmountEnemy;
 
        
-        public EnemyStats ENemyStats;
+        public EnemyStats ENemyStats;//get enemie that we attack
+
+        private void Start()
+        {
+            //loop through how many slots we have.
+            //then check how many coins we have and then fill the slots with default image
+            //when flipped update the slot image with attack or defense
+            for (int i = 0; i < coinSlot.Length; i++)
+            {
+                coinSlot[i].sprite = defense;
+            }
+        }
 
         private void Update()
         {
@@ -76,8 +89,7 @@ namespace Assets.Scripts.Inventory.Stats
             /**/
         }
 
-
-        public void FlipCoins()
+       public void FlipCoins()
         {
             ResetValues();
 
@@ -86,17 +98,39 @@ namespace Assets.Scripts.Inventory.Stats
             attackButton.SetActive(false);
             //--------------------------------------------------------------------//
             //              Player FLIP                                           //
-            for (int i = 0; i < PLayerStats.CoinHave; i++)
+
+            int[] coins = new int[coinSlot.Length];
+            int iter = 0;
+
+
+            for (int i = 0; i < PLayerStats.CoinHave; i++, iter++)
             {
                 int value = (int)Mathf.Round(Random.Range(1, 2) * Random.value);
-
                 switch (value)
                 {
                     case 0:
                         _attackCoinsPlayer++;
-                        break;
+                        coins[iter] = 1;
+                            break;
                     case 1:
                         _defenceCoinsPlayer++;
+                        coins[iter] = 2;
+                            break;
+                    default:
+                        coins[iter] = 0;
+                        break;
+                }
+            }
+
+            for (int i = 0; i < coins.Length; i++)
+            {
+                switch (coins[i])
+                {
+                    case 1:
+                        coinSlot[i].sprite = attack;
+                        break;
+                    case 2:
+                        coinSlot[i].sprite = defense;
                         break;
                     default:
                         break;
