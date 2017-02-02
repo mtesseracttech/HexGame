@@ -5,6 +5,7 @@ using Assets.Scripts.AI.Pathfinding;
 using Assets.Scripts.Inventory.Stats;
 using Assets.Scripts.NodeGrid.Occupants.Specifics;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.AI.GameStep.FSM.Agents
 {
@@ -19,6 +20,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private List<HexNode>                         _walkPath;
         private bool                                  _alive                     = true;
         private Type                                  _upcomingInteractionState;
+        public Sprite                                  EnemyBattleImage;
 
         public override void Start()
         {

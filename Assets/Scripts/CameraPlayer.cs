@@ -22,6 +22,8 @@ public class CameraPlayer : MonoBehaviour {
 		swivel = transform.GetChild(0);
 		stick = swivel.GetChild(0);
 
+		AdjustZoom(Input.GetAxis("Mouse ScrollWheel"));
+
     }
 
 	void Update () {

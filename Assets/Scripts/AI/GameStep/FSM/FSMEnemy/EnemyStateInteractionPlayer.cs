@@ -26,6 +26,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
 
         public override void BeginState()
         {
+            Agent.CoinFlip._enemyImage.sprite = Agent.EnemyBattleImage;
             _playerNode = Agent.InteractionTarget;
             _player     = Agent.InteractionTarget.Occupant as PlayerAgent;
         }
