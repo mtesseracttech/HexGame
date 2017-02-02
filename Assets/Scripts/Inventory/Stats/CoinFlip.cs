@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.Inventory.Stats
 {
-    public class CoinFlip : MonoBehaviour {
-
+    public class CoinFlip : MonoBehaviour
+    {
         public GameObject attackButton;
         public Sprite attack;
         public Sprite defense;
         public Sprite defaultIcon;
+        [Space]
         public Image[] coinSlot;
         [Header("HUD of player")]
         [SerializeField]
@@ -66,6 +67,12 @@ namespace Assets.Scripts.Inventory.Stats
             {
                 coinSlot[i].sprite = defaultIcon;
             }
+        }
+
+        public bool AttackButton
+        {
+            set { _buttonPressed = value; }
+            get { return _buttonPressed; }
         }
 
         public bool AttackEnds
@@ -201,6 +208,7 @@ namespace Assets.Scripts.Inventory.Stats
             yield return new WaitForSeconds(1f);
             _buttonPressed = true;
             _attackEnds = true;
+            attackButton.SetActive(true);
 
         }
 

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CameraScroller : MonoBehaviour
 {
-
+    public int SceneTo;
     public GameObject  Camera;
     public AnimationCurve curve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
     public float duration = 1.0f;
@@ -56,7 +56,7 @@ public class CameraScroller : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(SceneTo);
             }
         }
         if (Input.GetKeyDown(KeyCode.Space))
