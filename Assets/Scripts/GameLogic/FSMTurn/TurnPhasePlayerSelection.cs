@@ -57,7 +57,16 @@ namespace Assets.Scripts.GameLogic.FSMTurn
             Debug.Log("Path Length is: " + path.Count);
             if (path.Count > 2)
             {
-                Debug.Log("The path that was found is too long for interactions");
+                if (Manager.GetEnemyCount() > 0)
+                {
+                    Debug.Log("The path that was found is too long for interactions");
+                }
+                else
+                {
+                    Debug.Log("No enemies near path, so more walking can be done in 1 turn");
+                    Player.WalkPath = path;
+                    _finishedSelection = true;
+                }
             }
             else if (path.Count == 2)
             {
@@ -71,6 +80,12 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 }
                 else
                 {
+                    if (!(Manager.GetEnemyCount() > 0))
+                    {
+                        Debug.Log("No enemies near path, so more walking can be done in 1 turn");
+                        Player.WalkPath = path;
+                        _finishedSelection = true;
+                    }
                     Debug.Log("This is too far for an occupant-less node!");
                 }
             }
@@ -79,7 +94,6 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 Debug.Log("Player will interact directly");
                 if (target.HasOccupant) SetInteractionState(target);
                 else Player.WalkPath = new List<HexNode> {path[0]};
-
                 _finishedSelection = true;
             }
             else

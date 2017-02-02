@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
 using Assets.Scripts.NodeGrid.Occupants.Specifics;
 using UnityEngine;
@@ -24,7 +25,14 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
             if (_exitingIdle)
             {
-                Manager.ChangePhase(typeof(TurnPhasePlayerSelection));
+                if (Manager.GetPlayerAgent().WalkPath == null)
+                {
+                    Manager.ChangePhase(typeof(TurnPhasePlayerSelection));
+                }
+                else
+                {
+                    Manager.ChangePhase(typeof(TurnPhasePlayerAction));
+                }
             }
         }
 
@@ -32,7 +40,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         {
             _exitingIdle = false;
             BreadthFirst enemyScan = new BreadthFirst();
-            enemyScan.Search(Manager.GetPlayerAgent().CurrentNode, 6); //Scan for enemies in given range
+            enemyScan.Search(Manager.GetPlayerAgent().CurrentNode, AISettings.PlayerScanRange); //Scan for enemies in given range
             if (enemyScan.Done && enemyScan.Nodes != null)
             {
                 HashSet<EnemyAgent> currentEnemies = Manager.GetEnemyHashSet();

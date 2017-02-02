@@ -18,7 +18,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void Update()
         {
-            DebugHelpers.DebugList(Agent.WalkPath, "Walk Path: ");
+            //DebugHelpers.DebugList(Agent.WalkPath, "Walk Path: ");
 
             if (_rotationAccumulator < _rotationTime)
             {
@@ -56,7 +56,36 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void EndState()
         {
-            Agent.WalkPath = null;
+            if (Agent.WalkPath.Count > 1)
+            {
+                bool endAutoWalk = false;
+                BreadthFirst enemyScan = new BreadthFirst();
+                enemyScan.Search(Agent.CurrentNode, AISettings.PlayerScanRange);
+                if (enemyScan.Done && enemyScan.Nodes != null)
+                {
+                    foreach (var node in enemyScan.Nodes)
+                    {
+                        if (node.HasEnemy)
+                        {
+                            endAutoWalk = true;
+                            break;
+                        }
+                    }
+                }
+                if (endAutoWalk == false)
+                {
+                    Agent.WalkPath.RemoveAt(0);
+                }
+                else
+                {
+                    Agent.WalkPath = null;
+                }
+
+            }
+            else
+            {
+                Agent.WalkPath = null;
+            }
         }
     }
 }

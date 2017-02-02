@@ -75,7 +75,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
 
         public void ShowHighLight(bool show)
         {
-            if (show) _properHighlighter.ShowHighlight(CurrentNode, 3);
+            if (show) _properHighlighter.ShowHighlight(CurrentNode, AISettings.PlayerScanRange - 1);
             else _properHighlighter.DestroyHighlights();
         }
 
