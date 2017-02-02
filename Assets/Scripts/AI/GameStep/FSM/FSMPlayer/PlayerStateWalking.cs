@@ -41,6 +41,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void BeginState()
         {
+            Agent.SetWalkAnimation(true);
             _targetNode          = Agent.WalkPath[0];
             _targetRotation      = Quaternion.LookRotation(_targetNode.Position - Agent.Position);
             _rotationAccumulator = 0.0f;
