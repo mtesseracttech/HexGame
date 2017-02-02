@@ -21,7 +21,6 @@ public class CameraPlayer : MonoBehaviour {
 	void Awake () {
 		swivel = transform.GetChild(0);
 		stick = swivel.GetChild(0);
-
     }
 
 	void Update () {
