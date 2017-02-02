@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
-using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
 using Assets.Scripts.AI.Pathfinding;
 using UnityEngine;
 
@@ -28,14 +27,13 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
 
             float rotationFactor = _rotationAccumulator / _rotationTime;
 
-            if (Vector3.Distance(Agent.Position, _targetNode.Position) > _movementSpeed)
+            if (Vector3.Distance(Agent.Position, _targetNode.Position) > _movementSpeed * (Time.deltaTime * 60))
             {
-                Debug.Log("Moving!");
-                Agent.Position -= (Agent.Position - _targetNode.Position).normalized * _movementSpeed;
+                Agent.Rotation = Quaternion.Slerp(Agent.Rotation, _targetRotation, rotationFactor * (Time.deltaTime * 60));
+                Agent.Position -= (Agent.Position - _targetNode.Position).normalized * _movementSpeed * (Time.deltaTime * 60);
             }
             else
             {
-                Debug.Log("Done Moving!");
                 Agent.CurrentNode = _targetNode;
                 Agent.SetState(typeof(EnemyStateIdle));
             }
@@ -43,7 +41,9 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
 
         public override void BeginState()
         {
-            _targetNode = Agent.WalkPath[0];
+            _targetNode          = Agent.WalkPath[0];
+            _targetRotation      = Quaternion.LookRotation(_targetNode.Position - Agent.Position);
+            _rotationAccumulator = 0.0f;
         }
 
         public override void EndState()

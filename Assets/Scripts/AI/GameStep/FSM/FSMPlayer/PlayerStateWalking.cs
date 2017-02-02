@@ -12,13 +12,10 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
         private HexNode     _targetNode;
         private Quaternion  _targetRotation;
 
-        public PlayerStateWalking(PlayerAgent agent) : base(agent)
-        {
-        }
+        public PlayerStateWalking(PlayerAgent agent) : base(agent) {}
 
         public override void Update()
         {
-
             if (_rotationAccumulator < _rotationTime)
             {
                 _rotationAccumulator += Time.deltaTime;

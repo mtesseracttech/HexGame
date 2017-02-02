@@ -16,7 +16,6 @@ public class RadiationTile : MonoBehaviour
 	    _node              = _manager.ReturnClosestHexNode(transform.position);
 	    transform.position = _node.Position;
 	    _manager.RegisterRadationTile(this);
-	    ShowParticles();
 	}
 
     public void ShowParticles()
