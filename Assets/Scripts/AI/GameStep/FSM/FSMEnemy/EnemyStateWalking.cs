@@ -7,14 +7,28 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
 {
     public class EnemyStateWalking : EnemyStateBase
     {
-        private float _movementSpeed = 0.5f;
-        private HexNode _targetNode;
+        private float       _movementSpeed           = 0.5f;
+        private float       _rotationTime            = 1.0f;
+        private float       _rotationAccumulator     = 0.0f;
+        private HexNode     _targetNode;
+        private Quaternion  _targetRotation;
 
         public EnemyStateWalking(EnemyAgent agent) : base(agent) {}
 
         public override void Update()
         {
-            DebugHelpers.DebugList(Agent.WalkPath, "Walk Path: ");
+            //DebugHelpers.DebugList(Agent.WalkPath, "Walk Path: ");
+
+            if (_rotationAccumulator < _rotationTime)
+            {
+                _rotationAccumulator += Time.deltaTime;
+            }
+            else
+            {
+                _rotationAccumulator = _rotationTime;
+            }
+
+            float rotationFactor = _rotationAccumulator / _rotationTime;
 
             if (Vector3.Distance(Agent.Position, _targetNode.Position) > _movementSpeed)
             {
