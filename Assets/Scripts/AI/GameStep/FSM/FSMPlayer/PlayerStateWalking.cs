@@ -33,10 +33,10 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
             //Debug.Log("rotationAccumulator: " + _rotationAccumulator + " rotationFactor: " + rotationFactor);
 
-            if (Vector3.Distance(Agent.Position, _targetNode.Position) > _movementSpeed)
+            if (Vector3.Distance(Agent.Position, _targetNode.Position) > _movementSpeed * (Time.deltaTime * 60))
             {
-                Agent.Rotation = Quaternion.Slerp(Agent.Rotation, _targetRotation, rotationFactor);
-                Agent.Position -= (Agent.Position - _targetNode.Position).normalized * _movementSpeed;
+                Agent.Rotation = Quaternion.Slerp(Agent.Rotation, _targetRotation, rotationFactor * (Time.deltaTime * 60));
+                Agent.Position -= (Agent.Position - _targetNode.Position).normalized * _movementSpeed * (Time.deltaTime * 60);
                 Debug.Log("Moving!");
             }
             else
