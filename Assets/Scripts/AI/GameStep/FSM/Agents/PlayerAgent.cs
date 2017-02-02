@@ -14,8 +14,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         //Public Variables/////////////////////////
         public  int                                   HighlighterRadius           = 3;
         public  GameObject                            CombatUi;
-        public  CoinFlip                              FlipCoin;
-
+        public  CoinFlip                              CoinFlip;
+        
         //Private Variables////////////////////////
         private Dictionary<Type, PlayerStateBase>     _states;
         private PlayerStateBase                       _currentState;

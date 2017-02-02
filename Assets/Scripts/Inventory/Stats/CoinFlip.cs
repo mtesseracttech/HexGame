@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.Inventory.Stats
 {
-    public class CoinFlip : MonoBehaviour {
-
+    public class CoinFlip : MonoBehaviour
+    {
         public GameObject attackButton;
         public Sprite attack;
         public Sprite defense;
         public Sprite defaultIcon;
+        [Space]
         public Image[] coinSlot;
         [Header("HUD of player")]
         [SerializeField]
@@ -55,6 +56,7 @@ namespace Assets.Scripts.Inventory.Stats
 
        
         public EnemyStats ENemyStats;//get enemie that we attack
+        private bool _attackEnds;
 
         private void Start()
         {
@@ -65,6 +67,18 @@ namespace Assets.Scripts.Inventory.Stats
             {
                 coinSlot[i].sprite = defaultIcon;
             }
+        }
+
+        public bool AttackButton
+        {
+            set { _buttonPressed = value; }
+            get { return _buttonPressed; }
+        }
+
+        public bool AttackEnds
+        {
+            set { _attackEnds = value; }
+            get { return _attackEnds;}
         }
 
         private void Update()
@@ -166,8 +180,8 @@ namespace Assets.Scripts.Inventory.Stats
                         break;
                 }
             }
-            _attackTextEnemy.text = "Attack: " + ENemyStats.AttackStats + "+" + AttackCoinsEnemy; // + " +" + _bonusAttackCoins;
-            _defenceTextEnemy.text = "Defence: " + ENemyStats.DefenseStats + "+" + DefenceCoinsEnemy; // + " +" + _bonusDefenceCoins;
+            _attackTextEnemy.text =AttackCoinsEnemy + "+" + ENemyStats.AttackStats + " : Attack"; // + " +" + _bonusAttackCoins;
+            _defenceTextEnemy.text = DefenceCoinsEnemy + "+" + ENemyStats.DefenseStats + " : Defence" ; // + " +" + _bonusDefenceCoins;
 
             ENemyStats.AttackStats += AttackCoinsEnemy;
             ENemyStats.DefenseStats += DefenceCoinsEnemy;
@@ -191,8 +205,10 @@ namespace Assets.Scripts.Inventory.Stats
             ENemyStats.DoDamageCombat(PLayerStats.AttackStats, ENemyStats.DefenseStats);
             RefreshStats();
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             _buttonPressed = true;
+            _attackEnds = true;
+            attackButton.SetActive(true);
 
         }
 

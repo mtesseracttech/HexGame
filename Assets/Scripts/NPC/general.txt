@@ -1,0 +1,85 @@
+<dialogue>
+	<node>
+        <npctext>Guns don't kill people. I kill people, with guns! </npctext>
+        <answers>
+            <answer tonode = "1"><text>.........</text></answer>
+			<answer tonode = "9" needquestvalue = "1"><text>Can you remind me what to do for the quest?</text><questname>Quest2</questname></answer>
+			<answer tonode = "8" needquestvalue = "2"><text>I did the quest</text><questname>Quest2</questname></answer>
+        </answers>
+    </node>
+    <node>
+        <npctext>What the gell is wrong with your skin??</npctext>
+        <answers>
+            <answer tonode = "2"><text>That is why I AM here! Do you know how to get to the reactor?</text></answer>
+			 <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
+			<answer tonode = "11"><text>Are you the one who tries to shoot random people?</text></answer>
+        </answers>
+    </node>
+    <node>
+        <npctext>Ehm…Well.not  At least not since we are shooting at everything that passes in or out of the reactor</npctext>
+        <answers>
+			<answer tonode = "3"><text>Why are you shooting in the first place?</text></answer>
+			<answer tonode = "12"><text>Could you stop shooting for me to pass through?</text></answer>
+        </answers>
+    </node>
+    <node>
+        <npctext>Yeah.well….we are securing the objective…making sure all parameters are in our favor, you know? A good plan needs some time to be set up!</npctext>
+        <answers>
+            <answer tonode = "4"><text>What if I would help you?</text></answer>
+        </answers>
+    </node>
+    <node>
+        <npctext>Another pair of arms might be beneficial to secure the objective...we never know how many pairs they have.</npctext>
+        <answers>
+              <answer tonode = "5"><text>.....</text></answer>
+        </answers>
+    </node>
+    <node>
+        <npctext>Yeah..I think we can make it if you stick with us through this.</npctext>
+        <answers>
+            <answer tonode = "6"><text>.....</text></answer>
+        </answers>
+    </node>
+	<node>
+        <npctext>If you are ready, I can give the order for assault!</npctext>
+        <answers>
+            <answer tonode = "7" needquestvalue = "0"><text>I am ready, give the order</text><questname>Quest2</questname></answer>
+        </answers>
+    </node>
+	<node>
+        <npctext>Za Rodinu!</npctext>
+        <answers>
+            <answer tonode ="0" needquestvalue = "0" questvalue = "1" ><text>Na zdarovja</text><dialend>true</dialend><questname>Quest2</questname></answer>
+        </answers>
+    </node>
+	 <node>
+        <npctext>Wow. you did it.Great job fucker</npctext>
+        <answers>
+            <answer tonode = "0" needquestvalue = "2" questvalue = "3"  rewardgold = "400" > <text>Going to jerk off now</text><dialend>true</dialend><questname>Quest2</questname></answer>
+        </answers>
+    </node>
+	  <node>
+        <npctext>You have to trigger shit bruh</npctext>
+        <answers>
+            <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
+        </answers>
+    </node>
+	<node>
+        <npctext>Just call me Officer, leader of the Chernobyl Extermination Squad!Commissioned by Gorbachev in person, no big deal, though</npctext>
+		<answers>
+            <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
+        </answers>
+    </node>
+	<node>
+        <npctext>I warned you! I did not have to!</npctext>
+        <answers>
+            <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
+        </answers>
+    </node>
+	<node>
+        <npctext>That would kina defeat the purpose of us doing it in the first place, wouldn’t i?</npctext>
+        <answers>
+            <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
+        </answers>
+    </node>
+</dialogue>

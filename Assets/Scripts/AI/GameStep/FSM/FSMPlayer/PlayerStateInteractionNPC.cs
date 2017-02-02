@@ -5,7 +5,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 {
     public class PlayerStateInteractionNPC : PlayerStateBase
     {
-        private bool _interactionDone;
         private NPCOccupant NPC;
 
         public PlayerStateInteractionNPC(PlayerAgent agent) : base(agent)
@@ -14,11 +13,13 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void Update()
         {
-            if (!_interactionDone)
+            NPC.Interact();
+            if (!NPC.GetInteractionOver())
             {
-
+                NPC._dialogue.enabled = true;
+                NPC._dialogue.ShowDialogue = true;
             }
-            else
+            else 
             {
                 Agent.SetState(typeof(PlayerStateIdle));
             }
@@ -26,14 +27,14 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void BeginState()
         {
-            _interactionDone = false;
-            NPC = Agent.InteractionTarget.Occupant as NPCOccupant;
+           NPC = Agent.InteractionTarget.Occupant as NPCOccupant;
         }
 
         public override void EndState()
         {
             Agent.InteractionTarget        = null;
             Agent.UpcomingInteractionState = null;
+            NPC._dialogue.EndChat = false;
         }
     }
 }
