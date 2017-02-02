@@ -84,6 +84,8 @@ namespace Assets.Scripts.Inventory.Stats
             get { return _attackEnds;}
         }
 
+        
+
         private void Update()
         {
             /**/

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Assets.Scripts.AI.GameStep.FSM.FSMEnemy;
 using Assets.Scripts.AI.Pathfinding;
 using Assets.Scripts.Inventory.Stats;
+using Assets.Scripts.Inventory.Stats.Enemy;
 using Assets.Scripts.NodeGrid.Occupants.Specifics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,16 +22,18 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private bool                                  _alive                     = true;
         private Type                                  _upcomingInteractionState;
         public Sprite                                  EnemyBattleImage;
+        private EnemyStats                            EnemyStats;
 
         public override void Start()
         {
             //Basics///////////////////////////////
             base.Start();
             Position = CurrentNode.Position;
+            _EnemyStats = GetComponent<EnemyStats>();
 
             //Setting up the Cache/////////////////
             _states = new Dictionary<Type, EnemyStateBase>();
-
+            
             _states.Add(typeof(EnemyStateWalking),           new EnemyStateWalking           (this));
             _states.Add(typeof(EnemyStateInteractionPlayer), new EnemyStateInteractionPlayer (this));
             _states.Add(typeof(EnemyStateIdle),              new EnemyStateIdle              (this));
@@ -44,8 +47,15 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         void Update()
         {
             _currentState.Update();
-            Debug.DrawLine(CurrentNode.Position, CurrentNode.Position + (Vector3.up*10) + Vector3.back, Color.yellow);
+            //Debug.DrawLine(CurrentNode.Position, CurrentNode.Position + (Vector3.up*10) + Vector3.back, Color.yellow);
         }
+
+        public EnemyStats _EnemyStats
+        {
+            set { EnemyStats = value; }
+            get { return EnemyStats; }
+        }
+
 
         //State Related Methods////////////////////
         public void SetState(Type state)
