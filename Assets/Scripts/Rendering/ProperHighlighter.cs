@@ -6,17 +6,15 @@ namespace Assets.Scripts.Rendering
 {
     public class ProperHighlighter : MonoBehaviour
     {
-        public GameObject PlayerHighlight;
-        public GameObject EnemyHighlight;
-        public GameObject NpcHighlight;
-        public GameObject PropHighlight;
-        public GameObject BuildingHighlight;
-        public GameObject WalkHighlight;
-        public GameObject TerrainHighlight;
-
-        private BreadthFirst  _breadthFirst;
-
-        private List<GameObject> _highlights;
+        public      GameObject           PlayerHighlight;
+        public      GameObject           EnemyHighlight;
+        public      GameObject           NpcHighlight;
+        public      GameObject           PropHighlight;
+        public      GameObject           BuildingHighlight;
+        public      GameObject           WalkHighlight;
+        public      GameObject           TerrainHighlight;
+        private     BreadthFirst         _breadthFirst;
+        private     List<GameObject>     _highlights;
 
         private readonly Quaternion _hlrot = Quaternion.AngleAxis(-90, Vector3.right);
 

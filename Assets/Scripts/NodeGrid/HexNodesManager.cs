@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Assets.Scripts.AI;
 using Assets.Scripts.AI.Pathfinding;
 using Assets.Scripts.Saving;
 
@@ -13,9 +12,12 @@ public class HexNodesManager : MonoBehaviour
 
     private HexNode[] _nodes;
 
-    private void Start()
+    private List<RadiationTile> _radiationTiles;
+
+    private void Awake()
     {
-        _pathfinder = new Pathfinder();
+        _pathfinder     = new Pathfinder();
+        _radiationTiles = new List<RadiationTile>();
     }
 
     // Update is called once per frame
@@ -136,4 +138,10 @@ public class HexNodesManager : MonoBehaviour
         }
         return closestNode;
     }
+
+    public void RegisterRadationTile(RadiationTile tile)
+    {
+        _radiationTiles.Add(tile);
+    }
+
 }

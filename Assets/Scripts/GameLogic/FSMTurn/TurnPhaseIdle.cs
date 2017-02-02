@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using Assets.Scripts.AI;
 using Assets.Scripts.AI.GameStep.FSM.Agents;
-using Assets.Scripts.NodeGrid.Occupants.Specifics;
 using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
