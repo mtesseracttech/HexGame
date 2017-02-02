@@ -6,12 +6,12 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 {
     public class PlayerStateInteractionProp : PlayerStateBase
     {
-        private HexNode _itemNode;
-        private Items _item;
-        private float _rotationTime = 0.5f;
-        private float _rotationAccumulator = 0.0f;
-        private float _movementSpeed = 0.5f;
-        private Quaternion _targetRotation;
+        private HexNode       _itemNode;
+        private Items         _item;
+        private float         _rotationTime             = 0.5f;
+        private float         _rotationAccumulator      = 0.0f;
+        private float         _movementSpeed            = 0.5f;
+        private Quaternion    _targetRotation;
 
         public PlayerStateInteractionProp(PlayerAgent agent) : base(agent)
         {}
@@ -20,9 +20,14 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
         {
 
             if (_rotationAccumulator < _rotationTime)
+            {
                 _rotationAccumulator += Time.deltaTime;
+            }
             else
+            {
                 _rotationAccumulator = _rotationTime;
+            }
+
 
             float rotationFactor = _rotationAccumulator / _rotationTime;
             Agent.Rotation = Quaternion.Slerp(Agent.Rotation, _targetRotation, rotationFactor);

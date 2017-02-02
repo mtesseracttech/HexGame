@@ -36,6 +36,9 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         public override void Start()
         {
             _exitingIdle = false;
+
+            Manager.RemoveDeadEnemies();
+
             BreadthFirst enemyScan = new BreadthFirst();
             enemyScan.Search(Manager.GetPlayerAgent().CurrentNode, Manager.GetPlayerAgent().HighlighterRadius + 1); //Scan for enemies in given range
             if (enemyScan.Done && enemyScan.Nodes != null)

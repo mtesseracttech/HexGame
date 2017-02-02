@@ -30,6 +30,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                     RadiationTile rTile = Manager.OnRadiationTile(Player.CurrentNode);
                     if (rTile != null)
                     {
+                        rTile.ShowParticles();
                         Debug.Log("Standing on Radiation Tile!");
                     }
                     _tileCheckDone = true;

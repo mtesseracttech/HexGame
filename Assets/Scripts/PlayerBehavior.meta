@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/PlayerBehavior.meta
 guid: bba42d5fbe889db41b44ba922fff950c
 folderAsset: yes
 timeCreated: 1479376375
+=======
+guid: e3106cf6eaf5f448eaddd4c93ec8aebc
+folderAsset: yes
+timeCreated: 1486053377
+>>>>>>> 5479826b5517e6e6407382f0a8e6c2c19c0a8b71:Assets/Scripts/Player.meta
 licenseType: Free
 DefaultImporter:
   userData: 

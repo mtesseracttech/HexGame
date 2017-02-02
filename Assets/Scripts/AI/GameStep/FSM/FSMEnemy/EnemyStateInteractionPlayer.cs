@@ -6,19 +6,36 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
 {
     public class EnemyStateInteractionPlayer : EnemyStateBase
     {
-        private HexNode     _playerNode;
         private PlayerAgent _player;
+        private float       _rotationTime            = 1.0f;
+        private float       _rotationAccumulator     = 0.0f;
+        private Quaternion  _targetRotation;
+        private Quaternion  _playerTargetRotation;
 
         public EnemyStateInteractionPlayer(EnemyAgent agent) : base(agent) {}
 
         public override void Update()
         {
+            if (_rotationAccumulator < _rotationTime)
+            {
+                _rotationAccumulator += Time.deltaTime;
+            }
+            else
+            {
+                _rotationAccumulator = _rotationTime;
+            }
+
+            float rotationFactor = _rotationAccumulator / _rotationTime;
+
+            Agent.Rotation   = Quaternion.Slerp(Agent.Rotation  , _targetRotation      , rotationFactor * (Time.deltaTime * 60));
+            _player.Rotation = Quaternion.Slerp(_player.Rotation, _playerTargetRotation, rotationFactor * (Time.deltaTime * 60));
+
             Debug.Log(Agent.AgentName + " is attacking " + _player.name);
+
             Agent.CombatUi.SetActive(true);
             Agent.CoinFlip.ENemyStats = Agent._EnemyStats;
             if (Agent.CoinFlip.AttackEnds)
             {
-                
                 Agent.SetState(typeof(EnemyStateIdle));
                 Agent.CoinFlip.AttackEnds = false;
                 Agent.CoinFlip.AttackButton = false;
@@ -28,8 +45,12 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
         public override void BeginState()
         {
             Agent.CoinFlip._enemyImage.sprite = Agent.EnemyBattleImage;
-            _playerNode = Agent.InteractionTarget;
-            _player     = Agent.InteractionTarget.Occupant as PlayerAgent;
+            _player                           = Agent.InteractionTarget.Occupant as PlayerAgent;
+            if (_player != null)
+            {
+                _targetRotation                   = Quaternion.LookRotation(_player.Position - Agent.Position);
+                _playerTargetRotation             = Quaternion.LookRotation(Agent.Position - _player.Position);
+            }
         }
 
         public override void EndState()
@@ -37,8 +58,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
             Agent.CombatUi.SetActive(false);
             Agent.InteractionTarget        = null;
             Agent.UpcomingInteractionState = null;
-            Agent.CoinFlip.AttackEnds = false;
-            Agent.CoinFlip.AttackButton = false;
+            Agent.CoinFlip.AttackEnds      = false;
+            Agent.CoinFlip.AttackButton    = false;
         }
     }
 }

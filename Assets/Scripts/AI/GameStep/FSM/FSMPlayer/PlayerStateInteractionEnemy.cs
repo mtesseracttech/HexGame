@@ -10,7 +10,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
         private EnemyAgent _enemy;
         private float      _rotationTime            = 0.5f;
         private float      _rotationAccumulator     = 0.0f;
-        private Quaternion  _targetRotation;
+        private Quaternion _targetRotation;
+        private Quaternion _enemyTargetRotation;
 
         public PlayerStateInteractionEnemy(PlayerAgent agent) : base(agent){}
 
@@ -25,9 +26,11 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
                 _rotationAccumulator = _rotationTime;
             }
             float rotationFactor = _rotationAccumulator / _rotationTime;
-            Agent.Rotation = Quaternion.Slerp(Agent.Rotation, _targetRotation, rotationFactor);
-            
-         //   Debug.Log("Player Attacking " + _enemy.AgentName + "! Press SPACE to continue!");
+
+            Agent.Rotation  = Quaternion.Slerp( Agent.Rotation, _targetRotation     , rotationFactor);
+            _enemy.Rotation = Quaternion.Slerp(_enemy.Rotation, _enemyTargetRotation, rotationFactor);
+
+            Debug.Log("Player Attacking " + _enemy.AgentName + "! Press SPACE to continue!");
 
             Agent.CombatUi.SetActive(true);
             if (Agent.CoinFlip.AttackEnds)
@@ -44,6 +47,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
             _enemyNode           = Agent.InteractionTarget;
             _enemy               = Agent.InteractionTarget.Occupant as EnemyAgent;
             _targetRotation      = Quaternion.LookRotation(_enemyNode.Position - Agent.Position);
+            _enemyTargetRotation = Quaternion.LookRotation(Agent.Position - _enemyNode.Position);
             _rotationAccumulator = 0;
         }
 
