@@ -17,8 +17,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
 
         public override void Update()
         {
-            //DebugHelpers.DebugList(Agent.WalkPath, "Walk Path: ");
-
             if (_rotationAccumulator < _rotationTime)
             {
                 _rotationAccumulator += Time.deltaTime;

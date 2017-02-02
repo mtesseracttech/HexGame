@@ -28,10 +28,10 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
             Agent.Rotation = Quaternion.Slerp(Agent.Rotation, _targetRotation, rotationFactor);
 
 
-            if (Vector3.Distance(Agent.Position, _itemNode.Position) > _movementSpeed)
+            if (Vector3.Distance(Agent.Position, _itemNode.Position) > _movementSpeed * (Time.deltaTime * 60))
             {
                 Agent.Rotation = Quaternion.Slerp(Agent.Rotation, _targetRotation, rotationFactor);
-                Agent.Position -= (Agent.Position - _itemNode.Position).normalized * _movementSpeed;
+                Agent.Position -= (Agent.Position - _itemNode.Position).normalized * _movementSpeed * (Time.deltaTime * 60);
             }
             else
             {

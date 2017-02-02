@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
 using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
+using UnityEngine;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {
@@ -8,6 +9,8 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         /// <summary>
         /// In this state, the player executes his previously assigned input
         /// </summary>
+
+        private     bool     _tileCheckDone;
 
         public TurnPhasePlayerAction(TurnManager manager, PlayerAgent player) : base(manager, player) {}
 
@@ -20,6 +23,16 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                 if (Player.WalkPath != null)
                 {
                     Player.SetState(typeof(PlayerStateWalking));
+                }
+                //this does a check to see if the player has stepped on something
+                else if (!_tileCheckDone)
+                {
+                    RadiationTile rTile = Manager.OnRadiationTile(Player.CurrentNode);
+                    if (rTile != null)
+                    {
+                        Debug.Log("Standing on Radiation Tile!");
+                    }
+                    _tileCheckDone = true;
                 }
                 //if the player has to do some other behavior, it will do so until nullified and idling again
                 //The state itself is responsible for appropriate nulling!!!
@@ -39,6 +52,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         public override void Start()
         {
             Player.SetState(typeof(PlayerStateIdle));
+            _tileCheckDone = false;
         }
 
         public override void End()

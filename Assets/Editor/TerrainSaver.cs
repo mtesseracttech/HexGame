@@ -107,7 +107,7 @@ public class TerrainSaver : MonoBehaviour
         try
         {
             bool dataFolderExists = AssetDatabase.IsValidFolder("Assets/Resources/" + SaveRootFolderName + "/data");
-            if(!dataFolderExists) AssetDatabase.CreateFolder("Assets/Resources/" + SaveRootFolderName, "data");
+            if (!dataFolderExists)  AssetDatabase.CreateFolder ("Assets/Resources/" + SaveRootFolderName,   "data");
             File.WriteAllText(Application.dataPath + "/Resources/" + SaveRootFolderName +"/Data/HexNodes.json", nodeJson);
             Debug.Log("Completed saving HexNodes.json");
         }
