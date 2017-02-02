@@ -26,17 +26,11 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
                 _rotationAccumulator = _rotationTime;
             }
             float rotationFactor = _rotationAccumulator / _rotationTime;
-<<<<<<< HEAD
 
             Agent.Rotation  = Quaternion.Slerp( Agent.Rotation, _targetRotation     , rotationFactor);
             _enemy.Rotation = Quaternion.Slerp(_enemy.Rotation, _enemyTargetRotation, rotationFactor);
 
             Debug.Log("Player Attacking " + _enemy.AgentName + "! Press SPACE to continue!");
-=======
-            Agent.Rotation = Quaternion.Slerp(Agent.Rotation, _targetRotation, rotationFactor);
-            
-         //   Debug.Log("Player Attacking " + _enemy.AgentName + "! Press SPACE to continue!");
->>>>>>> b2f5698785f7a98cae9b1dfa833827f027ff1631
 
             Agent.CombatUi.SetActive(true);
             if (Agent.CoinFlip.AttackEnds)

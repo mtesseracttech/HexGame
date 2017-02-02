@@ -167,7 +167,7 @@ namespace Assets.Scripts.GameLogic
             {
                 if (_enemies[i].IsDead())
                 {
-                    Destroy(_enemies[i].gameObject);
+                    _enemies[i].RemoveFromBoard();
                     _enemies.RemoveAt(i);
                 }
             }
