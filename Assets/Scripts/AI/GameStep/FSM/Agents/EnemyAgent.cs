@@ -30,7 +30,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             base.Start();
             Position = CurrentNode.Position;
             _EnemyStats = GetComponent<EnemyStats>();
-
+            
             //Setting up the Cache/////////////////
             _states = new Dictionary<Type, EnemyStateBase>();
             

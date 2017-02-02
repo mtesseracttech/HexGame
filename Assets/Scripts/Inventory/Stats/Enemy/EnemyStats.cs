@@ -10,11 +10,18 @@ namespace Assets.Scripts.Inventory.Stats.Enemy
         public int DefenseStats;
         public int CoinHave;
         public int DamageIsDone;
+        private bool _alive = true;
       //  public Image healthBar;
 
         void Update ()
         {
             GameOver();
+        }
+
+        public bool IsDead
+        {
+            set { _alive = value; }
+            get { return _alive; }
         }
 
         public void DoDamageCombat(int attack, int defense)
@@ -34,7 +41,7 @@ namespace Assets.Scripts.Inventory.Stats.Enemy
         {
             if (CurrentHealth <= 0)
             {
-                Destroy(gameObject);
+                _alive = false;
                 //Debug.Log("enemy died");
                 //destroy enemy
                 //add quest number i guess
