@@ -34,6 +34,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
         {
             Agent.InteractionTarget        = null;
             Agent.UpcomingInteractionState = null;
+            NPC._dialogue.EndChat = false;
         }
     }
 }

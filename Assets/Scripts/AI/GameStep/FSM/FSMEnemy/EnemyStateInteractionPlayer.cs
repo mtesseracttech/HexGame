@@ -19,6 +19,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
             {
                 
                 Agent.SetState(typeof(EnemyStateIdle));
+                Agent.CoinFlip.AttackEnds = false;
+                Agent.CoinFlip.AttackButton = false;
             }
         }
 
@@ -33,6 +35,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
             Agent.CombatUi.SetActive(false);
             Agent.InteractionTarget        = null;
             Agent.UpcomingInteractionState = null;
+            Agent.CoinFlip.AttackEnds = false;
+            Agent.CoinFlip.AttackButton = false;
         }
     }
 }

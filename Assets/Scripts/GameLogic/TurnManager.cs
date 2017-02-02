@@ -186,5 +186,10 @@ namespace Assets.Scripts.GameLogic
         {
             get { return _hexNodesManager.Pathfinder; }
         }
+
+        public int GetEnemyCount()
+        {
+            return _enemies.Count;
+        }
     }
 }
