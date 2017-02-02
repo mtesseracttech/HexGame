@@ -26,7 +26,7 @@ namespace Assets.Scripts.Rendering
             _highlights   = new List<GameObject>();
         }
 
-        public void ShowHighlight(HexNode currentNode, int maxExpansion)
+        public void ShowHighlight(HexNode currentNode, int maxExpansion, bool freeMovement)
         {
             maxExpansion += 1;
             _breadthFirst.Search(currentNode, maxExpansion);
@@ -45,8 +45,16 @@ namespace Assets.Scripts.Rendering
                     }
                     else
                     {
-                        if   (node.Expansion == 1) nodeHighlight = WalkHighlight;
-                        else                       nodeHighlight = TerrainHighlight;
+                        if (freeMovement)
+                        {
+                            nodeHighlight = WalkHighlight;
+                        }
+                        else
+                        {
+                            if   (node.Expansion == 1) nodeHighlight = WalkHighlight;
+                            else                       nodeHighlight = TerrainHighlight;
+                        }
+
                     }
                     if (nodeHighlight != null)
                     {

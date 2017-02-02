@@ -60,7 +60,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
             {
                 bool endAutoWalk = false;
                 BreadthFirst enemyScan = new BreadthFirst();
-                enemyScan.Search(Agent.CurrentNode, AISettings.PlayerScanRange);
+                enemyScan.Search(Agent.CurrentNode, Agent.HighlighterRadius + 1);
                 if (enemyScan.Done && enemyScan.Nodes != null)
                 {
                     foreach (var node in enemyScan.Nodes)

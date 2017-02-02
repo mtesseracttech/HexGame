@@ -40,7 +40,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         {
             _exitingIdle = false;
             BreadthFirst enemyScan = new BreadthFirst();
-            enemyScan.Search(Manager.GetPlayerAgent().CurrentNode, AISettings.PlayerScanRange); //Scan for enemies in given range
+            enemyScan.Search(Manager.GetPlayerAgent().CurrentNode, Manager.GetPlayerAgent().HighlighterRadius + 1); //Scan for enemies in given range
             if (enemyScan.Done && enemyScan.Nodes != null)
             {
                 HashSet<EnemyAgent> currentEnemies = Manager.GetEnemyHashSet();

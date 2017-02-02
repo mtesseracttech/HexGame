@@ -41,8 +41,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void BeginState()
         {
-            _enemyNode = Agent.InteractionTarget;
-            _enemy     = Agent.InteractionTarget.Occupant as EnemyAgent;
+            _enemyNode           = Agent.InteractionTarget;
+            _enemy               = Agent.InteractionTarget.Occupant as EnemyAgent;
             _targetRotation      = Quaternion.LookRotation(_enemyNode.Position - Agent.Position);
             _rotationAccumulator = 0;
         }
@@ -52,8 +52,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
             Agent.CombatUi.SetActive(false);
             Agent.InteractionTarget        = null;
             Agent.UpcomingInteractionState = null;
-            Agent.CoinFlip.AttackEnds = false;
-            Agent.CoinFlip.AttackButton = false;
+            Agent.CoinFlip.AttackEnds      = false;
+            Agent.CoinFlip.AttackButton    = false;
         }
     }
 }

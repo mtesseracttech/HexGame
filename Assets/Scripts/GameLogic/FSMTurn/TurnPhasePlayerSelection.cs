@@ -137,7 +137,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
             Player.InteractionTarget        = null;
             Player.UpcomingInteractionState = null;
             Player.WalkPath                 = null;
-            Player.ShowHighLight (true);
+            Player.ShowHighLight (true, Manager.GetEnemyCount() > 0 ? false : true);
         }
 
         public override void End()

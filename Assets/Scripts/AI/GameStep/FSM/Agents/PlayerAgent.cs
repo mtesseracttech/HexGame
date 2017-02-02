@@ -12,7 +12,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
     public class PlayerAgent : PlayerOccupant
     {
         //Public Variables/////////////////////////
-        public  int                                   HighlighterRadius           = 3;
+        public  int                                   HighlighterRadius           = 5;
         public  GameObject                            CombatUi;
         public  CoinFlip                              CoinFlip;
         
@@ -73,9 +73,9 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { _upcomingInteractionState = value; }
         }
 
-        public void ShowHighLight(bool show)
+        public void ShowHighLight(bool show, bool freeMovement = false)
         {
-            if (show) _properHighlighter.ShowHighlight(CurrentNode, AISettings.PlayerScanRange - 1);
+            if (show) _properHighlighter.ShowHighlight(CurrentNode, HighlighterRadius, freeMovement);
             else _properHighlighter.DestroyHighlights();
         }
 
