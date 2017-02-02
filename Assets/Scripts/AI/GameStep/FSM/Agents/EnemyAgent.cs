@@ -126,9 +126,9 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
 
         public void RemoveFromBoard()
         {
-            CurrentNode.Occupant = null;
-            CurrentNode          = null;
-            Destroy(this);
+            PrCurrentNode.Occupant = null;
+            PrCurrentNode          = null;
+            Destroy(gameObject);
         }
     }
 }

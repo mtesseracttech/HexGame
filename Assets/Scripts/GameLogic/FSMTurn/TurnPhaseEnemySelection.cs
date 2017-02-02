@@ -21,6 +21,7 @@ namespace Assets.Scripts.GameLogic.FSMTurn
             _finishedSelection                 = false;
 
             Enemy                          = Manager.GetCurrentEnemy();
+            if (Enemy.IsDead()) Manager.ChangePhase(typeof(TurnPhaseEnemyChange));
             Enemy.WalkPath                 = null;
             Enemy.InteractionTarget        = null;
             Enemy.UpcomingInteractionState = null;
