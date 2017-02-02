@@ -187,6 +187,11 @@ namespace Assets.Scripts.GameLogic
             get { return _hexNodesManager.Pathfinder; }
         }
 
+        public RadiationTile OnRadiationTile(HexNode node)
+        {
+            return _hexNodesManager.OnRadiationTile(node);
+        }
+
         public int GetEnemyCount()
         {
             return _enemies.Count;

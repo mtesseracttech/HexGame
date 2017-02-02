@@ -9,8 +9,8 @@ public class RadiationTile : MonoBehaviour
     private    HexNodesManager     _manager;
     private    HexNode             _node;
     private    GameObject          _activeParticles;
-
-	private void Start ()
+    private    Vector3             _offset             = new Vector3(0, 0.6f, 0);
+    private void Start ()
 	{
 	    _manager           = Manager.GetComponent<HexNodesManager>();
 	    _node              = _manager.ReturnClosestHexNode(transform.position);
@@ -23,13 +23,18 @@ public class RadiationTile : MonoBehaviour
     {
         if (_activeParticles == null)
         {
-            _activeParticles = Instantiate(RadiationParticles, transform.position, transform.rotation * Quaternion.Euler(-90,0,0));
-            _activeParticles.transform.parent = this.transform;
+            _activeParticles = Instantiate(RadiationParticles, transform.position + _offset, transform.rotation * Quaternion.Euler(-90,0,0));
+            _activeParticles.transform.parent = transform;
         }
     }
 
     public void HideParticles()
     {
         _activeParticles = null;
+    }
+
+    public HexNode GetNode()
+    {
+        return _node;
     }
 }

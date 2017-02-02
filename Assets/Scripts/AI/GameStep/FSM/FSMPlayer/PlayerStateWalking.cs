@@ -18,7 +18,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void Update()
         {
-            //DebugHelpers.DebugList(Agent.WalkPath, "Walk Path: ");
 
             if (_rotationAccumulator < _rotationTime)
             {
@@ -31,17 +30,13 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
             float rotationFactor = _rotationAccumulator / _rotationTime;
 
-            //Debug.Log("rotationAccumulator: " + _rotationAccumulator + " rotationFactor: " + rotationFactor);
-
             if (Vector3.Distance(Agent.Position, _targetNode.Position) > _movementSpeed * (Time.deltaTime * 60))
             {
                 Agent.Rotation = Quaternion.Slerp(Agent.Rotation, _targetRotation, rotationFactor * (Time.deltaTime * 60));
                 Agent.Position -= (Agent.Position - _targetNode.Position).normalized * _movementSpeed * (Time.deltaTime * 60);
-                Debug.Log("Moving!");
             }
             else
             {
-                Debug.Log("Done Moving!");
                 Agent.CurrentNode = _targetNode;
                 Agent.SetState(typeof(PlayerStateIdle));
             }

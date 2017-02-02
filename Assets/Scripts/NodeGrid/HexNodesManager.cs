@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.AI.Pathfinding;
 using Assets.Scripts.Saving;
+using UnityEngine.WSA;
 
 public class HexNodesManager : MonoBehaviour
 {
@@ -142,6 +143,23 @@ public class HexNodesManager : MonoBehaviour
     public void RegisterRadationTile(RadiationTile tile)
     {
         _radiationTiles.Add(tile);
+    }
+
+    public void UnRegisterRadiationTile(RadiationTile tile)
+    {
+        _radiationTiles.Remove(tile);
+    }
+
+    public RadiationTile OnRadiationTile(HexNode node)
+    {
+        foreach (var radiationTile in _radiationTiles)
+        {
+            if (radiationTile.GetNode() == node)
+            {
+                return radiationTile;
+            }
+        }
+        return null;
     }
 
 }
