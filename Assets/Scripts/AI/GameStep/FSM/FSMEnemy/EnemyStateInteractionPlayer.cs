@@ -15,6 +15,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMEnemy
         {
             Debug.Log(Agent.AgentName + " is attacking " + _player.name);
             Agent.CombatUi.SetActive(true);
+            Agent.CoinFlip.ENemyStats = Agent._EnemyStats;
             if (Agent.CoinFlip.AttackEnds)
             {
                 

@@ -51,7 +51,7 @@ public class HexNodesManager : MonoBehaviour
 		HexNode i = GetHexNode (301);
 		Debug.Log (GetHexNode (300).Occupant);
 
-		Debug.Log ("Multi building: " + GetHexNode (10).Occupant + " " + GetHexNode (11).Occupant + " " + GetHexNode (12).Occupant + " " + GetHexNode (13).Occupant + " " + GetHexNode (14).Occupant + " NOTHING " + GetHexNode (15).Occupant);
+	//	Debug.Log ("Multi building: " + GetHexNode (10).Occupant + " " + GetHexNode (11).Occupant + " " + GetHexNode (12).Occupant + " " + GetHexNode (13).Occupant + " " + GetHexNode (14).Occupant + " NOTHING " + GetHexNode (15).Occupant);
 	}
 
     public Pathfinder Pathfinder
@@ -61,7 +61,7 @@ public class HexNodesManager : MonoBehaviour
 
     public void SetNodesFromInfoContainer(HexCellInfoContainer[] infoContainers, bool cullBadConnections = false)
     {
-        Debug.Log(infoContainers);
+       // Debug.Log(infoContainers);
 
         HexNode[] nodes = new HexNode[infoContainers.Length];
         for (int i = 0; i < infoContainers.Length; i++)
