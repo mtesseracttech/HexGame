@@ -34,7 +34,7 @@ namespace Assets.Scripts.Inventory.Stats.Enemy
         {
             if (CurrentHealth <= 0)
             {
-               // Destroy(gameObject);
+                Destroy(gameObject);
                 //Debug.Log("enemy died");
                 //destroy enemy
                 //add quest number i guess
