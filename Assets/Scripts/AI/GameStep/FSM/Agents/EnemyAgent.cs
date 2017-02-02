@@ -19,7 +19,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private HexNode                               _targetNode;
         private HexNode                               _interactionTarget;
         private List<HexNode>                         _walkPath;
-        private bool                                  _alive                     = true;
         private Type                                  _upcomingInteractionState;
         public Sprite                                  EnemyBattleImage;
         private EnemyStats                            EnemyStats;
@@ -30,7 +29,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             base.Start();
             Position = CurrentNode.Position;
             _EnemyStats = GetComponent<EnemyStats>();
-            
             //Setting up the Cache/////////////////
             _states = new Dictionary<Type, EnemyStateBase>();
             
@@ -78,7 +76,6 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             set { _upcomingInteractionState = value; }
         }
 
-
         //Navigation Related///////////////////////
         public HexNode CurrentNode
         {
@@ -124,7 +121,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         //Interaction Related//////////////////////////////
         public bool IsDead()
         {
-            return !_alive;
+            return EnemyStats.IsDead;
         }
 
         public void RemoveFromBoard()
