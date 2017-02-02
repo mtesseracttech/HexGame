@@ -24,6 +24,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         private List<HexNode>                         _walkPath;
         private ProperHighlighter                     _properHighlighter;
         private Type                                  _upcomingInteractionState;
+        private Animator                              _animator;
 
         public override void Start()
         {
@@ -31,6 +32,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
             base.Start();
             Position = CurrentNode.Position;
             _properHighlighter = GetComponent <ProperHighlighter>();
+            _animator = GetComponentInChildren<Animator>();
 
             //Setting up the Cache/////////////////
             _states = new Dictionary<Type, PlayerStateBase>();
@@ -113,6 +115,11 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         {
             get { return  transform.rotation; }
             set { transform.rotation = value; }
+        }
+
+        public void SetWalkAnimation(bool walk)
+        {
+            _animator.SetBool("IsWalking", walk);
         }
 
     }

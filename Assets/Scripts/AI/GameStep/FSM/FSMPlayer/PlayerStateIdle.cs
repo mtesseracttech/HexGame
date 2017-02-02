@@ -13,7 +13,7 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void BeginState()
         {
-
+            Agent.SetWalkAnimation(false);
         }
 
         public override void EndState()
