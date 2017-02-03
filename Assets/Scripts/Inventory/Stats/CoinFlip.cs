@@ -70,6 +70,15 @@ namespace Assets.Scripts.Inventory.Stats
             {
                 coinSlot[i].sprite = defaultIcon;
             }
+            //defining player stats for reseting
+            _defAttackAmountPlayer = PlayerStats.AttackStats;
+            _defDefenseAmountPlayer = PlayerStats.DefenseStats;
+            _defCoinAmountPlayer = PlayerStats.CoinHave;
+
+            //defining player stats for reseting
+            _defAttackAmountEnemy = EnemyStats.AttackStats;
+            _defDefenseAmountEnemy = EnemyStats.DefenseStats;
+            _defCoinAmountEnemy = EnemyStats.CoinHave;
         }
 
         public bool AttackButton
@@ -88,15 +97,7 @@ namespace Assets.Scripts.Inventory.Stats
 
         private void Update()
         {
-            //defining player stats for reseting
-            _defAttackAmountPlayer  = PlayerStats.AttackStats;
-            _defDefenseAmountPlayer = PlayerStats.DefenseStats;
-            _defCoinAmountPlayer    = PlayerStats.CoinHave;
-
-            //defining player stats for reseting
-            _defAttackAmountEnemy   = EnemyStats.AttackStats;
-            _defDefenseAmountEnemy  = EnemyStats.DefenseStats;
-            _defCoinAmountEnemy     = EnemyStats.CoinHave;
+           
 
             /**/
             RefreshStats();

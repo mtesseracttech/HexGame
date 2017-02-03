@@ -10,7 +10,7 @@
         <answers>
             <answer tonode = "2"><text>I just wnna talk.</text></answer>
 			<answer tonode = "0"><text>Not really. BYE</text><dialend>true</dialend></answer>
-			<answer tonode = "8" needquestvalue = "3"><text>YES</text></answer>
+			<answer tonode = "7" needquestvalue = "3"><text>YES</text></answer>
         </answers>
     </node>
     <node>
@@ -41,13 +41,13 @@
 	<node>
         <npctext>BYE</npctext>
         <answers>
-             <answer tonode = "0"><text>BYE</text><dialend>true</dialend></ans
+             <answer tonode = "0"><text>BYE</text><dialend>true</dialend></answer>
         </answers>
     </node>
 	 <node>
         <npctext>Take ElementR and you get your face back. Oh and Chernobyl Power Plant exploded</npctext>
         <answers>
-            <answer tonode = "0" needquestvalue = "3" questvalue = "4"  win = "true" > <text>WHAT? Explosion.Eh. ok.</text><dialend>true</dialend><questname>Quest1</questname></answer>
+            <answer tonode = "0" needquestvalue = "3" questvalue = "3"  win = "true" > <text>WHAT? Explosion.Eh. ok.</text><dialend>true</dialend><questname>Quest1</questname></answer>
 			<answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
         </answers>
     </node>

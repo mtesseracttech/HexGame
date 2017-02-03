@@ -18,6 +18,7 @@ namespace Assets.Scripts.Inventory
         [SerializeField]
         int _slotAmount;
 
+        public particleEnable _Particle;
         public List<Item> items = new List<Item>();
         public List<GameObject> slots = new List<GameObject>();
 
@@ -89,7 +90,7 @@ namespace Assets.Scripts.Inventory
         public void RemoveItemFromInventory(int itemId, int amountToRemove)
         {
             ItemInfo data;
-
+            _Particle.SpawnParticle(itemId,3f);
             for (int i = 0; i < _slotAmount; i++)
             {
                 if (items[i].ID == itemId)

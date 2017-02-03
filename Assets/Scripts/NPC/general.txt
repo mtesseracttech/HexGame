@@ -12,70 +12,44 @@
         <answers>
             <answer tonode = "2"><text>That is why I AM here! Do you know how to get to the reactor?</text></answer>
 			 <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
-			<answer tonode = "11"><text>Are you the one who tries to shoot random people?</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>Ehm…Well.not  At least not since we are shooting at everything that passes in or out of the reactor</npctext>
+        <npctext>Yeah of course. It's around the corner</npctext>
         <answers>
-			<answer tonode = "3"><text>Why are you shooting in the first place?</text></answer>
-			<answer tonode = "12"><text>Could you stop shooting for me to pass through?</text></answer>
+			<answer tonode = "3"><text>Ok cool. But which way?</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>Yeah.well….we are securing the objective…making sure all parameters are in our favor, you know? A good plan needs some time to be set up!</npctext>
+        <npctext>Around the corner!!</npctext>
         <answers>
-            <answer tonode = "4"><text>What if I would help you?</text></answer>
+            <answer tonode = "4"><text>What corner?</text></answer>
+			 <answer tonode = "0"><text>You annoy me.Bye</text><dialend>true</dialend></answer>
         </answers>
     </node>
     <node>
-        <npctext>Another pair of arms might be beneficial to secure the objective...we never know how many pairs they have.</npctext>
+        <npctext>Here behind you.</npctext>
         <answers>
-              <answer tonode = "5"><text>.....</text></answer>
+              <answer tonode = "5"><text>So I need to go back?</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>Yeah..I think we can make it if you stick with us through this.</npctext>
+        <npctext>Yep. But not that far away just around the corner!</npctext>
         <answers>
             <answer tonode = "6"><text>.....</text></answer>
         </answers>
     </node>
 	<node>
-        <npctext>If you are ready, I can give the order for assault!</npctext>
+        <npctext>Did you get it?</npctext>
         <answers>
-            <answer tonode = "7" needquestvalue = "2"><text>I am ready, give the order</text><questname>Quest1</questname></answer>
-			 <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
+            <answer tonode = "7" needquestvalue = "2"><text>Yes. I will find it</text><questname>Quest1</questname></answer>
+			 <answer tonode = "0"><text>No you annoy me</text><dialend>true</dialend></answer>
         </answers>
     </node>
 	<node>
-        <npctext>Za Rodinu!</npctext>
+        <npctext>Ok. Good luck.</npctext>
         <answers>
-            <answer tonode ="0" needquestvalue = "2" questvalue = "3" ><text>Na zdarovja</text><dialend>true</dialend><questname>Quest1</questname></answer>
-			 <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
-        </answers>
-    </node>
-	  <node>
-        <npctext>You have to trigger shit bruh</npctext>
-        <answers>
-            <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
-        </answers>
-    </node>
-	<node>
-        <npctext>Just call me Officer, leader of the Chernobyl Extermination Squad!Commissioned by Gorbachev in person, no big deal, though</npctext>
-		<answers>
-            <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
-        </answers>
-    </node>
-	<node>
-        <npctext>I warned you! I did not have to!</npctext>
-        <answers>
-            <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
-        </answers>
-    </node>
-	<node>
-        <npctext>That would kina defeat the purpose of us doing it in the first place, wouldn’t i?</npctext>
-        <answers>
-            <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
+            <answer tonode ="0" needquestvalue = "2" questvalue = "3" ><text>Bye</text><dialend>true</dialend><questname>Quest1</questname></answer>
         </answers>
     </node>
 </dialogue>
