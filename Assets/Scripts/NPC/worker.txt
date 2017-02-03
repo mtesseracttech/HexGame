@@ -2,8 +2,10 @@
 	<node>
         <npctext>Oh your face is gone!!!</npctext>
         <answers>
-            <answer tonode = "1"><text>I know. Can you help me find it?</text></answer>
-			<answer tonode = "9" needquestvalue = "4"><text>Can you remind me where to go again?</text><questname>Quest1</questname></answer>
+            <answer tonode = "1" needquestvalue = "0"><text>I know. Can you help me find it?</text></answer>
+			<answer tonode = "9" needquestvalue = "1"><text>Can you remind me where to go again?</text><questname>Quest1</questname></answer>
+			<answer tonode = "13" needquestvalue = "2"><text>Where should I go again?</text><questname>Quest1</questname></answer>
+			<answer tonode = "14" needquestvalue = "3"><text>I am Lost!!!!!</text><questname>Quest1</questname></answer>
         </answers>
     </node>
     <node>
@@ -49,6 +51,7 @@
         <npctext>Just move North and you will find friends to help you out.</npctext>
         <answers>
              <answer tonode ="0" needquestvalue = "0" questvalue = "1" ><text>Thanks.I will do that.</text><dialend>true</dialend><questname>Quest1</questname></answer>
+			 <answer tonode = "0"><text>No.I am my own leader.</text><dialend>true</dialend></answer>
         </answers>
     </node>
 	  <node>
@@ -74,6 +77,18 @@
 		<answers>
             <answer tonode="0"><text>I will find a way by myself.</text><dialend>true</dialend></answer>
 			<answer tonode="3"><text>.....</text></answer>
+        </answers>
+    </node>
+	<node>
+         <npctext>Find the GasMak guy. Kepp right.</npctext>
+		<answers>
+            <answer tonode="0"><text>OH. OK</text><dialend>true</dialend></answer>
+        </answers>
+    </node>
+	<node>
+         <npctext>Find the GREEN guy. He is near the Power Plant</npctext>
+		<answers>
+            <answer tonode="0"><text>Green Radiation.</text><dialend>true</dialend></answer>
         </answers>
     </node>
 </dialogue>
