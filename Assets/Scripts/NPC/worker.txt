@@ -1,55 +1,54 @@
 <dialogue>
 	<node>
-        <npctext>O Hi mark</npctext>
+        <npctext>Oh your face is gone!!!</npctext>
         <answers>
-            <answer tonode = "1"><text>NADA</text></answer>
-						<answer tonode = "9" needquestvalue = "1"><text>Can you remind me what to do for the quest?</text><questname>Quest1</questname></answer>
-						<answer tonode = "8" needquestvalue = "2"><text>I did the quest</text><questname>Quest1</questname></answer>
+            <answer tonode = "1"><text>I know. Can you help me find it?</text></answer>
+			<answer tonode = "9" needquestvalue = "1"><text>Can you remind me where to go again?</text><questname>Quest1</questname></answer>
         </answers>
     </node>
     <node>
-        <npctext>What the gell is wrong with your skin??</npctext>
+        <npctext>First you have to here a story about Chernobyl. Are you up for that?</npctext>
         <answers>
-            <answer tonode = "2"><text>That is why I AM here! Do you know how to get to the reactor?</text></answer>
-						 <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
-						<answer tonode = "11"><text>Are you the one who tries to shoot random people?</text></answer>
+            <answer tonode = "2"><text>Yeah. Why not I guess.</text></answer>
+			<answer tonode = "0"><text>Just Waste of time.</text><dialend>true</dialend></answer>
+			<answer tonode = "11"><text>What are you wearing?</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>Ehm…Well.not  At least not since we are shooting at everything that passes in or out of the reactor</npctext>
+        <npctext>Yoy know we are in Ukraine?</npctext>
         <answers>
-			<answer tonode = "3"><text>Why are you shooting in the first place?</text></answer>
-			<answer tonode = "12"><text>Could you stop shooting for me to pass through?</text></answer>
+			<answer tonode = "3"><text>YES. I WORK HERE!></text></answer>
+			<answer tonode = "12"><text>Just waste of time.</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>Yeah.well….we are securing the objective…making sure all parameters are in our favor, you know? A good plan needs some time to be set up!</npctext>
+        <npctext>This Power Plant was built in 1972. How long have you worked here?</npctext>
         <answers>
-            <answer tonode = "4"><text>What if I would help you?</text></answer>
+            <answer tonode = "4"><text>4 years.</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>Another pair of arms might be beneficial to secure the objective...we never know how many pairs they have.</npctext>
+        <npctext>Oh cool. I have lived here my entire life.</npctext>
         <answers>
-              <answer tonode = "5"><text>.....</text></answer>
+              <answer tonode = "5"><text>WHAT?? O.o</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>Yeah..I think we can make it if you stick with us through this.</npctext>
+        <npctext>You will be fine my child. Just listen carefully.</npctext>
         <answers>
-            <answer tonode = "6"><text>.....</text></answer>
+            <answer tonode = "6"><text>OK</text></answer>
         </answers>
     </node>
 	<node>
-        <npctext>If you are ready, I can give the order for assault!</npctext>
+        <npctext>There are bears, rats, rabbits and one strange thing somewhere in the area.</npctext>
         <answers>
-            <answer tonode = "7" needquestvalue = "0"><text>I am ready, give the order</text><questname>Quest1</questname></answer>
+             <answer tonode = "7"><text>OH. Thanks. I will be carefull then.</text></answer>
         </answers>
     </node>
 	<node>
-        <npctext>Za Rodinu!</npctext>
+        <npctext>Just move North and you will find friends to help you out.</npctext>
         <answers>
-            <answer tonode ="0" needquestvalue = "0" questvalue = "1" ><text>Na zdarovja</text><dialend>true</dialend><questname>Quest1</questname></answer>
+            <answer tonode ="0" needquestvalue = "0" questvalue = "1" ><text>Thanks I will do my best!</text><dialend>true</dialend><questname>Quest1</questname></answer>
         </answers>
     </node>
 	 <node>
@@ -71,15 +70,16 @@
         </answers>
     </node>
 	<node>
-        <npctext>I warned you! I did not have to!</npctext>
+        <npctext>Oh I am Walking to Hospital.</npctext>
         <answers>
-            <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
+            <answer tonode="3"><text>.....</text></answer>
         </answers>
     </node>
 	<node>
-        <npctext>That would kina defeat the purpose of us doing it in the first place, wouldn’t i?</npctext>
-        <answers>
-            <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
+         <npctext>Your own choice my child.</npctext>
+		<answers>
+            <answer tonode="0"><text>I will find a way by myself.</text><dialend>true</dialend></answer>
+			<answer tonode="3"><text>.....</text></answer>
         </answers>
     </node>
 </dialogue>

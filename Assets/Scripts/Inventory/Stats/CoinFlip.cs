@@ -63,6 +63,17 @@ namespace Assets.Scripts.Inventory.Stats
 
         private void Start()
         {
+            //defining player stats for reseting
+            _defAttackAmountPlayer = PLayerStats.AttackStats;
+            _defDefenseAmountPlayer = PLayerStats.DefenseStats;
+            _defCoinAmountPlayer = PLayerStats.CoinHave;
+
+            //defining player stats for reseting
+            _defAttackAmountEnemy = ENemyStats.AttackStats;
+            _defDefenseAmountEnemy = ENemyStats.DefenseStats;
+            _defCoinAmountEnemy = ENemyStats.CoinHave;
+            /**/
+
             //loop through how many slots we have.
             //then check how many coins we have and then fill the slots with default image
             //when flipped update the slot image with attack or defense
@@ -97,16 +108,7 @@ namespace Assets.Scripts.Inventory.Stats
             _attackTextEnemy.text =  "Attack : " + ENemyStats.AttackStats;
             _defenceTextEnemy.text = "Defence: " + ENemyStats.DefenseStats;
 
-            //defining player stats for reseting
-            _defAttackAmountPlayer = PLayerStats.AttackStats;
-            _defDefenseAmountPlayer = PLayerStats.DefenseStats;
-            _defCoinAmountPlayer = PLayerStats.CoinHave;
-
-            //defining player stats for reseting
-            _defAttackAmountEnemy = ENemyStats.AttackStats;
-            _defDefenseAmountEnemy = ENemyStats.DefenseStats;
-            _defCoinAmountEnemy = ENemyStats.CoinHave;
-            /**/
+            
         }
 
        public void FlipCoins()
@@ -196,8 +198,7 @@ namespace Assets.Scripts.Inventory.Stats
 
 
             StartCoroutine(DoDamage());
-            RefreshStats();
-            
+
 
         }
 
@@ -211,9 +212,12 @@ namespace Assets.Scripts.Inventory.Stats
             RefreshStats();
 
             yield return new WaitForSeconds(1f);
+            ResetValues();
+
             _buttonPressed = true;
             _attackEnds = true;
             attackButton.SetActive(true);
+            
 
         }
 
