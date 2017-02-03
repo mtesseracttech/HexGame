@@ -1,6 +1,8 @@
-﻿using Assets.Scripts.AI.GameStep.FSM.Agents;
+﻿using System;
+using Assets.Scripts.AI.GameStep.FSM.Agents;
 using Assets.Scripts.AI.GameStep.FSM.FSMPlayer;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Assets.Scripts.GameLogic.FSMTurn
 {
@@ -11,8 +13,12 @@ namespace Assets.Scripts.GameLogic.FSMTurn
         /// </summary>
 
         private     bool     _tileCheckDone;
+        private     Random   _rand;
 
-        public TurnPhasePlayerAction(TurnManager manager, PlayerAgent player) : base(manager, player) {}
+        public TurnPhasePlayerAction(TurnManager manager, PlayerAgent player) : base(manager, player)
+        {
+            _rand = new Random();
+        }
 
         public override void Update()
         {
@@ -31,7 +37,11 @@ namespace Assets.Scripts.GameLogic.FSMTurn
                     if (rTile != null)
                     {
                         rTile.ShowParticles();
-                        Debug.Log("Standing on Radiation Tile!");
+                        int radDamage = _rand.Next(1, 10);
+                        Debug.Log(Player.CoinFlip.PlayerStats.MaximumHealth);
+                        Player.CoinFlip.PlayerStats.Radiation = radDamage;
+                        Debug.Log("Radiation Damaged Max Health for " + radDamage + " points.");
+                        Debug.Log(Player.CoinFlip.PlayerStats.MaximumHealth);
                     }
                     _tileCheckDone = true;
                 }

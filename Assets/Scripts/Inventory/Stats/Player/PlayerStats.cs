@@ -76,7 +76,8 @@ namespace Assets.Scripts.Inventory.Stats.Player
         {
             if (_currentHealth > _maximumHealth)
             {
-                _maximumHealth = _currentHealth;
+                //_maximumHealth = _currentHealth;
+                _currentHealth = _maximumHealth;
             }
         }
 
@@ -85,6 +86,7 @@ namespace Assets.Scripts.Inventory.Stats.Player
             if (_radiation > 0)
             {
                 _maximumHealth = _maximumHealth - _radiation;
+                _radiation = 0;
             }
         }
 
@@ -95,7 +97,7 @@ namespace Assets.Scripts.Inventory.Stats.Player
                 Debug.Log("damage done to player");
                 _damageIsDone = Mathf.Abs(defense - attack);
                 _currentHealth -= _damageIsDone;
-                HealthBar.fillAmount -= HealthBar.fillAmount / _currentHealth;
+                HealthBar.fillAmount = CurrentHealth / MaximumHealth;
             }
         
         }
