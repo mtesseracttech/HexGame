@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.NPC
@@ -30,11 +31,11 @@ namespace Assets.Scripts.NPC
         [Header("Answer position")]
         public int PositionX;
         public int PositionY;
-
+        
         void Start()
         {
             DialogXmlReader = DialogXmLreader.Load(Ta);
-            PlayerPrefs.DeleteAll();
+           
             //ShowDialogue = false;
             DialogueHud.SetActive(false);
         }
@@ -43,6 +44,11 @@ namespace Assets.Scripts.NPC
         {
             UpdateAnswers();
             CreateDialogueCanvas();
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                Debug.Log("DeletedPlaye prefs");
+                PlayerPrefs.DeleteAll();
+            }
         }
 
         private void UpdateAnswers()
@@ -117,9 +123,9 @@ namespace Assets.Scripts.NPC
                             //play animation of fading back
 
                         }
-                        if (Answers[i].RewardGold > 0)
+                        if (Answers[i].Win)
                         {
-                            // Character.Gold += PlayerAnswer[i].RewardGold;
+                            SceneManager.LoadScene(3);
                         }
                         CurrentNode = Answers[i].NextNode;
                   

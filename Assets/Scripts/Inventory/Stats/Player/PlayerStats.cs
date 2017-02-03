@@ -1,17 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Inventory.Stats.Player
 {
     public class PlayerStats : MonoBehaviour
     {
-        //MaxHealth
-        //currentHealth
-        //RadiationEffecct (decreasin max health)
-        //Attack we make
-        //Defense we use
-        //coins(attak and defense)
-        //Damage
         [SerializeField]
         private int _maximumHealth;
         [SerializeField]
@@ -29,9 +23,16 @@ namespace Assets.Scripts.Inventory.Stats.Player
 
         public Image HealthBar;
 
+        private void Start()
+        {
+            _maximumHealth = _currentHealth;
+        }
+
         void Update()
         {
             GameOver();
+            ReduceMaxHealth();
+            SetMaxHealth();
         }
 
 
@@ -71,12 +72,19 @@ namespace Assets.Scripts.Inventory.Stats.Player
             get { return _maximumHealth; }
         }
 
+        private void SetMaxHealth()
+        {
+            if (_currentHealth > _maximumHealth)
+            {
+                _maximumHealth = _currentHealth;
+            }
+        }
 
-        public void ReduceMaxHealth()
+        private void ReduceMaxHealth()
         {
             if (_radiation > 0)
             {
-                _maximumHealth -= _radiation;
+                _maximumHealth = _maximumHealth - _radiation;
             }
         }
 
@@ -96,7 +104,7 @@ namespace Assets.Scripts.Inventory.Stats.Player
         {
             if (_currentHealth <= 0)
             {
-                Debug.Log("gameOVer");
+                SceneManager.LoadScene(4);
             }
         }
     }
