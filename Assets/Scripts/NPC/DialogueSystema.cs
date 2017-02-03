@@ -44,11 +44,7 @@ namespace Assets.Scripts.NPC
         {
             UpdateAnswers();
             CreateDialogueCanvas();
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                Debug.Log("DeletedPlaye prefs");
-                PlayerPrefs.DeleteAll();
-            }
+            
         }
 
         private void UpdateAnswers()
