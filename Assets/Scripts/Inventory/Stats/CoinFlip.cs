@@ -223,26 +223,27 @@ namespace Assets.Scripts.Inventory.Stats
             _buttonPressed = false;
             //-----------------------------------------------------------//
             //                          PLAYER                          //
-            _healthText.text = "Health : " + PlayerStats.CurrentHealth;
-            _coins.text =      "Coins  : " + PlayerStats.CoinHave;
-            _damageDone.text = "DamageDone: " + PlayerStats.DamageIsDone;
+            _healthText.text      = "Health : "    + PlayerStats.CurrentHealth;
+            _coins.text           = "Coins  : "    + PlayerStats.CoinHave;
+            _damageDone.text      = "DamageDone: " + PlayerStats.DamageIsDone;
 
             //-----------------------------------------------------------//
             //                         ENEMY                            //
-            _healthTextEnemy.text = "Health: " + EnemyStats.CurrentHealth;
-            _coinsEnemy.text = "Coins: " + EnemyStats.CoinHave;
+            _healthTextEnemy.text = "Health: "     + EnemyStats.CurrentHealth;
+            _coinsEnemy.text      = "Coins: "      + EnemyStats.CoinHave;
             _damageDoneEnemy.text = "DamageDone: " + EnemyStats.DamageIsDone;
         }
 
         void ResetValues()
         {
             //-----------------------------------------------------------//
-            //                          PLAYER                          //
+            //                          PLAYER                           //
+            Debug.Log(PlayerStats);
             PlayerStats.CoinHave     = _defCoinAmountPlayer;
             PlayerStats.AttackStats  = _defAttackAmountPlayer;
             PlayerStats.DefenseStats = _defDefenseAmountPlayer;
-            _attackCoinsPlayer = 0;
-            _defenceCoinsPlayer = 0;
+            _attackCoinsPlayer       = 0;
+            _defenceCoinsPlayer      = 0;
 
             //-----------------------------------------------------------//
             //                         ENEMY                            //
