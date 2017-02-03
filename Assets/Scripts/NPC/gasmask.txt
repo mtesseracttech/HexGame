@@ -1,78 +1,60 @@
 <dialogue>
 	<node>
-        <npctext>I NEED AIR> HELP ME? </npctext>
+        <npctext>Have you seen the animals running here?</npctext>
         <answers>
-            <answer tonode = "1"><text>you suck</text></answer>
-			<answer tonode = "9" needquestvalue = "2"><text>Can you remind me what to do for the quest?</text><questname>Quest1</questname></answer>
+            <answer tonode = "1"><text>I know it is scary.</text></answer>
+			<answer tonode = "8" needquestvalue = "2"><text>Can you help me to find others?</text><questname>Quest1</questname></answer>
         </answers>
     </node>
     <node>
-        <npctext>What the gell is wrong with your skin??</npctext>
+        <npctext>YEP. I hope you are strong enough.</npctext>
         <answers>
-            <answer tonode = "2"><text>That is why I AM here! Do you know how to get to the reactor?</text></answer>
-			 <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
-			<answer tonode = "11"><text>Are you the one who tries to shoot random people?</text></answer>
+            <answer tonode = "2"><text>I can fight them but i heard about this mutant with 4 arms.</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>Ehm…Well.not  At least not since we are shooting at everything that passes in or out of the reactor</npctext>
+        <npctext>Yes. He is defending the Power Plant. Find as much pick ups as possible to defeat him.</npctext>
         <answers>
-			<answer tonode = "3"><text>Why are you shooting in the first place?</text></answer>
-			<answer tonode = "12"><text>Could you stop shooting for me to pass through?</text></answer>
+			<answer tonode = "3"><text>Oh. I need to fight mutant before managing to see grenny?</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>Yeah.well….we are securing the objective…making sure all parameters are in our favor, you know? A good plan needs some time to be set up!</npctext>
+        <npctext>YES.</npctext>
         <answers>
-            <answer tonode = "4"><text>What if I would help you?</text></answer>
+            <answer tonode = "0"><text>Oh ok thanks then.</text><dialend>true</dialend></answer>
+			<answer tonode = "4"><text>Have you heard about the ELEMENTR?</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>Another pair of arms might be beneficial to secure the objective...we never know how many pairs they have.</npctext>
+        <npctext>YES. Indeed i did. It will make you young again </npctext>
         <answers>
-              <answer tonode = "5"><text>.....</text></answer>
+              <answer tonode = "5"><text>What?</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>Yeah..I think we can make it if you stick with us through this.</npctext>
+        <npctext>Yes. Just talk with all npc they will help you find it.</npctext>
         <answers>
-            <answer tonode = "6"><text>.....</text></answer>
+            <answer tonode = "6"><text>That actually makes sense.</text></answer>
         </answers>
     </node>
 	<node>
-        <npctext>If you are ready, I can give the order for assault!</npctext>
+        <npctext>Good luck in your journey</npctext>
         <answers>
-            <answer tonode = "7" needquestvalue = "1"><text>I am ready, give the order</text><questname>Quest1</questname></answer>
+            <answer tonode = "7" needquestvalue = "1"><text>Cold you please give more info?</text><questname>Quest1</questname></answer>
+			 <answer tonode="0"><text>Yeah.Bye</text><dialend>true</dialend></answer>
         </answers>
     </node>
 	<node>
-        <npctext>Za Rodinu!</npctext>
+        <npctext>OK. Fin General he is in the north.</npctext>
         <answers>
-            <answer tonode ="0" needquestvalue = "1" questvalue = "2" ><text>Na zdarovja</text><dialend>true</dialend><questname>Quest1</questname></answer>
+            <answer tonode ="0" needquestvalue = "1" questvalue = "2" ><text>Thank you. verry nice of you.</text><dialend>true</dialend><questname>Quest1</questname></answer>
+			 <answer tonode="0"><text>North? whaat is that?</text><dialend>true</dialend></answer>
         </answers>
     </node>
 	  <node>
-        <npctext>You have to trigger shit bruh</npctext>
+        <npctext>GasMaks is in the north and keep searching.</npctext>
         <answers>
             <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
-        </answers>
-    </node>
-	<node>
-        <npctext>Just call me Officer, leader of the Chernobyl Extermination Squad!Commissioned by Gorbachev in person, no big deal, though</npctext>
-		<answers>
-            <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
-        </answers>
-    </node>
-	<node>
-        <npctext>I warned you! I did not have to!</npctext>
-        <answers>
-            <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
-        </answers>
-    </node>
-	<node>
-        <npctext>That would kina defeat the purpose of us doing it in the first place, wouldn’t i?</npctext>
-        <answers>
-            <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
         </answers>
     </node>
 </dialogue>

@@ -1,54 +1,54 @@
 <dialogue>
 	<node>
-        <npctext>0</npctext>
+        <npctext>WOW> Your Face!</npctext>
         <answers>
-            <answer tonode = "1"><text>I know. Can you help me find it?</text></answer>
-			<answer tonode = "9" needquestvalue = "4"><text>Can you remind me where to go again?</text><questname>Quest1</questname></answer>
+            <answer tonode = "1"><text>Thanks. I know I am fabulous.</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>1</npctext>
+        <npctext>So You are here to find out what happened?</npctext>
         <answers>
-            <answer tonode = "2"><text>Yeah. Why not I guess.</text></answer>
-			<answer tonode = "0"><text>Just Waste of time.</text><dialend>true</dialend></answer>
-			<answer tonode = "11"><text>What are you wearing?</text></answer>
+            <answer tonode = "2"><text>I just wnna talk.</text></answer>
+			<answer tonode = "0"><text>Not really. BYE</text><dialend>true</dialend></answer>
+			<answer tonode = "8" needquestvalue = "3"><text>YES</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>2</npctext>
+        <npctext>OK. Lets talk.</npctext>
         <answers>
-			<answer tonode = "3"><text>YES. I WORK HERE!></text></answer>
+			<answer tonode = "3"><text>I can't find NPC to talk to.></text></answer>
 			<answer tonode = "12"><text>Just waste of time.</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>3</npctext>
+        <npctext>You have 4 of us.</npctext>
         <answers>
-            <answer tonode = "4"><text>4 years.</text></answer>
+            <answer tonode = "4"><text>Where?</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>4</npctext>
+        <npctext>You have a worker at the begging of level.General in the NorthWest and GasMask in NorthEast. </npctext>
         <answers>
-              <answer tonode = "5"><text>WHAT?? O.o</text></answer>
+              <answer tonode = "5"><text>OH> Thanks.</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>5</npctext>
+        <npctext>YOur WElcome. Is there anything you need?</npctext>
         <answers>
-            <answer tonode = "6"><text>OK</text></answer>
+            <answer tonode = "6"><text>NO.</text></answer>
         </answers>
     </node>
 	<node>
-        <npctext>6</npctext>
+        <npctext>BYE</npctext>
         <answers>
-             <answer tonode = "7"><text>OH. Thanks. I will be carefull then.</text></answer>
+             <answer tonode = "0"><text>BYE</text><dialend>true</dialend></ans
         </answers>
     </node>
 	 <node>
-        <npctext>8</npctext>
+        <npctext>Take ElementR and you get your face back. Oh and Chernobyl Power Plant exploded</npctext>
         <answers>
-            <answer tonode = "0" needquestvalue = "3" questvalue = "4"  win = "true" > <text>Going to jerk off now</text><dialend>true</dialend><questname>Quest1</questname></answer>
+            <answer tonode = "0" needquestvalue = "3" questvalue = "4"  win = "true" > <text>WHAT? Explosion.Eh. ok.</text><dialend>true</dialend><questname>Quest1</questname></answer>
+			<answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
         </answers>
     </node>
 	  <node>
@@ -66,7 +66,7 @@
 	<node>
         <npctext>11</npctext>
         <answers>
-            <answer tonode="3"><text>.....</text></answer>
+           <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
         </answers>
     </node>
 	<node>

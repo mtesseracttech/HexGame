@@ -44,12 +44,14 @@
         <npctext>If you are ready, I can give the order for assault!</npctext>
         <answers>
             <answer tonode = "7" needquestvalue = "2"><text>I am ready, give the order</text><questname>Quest1</questname></answer>
+			 <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
         </answers>
     </node>
 	<node>
         <npctext>Za Rodinu!</npctext>
         <answers>
             <answer tonode ="0" needquestvalue = "2" questvalue = "3" ><text>Na zdarovja</text><dialend>true</dialend><questname>Quest1</questname></answer>
+			 <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
         </answers>
     </node>
 	  <node>
