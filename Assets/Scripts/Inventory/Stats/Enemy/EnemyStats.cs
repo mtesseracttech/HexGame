@@ -28,11 +28,11 @@ namespace Assets.Scripts.Inventory.Stats.Enemy
         {
             if (attack > defense)
             {
-              //  Debug.Log("damage done to enemy");
+                //Debug.Log("damage done to enemy");
                 DamageIsDone = Mathf.Abs(defense - attack);
                 CurrentHealth -= DamageIsDone;
-              //  Debug.Log("defense " + defense + "-"+"attack"+attack);
-               // healthBar.fillAmount -= healthBar.fillAmount/ CurrentHealth;
+                //Debug.Log("defense " + defense + "-"+"attack"+attack);
+                //healthBar.fillAmount -= healthBar.fillAmount/ CurrentHealth;
                 //Debug.Log(healthBar.fillAmount);
             }
         }
@@ -41,6 +41,7 @@ namespace Assets.Scripts.Inventory.Stats.Enemy
         {
             if (CurrentHealth <= 0)
             {
+                CurrentHealth = 0;
                 _dead = true;
                 //Debug.Log("enemy died");
                 //destroy enemy

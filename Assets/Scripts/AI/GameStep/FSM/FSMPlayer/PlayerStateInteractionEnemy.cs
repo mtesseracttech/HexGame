@@ -27,6 +27,8 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
             }
             float rotationFactor = _rotationAccumulator / _rotationTime;
 
+            _enemy.CoinFlip.EnemyStats = _enemy._EnemyStats;
+
             Agent.Rotation  = Quaternion.Slerp( Agent.Rotation, _targetRotation     , rotationFactor);
             _enemy.Rotation = Quaternion.Slerp(_enemy.Rotation, _enemyTargetRotation, rotationFactor);
 
@@ -44,11 +46,17 @@ namespace Assets.Scripts.AI.GameStep.FSM.FSMPlayer
 
         public override void BeginState()
         {
+
             _enemyNode           = Agent.InteractionTarget;
             _enemy               = Agent.InteractionTarget.Occupant as EnemyAgent;
             _targetRotation      = Quaternion.LookRotation(_enemyNode.Position - Agent.Position);
             _enemyTargetRotation = Quaternion.LookRotation(Agent.Position - _enemyNode.Position);
             _rotationAccumulator = 0;
+
+            if (_enemy != null)
+            {
+                _enemy.CoinFlip._enemyImage.sprite = _enemy.EnemyBattleImage;
+            }
         }
 
         public override void EndState()

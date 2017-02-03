@@ -78,7 +78,6 @@ namespace Assets.Scripts.GameLogic.FSMTurn
 
         public override void End()
         {
-            Debug.ClearDeveloperConsole();
             Manager.SetFirstEnemy();
         }
     }

@@ -57,7 +57,7 @@ namespace Assets.Scripts.Inventory.Stats
         private int _defCoinAmountEnemy;
 
        
-        public EnemyStats ENemyStats;//get enemie that we attack
+        public EnemyStats EnemyStats;//get enemie that we attack
         private bool _attackEnds;
         
 
@@ -94,8 +94,8 @@ namespace Assets.Scripts.Inventory.Stats
             _attackText.text = "Attack   : " + PLayerStats.AttackStats;
             _defenceText.text = "Defence: " + PLayerStats.DefenseStats;
 
-            _attackTextEnemy.text =  "Attack : " + ENemyStats.AttackStats;
-            _defenceTextEnemy.text = "Defence: " + ENemyStats.DefenseStats;
+            _attackTextEnemy.text =  "Attack : " + EnemyStats.AttackStats;
+            _defenceTextEnemy.text = "Defence: " + EnemyStats.DefenseStats;
 
             //defining player stats for reseting
             _defAttackAmountPlayer = PLayerStats.AttackStats;
@@ -103,9 +103,9 @@ namespace Assets.Scripts.Inventory.Stats
             _defCoinAmountPlayer = PLayerStats.CoinHave;
 
             //defining player stats for reseting
-            _defAttackAmountEnemy = ENemyStats.AttackStats;
-            _defDefenseAmountEnemy = ENemyStats.DefenseStats;
-            _defCoinAmountEnemy = ENemyStats.CoinHave;
+            _defAttackAmountEnemy = EnemyStats.AttackStats;
+            _defDefenseAmountEnemy = EnemyStats.DefenseStats;
+            _defCoinAmountEnemy = EnemyStats.CoinHave;
             /**/
         }
 
@@ -169,7 +169,7 @@ namespace Assets.Scripts.Inventory.Stats
 
             //--------------------------------------------------------------------//
             //             ENEMY flip                                            //
-            for (int i = 0; i < ENemyStats.CoinHave; i++)
+            for (int i = 0; i < EnemyStats.CoinHave; i++)
             {
                 int value = (int)Mathf.Round(Random.Range(1, 2) * Random.value);
 
@@ -185,11 +185,11 @@ namespace Assets.Scripts.Inventory.Stats
                         break;
                 }
             }
-            _attackTextEnemy.text = "Attack : " + ENemyStats.AttackStats + "+" + AttackCoinsEnemy; // + " +" + _bonusAttackCoins;
-            _defenceTextEnemy.text = "Defence : "+ ENemyStats.DefenseStats + "+" +  DefenceCoinsEnemy; // + " +" + _bonusDefenceCoins;
+            _attackTextEnemy.text = "Attack : " + EnemyStats.AttackStats + "+" + AttackCoinsEnemy; // + " +" + _bonusAttackCoins;
+            _defenceTextEnemy.text = "Defence : "+ EnemyStats.DefenseStats + "+" +  DefenceCoinsEnemy; // + " +" + _bonusDefenceCoins;
 
-            ENemyStats.AttackStats += AttackCoinsEnemy;
-            ENemyStats.DefenseStats += DefenceCoinsEnemy;
+            EnemyStats.AttackStats += AttackCoinsEnemy;
+            EnemyStats.DefenseStats += DefenceCoinsEnemy;
 
             RefreshStats();
             //do damge
@@ -204,10 +204,10 @@ namespace Assets.Scripts.Inventory.Stats
         IEnumerator DoDamage()
         { 
              //do damage to player
-            PLayerStats.DoDamageCombat(ENemyStats.AttackStats, PLayerStats.DefenseStats);
+            PLayerStats.DoDamageCombat(EnemyStats.AttackStats, PLayerStats.DefenseStats);
 
             //do damage to enemy
-            ENemyStats.DoDamageCombat(PLayerStats.AttackStats, ENemyStats.DefenseStats);
+            EnemyStats.DoDamageCombat(PLayerStats.AttackStats, EnemyStats.DefenseStats);
             RefreshStats();
 
             yield return new WaitForSeconds(1f);
@@ -228,9 +228,9 @@ namespace Assets.Scripts.Inventory.Stats
 
             //-----------------------------------------------------------//
             //                         ENEMY                            //
-            _healthTextEnemy.text = "Health: " + ENemyStats.CurrentHealth;
-            _coinsEnemy.text = "Coins: " + ENemyStats.CoinHave;
-            _damageDoneEnemy.text = "DamageDone: " + ENemyStats.DamageIsDone;
+            _healthTextEnemy.text = "Health: " + EnemyStats.CurrentHealth;
+            _coinsEnemy.text = "Coins: " + EnemyStats.CoinHave;
+            _damageDoneEnemy.text = "DamageDone: " + EnemyStats.DamageIsDone;
         }
 
         void ResetValues()
@@ -245,9 +245,9 @@ namespace Assets.Scripts.Inventory.Stats
 
             //-----------------------------------------------------------//
             //                         ENEMY                            //
-            ENemyStats.CoinHave = _defCoinAmountEnemy;
-            ENemyStats.AttackStats = _defAttackAmountEnemy;
-            ENemyStats.DefenseStats = _defDefenseAmountEnemy;
+            EnemyStats.CoinHave = _defCoinAmountEnemy;
+            EnemyStats.AttackStats = _defAttackAmountEnemy;
+            EnemyStats.DefenseStats = _defDefenseAmountEnemy;
             AttackCoinsEnemy = 0;
             DefenceCoinsEnemy = 0;
         }
