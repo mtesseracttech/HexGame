@@ -101,11 +101,11 @@ namespace Assets.Scripts.Inventory.Stats
             /**/
             RefreshStats();
 
-            _attackText.text = "Attack   : " + PlayerStats.AttackStats;
-            _defenceText.text = "Defence: " + PlayerStats.DefenseStats;
+            _attackText.text       = "Attack   : " + PlayerStats.AttackStats;
+            _defenceText.text      = "Defence: "   + PlayerStats.DefenseStats;
 
-            _attackTextEnemy.text =  "Attack : " + EnemyStats.AttackStats;
-            _defenceTextEnemy.text = "Defence: " + EnemyStats.DefenseStats;
+            _attackTextEnemy.text  = "Attack : "   + EnemyStats.AttackStats;
+            _defenceTextEnemy.text = "Defence: "   + EnemyStats.DefenseStats;
         }
 
        public void FlipCoins()
@@ -211,8 +211,8 @@ namespace Assets.Scripts.Inventory.Stats
             yield return new WaitForSeconds(1f);
             ResetValues();
 
-            _buttonPressed = true;
-            _attackEnds = true;
+            _buttonPressed       = true;
+            _attackEnds          = true;
             attackButton.SetActive(true);
             
 
@@ -238,8 +238,8 @@ namespace Assets.Scripts.Inventory.Stats
         {
             //-----------------------------------------------------------//
             //                          PLAYER                          //
-            PlayerStats.CoinHave = _defCoinAmountPlayer;
-            PlayerStats.AttackStats = _defAttackAmountPlayer;
+            PlayerStats.CoinHave     = _defCoinAmountPlayer;
+            PlayerStats.AttackStats  = _defAttackAmountPlayer;
             PlayerStats.DefenseStats = _defDefenseAmountPlayer;
             _attackCoinsPlayer = 0;
             _defenceCoinsPlayer = 0;
