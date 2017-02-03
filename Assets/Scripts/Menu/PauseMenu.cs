@@ -13,16 +13,22 @@ public class PauseMenu : MonoBehaviour {
 	[SerializeField]
 	GameObject keybindPanel;
 
+	[SerializeField]
+	GameObject backdrop;
+
 	private bool isGamePaused = false;
 
 	void Awake () {
 		keybindPanel.SetActive (false);
 		optionsButtonPanel.SetActive (false);
+		backdrop.SetActive (false);
 	}
 
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape) && isGamePaused == false) {
 			OpenPauseMenu ();
+		} else if (Input.GetKeyDown (KeyCode.Escape) && isGamePaused == true) {
+			ClosePauseMenu ();
 		}
 	}
 
@@ -32,15 +38,24 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void ResumeGame () {
+		backdrop.SetActive (false);
 		keybindPanel.SetActive (false);
 		optionsButtonPanel.SetActive (false);
 		isGamePaused = false;
 	}
 
 	public void OpenPauseMenu () {
+		backdrop.SetActive (true);
 		keybindPanel.SetActive (false);
 		optionsButtonPanel.SetActive (true);
 		isGamePaused = true;
+	}
+
+	public void ClosePauseMenu () {
+		backdrop.SetActive (false);
+		keybindPanel.SetActive (false);
+		optionsButtonPanel.SetActive (false);
+		isGamePaused = false;
 	}
 
 	public void BackToMainMenu () {
