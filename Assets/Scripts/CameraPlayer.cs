@@ -35,7 +35,14 @@ public class CameraPlayer : MonoBehaviour {
 			AdjustZoom(zoomDelta);
 		}
 
-		float rotationDelta = Input.GetAxis("Rotation");
+		//float rotationDelta = Input.GetAxis("Rotation");
+		float rotationDelta = 0;
+		if (Input.GetKey ((KeyCode)PlayerPrefs.GetInt ("rotateLeftKey"))) {
+			rotationDelta = 1;
+		} else if (Input.GetKey ((KeyCode)PlayerPrefs.GetInt ("rotateRightKey"))) {
+			rotationDelta = -1;
+		}
+
 		if (rotationDelta != 0f) {
 			AdjustRotation(rotationDelta);
 		}
