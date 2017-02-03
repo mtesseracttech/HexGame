@@ -50,7 +50,7 @@ namespace Assets.Scripts.NPC
         public string QuestName;
 
 
-        [XmlAttribute("rewardgold")]
-        public int RewardGold;
+        [XmlAttribute("win")]
+        public bool Win;
     }
 }

@@ -52,6 +52,17 @@ namespace Assets.Scripts.AI.GameStep.FSM.Agents
         void Update()
         {
             _currentState.Update();
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                Debug.Log("DeletedPlaye prefs");
+                PlayerPrefs.DeleteAll();
+            }
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                Debug.Log(PlayerPrefs.GetInt("Quest1"));
+                
+            }
+
         }
 
         //State Related Methods////////////////////

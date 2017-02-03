@@ -8,7 +8,6 @@ namespace Assets.Scripts.NodeGrid.Occupants.Specifics
     {
         public DialogueSystema _dialogue;
 
-       
         private bool _interactionDone;
 
         public void Interact()

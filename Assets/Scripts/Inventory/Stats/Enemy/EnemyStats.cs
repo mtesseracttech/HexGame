@@ -16,6 +16,10 @@ namespace Assets.Scripts.Inventory.Stats.Enemy
         void Update ()
         {
             GameOver();
+            if (CurrentHealth <= 0)
+            {
+                CurrentHealth = 0;
+            }
         }
 
         public bool IsDead

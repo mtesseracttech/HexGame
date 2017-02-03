@@ -2,9 +2,9 @@
 	<node>
         <npctext>Guns don't kill people. I kill people, with guns! </npctext>
         <answers>
-            <answer tonode = "1"><text>.........</text></answer>
-			<answer tonode = "9" needquestvalue = "1"><text>Can you remind me what to do for the quest?</text><questname>Quest2</questname></answer>
-			<answer tonode = "8" needquestvalue = "2"><text>I did the quest</text><questname>Quest2</questname></answer>
+            <answer tonode = "1"><text>WHAT?</text></answer>
+			<answer tonode = "9" needquestvalue = "3"><text>Can you remind me what to do for the quest?</text><questname>Quest1</questname></answer>
+			<answer tonode = "8" needquestvalue = "4"><text>I did the quest</text><questname>Quest1</questname></answer>
         </answers>
     </node>
     <node>
@@ -43,19 +43,13 @@
 	<node>
         <npctext>If you are ready, I can give the order for assault!</npctext>
         <answers>
-            <answer tonode = "7" needquestvalue = "0"><text>I am ready, give the order</text><questname>Quest2</questname></answer>
+            <answer tonode = "7" needquestvalue = "2"><text>I am ready, give the order</text><questname>Quest1</questname></answer>
         </answers>
     </node>
 	<node>
         <npctext>Za Rodinu!</npctext>
         <answers>
-            <answer tonode ="0" needquestvalue = "0" questvalue = "1" ><text>Na zdarovja</text><dialend>true</dialend><questname>Quest2</questname></answer>
-        </answers>
-    </node>
-	 <node>
-        <npctext>Wow. you did it.Great job fucker</npctext>
-        <answers>
-            <answer tonode = "0" needquestvalue = "2" questvalue = "3"  rewardgold = "400" > <text>Going to jerk off now</text><dialend>true</dialend><questname>Quest2</questname></answer>
+            <answer tonode ="0" needquestvalue = "2" questvalue = "3" ><text>Na zdarovja</text><dialend>true</dialend><questname>Quest1</questname></answer>
         </answers>
     </node>
 	  <node>

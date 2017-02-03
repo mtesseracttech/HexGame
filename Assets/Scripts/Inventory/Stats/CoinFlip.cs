@@ -32,7 +32,7 @@ namespace Assets.Scripts.Inventory.Stats
         private int _defDefenseAmountPlayer; //defined defense stats
         private int _defCoinAmountPlayer;    //defined coin amount
 
-        public Player.PlayerStats PLayerStats;
+        public Player.PlayerStats PlayerStats;
         private bool _buttonPressed;
         [Space]
         [Header("HUD of enemy")]
@@ -88,25 +88,24 @@ namespace Assets.Scripts.Inventory.Stats
 
         private void Update()
         {
+            //defining player stats for reseting
+            _defAttackAmountPlayer  = PlayerStats.AttackStats;
+            _defDefenseAmountPlayer = PlayerStats.DefenseStats;
+            _defCoinAmountPlayer    = PlayerStats.CoinHave;
+
+            //defining player stats for reseting
+            _defAttackAmountEnemy   = EnemyStats.AttackStats;
+            _defDefenseAmountEnemy  = EnemyStats.DefenseStats;
+            _defCoinAmountEnemy     = EnemyStats.CoinHave;
+
             /**/
             RefreshStats();
 
-            _attackText.text = "Attack   : " + PLayerStats.AttackStats;
-            _defenceText.text = "Defence: " + PLayerStats.DefenseStats;
+            _attackText.text = "Attack   : " + PlayerStats.AttackStats;
+            _defenceText.text = "Defence: " + PlayerStats.DefenseStats;
 
             _attackTextEnemy.text =  "Attack : " + EnemyStats.AttackStats;
             _defenceTextEnemy.text = "Defence: " + EnemyStats.DefenseStats;
-
-            //defining player stats for reseting
-            _defAttackAmountPlayer = PLayerStats.AttackStats;
-            _defDefenseAmountPlayer = PLayerStats.DefenseStats;
-            _defCoinAmountPlayer = PLayerStats.CoinHave;
-
-            //defining player stats for reseting
-            _defAttackAmountEnemy = EnemyStats.AttackStats;
-            _defDefenseAmountEnemy = EnemyStats.DefenseStats;
-            _defCoinAmountEnemy = EnemyStats.CoinHave;
-            /**/
         }
 
        public void FlipCoins()
@@ -123,7 +122,7 @@ namespace Assets.Scripts.Inventory.Stats
             int iter = 0;
 
 
-            for (int i = 0; i < PLayerStats.CoinHave; i++, iter++)
+            for (int i = 0; i < PlayerStats.CoinHave; i++, iter++)
             {
                 int value = (int)Mathf.Round(Random.Range(1, 2) * Random.value);
                 switch (value)
@@ -157,11 +156,11 @@ namespace Assets.Scripts.Inventory.Stats
                 }
             }
 
-            _attackText.text =  "Attack : " + PLayerStats.AttackStats + "+" + _attackCoinsPlayer; // + " +" + _bonusAttackCoins;
-            _defenceText.text = "Defence: " + PLayerStats.DefenseStats + "+" + _defenceCoinsPlayer; // + " +" + _bonusDefenceCoins;
+            _attackText.text =  "Attack : " + PlayerStats.AttackStats + "+" + _attackCoinsPlayer; // + " +" + _bonusAttackCoins;
+            _defenceText.text = "Defence: " + PlayerStats.DefenseStats + "+" + _defenceCoinsPlayer; // + " +" + _bonusDefenceCoins;
 
-            PLayerStats.AttackStats += _attackCoinsPlayer;
-            PLayerStats.DefenseStats += _defenceCoinsPlayer;
+            PlayerStats.AttackStats += _attackCoinsPlayer;
+            PlayerStats.DefenseStats += _defenceCoinsPlayer;
             
             
            // Debug.Log("Player Attack coin: " + AttackCoinsPlayer + "Player Defence coin: " + DefenceCoinsPlayer);
@@ -196,24 +195,26 @@ namespace Assets.Scripts.Inventory.Stats
 
 
             StartCoroutine(DoDamage());
-            RefreshStats();
-            
+
 
         }
 
         IEnumerator DoDamage()
         { 
              //do damage to player
-            PLayerStats.DoDamageCombat(EnemyStats.AttackStats, PLayerStats.DefenseStats);
+            PlayerStats.DoDamageCombat(EnemyStats.AttackStats, PlayerStats.DefenseStats);
 
             //do damage to enemy
-            EnemyStats.DoDamageCombat(PLayerStats.AttackStats, EnemyStats.DefenseStats);
+            EnemyStats.DoDamageCombat(PlayerStats.AttackStats, EnemyStats.DefenseStats);
             RefreshStats();
 
             yield return new WaitForSeconds(1f);
+            ResetValues();
+
             _buttonPressed = true;
             _attackEnds = true;
             attackButton.SetActive(true);
+            
 
         }
 
@@ -222,9 +223,9 @@ namespace Assets.Scripts.Inventory.Stats
             _buttonPressed = false;
             //-----------------------------------------------------------//
             //                          PLAYER                          //
-            _healthText.text = "Health : " + PLayerStats.CurrentHealth;
-            _coins.text =      "Coins  : " + PLayerStats.CoinHave;
-            _damageDone.text = "DamageDone: " + PLayerStats.DamageIsDone;
+            _healthText.text = "Health : " + PlayerStats.CurrentHealth;
+            _coins.text =      "Coins  : " + PlayerStats.CoinHave;
+            _damageDone.text = "DamageDone: " + PlayerStats.DamageIsDone;
 
             //-----------------------------------------------------------//
             //                         ENEMY                            //
@@ -237,9 +238,9 @@ namespace Assets.Scripts.Inventory.Stats
         {
             //-----------------------------------------------------------//
             //                          PLAYER                          //
-            PLayerStats.CoinHave = _defCoinAmountPlayer;
-            PLayerStats.AttackStats = _defAttackAmountPlayer;
-            PLayerStats.DefenseStats = _defDefenseAmountPlayer;
+            PlayerStats.CoinHave = _defCoinAmountPlayer;
+            PlayerStats.AttackStats = _defAttackAmountPlayer;
+            PlayerStats.DefenseStats = _defDefenseAmountPlayer;
             _attackCoinsPlayer = 0;
             _defenceCoinsPlayer = 0;
 

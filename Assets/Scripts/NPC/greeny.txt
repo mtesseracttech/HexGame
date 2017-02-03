@@ -1,13 +1,13 @@
 <dialogue>
 	<node>
-        <npctext>Oh your face is gone!!!</npctext>
+        <npctext>0</npctext>
         <answers>
             <answer tonode = "1"><text>I know. Can you help me find it?</text></answer>
 			<answer tonode = "9" needquestvalue = "4"><text>Can you remind me where to go again?</text><questname>Quest1</questname></answer>
         </answers>
     </node>
     <node>
-        <npctext>First you have to here a story about Chernobyl. Are you up for that?</npctext>
+        <npctext>1</npctext>
         <answers>
             <answer tonode = "2"><text>Yeah. Why not I guess.</text></answer>
 			<answer tonode = "0"><text>Just Waste of time.</text><dialend>true</dialend></answer>
@@ -15,62 +15,62 @@
         </answers>
     </node>
     <node>
-        <npctext>Yoy know we are in Ukraine?</npctext>
+        <npctext>2</npctext>
         <answers>
 			<answer tonode = "3"><text>YES. I WORK HERE!></text></answer>
 			<answer tonode = "12"><text>Just waste of time.</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>This Power Plant was built in 1972. How long have you worked here?</npctext>
+        <npctext>3</npctext>
         <answers>
             <answer tonode = "4"><text>4 years.</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>Oh cool. I have lived here my entire life.</npctext>
+        <npctext>4</npctext>
         <answers>
               <answer tonode = "5"><text>WHAT?? O.o</text></answer>
         </answers>
     </node>
     <node>
-        <npctext>You will be fine my child. Just listen carefully.</npctext>
+        <npctext>5</npctext>
         <answers>
             <answer tonode = "6"><text>OK</text></answer>
         </answers>
     </node>
 	<node>
-        <npctext>There are bears, rats, rabbits and one strange thing somewhere in the area.</npctext>
+        <npctext>6</npctext>
         <answers>
              <answer tonode = "7"><text>OH. Thanks. I will be carefull then.</text></answer>
         </answers>
     </node>
-	<node>
-        <npctext>Just move North and you will find friends to help you out.</npctext>
+	 <node>
+        <npctext>8</npctext>
         <answers>
-             <answer tonode ="0" needquestvalue = "0" questvalue = "1" ><text>Thanks.I will do that.</text><dialend>true</dialend><questname>Quest1</questname></answer>
+            <answer tonode = "0" needquestvalue = "3" questvalue = "4"  win = "true" > <text>Going to jerk off now</text><dialend>true</dialend><questname>Quest1</questname></answer>
         </answers>
     </node>
 	  <node>
-        <npctext>You have to trigger shit bruh</npctext>
+        <npctext>9</npctext>
         <answers>
             <answer tonode = "0"><text>Im leaving then.Thanks</text><dialend>true</dialend></answer>
         </answers>
     </node>
 	<node>
-        <npctext>Just call me Officer, leader of the Chernobyl Extermination Squad!Commissioned by Gorbachev in person, no big deal, though</npctext>
+        <npctext>10</npctext>
 		<answers>
             <answer tonode="0"><text>.....</text><dialend>true</dialend></answer>
         </answers>
     </node>
 	<node>
-        <npctext>Oh I am Walking to Hospital.</npctext>
+        <npctext>11</npctext>
         <answers>
             <answer tonode="3"><text>.....</text></answer>
         </answers>
     </node>
 	<node>
-         <npctext>Your own choice my child.</npctext>
+         <npctext>12</npctext>
 		<answers>
             <answer tonode="0"><text>I will find a way by myself.</text><dialend>true</dialend></answer>
 			<answer tonode="3"><text>.....</text></answer>
